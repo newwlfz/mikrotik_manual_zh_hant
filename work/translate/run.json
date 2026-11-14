@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "started_at": "2026-11-14T18:13:42.284Z",
- "finished_at": "2026-11-14T18:13:43.829Z",
+ "started_at": "2026-11-14T18:44:05.101Z",
+ "finished_at": "2026-11-14T18:44:06.062Z",
  "stopped": "done",
  "limit": null,
  "budget_minutes": 90,
@@ -15,7 +15,9 @@
   "titles": 0,
   "pages": 0,
   "units": 0,
-  "bySection": {}
+  "bySection": {},
+  "pageList": [],
+  "pageListTruncated": false
  },
  "tokens": {
   "prompt": 0,
