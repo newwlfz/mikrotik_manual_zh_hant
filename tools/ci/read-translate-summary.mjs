@@ -13,12 +13,39 @@
  * printed, because a missing `pending` must read as "not zero" rather than
  * letting the build job's `== '0'` comparison fail open.
  *
+ * `llm_error` is the HTTP status behind a provider-shaped stop (401/402/403/429),
+ * or empty. It is what lets `.github/workflows/pages.yml` tell "the quota died
+ * mid-batch" apart from "the batch timed out" when it decides whether the
+ * `publish_on_llm_error` escape hatch applies.
+ *
  * Usage:
- *   node scripts/ci/read-translate-summary.mjs --file "$RUNNER_TEMP/translate.json"
+ *   node tools/ci/read-translate-summary.mjs --file "$RUNNER_TEMP/translate.json"
  *        >> "$GITHUB_OUTPUT"
  */
 
 import fs from 'node:fs';
+
+/**
+ * `LLMRequestError.code` → HTTP status.
+ *
+ * Only these four are quota/key failures the deploy gate may publish through;
+ * anything else (timeout, network, 5xx, missing config) has no status here and
+ * must keep the run from publishing.
+ */
+const LLM_STATUS_BY_CODE = {
+  unauthorized: 401,
+  payment_required: 402,
+  forbidden: 403,
+  rate_limited: 429,
+};
+
+/** The HTTP status of a batch error, or null when it is not a provider status. */
+export function llmStatusOf(summary) {
+  const error = summary?.error;
+  if (!error) return null;
+  if (Number.isInteger(error.status) && error.status >= 100) return error.status;
+  return LLM_STATUS_BY_CODE[error.code] ?? null;
+}
 
 function parseArgs(argv) {
   const args = {file: null};
@@ -57,7 +84,7 @@ export function readSummary(text) {
 function main() {
   const args = parseArgs(process.argv.slice(2));
   if (!args.file) {
-    process.stderr.write('usage: node scripts/ci/read-translate-summary.mjs --file <json-log>\n');
+    process.stderr.write('usage: node tools/ci/read-translate-summary.mjs --file <json-log>\n');
     process.exitCode = 2;
     return;
   }
@@ -67,15 +94,25 @@ function main() {
     // The batch died before printing anything (missing LLM_* variables, a crash
     // in the plan). Empty pending keeps the build job from running.
     process.stderr.write('no JSON summary in the translation log; treating as "unknown, not done"\n');
-    process.stdout.write('pending=\nstopped=unknown\ntranslated=0\n');
+    process.stdout.write('pending=\nstopped=unknown\ntranslated=0\nllm_error=\n');
     return;
   }
+  const llmError = llmStatusOf(summary);
   process.stdout.write(`pending=${summary.pending}\n`);
   process.stdout.write(`stopped=${summary.stopped}\n`);
   process.stdout.write(`translated=${summary.translated}\n`);
+  process.stdout.write(`llm_error=${llmError ?? ''}\n`);
   const stepSummary = process.env.GITHUB_STEP_SUMMARY;
   if (stepSummary) {
     const limit = summary.limit ? `，触发上限 \`${summary.limit}\`` : '';
+    const errorRow =
+      summary.error === null || summary.error === undefined
+        ? []
+        : [
+            `| LLM 错误 | \`${summary.error.code ?? 'unknown'}\`` +
+              `${llmError ? `（HTTP ${llmError}）` : ''} |`,
+            `| 错误信息 | ${String(summary.error.message ?? '').replace(/\|/g, '\\|').slice(0, 200)} |`,
+          ];
     const lines = [
       '### 中文站翻译批次',
       '',
@@ -85,10 +122,13 @@ function main() {
       `| 翻译标题数 | ${summary.titles ?? 0} |`,
       `| 剩余待译单位 | ${summary.pending} |`,
       `| 停止原因 | \`${summary.stopped}\`${limit} |`,
+      ...errorRow,
       '',
       summary.pending === 0
         ? '全部译完：继续构建并部署。'
-        : '仍有待译内容：本次不构建，线上保持旧版；下一次 push 或手动触发继续。',
+        : llmError
+          ? `LLM 在批次中途失败（HTTP ${llmError}）：进度已提交，是否构建由 \`publish_on_llm_error\` 决定。`
+          : '仍有待译内容：本次不构建，线上保持旧版；下一次 push 或手动触发继续。',
       '',
     ];
     fs.appendFileSync(stepSummary, `${lines.join('\n')}\n`);

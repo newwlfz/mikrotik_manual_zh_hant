@@ -87,6 +87,7 @@ cp .env.local.example .env.local
 # 填入 LLM_BASE_URL、LLM_MODEL、LLM_API_KEY
 node tools/translate/verify-llm.mjs --dry-run
 node tools/translate/verify-llm.mjs
+node tools/translate/verify-llm.mjs --quick   # CI 预检：max_tokens=8，只看额度/鉴权
 ```
 
 `.env.local` 在两个仓库都已被 git 忽略。放在仓库根或工作区根都可以：
@@ -107,6 +108,19 @@ node tools/translate/verify-llm.mjs
 提示「推理吃掉了额度」，打印 `reasoning_content` 前 120 字并 `exit 1`，而不是
 笼统地说「没有 content」。
 
+`npm run verify:llm -- --quick`：**CI 用的预检**。同一个请求，但
+`max_tokens: 8`、超时压到 30 秒，只判断「key 能不能用、账户有没有钱」：
+
+- **2xx 就算通过**（推理模型把 8 个 token 全用在 reasoning 上、`content` 为空也
+  没关系，会打印 `OK: LLM preflight passed`）；
+- 401/402/403/429 会额外打印一行 `llm_error=<code>`，供
+  `.github/workflows/pages.yml` 的放行判断读取；其他失败（404、5xx、超时）没有这
+  一行，因此永远不会被放行；
+- `--max-tokens=<n>` 可以改预算；`--dry-run` 仍然什么都不发。
+
+`translate` job 就是先跑这一条，再决定要不要开始批量翻译（见
+[CI 指南](CI.md#llm-额度失效预检与-publish_on_llm_error)）。
+
 | 结果 | 含义与处理 |
 | --- | --- |
 | `200` + 中文 | 连接正常。 |
@@ -116,7 +130,7 @@ node tools/translate/verify-llm.mjs
 | `404` | 端点或模型名错：检查 `LLM_BASE_URL`（通常以 `/v1` 结尾）和精确的 `LLM_MODEL`。 |
 | `429` | 被限流：稍后重试、减小批次，或调大 `LLM_MAX_RETRIES`。 |
 | 超时 | 调大 `LLM_TIMEOUT_MS`，或检查到服务商的网络。 |
-| `content` 空、`reasoning_content` 非空 | 推理吃掉了输出额度：调大 `max_tokens` 或换非推理模型。 |
+| `content` 空、`reasoning_content` 非空 | 推理吃掉了输出额度：调大 `max_tokens` 或换非推理模型（`--quick` 下这是**正常**的）。 |
 | 缺变量 | 按报错列出的变量名，在环境变量、`<仓库>/.env.local` 或 `<工作区>/.env.local` 中补齐。 |
 
 ## 不需要配置 LLM 的仓库

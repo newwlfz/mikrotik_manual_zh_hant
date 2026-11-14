@@ -2,15 +2,25 @@ name: Translate, build and deploy
 
 # 繁体中文站流水线：**先分批翻译，全部译完才构建发布**。
 #
-#   1. `translate` job：跑一批翻译（有时间预算、可中断），把进度提交回仓库。
-#      输出 `pending`（还剩多少待译单位）。
-#   2. `build` job：`pending == 0` 才跑。构建 → 部署门禁 → 上传制品。
+#   1. `translate` job：先跑**预检**（一个 `max_tokens=8` 的请求），再跑一批翻译
+#      （有时间预算、可中断），把进度提交回仓库。输出 `pending`（还剩多少待译
+#      单位）、`llm_error`（LLM 失败时的 HTTP 状态）。
+#   2. `build` job：`pending == 0`（或 `skip_translate`、或 LLM 失败且放行）才跑。
+#      构建 → 部署门禁 → 上传制品。
 #   3. `deploy` job：`build` 成功才部署；否则线上保持上一个成功版本。
+#
+# 预检的意义：402/429 这类「没额度」的错误会在**开始批量翻译之前**暴露，而不是
+# 花钱跑了 20 分钟才失败。预检失败时不启动批量翻译、不提交任何东西。
 #
 # 手动开关 `skip_translate`（默认 false）：勾选后跳过 `translate` job，直接用已提交
 # 的覆盖层构建。它**不会**跳过校验：build 仍断言全部内容根，并跑
 # `npm run translate:verify`（覆盖层结构校验），所以结构损坏的站不会被发布。
 # 用途与风险见 `guides/CI.md`「跳过翻译（skip_translate）」。
+#
+# 手动开关 `publish_on_llm_error`（默认 false）：LLM 额度/鉴权/限流失败（401/402/
+# 403/429）时是否仍然用**已提交的覆盖层**构建发布。默认不放行 —— job 失败、线上
+# 保持旧版。勾选后 job 成功并继续 `build`，但**未译内容会以英文上线**；build 仍跑
+# `translate:verify` 与全部部署门禁。适用场景与风险见 `guides/CI.md`「LLM 额度/失效」。
 #
 # 为什么进度要提交：翻译是**可续跑**的。每次批次结束把 `i18n/`、`work/translate/`
 # 的小状态和 `state/translation-state.json` 提交回 `main`，下一批（下一次 push 或
@@ -53,6 +63,8 @@ on:
       # 翻译器自己变了也要跑一批：否则改完 `tools/translate` 只能等下一次内容更新
       # 才生效，而那时候很难判断是内容变化还是代码变化。
       - 'tools/translate/**'
+      # 同一条流水线的 CI 门禁脚本（读摘要、算放行、写 summary）。
+      - 'tools/ci/**'
       - 'docusaurus.config.ts'
       - 'package.json'
       - 'package-lock.json'
@@ -68,6 +80,11 @@ on:
         default: ''
       skip_translate:
         description: '跳过本轮翻译，直接用已提交的覆盖层构建（内容根断言与 translate:verify 仍会跑）'
+        required: false
+        type: boolean
+        default: false
+      publish_on_llm_error:
+        description: 'LLM 额度/鉴权/限流失败（401/402/403/429）时仍用已提交的覆盖层构建发布（未译内容保持英文，默认不放行）'
         required: false
         type: boolean
         default: false
@@ -102,7 +119,7 @@ env:
 
 jobs:
   # ---------------------------------------------------------------------------
-  # 1) 一批翻译
+  # 1) 预检 + 一批翻译
   # ---------------------------------------------------------------------------
   translate:
     # 手动触发勾选 `skip_translate` 时整块跳过；push 触发时 `inputs` 为空，
@@ -115,6 +132,9 @@ jobs:
     outputs:
       pending: ${{ steps.summary.outputs.pending }}
       stopped: ${{ steps.summary.outputs.stopped }}
+      # LLM 失败的 HTTP 状态（401/402/403/429），空表示不是额度/鉴权类失败。
+      # build 的 `if` 与「部分英文发布」的告警都读它。
+      llm_error: ${{ steps.gate.outputs.llm_error }}
     steps:
       # `ref: github.ref_name` 而不是默认的触发 SHA：排队/重跑时从本分支最新
       # 进度继续，而不是从触发那一刻的旧状态重翻一遍。
@@ -165,12 +185,57 @@ jobs:
       - run: npm ci
         env:
           NPM_CONFIG_CACHE: ${{ runner.temp }}/npm-cache
+      # 预检：一个 `max_tokens=8` 的请求（约 1-2 秒），只为在**批量翻译之前**发现
+      # 401/402/403/429（没额度、key 失效、被限流），而不是跑了 20 分钟才失败。
+      # 输出 `ok` 与 `llm_error=<code>`；步骤本身**永远 exit 0** —— 是否放行由下面
+      # 的 gate 决定（`publish_on_llm_error` 允许时 job 要成功，不能在这里失败）。
+      - name: Preflight LLM check (fail fast on 401/402/403/429)
+        id: preflight
+        env:
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
+          LLM_MODEL: ${{ vars.LLM_MODEL }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+        run: |
+          set -euo pipefail
+          log="$RUNNER_TEMP/preflight.log"
+          status=0
+          npm run --silent verify:llm -- --quick > "$log" 2>&1 || status=$?
+          cat "$log"
+          # `verify:llm --quick` 在 401/402/403/429 时打印一行 `llm_error=<code>`；
+          # 其他失败（404、5xx、网络、配置缺失）没有这一行，门禁也就不会放行。
+          code=$(sed -n 's/^llm_error=\([0-9][0-9][0-9]\)$/\1/p' "$log" | tail -1)
+          if [ "$status" -eq 0 ]; then
+            {
+              echo "ok=true"
+              echo "llm_error="
+            } >> "$GITHUB_OUTPUT"
+            echo "LLM preflight passed; starting the batch."
+            exit 0
+          fi
+          {
+            echo "ok=false"
+            echo "llm_error=$code"
+          } >> "$GITHUB_OUTPUT"
+          if [ -n "$code" ]; then
+            hint="额度/鉴权/限流（HTTP $code）"
+          else
+            hint="非额度类错误（见上方日志）"
+          fi
+          echo "::error title=LLM 预检失败：$hint::批量翻译未启动，未提交任何内容。"
+          if [ "${{ inputs.publish_on_llm_error }}" = "true" ] && [ -n "$code" ]; then
+            echo "publish_on_llm_error=true：gate 放行，继续 build（未译内容保持英文）。"
+          else
+            echo "默认不放行：gate 会让本次 job 失败，线上保持旧版。"
+          fi
+          exit 0
       # 一批翻译：到 90 分钟（或 `--max-blocks`）就停，落盘后用 `--json` 报告
       # `{"translated":N,"pending":M,"stopped":"budget|done|error"}`。
       # 用 `|| status=$?` 接住退出码：翻译失败（401/402/429）时**也要**把已完成
-      # 的块提交回去，然后才让 job 失败。
+      # 的块提交回去，然后由 gate 决定 job 成败（见 `publish_on_llm_error`）。
       - name: Translate one batch
         id: run
+        # 预检失败就不启动：不翻译、不写盘、不提交。
+        if: steps.preflight.outputs.ok == 'true'
         env:
           LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
           LLM_MODEL: ${{ vars.LLM_MODEL }}
@@ -187,15 +252,17 @@ jobs:
           exit 0
       # 读回 JSON 摘要（npm 的 banner 行会被跳过），给 build job 的门禁和
       # step summary 用。JSON 缺失时 pending 置空 —— build 的 `== '0'` 不成立。
+      # 只在这一批**真的跑了**时读：预检失败时没有摘要，也不该写「批次」summary。
       - name: Read batch summary
         id: summary
-        if: always()
+        if: always() && steps.run.outputs.exit_code != ''
         run: |
           node tools/ci/read-translate-summary.mjs --file "$RUNNER_TEMP/translate.json" >> "$GITHUB_OUTPUT"
       # 提交翻译进度：i18n 覆盖层 + 小型翻译状态 + 状态文件。大块 TM
       # （model-memory/legacy TM/tm-global）不入库，见 guides/CI.md。
+      # 预检失败时这一批根本没跑，**不提交任何东西**。
       - name: Commit translation progress
-        if: always()
+        if: always() && steps.run.outputs.exit_code != ''
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
@@ -210,29 +277,76 @@ jobs:
           pending="${{ steps.summary.outputs.pending }}"
           git commit -m "translate: batch (pending ${pending}) [skip ci]"
           git push
-      # 翻译真的失败（LLM 401/402/429、配置缺失）时，job 必须失败：否则
-      # `pending` 只是一个数，流水线会看起来“成功但什么都没发布”。
-      - name: Fail when the batch stopped on an API error
-        if: steps.run.outputs.exit_code != '0'
+      # 「哪些页面仍是英文」的清单，来自**部署门禁用的同一个计划**
+      # （`translate:pending`），而不是 `state/translation-state.json`：后者的
+      # `pendingBlocks` 还包含「有意保留英文」的块，永远不会归零。
+      # 失败只告警：清单缺失不影响放行判断，summary 会写明「未读取到」。
+      - name: List pages that are still English
+        if: always()
         run: |
-          echo "::error::translation batch failed; progress is committed, build skipped"
+          set +e
+          node tools/translate/index.mjs pending --json --pages > "$RUNNER_TEMP/pending.json" 2> "$RUNNER_TEMP/pending.err"
+          status=$?
+          if [ "$status" -ne 0 ]; then
+            echo "::warning title=待译页面清单生成失败::exit $status；job summary 不会列出仍为英文的页面。"
+            cat "$RUNNER_TEMP/pending.err"
+            rm -f "$RUNNER_TEMP/pending.json"
+          else
+            head -c 600 "$RUNNER_TEMP/pending.json"; echo
+          fi
+          exit 0
+      # 放行判断（唯一一处）：预检/批次是否失败、`llm_error` 是多少、
+      # `publish_on_llm_error` 是否允许继续。同时写 job summary（pending、
+      # llm_error、是否放行、仍为英文的页面）。
+      - name: Decide whether this run may publish
+        id: gate
+        if: always()
+        env:
+          PREFLIGHT_OK: ${{ steps.preflight.outputs.ok }}
+          PREFLIGHT_LLM_ERROR: ${{ steps.preflight.outputs.llm_error }}
+          BATCH_EXIT: ${{ steps.run.outputs.exit_code }}
+          BATCH_PENDING: ${{ steps.summary.outputs.pending }}
+          BATCH_STOPPED: ${{ steps.summary.outputs.stopped }}
+          BATCH_LLM_ERROR: ${{ steps.summary.outputs.llm_error }}
+          PUBLISH_ON_ERROR: ${{ inputs.publish_on_llm_error }}
+        run: |
+          set -euo pipefail
+          node tools/ci/gate-translate.mjs \
+            --preflight-ok "$PREFLIGHT_OK" \
+            --preflight-llm-error "$PREFLIGHT_LLM_ERROR" \
+            --batch-exit "$BATCH_EXIT" \
+            --pending "$BATCH_PENDING" \
+            --stopped "$BATCH_STOPPED" \
+            --llm-error "$BATCH_LLM_ERROR" \
+            --publish-on-error "$PUBLISH_ON_ERROR" \
+            --pending-json "$RUNNER_TEMP/pending.json" \
+            >> "$GITHUB_OUTPUT"
+      # 失败必须落在「真正失败」上：`gate != 'pass'` 而不是 `gate == 'fail'`，
+      # 这样 gate 自己崩掉（输出为空）也会失败，而不是被动放行。
+      - name: Fail when the run is not allowed to publish
+        if: always() && steps.gate.outputs.gate != 'pass'
+        run: |
+          echo "::error::translate job did not finish and publish_on_llm_error did not allow publishing; build skipped, site unchanged"
           exit 1
 
   # ---------------------------------------------------------------------------
-  # 2) 只在没有待译单位时构建
+  # 2) 发布门禁通过时才构建（pending==0 / skip_translate / 放行）
   # ---------------------------------------------------------------------------
   build:
     needs: translate
     # 发布门禁：
     #   - translate 正常跑完且 `pending == 0`；或
-    #   - 手动勾选 `skip_translate` 让 translate 被跳过（result == 'skipped'）；
+    #   - 手动勾选 `skip_translate` 让 translate 被跳过（result == 'skipped'）；或
+    #   - LLM 失败（`llm_error` 非空：401/402/403/429）且手动勾选了
+    #     `publish_on_llm_error` —— 用已提交的覆盖层发布，未译内容保持英文。
     # 翻译失败（result == 'failure'）永不构建 —— 线上保持旧版，而不是发布一个
-    # 半翻译/坏掉的站。
+    # 半翻译/坏掉的站。`llm_error` 只在 gate 真正放行时才有值，其余 LLM 失败
+    # （超时、5xx、配置缺失）不带状态码，因此也不会走到这一支。
     #
     # `!cancelled()` 不能省：GitHub 在 `if` 里没有状态函数时会隐式套一个
     # `success()`，而 `success()` 对**被跳过**的依赖 job 为 false，那样
     # `skip_translate` 分支永远进不来。
-    if: ${{ !cancelled() && needs.translate.result != 'failure' && (needs.translate.result == 'skipped' || needs.translate.outputs.pending == '0') }}
+    if: ${{ !cancelled() && needs.translate.result != 'failure' && (needs.translate.result == 'skipped' || needs.translate.outputs.pending == '0' || (needs.translate.outputs.llm_error != '' && inputs.publish_on_llm_error == true)) }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -297,12 +411,34 @@ jobs:
         run: npm run localize:hant:check
       - name: Apply zh-Hant regional wording
         run: npm run localize:hant
-      # `skip_translate` 时没有翻译 job 兜底，覆盖层的**结构校验**必须在这里跑：
-      # 文件对齐、代码围栏、图片、front matter、MDX 任一项坏了都不发布。正常翻译
-      # 路径不重复跑（`--apply` 落盘时已经校验过这一批写入）。
+      # 覆盖层的**结构校验**，发布前永远要跑：文件对齐、代码围栏、图片、front
+      # matter、MDX 任一项坏了都不发布。三条路径都依赖它 ——
+      #   - `skip_translate`：没有翻译 job 兜底；
+      #   - `publish_on_llm_error` 放行：覆盖层只译了一部分，可能正好停在一页中间；
+      #   - 正常 `pending == 0`：`--apply` 落盘时已校验过本批，这里是额外的兜底
+      #     （约 50 秒，换「半翻译的站不会被发布」）。
       - name: Verify translation overlays
-        if: ${{ inputs.skip_translate == true }}
         run: npm run translate:verify
+      # 放行发布时把「有英文内容」写在 build 的 summary 里：部署页面上看到的
+      # 英文不再是意外。
+      - name: Note the untranslated content being published
+        if: ${{ needs.translate.outputs.llm_error != '' }}
+        run: |
+          pending="${{ needs.translate.outputs.pending }}"
+          {
+            echo "### ⚠️ 本次为放行发布：仍有英文内容"
+            echo ""
+            echo "| 项目 | 值 |"
+            echo "| --- | --- |"
+            echo "| \`llm_error\` | \`${{ needs.translate.outputs.llm_error }}\` |"
+            echo "| \`pending\` | \`${pending:-未知}\` |"
+            echo ""
+            echo "翻译因 LLM 额度/鉴权/限流失败而提前停止，本次用**已提交的覆盖层**发布；"
+            echo "构建已通过 \`translate:verify\` 与全部部署门禁，但**未译内容以英文上线**。"
+            echo "额度恢复后重跑一次翻译并重新部署即可补齐。"
+            echo ""
+          } >> "$GITHUB_STEP_SUMMARY"
+          echo "::warning title=放行发布（部分内容仍为英文）::llm_error=${{ needs.translate.outputs.llm_error }}，未译内容以英文上线。"
       # 单语种构建：i18n/zh-Hant 覆盖层 + 已提交的内容 → Docusaurus
       # （--locale zh-Hant）→ Pagefind → llms.txt。
       - name: Build site
@@ -324,8 +460,9 @@ jobs:
   # ---------------------------------------------------------------------------
   deploy:
     needs: build
-    # 只认 build 的成功结果：构建失败、`pending > 0` 导致 build 被跳过、或
-    # translate 被 skip_translate 跳过时，都不部署，线上保持上一个成功版本。
+    # 只认 build 的成功结果：构建失败、`pending > 0` 导致 build 被跳过、LLM 失败
+    # 又没放行、或 translate 被 skip_translate 跳过时，都不部署，线上保持上一个
+    # 成功版本。
     # 用 `needs.build.result` 而不是 `success()`：依赖链里出现被跳过的 job 时，
     # 显式比较结果最不容易误解。
     if: ${{ !cancelled() && needs.build.result == 'success' }}

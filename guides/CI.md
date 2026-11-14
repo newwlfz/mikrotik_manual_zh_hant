@@ -5,7 +5,7 @@
 
 | 工作流 | 触发 | 作用 |
 |---|---|---|
-| `pages.yml` | push 到 `main`（`paths` 含内容根、`locales.json`、`config/**`、`i18n/**`、`work/translate/**` 等）/ 手动（可勾 `skip_translate`） | `translate` job 跑一批翻译并提交进度 → `build` job（`pending == 0`，或 translate 被 `skip_translate` 跳过）构建 + 部署门禁 → `deploy` job 部署 |
+| `pages.yml` | push 到 `main`（`paths` 含内容根、`locales.json`、`config/**`、`i18n/**`、`work/translate/**`、`tools/translate/**`、`tools/ci/**` 等）/ 手动（可勾 `skip_translate`、`publish_on_llm_error`） | `translate` job 先预检、再跑一批翻译并提交进度 → `build` job（`pending == 0`，或 translate 被 `skip_translate` 跳过，或 LLM 失败且勾了 `publish_on_llm_error`）构建 + 部署门禁 → `deploy` job 部署 |
 
 总管仓 `newwlfz/mikrotik_manual_i18n` 另有 `build`/`deploy` 与 `publish-content`
 两个 job：它把 `CONTENT_ROOTS` 的十个内容根与 `locales.json` **用 git 推送**进
@@ -16,15 +16,17 @@
 
 ```text
 push 内容根 / locales.json / i18n/** …  ──┐
-Actions → Run workflow（可传预算 / 勾 skip_translate）
+Actions → Run workflow（可传预算 / 勾 skip_translate / 勾 publish_on_llm_error）
                                         ──┴─► translate（≤120 分钟；勾 skip_translate 时整块跳过）
+                                               ├─ 预检 verify:llm --quick（1-2 秒：402/429 立即失败）
+                                               │    └─ 失败 → 不翻、不写盘、不提交；只留 llm_error
                                                ├─ 有进度 → 提交 i18n/ + work/translate/ + state/
-                                               └─ 输出 pending
+                                               └─ 输出 pending / llm_error
                                                      │
-        pending == 0（或 translate 被跳过）──────────┴─── pending > 0 ──► 跳过 build（线上保持旧版）
+        pending == 0（或 translate 被跳过，或 llm_error 放行）──┴─── pending > 0 且不放行 ──► 跳过 build（线上保持旧版）
                           │
                           ▼
-                        build（≤45 分钟）：内容根断言 →（skip_translate 时）translate:verify
+                        build（≤45 分钟）：内容根断言 → translate:verify
                           → npm run build → npm run verify:deploy → 上传制品
                           │
                           ▼
@@ -121,13 +123,14 @@ npm run translate:pending -- --json
 | 口径 | 在哪 | 含义 |
 |---|---|---|
 | `pending`（门禁用） | `npm run translate:pending` / 批次摘要 | 计划里还剩多少单位（块 + 英文标题），**可以归零** |
+| `page_list`（页面清单） | `npm run translate:pending -- --json --pages` | 同一个计划的**逐页**明细（`section`/`path`/`blocks`/`title`），job summary 用它列出「哪些页面仍是英文」 |
 | `state.files[].pendingBlocks` | `state/translation-state.json` | 单页里仍是英文的块数（含被判为「有意保留英文」的块），只作参考，可能不归零 |
-| `untranslatedBlocks` | `npm run translate:verify`（`lib/verify.mjs`） | 覆盖层里实际还是英文的**正文段落与警告**；它跳过以 `#`/`<`/`|` 开头的行（标题、组件、表格），所以**比计划少**，不能当门禁 —— 本仓库它现在报 0，而计划里还有 475 块（多为标题/表格）待译 |
+| `untranslatedBlocks` | `npm run translate:verify`（`lib/verify.mjs`） | 覆盖层里实际还是英文的**正文段落与警告**；它跳过以 `#`/`<`/`\|` 开头的行（标题、组件、表格），所以**比计划少**，不能当门禁 —— 本仓库它现在报 0，而计划里还有 475 块（多为标题/表格）待译 |
 
-`verify` 报的是结构性问题（文件对齐、围栏、图片、front matter、MDX），正常翻译
-路径由 `build` 之后的 `verify:deploy` 覆盖；勾选 `skip_translate` 时 `build` 会在
-`npm run build` **之前**显式跑一遍 `npm run translate:verify`。翻译完整性由
-`pending` 把关。
+`verify` 报的是结构性问题（文件对齐、围栏、图片、front matter、MDX）。`build` 现在
+**每次**都在 `npm run build` **之前**跑一遍 `npm run translate:verify`（约 50 秒）：
+`skip_translate`、`publish_on_llm_error` 放行、正常译完三条路径都经过它。翻译完整性
+由 `pending` 把关。
 
 ### 内容从哪来（总管仓 git 推送）
 
@@ -164,11 +167,12 @@ skip_translate:
 
 - `translate` job 的 `if` 是 `${{ !inputs.skip_translate }}`；push 触发时 `inputs`
   为空，`!inputs.skip_translate` 为 true，照常翻译。
-- `build` 的 `if` 接受两种放行：translate 正常跑完且 `pending == '0'`，或 translate
-  被跳过（`needs.translate.result == 'skipped'`）；翻译失败
-  （`result == 'failure'`）永不构建。表达式里带 `!cancelled()`：GitHub 在 `if`
-  没有状态函数时会隐式套 `success()`，而它对**被跳过**的依赖 job 为 false，不加就
-  进不了 skip 分支。
+- `build` 的 `if` 接受三种放行：translate 正常跑完且 `pending == '0'`；translate
+  被跳过（`needs.translate.result == 'skipped'`）；或 LLM 失败且勾了
+  `publish_on_llm_error`（`llm_error` 非空，见[下一节](#llm-额度失效预检与-publish_on_llm_error)）。
+  翻译失败（`result == 'failure'`）永不构建。表达式里带 `!cancelled()`：GitHub 在
+  `if` 没有状态函数时会隐式套 `success()`，而它对**被跳过**的依赖 job 为 false，
+  不加就进不了 skip 分支。
 - 勾选后 `build` **仍然**做内容根断言，并显式跑 `npm run translate:verify`，所以
   文件不对齐、围栏/图片/front matter/MDX 坏掉的覆盖层不会被发布。
 
@@ -184,6 +188,91 @@ skip_translate:
 
 只在需要“马上上线”时手动勾选一次，用完取消。
 
+## LLM 额度/失效（预检与 `publish_on_llm_error`）
+
+额度用完（402）、key 失效（401）、被限流（429）时**默认不动线上**：`translate` job
+失败 → `build` 不跑 → 线上保持上一个成功版本。为了让这种失败**早发生**（而不是花钱
+跑了 20 分钟才死），流水线在批量翻译之前先做一次预检。
+
+### 预检：`verify:llm --quick`
+
+```bash
+npm run verify:llm -- --quick   # CI 里跑的就是这一条（约 1-2 秒）
+```
+
+- 发一个 `max_tokens=8` 的请求，只问「key 能不能用、账户有没有钱」：**2xx 就算通过**，
+  推理模型把 8 个 token 全花在 `reasoning_content` 上、`content` 为空也没关系；
+- 超时上限 30 秒（`--quick` 会把 `LLM_TIMEOUT_MS` 再压到 30 秒），正常 1-2 秒；
+- 只有 401/402/403/429 会额外打印一行 `llm_error=<code>`，其他失败（404、5xx、超时、
+  配置缺失）没有这一行；
+- 预检失败 → **不启动批量翻译、不写盘、不提交任何东西**（不会产生
+  `translate: batch` 提交，`i18n/`、`state/` 都不动）。
+
+`--max-tokens=<n>` 可以改请求预算；`--dry-run` 仍然只校验配置、不发请求。
+
+### 失败后的三种结局
+
+| 失败类型 | `publish_on_llm_error` | `translate` job | `build` | 线上 |
+| --- | --- | --- | --- | --- |
+| 401/402/403/429（预检或批次中途） | `false`（默认） | 失败 | 跳过 | **保持上一个成功版本** |
+| 401/402/403/429（预检或批次中途） | `true` | **成功** | 跑（`translate:verify` + 全部部署门禁） | **发布，未译内容为英文** |
+| 超时 / 5xx / 网络 / 配置缺失 / 404 等 | 任意 | 失败 | 跳过 | 保持上一个成功版本 |
+
+批量翻译**中途**失败（跑了一半才 402）走同一套判断：已完成的块**先提交**（提交步骤
+的条件是「这一批真的跑了」，不是 `success()`），`pending` 保持为剩余数，然后由
+`publish_on_llm_error` 决定是否继续 `build`。
+
+### `publish_on_llm_error` 的适用场景与风险
+
+手动触发（Actions → **Translate, build and deploy** → `Run workflow`）时勾选
+`publish_on_llm_error`。`build` 的门禁是：
+
+```text
+!cancelled() && needs.translate.result != 'failure'
+  && (needs.translate.result == 'skipped'          # 勾了 skip_translate
+      || needs.translate.outputs.pending == '0'    # 正常译完
+      || (needs.translate.outputs.llm_error != '' && inputs.publish_on_llm_error == true))
+```
+
+- `needs.translate.result != 'failure'`：没勾选时 gate 会把 job 判失败，这一条直接拦住；
+- `needs.translate.outputs.llm_error != ''`：只有**带 HTTP 状态**的 LLM 失败才可能
+  放行；超时、5xx、配置缺失不带状态码，**勾了也不会放行**；
+- `inputs.publish_on_llm_error == true`：push 触发时 `inputs` 为空，永远为假 ——
+  自动流水线不会因为「上次勾过」而放行。
+
+**适用场景**：内容已更新（新页面、改过的示例、CLI 表格），翻译只差一部分，而额度要
+过一阵才恢复。先让结构完整的新内容上线、未译段落暂时保持英文，比整站停在旧版更有用。
+
+**风险（必须知道）**：
+
+1. **会发布部分英文内容**：未译的正文段落、警告块，以及仍为英文的**页面标题**，都会
+   以英文出现在中文站上；
+2. `pending` 不会因此下降，这些单位会一直留着，直到额度恢复后再跑；
+3. 它**不跳过任何结构校验**：`build` 依然跑内容根断言、`translate:verify` 与
+   `verify:deploy`，坏掉的覆盖层不会被发布；
+4. 不要把它设成默认值 —— 长期放行等于让翻译停摆。
+
+### 恢复后怎么重跑
+
+1. 充值 / 换 key / 解除限流（`LLM_BASE_URL` 是仓库 Variable，`LLM_API_KEY` 是
+   Secret，见 [LLM 指南](LLM.md#github-actions-配置位置)）；
+2. 本地先确认：`npm run verify:llm -- --quick` 应打印
+   `OK: LLM preflight passed`（失败时日志里有 `llm_error=<code>`）；
+3. Actions → **Translate, build and deploy** → `Run workflow`，**不要**勾
+   `publish_on_llm_error`；
+4. 批次从断点继续（已翻的块不会重发），`pending` 归零后自动 `build` + 部署；
+5. 想立刻补上一轮放行留下的英文，用 `max-blocks` 分几次跑也行，每次结束都会提交进度。
+
+### 在哪里看「哪些页面仍是英文」
+
+`translate` job 的 summary 里有一节 **「中文站：LLM 预检与发布决策」**：`pending`、
+`llm_error`、是否放行，以及 **仍为英文的页面清单**（前 15 页 + 总数，来自
+`npm run translate:pending -- --json --pages`，与门禁用同一个计划）。放行发布时
+`build` job 的 summary 还会再写一条「⚠️ 本次为放行发布：仍有英文内容」。
+
+> 清单**不**读 `state/translation-state.json`：那里的 `pendingBlocks` 还包含「有意
+> 保留英文」的块，永远不归零，会把几百个已经译完的页面也列进来。
+
 ## 手动触发与恢复
 
 | 场景 | 做法 |
@@ -191,7 +280,8 @@ skip_translate:
 | 想立刻跑一批 | Actions → **Translate, build and deploy** → `Run workflow`。`budget-minutes` 默认 90；只想试水就填 `max-blocks`（例如 `20`） |
 | 只想上线代码、不想跑翻译 | 同一个手动触发里勾选 `skip_translate`。translate 被跳过，但 `build` 仍断言内容根并跑 `translate:verify`；风险见[上一节](#跳过翻译skip_translate) |
 | 预算用完还有 pending | 正常现象：job 成功、`pending>0`、跳过构建。再触发一次（或等下一次 push）继续，已翻的块不会重翻 |
-| LLM 402/401/429 | 翻译 job 失败，但**已完成的块先提交**（提交步骤 `if: always()`），`build` 不跑；充值/换 key 后重跑即可 |
+| LLM 402/401/403/429 | 预检就会失败（不跑批量、不提交），job 失败、`build` 不跑；批次中途失败时**已完成的块先提交**。充值/换 key 后重跑即可；确实要带着英文上线，见 [LLM 额度/失效](#llm-额度失效预检与-publish_on_llm_error)里勾选 `publish_on_llm_error` 的那一节 |
+| 想看哪些页面还是英文 | `npm run translate:pending -- --json --pages`，或直接看 `translate` job 的 summary |
 | 想从头看还剩多少 | `npm run translate:pending -- --json`，或看最近一次提交的 `work/translate/run.json` |
 | 某一页翻坏了 | `npm run translate:batch -- --section=docs --file=<rel> --max-blocks=50`，然后 `npm run translate:verify` |
 | 想让某个块强制重翻 | 把它加进 `config/force-translate.yml`（该文件里的块不会被 keep-English 跳过） |
@@ -201,6 +291,8 @@ skip_translate:
 
 ```bash
 node tools/translate/index.mjs pending --json          # 还剩多少（不请求、不写盘）
+node tools/translate/index.mjs pending --json --pages  # 还剩多少 + 逐页清单
+npm run verify:llm -- --quick                          # 预检（max_tokens=8，约 1-2 秒）
 node tools/translate/index.mjs translate --dry-run     # 本批会翻哪些块
 npm run translate:batch -- --budget-minutes=10 --json  # 真跑一小批
 npm run translate:verify                               # 结构校验（覆盖层）

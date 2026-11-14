@@ -124,6 +124,9 @@ const FLAG_OPTIONS = new Set([
   'no-compile',
   'json',
   'apply',
+  // `pending --json --pages`: also list the pages behind the count, so CI can
+  // name them instead of only printing a number.
+  'pages',
 ]);
 
 /** Commands that translate into a target locale (and therefore validate it). */
@@ -154,7 +157,8 @@ const USAGE =
   'note: --locale defaults to zh-Hans and must not be the source locale (en).\n' +
   'note: verify --all-locales and verify --locale are mutually exclusive.\n' +
   'note: `translate --json` writes progress to stderr so stdout carries exactly one JSON summary.\n' +
-  'note: --help prints this text and exits 0; an unknown option exits 2.';
+  'note: --help prints this text and exits 0; an unknown option exits 2.\n' +
+  'note: `pending --json --pages` adds a per-page list of what is still English.';
 
 function parseArgs(argv) {
   const args = {_: []};
@@ -247,7 +251,12 @@ function writeRunJournal({run, pending, client}) {
       ? {prompt: client.usage.prompt, completion: client.usage.completion, calls: client.usage.calls}
       : null,
     model: client?.config?.model ?? null,
-    error: run.error ? {code: run.error.code ?? null, message: run.error.message} : null,
+    // `status` is the HTTP status when the run stopped on a provider response
+    // (401/402/403/429/...), so a reader does not have to map the code name back
+    // to a number. `null` means "not an HTTP failure" (config, timeout, crash).
+    error: run.error
+      ? {code: run.error.code ?? null, status: run.error.status ?? null, message: run.error.message}
+      : null,
   };
   writeFileAtomic(RUN_FILE, `${JSON.stringify(journal, null, 1)}\n`);
   return journal;
@@ -275,7 +284,9 @@ function emitTranslateSummary({run, pending, client, json}) {
     limit: run.limit,
     block_errors: run.blockErrors,
     tokens: client ? {prompt: client.usage.prompt, completion: client.usage.completion} : null,
-    error: run.error ? {code: run.error.code ?? null, message: run.error.message} : null,
+    error: run.error
+      ? {code: run.error.code ?? null, status: run.error.status ?? null, message: run.error.message}
+      : null,
   };
   if (json) {
     process.stdout.write(`${JSON.stringify(payload)}\n`);
@@ -591,9 +602,19 @@ function planSection(
  * admonitions* only, skipping lines that start with `#`, `<` or `|` — so it
  * under-counts (headings and tables never appear) and must not be used as a
  * gate: today it reports 0 while this plan still has 475 blocks queued.
+ *
+ * `pageList` names the pages behind the count (`section`, `path`, `blocks`,
+ * `title`) so CI can say *which* pages are still English. It is capped at
+ * `PAGE_LIST_LIMIT` rows; `pageListTruncated` says whether the cap was hit.
+ * `state/translation-state.json` is **not** a substitute: its `pendingBlocks`
+ * also counts blocks kept in English on purpose and does not go to zero.
  */
+const PAGE_LIST_LIMIT = 5000;
+
 function countPending(sections) {
   const bySection = {};
+  const pageList = [];
+  let pageListTruncated = false;
   let blocks = 0;
   let titles = 0;
   let pages = 0;
@@ -604,7 +625,19 @@ function countPending(sections) {
     for (const item of items) {
       sectionBlocks += item.blocks.length;
       if (item.needsTitle) sectionTitles += 1;
-      if (item.blocks.length > 0 || item.needsTitle) pages += 1;
+      if (item.blocks.length > 0 || item.needsTitle) {
+        pages += 1;
+        if (pageList.length < PAGE_LIST_LIMIT) {
+          pageList.push({
+            section: section.name,
+            path: item.rel,
+            blocks: item.blocks.length,
+            title: item.needsTitle,
+          });
+        } else {
+          pageListTruncated = true;
+        }
+      }
     }
     blocks += sectionBlocks;
     titles += sectionTitles;
@@ -612,7 +645,7 @@ function countPending(sections) {
       bySection[section.name] = {blocks: sectionBlocks, titles: sectionTitles};
     }
   }
-  return {blocks, titles, pages, units: blocks + titles, bySection};
+  return {blocks, titles, pages, units: blocks + titles, bySection, pageList, pageListTruncated};
 }
 
 /**
@@ -1516,15 +1549,20 @@ async function main() {
     preparePlan({locale});
     const pending = countPending(selected);
     if (args.json) {
-      process.stdout.write(
-        `${JSON.stringify({
-          pending: pending.units,
-          blocks: pending.blocks,
-          titles: pending.titles,
-          pages: pending.pages,
-          sections: pending.bySection,
-        })}\n`,
-      );
+      // `--pages` adds the page-level list (`section`/`path`/`blocks`/`title`);
+      // CI prints it in the job summary when a run publishes with English left.
+      const payload = {
+        pending: pending.units,
+        blocks: pending.blocks,
+        titles: pending.titles,
+        pages: pending.pages,
+        sections: pending.bySection,
+      };
+      if (args.pages) {
+        payload.page_list = pending.pageList;
+        payload.page_list_truncated = pending.pageListTruncated;
+      }
+      process.stdout.write(`${JSON.stringify(payload)}\n`);
       return;
     }
     for (const [name, stat] of Object.entries(pending.bySection)) {
