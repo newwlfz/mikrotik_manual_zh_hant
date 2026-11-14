@@ -1,0 +1,84 @@
+# Agreed terminology.
+#
+# Two places read this file: the translation prompt (`lib/provider.mjs`) and the
+# lookup layer (`lib/tm.mjs`), where the glossary outranks the translation
+# memory: a remembered paragraph that still carries an English product term is
+# corrected on the way out. A term whose `target` differs from its `source` is
+# therefore applied to prose, so keep the English spelling when the site does
+# (product and feature names) and give the Chinese wording when it helps.
+#
+# Extend this file instead of editing prompts in code.
+terms:
+  - source: RouterOS
+    target: RouterOS
+  - source: MikroTik
+    target: MikroTik
+  - source: WinBox
+    target: WinBox
+  - source: WebFig
+    target: WebFig
+  - source: CAPsMAN
+    target: CAPsMAN
+  - source: PoE
+    target: PoE
+  - source: SFP
+    target: SFP
+  - source: VLAN
+    target: VLAN
+  - source: VPN
+    target: VPN
+  - source: BGP
+    target: BGP
+  - source: OSPF
+    target: OSPF
+  - source: MPLS
+    target: MPLS
+  # Recurring blog series and the wording used for it everywhere.
+  - source: Newsletter
+    target: 新聞簡報
+  # IP cloud feature; the Chinese manual explains it as "remote home access".
+  # The term itself stays bare: the explanation is written once, on the first
+  # occurrence of each page, by tools/translate/lib/term-annotate.mjs. Mapping
+  # the term to the parenthesised form made every mention read like a repeated
+  # glossary footnote.
+  - source: Back To Home
+    target: Back To Home
+
+  # --- zh-Hant 引导期预填（值取 OpenCC s2twp 结果） ----------------------
+  # 这些是正文里出现频率最高、且属于 RouterOS 术语的词。`# review` 表示
+  # 「先用引导结果，等人工审阅时再定稿」；改这里只会影响后续翻译（提示词 +
+  # 记忆查找），不会重写已有覆盖层。地区用词的另一半在
+  # `config/zh-hant-terms.yml`（`npm run localize:hant`）。
+  - source: packet
+    target: 封包
+  - source: interface
+    target: 介面
+  - source: port
+    target: 埠
+  - source: default
+    target: 預設
+  - source: queue
+    target: 佇列
+  - source: firewall
+    target: 防火牆
+  - source: routing table
+    target: 路由表
+  - source: bridge
+    target: 橋接
+  - source: neighbour
+    target: 鄰居
+  - source: user
+    target: 使用者
+  - source: client
+    target: 用戶端
+  - source: protocol
+    target: 協定
+  - source: switch
+    target: 交換器
+  - source: reset
+    target: 重設
+  # review: 「日誌」与「記錄」在台湾都有人用，先跟 OpenCC。
+  - source: log
+    target: 日誌
+  - source: firmware
+    target: 韌體

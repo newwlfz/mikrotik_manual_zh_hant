@@ -1,0 +1,47 @@
+---
+sidebar_key: "cli-reference/interface/lte"
+title: "lte"
+sidebar_label: 'lte'
+source: https://manual.mikrotik.com/docs/cli-reference/interface/lte
+captured_at: '2026-11-09T11:35:47.715Z'
+translated_at: "2026-11-11T16:56:16.529Z"
+translation_provider: "opencode-go"
+translation_model: "deepseek-v4.1-flash"
+---
+
+-----------
+
+## interface/lte {#interfacelte}
+**條件：** !smips
+**型別：** 目錄
+
+<ArgTable c1="標誌" c2="名稱" c3="描述">
+<ArgTableRow arg="X" typ="disabled">停用</ArgTableRow>
+<ArgTableRow arg="R" typ="running">running</ArgTableRow>
+<ArgTableRow arg="I" typ="inactive">未啟用</ArgTableRow>
+</ArgTable>
+
+<ArgTable c1="引數" c2="型別" c3="描述">
+<ArgTableRow arg="name" typ="string"></ArgTableRow>
+<ArgTableRow arg="mtu" typ="num"></ArgTableRow>
+<ArgTableRow arg="master" typ="iface_enum" mandatory="1"></ArgTableRow>
+<ArgTableRow arg="pin" typ="string"></ArgTableRow>
+<ArgTableRow arg="apn-profiles" typ="enum" deprecated="1"></ArgTableRow>
+<ArgTableRow arg="apn-profile" typ="enum" mandatory="1"></ArgTableRow>
+<ArgTableRow arg="modem-init" typ="string">調變解調器初始化時傳送的字串</ArgTableRow>
+<ArgTableRow arg="operator" typ="string">運營商鎖定，使用數字值：mccmnc</ArgTableRow>
+<ArgTableRow arg="allow-roaming" typ="bool"></ArgTableRow>
+<ArgTableRow arg="sms-read" typ="bool">如果在 /tool/sms 中啟用了任何介面，則忽略此設定</ArgTableRow>
+<ArgTableRow arg="sms-protocol" typ="enum (mbim | at | qmi | auto)"></ArgTableRow>
+<ArgTableRow arg="network-mode" typ="multi { array-id, network: enum
+ }"></ArgTableRow>
+<ArgTableRow arg="band" typ="multi { array-id, band: enum
+ }">LTE 頻段</ArgTableRow>
+<ArgTableRow arg="nr-band" typ="multi { array-id, nr-band: enum
+ }">NR 頻段</ArgTableRow>
+</ArgTable>
+
+<ArgTable c1="只讀引數" c2="型別" c3="描述">
+<ArgTableRow arg="default-name" typ="string"></ArgTableRow>
+<ArgTableRow arg="advertised-mtu" typ="num"></ArgTableRow>
+</ArgTable>

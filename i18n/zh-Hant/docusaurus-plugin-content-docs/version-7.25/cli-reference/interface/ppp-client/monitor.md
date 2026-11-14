@@ -1,0 +1,29 @@
+---
+sidebar_key: "cli-reference/interface/ppp-client/monitor"
+sidebar_position: 4
+title: "monitor"
+sidebar_label: 'monitor'
+source: https://manual.mikrotik.com/docs/7.25/cli-reference/interface/ppp-client/monitor
+captured_at: '2026-11-01T21:23:01+08:00'
+translated_at: "2026-11-11T16:56:12.375Z"
+translation_provider: "opencode-go"
+translation_model: "deepseek-v4.1-flash"
+---
+
+-----------
+
+## interface/ppp-client/monitor {#interfaceppp-clientmonitor}
+**型別：** 命令
+
+<ArgTable c1="只讀引數" c2="型別" c3="描述">
+<ArgTableRow arg="status" typ="string"></ArgTableRow>
+<ArgTableRow arg="uptime" typ="time"></ArgTableRow>
+<ArgTableRow arg="encoding" typ="string"></ArgTableRow>
+<ArgTableRow arg="connect-speed" typ="num"></ArgTableRow>
+<ArgTableRow arg="mtu" typ="num"></ArgTableRow>
+<ArgTableRow arg="mru" typ="num"></ArgTableRow>
+<ArgTableRow arg="local-address" typ="ipAddr"></ArgTableRow>
+<ArgTableRow arg="remote-address" typ="ipAddr"></ArgTableRow>
+<ArgTableRow arg="local-ipv6-address" typ="ip6Addr"></ArgTableRow>
+<ArgTableRow arg="remote-ipv6-address" typ="ip6Addr"></ArgTableRow>
+</ArgTable>

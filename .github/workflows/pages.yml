@@ -1,0 +1,338 @@
+name: Translate, build and deploy
+
+# 繁体中文站流水线：**先分批翻译，全部译完才构建发布**。
+#
+#   1. `translate` job：跑一批翻译（有时间预算、可中断），把进度提交回仓库。
+#      输出 `pending`（还剩多少待译单位）。
+#   2. `build` job：`pending == 0` 才跑。构建 → 部署门禁 → 上传制品。
+#   3. `deploy` job：`build` 成功才部署；否则线上保持上一个成功版本。
+#
+# 手动开关 `skip_translate`（默认 false）：勾选后跳过 `translate` job，直接用已提交
+# 的覆盖层构建。它**不会**跳过校验：build 仍断言全部内容根，并跑
+# `npm run translate:verify`（覆盖层结构校验），所以结构损坏的站不会被发布。
+# 用途与风险见 `guides/CI.md`「跳过翻译（skip_translate）」。
+#
+# 为什么进度要提交：翻译是**可续跑**的。每次批次结束把 `i18n/`、`work/translate/`
+# 的小状态和 `state/translation-state.json` 提交回 `main`，下一批（下一次 push 或
+# 手动触发）从断点继续，不重复翻译已完成的块。提交信息带 `[skip ci]`，避免自己
+# 再触发一轮翻译。
+#
+# **内容从哪来：总管仓 git 推送**。`newwlfz/mikrotik_manual_i18n` 的
+# `publish-content` job 把它的 `CONTENT_ROOTS`（`docs/`、`versioned_docs/`、
+# `hardware/`、`blog/`、`changelog/`、`data/`、`sidebars.ts`、
+# `sidebars-hardware.ts`、`versioned_sidebars/`、`versions.json`）与
+# `locales.json` 直接提交进本仓库（跨仓 PAT）。本 workflow 不再下载 content
+# release，也**不要**在 `.gitignore` 里忽略任何内容根：忽略会让每次构建都基于空
+# 内容、翻译计划少算待译块，总管仓的 publish 也会直接失败。见 `guides/CI.md` 与
+# 总管仓的 `guides/ARCHITECTURE-MULTISITE.md`。
+#
+# **`static/` 不下载、不发布。** 图片/PDF/视频等资源由英文站（资源宿主）提供，
+# 构建时把站内资源引用改写到 `ASSET_ORIGIN`。
+#
+# 部署到 https://newwlfz.github.io/mikrotik_manual_zh_hant/ ；
+# 英文站由 `mikrotik_manual_i18n`、简体站由 `mikrotik_manual_zh_hans` 用同一份
+# （`locales.json` 驱动的）`docusaurus.config.ts` 构建。
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'versioned_docs/**'
+      - 'hardware/**'
+      - 'blog/**'
+      - 'changelog/**'
+      - 'data/**'
+      - 'sidebars.ts'
+      - 'sidebars-hardware.ts'
+      - 'versioned_sidebars/**'
+      - 'versions.json'
+      - 'locales.json'
+      - 'config/**'
+      - 'i18n/**'
+      - 'work/translate/**'
+      # 翻译器自己变了也要跑一批：否则改完 `tools/translate` 只能等下一次内容更新
+      # 才生效，而那时候很难判断是内容变化还是代码变化。
+      - 'tools/translate/**'
+      - 'docusaurus.config.ts'
+      - 'package.json'
+      - 'package-lock.json'
+  workflow_dispatch:
+    inputs:
+      budget-minutes:
+        description: '本次翻译的时间预算（分钟）'
+        required: false
+        default: '90'
+      max-blocks:
+        description: '本次最多处理的翻译单位数（留空 = 不限，调试用）'
+        required: false
+        default: ''
+      skip_translate:
+        description: '跳过本轮翻译，直接用已提交的覆盖层构建（内容根断言与 translate:verify 仍会跑）'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  # 翻译 job 要提交进度；`contents: write` 也是 checkout 之后 push 的前提。
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  # 同一时间只跑一条中文站流水线，且**不取消**正在跑的那条：翻译花了钱，
+  # 被打断的一批白跑。
+  group: pages-zh-hant
+  cancel-in-progress: false
+
+# 站点身份以仓库根的 `locales.json` 为准（`docusaurus.config.ts` 由它生成
+# `localeConfigs`）；这里显式写出来，让本仓的部署地址一眼可见，也方便 fork。
+# 注：`${{ runner.temp }}` 只在 job/step 级 env 可用，workflow 级 env 用了会
+# 让整个 workflow 变成 invalid（run 直接失败且没有 job）。npm 缓存目录在
+# 各 step 里注入 NPM_CONFIG_CACHE。
+env:
+  SITE_LOCALE: zh-Hant
+  SITE_URL: https://newwlfz.github.io
+  BASE_URL: /mikrotik_manual_zh_hant/
+  # 其它语种站点的地址全部来自 `locales.json`（`LOCALE_<X>_*` 只在本地预览时
+  # 需要覆盖；`zh-Hans` 与 `zh-Hant` 的前缀同为 `ZH`，写在这里会互相覆盖）。
+  # 共享资源源站 = 英文站的基址（不带尾斜杠）。改英文站域名/前缀时必须同步改这里，
+  # 否则所有语种站的图片、PDF、视频都会 404。见 guides/CI.md「共享资源」。
+  ASSET_ORIGIN: https://newwlfz.github.io/mikrotik_manual_i18n
+  BUILD_HEAP_MB: '6144'
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # 1) 一批翻译
+  # ---------------------------------------------------------------------------
+  translate:
+    # 手动触发勾选 `skip_translate` 时整块跳过；push 触发时 `inputs` 为空，
+    # `!inputs.skip_translate` 为 true，照常翻译。
+    if: ${{ !inputs.skip_translate }}
+    runs-on: ubuntu-latest
+    # 90 分钟预算 + 计划/落盘/提交余量。`--budget-minutes` 到点会优雅停止并落盘，
+    # 这个 timeout 只是兜底：真被杀掉时，已经写盘的批次仍然在磁盘上。
+    timeout-minutes: 120
+    outputs:
+      pending: ${{ steps.summary.outputs.pending }}
+      stopped: ${{ steps.summary.outputs.stopped }}
+    steps:
+      # `ref: github.ref_name` 而不是默认的触发 SHA：排队/重跑时从本分支最新
+      # 进度继续，而不是从触发那一刻的旧状态重翻一遍。
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      # 内容契约的第一道断言：内容根由总管仓 git 推送，必须被 git 跟踪。
+      # 任一内容根被 `.gitignore` 忽略时，翻译计划会少算待译块并让 `pending`
+      # 提前归零 —— 那种“成功”比失败更贵。
+      - name: Verify published content is tracked
+        run: |
+          set -euo pipefail
+          content_roots=(docs versioned_docs hardware blog changelog data versioned_sidebars)
+          content_files=(locales.json sidebars.ts sidebars-hardware.ts versions.json)
+          ignored=0
+          for root in "${content_roots[@]}"; do
+            if git check-ignore -q "$root/"; then
+              echo "::error title=$root/ 被本仓 .gitignore 忽略::总管仓的 publish 推送该内容根；被忽略时它进不了仓库。请删除对应的 .gitignore 规则。"
+              ignored=1
+            fi
+          done
+          for file in "${content_files[@]}"; do
+            if git check-ignore -q "$file"; then
+              echo "::error title=$file 被本仓 .gitignore 忽略::总管仓的 publish 推送该文件；请删除对应的 .gitignore 规则。"
+              ignored=1
+            fi
+          done
+          test "$ignored" -eq 0
+          # 缺根时只告警：翻译仍能处理已到达的板块；build 的硬断言会拦住半站发布。
+          for root in docs locales.json versioned_docs hardware blog changelog data sidebars.ts sidebars-hardware.ts versioned_sidebars versions.json; do
+            if [ ! -e "$root" ]; then
+              echo "::warning title=缺少 $root::缺少 $root；应由总管 publish 推送。"
+            fi
+          done
+          test -d docs || { echo "::error title=缺少 docs/::缺少 docs/；应由总管 publish 推送。"; exit 1; }
+          test -f locales.json || { echo "::error title=缺少 locales.json::缺少 locales.json；应由总管 publish 推送。"; exit 1; }
+      - name: Prepare npm cache directory
+        env:
+          NPM_CONFIG_CACHE: ${{ runner.temp }}/npm-cache
+        run: mkdir -p "$NPM_CONFIG_CACHE"
+      - uses: actions/setup-node@v4
+        env:
+          NPM_CONFIG_CACHE: ${{ runner.temp }}/npm-cache
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - run: npm ci
+        env:
+          NPM_CONFIG_CACHE: ${{ runner.temp }}/npm-cache
+      # 一批翻译：到 90 分钟（或 `--max-blocks`）就停，落盘后用 `--json` 报告
+      # `{"translated":N,"pending":M,"stopped":"budget|done|error"}`。
+      # 用 `|| status=$?` 接住退出码：翻译失败（401/402/429）时**也要**把已完成
+      # 的块提交回去，然后才让 job 失败。
+      - name: Translate one batch
+        id: run
+        env:
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
+          LLM_MODEL: ${{ vars.LLM_MODEL }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+        run: |
+          set -o pipefail
+          status=0
+          args=(--apply --budget-minutes="${{ inputs.budget-minutes || '90' }}" --json)
+          if [ -n "${{ inputs.max-blocks }}" ]; then
+            args+=(--max-blocks="${{ inputs.max-blocks }}")
+          fi
+          npm run translate:batch -- "${args[@]}" | tee "$RUNNER_TEMP/translate.json" || status=$?
+          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
+          exit 0
+      # 读回 JSON 摘要（npm 的 banner 行会被跳过），给 build job 的门禁和
+      # step summary 用。JSON 缺失时 pending 置空 —— build 的 `== '0'` 不成立。
+      - name: Read batch summary
+        id: summary
+        if: always()
+        run: |
+          node tools/ci/read-translate-summary.mjs --file "$RUNNER_TEMP/translate.json" >> "$GITHUB_OUTPUT"
+      # 提交翻译进度：i18n 覆盖层 + 小型翻译状态 + 状态文件。大块 TM
+      # （model-memory/legacy TM/tm-global）不入库，见 guides/CI.md。
+      - name: Commit translation progress
+        if: always()
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for target in i18n work/translate state; do
+            if [ -e "$target" ]; then git add -A "$target"; fi
+          done
+          if git diff --cached --quiet; then
+            echo "no translation progress to commit"
+            exit 0
+          fi
+          pending="${{ steps.summary.outputs.pending }}"
+          git commit -m "translate: batch (pending ${pending}) [skip ci]"
+          git push
+      # 翻译真的失败（LLM 401/402/429、配置缺失）时，job 必须失败：否则
+      # `pending` 只是一个数，流水线会看起来“成功但什么都没发布”。
+      - name: Fail when the batch stopped on an API error
+        if: steps.run.outputs.exit_code != '0'
+        run: |
+          echo "::error::translation batch failed; progress is committed, build skipped"
+          exit 1
+
+  # ---------------------------------------------------------------------------
+  # 2) 只在没有待译单位时构建
+  # ---------------------------------------------------------------------------
+  build:
+    needs: translate
+    # 发布门禁：
+    #   - translate 正常跑完且 `pending == 0`；或
+    #   - 手动勾选 `skip_translate` 让 translate 被跳过（result == 'skipped'）；
+    # 翻译失败（result == 'failure'）永不构建 —— 线上保持旧版，而不是发布一个
+    # 半翻译/坏掉的站。
+    #
+    # `!cancelled()` 不能省：GitHub 在 `if` 里没有状态函数时会隐式套一个
+    # `success()`，而 `success()` 对**被跳过**的依赖 job 为 false，那样
+    # `skip_translate` 分支永远进不来。
+    if: ${{ !cancelled() && needs.translate.result != 'failure' && (needs.translate.result == 'skipped' || needs.translate.outputs.pending == '0') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      # 取分支最新提交：翻译 job 可能刚 push 了新的一批覆盖层。
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      # 构建前的硬断言：内容根一个都不能少。少了 `versioned_docs/` 就没有归档
+      # 版本，少了 `hardware/` 就少一整个板块——这些页面不会报错，只会消失。
+      # 内容根由总管仓的 `publish-content` 推送，所以缺失只有一个含义：publish
+      # 没跑或失败了。`static/` 不在名单里：资源来自 `ASSET_ORIGIN`。
+      - name: Verify content roots
+        run: |
+          set -euo pipefail
+          content_roots=(docs versioned_docs hardware blog changelog data versioned_sidebars)
+          content_files=(locales.json sidebars.ts sidebars-hardware.ts versions.json)
+          missing=0
+          for root in "${content_roots[@]}"; do
+            if git check-ignore -q "$root/"; then
+              echo "::error title=$root/ 被本仓 .gitignore 忽略::请删除对应的 .gitignore 规则；总管仓的 publish 也会因此失败。"
+              missing=1
+            fi
+          done
+          for file in "${content_files[@]}"; do
+            if git check-ignore -q "$file"; then
+              echo "::error title=$file 被本仓 .gitignore 忽略::请删除对应的 .gitignore 规则；总管仓的 publish 也会因此失败。"
+              missing=1
+            fi
+          done
+          for root in docs locales.json versioned_docs hardware blog changelog data sidebars.ts sidebars-hardware.ts versioned_sidebars versions.json; do
+            if [ ! -e "$root" ]; then
+              echo "::error title=缺少 $root::缺少 $root；应由总管 publish 推送。"
+              missing=1
+            fi
+          done
+          test "$missing" -eq 0
+          test ! -e static || { echo "::error title=static/ 不该存在::语种仓的资源来自 ASSET_ORIGIN（英文站），static/ 会被构建忽略并推高体积。"; exit 1; }
+          echo "content roots present: docs locales.json versioned_docs hardware blog changelog data sidebars.ts sidebars-hardware.ts versioned_sidebars versions.json"
+      - name: Prepare npm cache directory
+        env:
+          NPM_CONFIG_CACHE: ${{ runner.temp }}/npm-cache
+        run: mkdir -p "$NPM_CONFIG_CACHE"
+      - uses: actions/setup-node@v4
+        env:
+          NPM_CONFIG_CACHE: ${{ runner.temp }}/npm-cache
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - run: npm ci
+        env:
+          NPM_CONFIG_CACHE: ${{ runner.temp }}/npm-cache
+      # 浏览器语言 → 目标语种（zh-TW → 繁体站、zh-CN → 简体站）是纯函数，
+      # 出错会让英文站把读者送错站点，所以先跑单测。
+      - name: Test browser-locale redirect mapping
+        run: npm run test:redirect
+      # 地区用词层：`config/zh-hant-terms.yml` → `i18n/zh-Hant/**`（幂等）。
+      # 先 `--check` 只为提示「改了词表但忘了提交」：覆盖层已在仓库里被
+      # `--write` 规范化，缺提交时下一步会就地修好再构建，不拦发布。
+      - name: Check zh-Hant regional wording is committed
+        continue-on-error: true
+        run: npm run localize:hant:check
+      - name: Apply zh-Hant regional wording
+        run: npm run localize:hant
+      # `skip_translate` 时没有翻译 job 兜底，覆盖层的**结构校验**必须在这里跑：
+      # 文件对齐、代码围栏、图片、front matter、MDX 任一项坏了都不发布。正常翻译
+      # 路径不重复跑（`--apply` 落盘时已经校验过这一批写入）。
+      - name: Verify translation overlays
+        if: ${{ inputs.skip_translate == true }}
+        run: npm run translate:verify
+      # 单语种构建：i18n/zh-Hant 覆盖层 + 已提交的内容 → Docusaurus
+      # （--locale zh-Hant）→ Pagefind → llms.txt。
+      - name: Build site
+        run: npm run build
+      # `verify:deploy`：slim（外部资源模式下只统计并报告）→ asset-refs（外链
+      # 计数、不查本地存在性）→ base-url-refs → orphan-assets（无 static 时跳过）
+      # → llms-links。
+      - name: Slim and verify deploy shape
+        run: npm run verify:deploy
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+      - name: Report artifact size
+        run: du -sh build && find build -type f | wc -l
+
+  # ---------------------------------------------------------------------------
+  # 3) 部署（仅构建成功）
+  # ---------------------------------------------------------------------------
+  deploy:
+    needs: build
+    # 只认 build 的成功结果：构建失败、`pending > 0` 导致 build 被跳过、或
+    # translate 被 skip_translate 跳过时，都不部署，线上保持上一个成功版本。
+    # 用 `needs.build.result` 而不是 `success()`：依赖链里出现被跳过的 job 时，
+    # 显式比较结果最不容易误解。
+    if: ${{ !cancelled() && needs.build.result == 'success' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

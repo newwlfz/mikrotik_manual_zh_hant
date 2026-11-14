@@ -1,0 +1,36 @@
+---
+sidebar_key: "cli-reference/caps-man/channel"
+sidebar_position: 4
+title: "channel"
+sidebar_label: 'channel'
+source: https://manual.mikrotik.com/docs/cli-reference/caps-man/channel
+captured_at: '2026-11-09T11:35:47.715Z'
+translated_at: "2026-11-11T16:56:16.529Z"
+translation_provider: "opencode-go"
+translation_model: "deepseek-v4.1-flash"
+---
+
+-----------
+
+## caps-man/channel {#caps-manchannel}
+**軟體包：** wireless-rep
+**型別：** 目錄
+
+<ArgTable c1="引數" c2="型別" c3="描述">
+<ArgTableRow arg="name" typ="string" mandatory="1"></ArgTableRow>
+<ArgTableRow arg="frequency" typ="multi { array-id, frequency: num
+ }" unset="1"></ArgTableRow>
+<ArgTableRow arg="secondary-frequency" typ="multi { array-id, secondary-frequency: alt { secondary-frequency-disable: enum (disabled)
+, secondary-frequency-num: num
+ }
+ }" unset="1"></ArgTableRow>
+<ArgTableRow arg="control-channel-width" typ="enum (5mhz | 10mhz | 20mhz | 40mhz-turbo) { 5mhz:5000, 10mhz:10000, 20mhz:20000, 40mhz-turbo:40000 }" unset="1"></ArgTableRow>
+<ArgTableRow arg="band" typ="enum (2ghz-b | 2ghz-onlyg | 2ghz-b/g | 5ghz-a | 5ghz-onlyn | 5ghz-a/n | 2ghz-onlyn | 2ghz-b/g/n | 2ghz-g/n | 5ghz-a/n/ac | 5ghz-n/ac | 5ghz-onlyac)" unset="1"></ArgTableRow>
+<ArgTableRow arg="extension-channel" typ="enum (disabled | Ce | eC | Ceee | eCee | eeCe | eeeC | XX | XXXX | Ceeeeeee | eCeeeeee | eeCeeeee | eeeCeeee | eeeeCeee | eeeeeCee | eeeeeeCe | eeeeeeeC | XXXXXXXX)" unset="1"></ArgTableRow>
+<ArgTableRow arg="tx-power" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="save-selected" typ="bool" unset="1"></ArgTableRow>
+<ArgTableRow arg="reselect-interval" typ="super { reselect-interval-min: time [1 .. 60*60*24*300]
+, [reselect-interval-max] ..time [1 .. 60*60*24*300]
+ }" unset="1"></ArgTableRow>
+<ArgTableRow arg="skip-dfs-channels" typ="bool" unset="1"></ArgTableRow>
+</ArgTable>

@@ -1,0 +1,20 @@
+---
+sidebar_key: "cli-reference/tool/sniffer/save"
+sidebar_position: 6
+title: "save"
+sidebar_label: "save"
+source: https://manual.mikrotik.com/docs/7.24/cli-reference/tool/sniffer/save
+captured_at: '2026-11-01T21:30:22+08:00'
+translated_at: "2026-11-11T16:55:57.729Z"
+translation_provider: "opencode-go"
+translation_model: "deepseek-v4.1-flash"
+---
+
+-----------
+
+## tool/sniffer/save {#toolsniffersave}
+**型別：** 命令
+
+<ArgTable c1="引數" c2="型別" c3="描述">
+<ArgTableRow arg="file-name" typ="file"></ArgTableRow>
+</ArgTable>

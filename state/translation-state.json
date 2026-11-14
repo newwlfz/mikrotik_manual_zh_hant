@@ -1,0 +1,3689 @@
+{
+ "schema": 1,
+ "sections": {},
+ "files": {
+  "docs/containers/user-guides/container-mosquitto-mqtt-server.md": {
+   "section": "docs",
+   "source": "docs/containers/user-guides/container-mosquitto-mqtt-server.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/containers/user-guides/container-mosquitto-mqtt-server.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "docs/bridging-and-switching/macsec.md": {
+   "section": "docs",
+   "source": "docs/bridging-and-switching/macsec.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/bridging-and-switching/macsec.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/bridging-and-switching/macvlan.md": {
+   "section": "docs",
+   "source": "docs/bridging-and-switching/macvlan.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/bridging-and-switching/macvlan.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/authentication-authorization-accounting/dot1x.md": {
+   "section": "docs",
+   "source": "docs/authentication-authorization-accounting/dot1x.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/authentication-authorization-accounting/dot1x.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/authentication-authorization-accounting/radius.md": {
+   "section": "docs",
+   "source": "docs/authentication-authorization-accounting/radius.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/authentication-authorization-accounting/radius.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/bridging-and-switching/swos/index.md": {
+   "section": "docs",
+   "source": "docs/bridging-and-switching/swos/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/bridging-and-switching/swos/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/authentication-authorization-accounting/ppp-aaa.md": {
+   "section": "docs",
+   "source": "docs/authentication-authorization-accounting/ppp-aaa.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/authentication-authorization-accounting/ppp-aaa.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/containers/veth.md": {
+   "section": "docs",
+   "source": "docs/containers/veth.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/containers/veth.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/bridging-and-switching/vxlan.md": {
+   "section": "docs",
+   "source": "docs/bridging-and-switching/vxlan.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/bridging-and-switching/vxlan.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/bridging-and-switching/vlan.md": {
+   "section": "docs",
+   "source": "docs/bridging-and-switching/vlan.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/bridging-and-switching/vlan.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "docs/developer-guides/api/index.md": {
+   "section": "docs",
+   "source": "docs/developer-guides/api/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/developer-guides/api/index.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "docs/developer-guides/rest-api.md": {
+   "section": "docs",
+   "source": "docs/developer-guides/rest-api.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/developer-guides/rest-api.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "docs/cli-reference/interface/ethernet/switch/qos/port/index.md": {
+   "section": "docs",
+   "source": "docs/cli-reference/interface/ethernet/switch/qos/port/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/cli-reference/interface/ethernet/switch/qos/port/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/diagnostics-monitoring-and-troubleshooting/snmp.md": {
+   "section": "docs",
+   "source": "docs/diagnostics-monitoring-and-troubleshooting/snmp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/diagnostics-monitoring-and-troubleshooting/snmp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/diagnostics-monitoring-and-troubleshooting/ping.md": {
+   "section": "docs",
+   "source": "docs/diagnostics-monitoring-and-troubleshooting/ping.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/diagnostics-monitoring-and-troubleshooting/ping.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "docs/diagnostics-monitoring-and-troubleshooting/health.md": {
+   "section": "docs",
+   "source": "docs/diagnostics-monitoring-and-troubleshooting/health.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/diagnostics-monitoring-and-troubleshooting/health.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "docs/diagnostics-monitoring-and-troubleshooting/netwatch.md": {
+   "section": "docs",
+   "source": "docs/diagnostics-monitoring-and-troubleshooting/netwatch.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/diagnostics-monitoring-and-troubleshooting/netwatch.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/diagnostics-monitoring-and-troubleshooting/torch.md": {
+   "section": "docs",
+   "source": "docs/diagnostics-monitoring-and-troubleshooting/torch.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/diagnostics-monitoring-and-troubleshooting/torch.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/firewall-and-quality-of-service/firewall/mangle.md": {
+   "section": "docs",
+   "source": "docs/firewall-and-quality-of-service/firewall/mangle.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/firewall-and-quality-of-service/firewall/mangle.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/firewall-and-quality-of-service/firewall/layer7.md": {
+   "section": "docs",
+   "source": "docs/firewall-and-quality-of-service/firewall/layer7.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/firewall-and-quality-of-service/firewall/layer7.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/firewall-and-quality-of-service/firewall/nat.md": {
+   "section": "docs",
+   "source": "docs/firewall-and-quality-of-service/firewall/nat.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/firewall-and-quality-of-service/firewall/nat.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "docs/firewall-and-quality-of-service/nat-pmp.md": {
+   "section": "docs",
+   "source": "docs/firewall-and-quality-of-service/nat-pmp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/firewall-and-quality-of-service/nat-pmp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/firewall-and-quality-of-service/queues/queue-types/cake.md": {
+   "section": "docs",
+   "source": "docs/firewall-and-quality-of-service/queues/queue-types/cake.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/firewall-and-quality-of-service/queues/queue-types/cake.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "docs/firewall-and-quality-of-service/queues/htb-hierarchical-token-bucket.md": {
+   "section": "docs",
+   "source": "docs/firewall-and-quality-of-service/queues/htb-hierarchical-token-bucket.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/firewall-and-quality-of-service/queues/htb-hierarchical-token-bucket.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "docs/firewall-and-quality-of-service/upnp.md": {
+   "section": "docs",
+   "source": "docs/firewall-and-quality-of-service/upnp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/firewall-and-quality-of-service/upnp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/getting-started/installation-and-upgrade/routerboot.md": {
+   "section": "docs",
+   "source": "docs/getting-started/installation-and-upgrade/routerboot.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/getting-started/installation-and-upgrade/routerboot.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/firewall-and-quality-of-service/queues/queue-types/pfifo-bfifo.md": {
+   "section": "docs",
+   "source": "docs/firewall-and-quality-of-service/queues/queue-types/pfifo-bfifo.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/firewall-and-quality-of-service/queues/queue-types/pfifo-bfifo.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/getting-started/configuration-management/default-configuration-passwords.md": {
+   "section": "docs",
+   "source": "docs/getting-started/configuration-management/default-configuration-passwords.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/getting-started/configuration-management/default-configuration-passwords.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "docs/getting-started/installation-and-upgrade/install/chr-installation/index.md": {
+   "section": "docs",
+   "source": "docs/getting-started/installation-and-upgrade/install/chr-installation/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/getting-started/installation-and-upgrade/install/chr-installation/index.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "docs/hardware/poe-out.md": {
+   "section": "docs",
+   "source": "docs/hardware/poe-out.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/hardware/poe-out.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "docs/getting-started/supout-rif.md": {
+   "section": "docs",
+   "source": "docs/getting-started/supout-rif.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/getting-started/supout-rif.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "docs/high-availability-solutions/vrrp.md": {
+   "section": "docs",
+   "source": "docs/high-availability-solutions/vrrp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/high-availability-solutions/vrrp.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "docs/internet-of-things/lora/index.md": {
+   "section": "docs",
+   "source": "docs/internet-of-things/lora/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/internet-of-things/lora/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/internet-of-things/modbus.md": {
+   "section": "docs",
+   "source": "docs/internet-of-things/modbus.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/internet-of-things/modbus.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/internet-of-things/lora/user-guides/chirpstack.md": {
+   "section": "docs",
+   "source": "docs/internet-of-things/lora/user-guides/chirpstack.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/internet-of-things/lora/user-guides/chirpstack.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/internet-of-things/lora/user-guides/the-things-stack.md": {
+   "section": "docs",
+   "source": "docs/internet-of-things/lora/user-guides/the-things-stack.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/internet-of-things/lora/user-guides/the-things-stack.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/management-tools/dude.md": {
+   "section": "docs",
+   "source": "docs/management-tools/dude.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/management-tools/dude.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/internet-of-things/lora/user-guides/index.md": {
+   "section": "docs",
+   "source": "docs/internet-of-things/lora/user-guides/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/internet-of-things/lora/user-guides/index.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "docs/internet-of-things/gpio/index.md": {
+   "section": "docs",
+   "source": "docs/internet-of-things/gpio/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/internet-of-things/gpio/index.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "docs/management-tools/romon.md": {
+   "section": "docs",
+   "source": "docs/management-tools/romon.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/management-tools/romon.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/management-tools/ssh.md": {
+   "section": "docs",
+   "source": "docs/management-tools/ssh.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/management-tools/ssh.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/internet-of-things/mqtt/index.md": {
+   "section": "docs",
+   "source": "docs/internet-of-things/mqtt/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/internet-of-things/mqtt/index.md",
+   "status": "partial",
+   "pendingBlocks": 7
+  },
+  "docs/management-tools/tr-069.md": {
+   "section": "docs",
+   "source": "docs/management-tools/tr-069.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/management-tools/tr-069.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "docs/management-tools/cmr.md": {
+   "section": "docs",
+   "source": "docs/management-tools/cmr.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/management-tools/cmr.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/management-tools/webfig.md": {
+   "section": "docs",
+   "source": "docs/management-tools/webfig.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/management-tools/webfig.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/mobile-networking/lte-5g.md": {
+   "section": "docs",
+   "source": "docs/mobile-networking/lte-5g.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/mobile-networking/lte-5g.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "docs/management-tools/winbox.md": {
+   "section": "docs",
+   "source": "docs/management-tools/winbox.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/management-tools/winbox.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "docs/mobile-networking/gps/index.md": {
+   "section": "docs",
+   "source": "docs/mobile-networking/gps/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/mobile-networking/gps/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/management-tools/flashfig.md": {
+   "section": "docs",
+   "source": "docs/management-tools/flashfig.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/management-tools/flashfig.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "docs/mobile-networking/ppp.md": {
+   "section": "docs",
+   "source": "docs/mobile-networking/ppp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/mobile-networking/ppp.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "docs/mobile-networking/mikrotik-connectivity.md": {
+   "section": "docs",
+   "source": "docs/mobile-networking/mikrotik-connectivity.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/mobile-networking/mikrotik-connectivity.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "docs/network-management/dhcp/index.md": {
+   "section": "docs",
+   "source": "docs/network-management/dhcp/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/network-management/dhcp/index.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "docs/network-management/dns.md": {
+   "section": "docs",
+   "source": "docs/network-management/dns.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/network-management/dns.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "docs/network-management/openflow.md": {
+   "section": "docs",
+   "source": "docs/network-management/openflow.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/network-management/openflow.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "docs/network-management/socks/index.md": {
+   "section": "docs",
+   "source": "docs/network-management/socks/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/network-management/socks/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/storage/nfs.md": {
+   "section": "docs",
+   "source": "docs/storage/nfs.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/storage/nfs.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/storage/btrfs/raid.md": {
+   "section": "docs",
+   "source": "docs/storage/btrfs/raid.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/storage/btrfs/raid.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/storage/iscsi.md": {
+   "section": "docs",
+   "source": "docs/storage/iscsi.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/storage/iscsi.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/network-management/socks/socksify.md": {
+   "section": "docs",
+   "source": "docs/network-management/socks/socksify.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/network-management/socks/socksify.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/storage/btrfs/index.md": {
+   "section": "docs",
+   "source": "docs/storage/btrfs/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/storage/btrfs/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/storage/nvme-over-tcp.md": {
+   "section": "docs",
+   "source": "docs/storage/nvme-over-tcp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/storage/nvme-over-tcp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/storage/raid/index.md": {
+   "section": "docs",
+   "source": "docs/storage/raid/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/storage/raid/index.md",
+   "status": "partial",
+   "pendingBlocks": 5
+  },
+  "docs/storage/rsync.md": {
+   "section": "docs",
+   "source": "docs/storage/rsync.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/storage/rsync.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/storage/smb.md": {
+   "section": "docs",
+   "source": "docs/storage/smb.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/storage/smb.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/system-information-and-utilities/ntp.md": {
+   "section": "docs",
+   "source": "docs/system-information-and-utilities/ntp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/system-information-and-utilities/ntp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/storage/sshfs.md": {
+   "section": "docs",
+   "source": "docs/storage/sshfs.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/storage/sshfs.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/system-information-and-utilities/tftp.md": {
+   "section": "docs",
+   "source": "docs/system-information-and-utilities/tftp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/system-information-and-utilities/tftp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/system-information-and-utilities/ups.md": {
+   "section": "docs",
+   "source": "docs/system-information-and-utilities/ups.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/system-information-and-utilities/ups.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/user-guides/routing-and-networking-protocols/mpls/index.md": {
+   "section": "docs",
+   "source": "docs/user-guides/routing-and-networking-protocols/mpls/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/user-guides/routing-and-networking-protocols/mpls/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/user-guides/routing-and-networking-protocols/mpls/ldp.md": {
+   "section": "docs",
+   "source": "docs/user-guides/routing-and-networking-protocols/mpls/ldp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/user-guides/routing-and-networking-protocols/mpls/ldp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/user-guides/routing-and-networking-protocols/mpls/vpls/index.md": {
+   "section": "docs",
+   "source": "docs/user-guides/routing-and-networking-protocols/mpls/vpls/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/user-guides/routing-and-networking-protocols/mpls/vpls/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/user-guides/routing-and-networking-protocols/unicast/bfd.md": {
+   "section": "docs",
+   "source": "docs/user-guides/routing-and-networking-protocols/unicast/bfd.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/user-guides/routing-and-networking-protocols/unicast/bfd.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/user-guides/routing-and-networking-protocols/multicast/pim-sm.md": {
+   "section": "docs",
+   "source": "docs/user-guides/routing-and-networking-protocols/multicast/pim-sm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/user-guides/routing-and-networking-protocols/multicast/pim-sm.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/user-guides/routing-and-networking-protocols/unicast/bgp/index.md": {
+   "section": "docs",
+   "source": "docs/user-guides/routing-and-networking-protocols/unicast/bgp/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/user-guides/routing-and-networking-protocols/unicast/bgp/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/user-guides/routing-and-networking-protocols/unicast/evpn.md": {
+   "section": "docs",
+   "source": "docs/user-guides/routing-and-networking-protocols/unicast/evpn.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/user-guides/routing-and-networking-protocols/unicast/evpn.md",
+   "status": "partial",
+   "pendingBlocks": 11
+  },
+  "docs/user-guides/routing-and-networking-protocols/unicast/ospf/index.md": {
+   "section": "docs",
+   "source": "docs/user-guides/routing-and-networking-protocols/unicast/ospf/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/user-guides/routing-and-networking-protocols/unicast/ospf/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/user-guides/routing-and-networking-protocols/unicast/is-is.md": {
+   "section": "docs",
+   "source": "docs/user-guides/routing-and-networking-protocols/unicast/is-is.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/user-guides/routing-and-networking-protocols/unicast/is-is.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/user-guides/routing-and-networking-protocols/unicast/rip.md": {
+   "section": "docs",
+   "source": "docs/user-guides/routing-and-networking-protocols/unicast/rip.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/user-guides/routing-and-networking-protocols/unicast/rip.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/user-guides/routing-and-networking-protocols/vrf.md": {
+   "section": "docs",
+   "source": "docs/user-guides/routing-and-networking-protocols/vrf.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/user-guides/routing-and-networking-protocols/vrf.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/user-guides/routing-and-networking-protocols/unicast/rpki.md": {
+   "section": "docs",
+   "source": "docs/user-guides/routing-and-networking-protocols/unicast/rpki.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/user-guides/routing-and-networking-protocols/unicast/rpki.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/virtual-private-networks/eoip.md": {
+   "section": "docs",
+   "source": "docs/virtual-private-networks/eoip.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/virtual-private-networks/eoip.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/virtual-private-networks/gre.md": {
+   "section": "docs",
+   "source": "docs/virtual-private-networks/gre.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/virtual-private-networks/gre.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/virtual-private-networks/ipip.md": {
+   "section": "docs",
+   "source": "docs/virtual-private-networks/ipip.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/virtual-private-networks/ipip.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/virtual-private-networks/ipsec/index.md": {
+   "section": "docs",
+   "source": "docs/virtual-private-networks/ipsec/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/virtual-private-networks/ipsec/index.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "docs/virtual-private-networks/openvpn.md": {
+   "section": "docs",
+   "source": "docs/virtual-private-networks/openvpn.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/virtual-private-networks/openvpn.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/virtual-private-networks/l2tp/index.md": {
+   "section": "docs",
+   "source": "docs/virtual-private-networks/l2tp/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/virtual-private-networks/l2tp/index.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "docs/virtual-private-networks/pppoe/index.md": {
+   "section": "docs",
+   "source": "docs/virtual-private-networks/pppoe/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/virtual-private-networks/pppoe/index.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "docs/virtual-private-networks/pptp.md": {
+   "section": "docs",
+   "source": "docs/virtual-private-networks/pptp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/virtual-private-networks/pptp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/virtual-private-networks/sstp.md": {
+   "section": "docs",
+   "source": "docs/virtual-private-networks/sstp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/virtual-private-networks/sstp.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "docs/virtual-private-networks/wireguard.md": {
+   "section": "docs",
+   "source": "docs/virtual-private-networks/wireguard.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/virtual-private-networks/wireguard.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/virtual-private-networks/zerotier.md": {
+   "section": "docs",
+   "source": "docs/virtual-private-networks/zerotier.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/virtual-private-networks/zerotier.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/wireless/abgn/capsman/index.md": {
+   "section": "docs",
+   "source": "docs/wireless/abgn/capsman/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/wireless/abgn/capsman/index.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "docs/wireless/abgn/nv2.md": {
+   "section": "docs",
+   "source": "docs/wireless/abgn/nv2.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/wireless/abgn/nv2.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "docs/wireless/w60g/index.md": {
+   "section": "docs",
+   "source": "docs/wireless/w60g/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/wireless/w60g/index.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "docs/wireless/abgn/index.md": {
+   "section": "docs",
+   "source": "docs/wireless/abgn/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/wireless/abgn/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/wireless/wifi/capsman.md": {
+   "section": "docs",
+   "source": "docs/wireless/wifi/capsman.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/wireless/wifi/capsman.md",
+   "status": "partial",
+   "pendingBlocks": 6
+  },
+  "docs/wireless/wifi/index.md": {
+   "section": "docs",
+   "source": "docs/wireless/wifi/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/wireless/wifi/index.md",
+   "status": "partial",
+   "pendingBlocks": 5
+  },
+  "docs/wireless/wifi-ac/index.md": {
+   "section": "docs",
+   "source": "docs/wireless/wifi-ac/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/wireless/wifi-ac/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/wireless/wifi/configuring-easymesh.md": {
+   "section": "docs",
+   "source": "docs/wireless/wifi/configuring-easymesh.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/wireless/wifi/configuring-easymesh.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.25/authentication-authorization-accounting/radius.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/authentication-authorization-accounting/radius.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/authentication-authorization-accounting/radius.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/bridging-and-switching/swos/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/bridging-and-switching/swos/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/bridging-and-switching/swos/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/authentication-authorization-accounting/ppp-aaa.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/authentication-authorization-accounting/ppp-aaa.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/authentication-authorization-accounting/ppp-aaa.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/authentication-authorization-accounting/dot1x.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/authentication-authorization-accounting/dot1x.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/authentication-authorization-accounting/dot1x.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/bridging-and-switching/macsec.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/bridging-and-switching/macsec.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/bridging-and-switching/macsec.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/bridging-and-switching/macvlan.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/bridging-and-switching/macvlan.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/bridging-and-switching/macvlan.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/bridging-and-switching/vlan.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/bridging-and-switching/vlan.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/bridging-and-switching/vlan.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.25/bridging-and-switching/vxlan.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/bridging-and-switching/vxlan.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/bridging-and-switching/vxlan.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/containers/veth.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/containers/veth.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/containers/veth.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/developer-guides/api/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/developer-guides/api/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/developer-guides/api/index.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "versioned_docs/version-7.25/containers/user-guides/container-mosquitto-mqtt-server.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/containers/user-guides/container-mosquitto-mqtt-server.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/containers/user-guides/container-mosquitto-mqtt-server.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.25/cli-reference/interface/ethernet/switch/qos/port/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/cli-reference/interface/ethernet/switch/qos/port/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/cli-reference/interface/ethernet/switch/qos/port/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/diagnostics-monitoring-and-troubleshooting/ping.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/diagnostics-monitoring-and-troubleshooting/ping.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/diagnostics-monitoring-and-troubleshooting/ping.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.25/developer-guides/rest-api.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/developer-guides/rest-api.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/developer-guides/rest-api.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.25/diagnostics-monitoring-and-troubleshooting/snmp.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/diagnostics-monitoring-and-troubleshooting/snmp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/diagnostics-monitoring-and-troubleshooting/snmp.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "versioned_docs/version-7.25/diagnostics-monitoring-and-troubleshooting/torch.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/diagnostics-monitoring-and-troubleshooting/torch.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/diagnostics-monitoring-and-troubleshooting/torch.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/firewall-and-quality-of-service/firewall/layer7.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/firewall-and-quality-of-service/firewall/layer7.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/firewall-and-quality-of-service/firewall/layer7.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/firewall-and-quality-of-service/firewall/nat.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/firewall-and-quality-of-service/firewall/nat.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/firewall-and-quality-of-service/firewall/nat.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.25/firewall-and-quality-of-service/firewall/mangle.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/firewall-and-quality-of-service/firewall/mangle.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/firewall-and-quality-of-service/firewall/mangle.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/firewall-and-quality-of-service/nat-pmp.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/firewall-and-quality-of-service/nat-pmp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/firewall-and-quality-of-service/nat-pmp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/firewall-and-quality-of-service/queues/queue-types/cake.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/firewall-and-quality-of-service/queues/queue-types/cake.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/firewall-and-quality-of-service/queues/queue-types/cake.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "versioned_docs/version-7.25/firewall-and-quality-of-service/upnp.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/firewall-and-quality-of-service/upnp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/firewall-and-quality-of-service/upnp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/firewall-and-quality-of-service/queues/queue-types/pfifo-bfifo.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/firewall-and-quality-of-service/queues/queue-types/pfifo-bfifo.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/firewall-and-quality-of-service/queues/queue-types/pfifo-bfifo.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/getting-started/installation-and-upgrade/routerboot.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/getting-started/installation-and-upgrade/routerboot.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/getting-started/installation-and-upgrade/routerboot.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/getting-started/supout-rif.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/getting-started/supout-rif.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/getting-started/supout-rif.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "versioned_docs/version-7.25/hardware/poe-out.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/hardware/poe-out.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/hardware/poe-out.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "versioned_docs/version-7.25/high-availability-solutions/vrrp.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/high-availability-solutions/vrrp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/high-availability-solutions/vrrp.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "versioned_docs/version-7.25/internet-of-things/gpio/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/internet-of-things/gpio/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/internet-of-things/gpio/index.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.25/internet-of-things/lora/user-guides/chirpstack.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/internet-of-things/lora/user-guides/chirpstack.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/internet-of-things/lora/user-guides/chirpstack.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/internet-of-things/modbus.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/internet-of-things/modbus.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/internet-of-things/modbus.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/internet-of-things/lora/user-guides/the-things-stack.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/internet-of-things/lora/user-guides/the-things-stack.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/internet-of-things/lora/user-guides/the-things-stack.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/internet-of-things/lora/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/internet-of-things/lora/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/internet-of-things/lora/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/internet-of-things/mqtt/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/internet-of-things/mqtt/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/internet-of-things/mqtt/index.md",
+   "status": "partial",
+   "pendingBlocks": 7
+  },
+  "versioned_docs/version-7.25/management-tools/dude.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/management-tools/dude.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/management-tools/dude.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/management-tools/romon.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/management-tools/romon.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/management-tools/romon.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/management-tools/tr-069.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/management-tools/tr-069.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/management-tools/tr-069.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.25/management-tools/ssh.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/management-tools/ssh.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/management-tools/ssh.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/management-tools/webfig.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/management-tools/webfig.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/management-tools/webfig.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/mobile-networking/gps/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/mobile-networking/gps/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/mobile-networking/gps/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/management-tools/winbox.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/management-tools/winbox.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/management-tools/winbox.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "versioned_docs/version-7.25/mobile-networking/lte-5g.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/mobile-networking/lte-5g.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/mobile-networking/lte-5g.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.25/mobile-networking/ppp.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/mobile-networking/ppp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/mobile-networking/ppp.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.25/network-management/dhcp/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/network-management/dhcp/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/network-management/dhcp/index.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.25/network-management/dns.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/network-management/dns.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/network-management/dns.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "versioned_docs/version-7.25/network-management/openflow.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/network-management/openflow.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/network-management/openflow.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "versioned_docs/version-7.25/management-tools/flashfig.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/management-tools/flashfig.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/management-tools/flashfig.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.25/network-management/socks/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/network-management/socks/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/network-management/socks/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/network-management/socks/socksify.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/network-management/socks/socksify.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/network-management/socks/socksify.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/storage/iscsi.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/storage/iscsi.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/storage/iscsi.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/storage/nvme-over-tcp.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/storage/nvme-over-tcp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/storage/nvme-over-tcp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/storage/nfs.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/storage/nfs.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/storage/nfs.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/storage/rsync.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/storage/rsync.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/storage/rsync.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/storage/raid/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/storage/raid/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/storage/raid/index.md",
+   "status": "partial",
+   "pendingBlocks": 5
+  },
+  "versioned_docs/version-7.25/system-information-and-utilities/ntp.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/system-information-and-utilities/ntp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/system-information-and-utilities/ntp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/storage/smb.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/storage/smb.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/storage/smb.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/storage/sshfs.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/storage/sshfs.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/storage/sshfs.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/system-information-and-utilities/tftp.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/system-information-and-utilities/tftp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/system-information-and-utilities/tftp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/system-information-and-utilities/ups.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/system-information-and-utilities/ups.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/system-information-and-utilities/ups.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/mpls/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/mpls/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/user-guides/routing-and-networking-protocols/mpls/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/mpls/ldp.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/mpls/ldp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/user-guides/routing-and-networking-protocols/mpls/ldp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/mpls/vpls/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/mpls/vpls/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/user-guides/routing-and-networking-protocols/mpls/vpls/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/bfd.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/bfd.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/bfd.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/multicast/pim-sm.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/multicast/pim-sm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/user-guides/routing-and-networking-protocols/multicast/pim-sm.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/bgp/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/bgp/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/bgp/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/evpn.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/evpn.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/evpn.md",
+   "status": "partial",
+   "pendingBlocks": 11
+  },
+  "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/ospf/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/ospf/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/ospf/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/rpki.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/rpki.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/rpki.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/is-is.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/is-is.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/is-is.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/vrf.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/vrf.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/user-guides/routing-and-networking-protocols/vrf.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/rip.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/rip.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/user-guides/routing-and-networking-protocols/unicast/rip.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/virtual-private-networks/eoip.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/virtual-private-networks/eoip.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/virtual-private-networks/eoip.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/virtual-private-networks/gre.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/virtual-private-networks/gre.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/virtual-private-networks/gre.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/virtual-private-networks/ipip.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/virtual-private-networks/ipip.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/virtual-private-networks/ipip.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/virtual-private-networks/l2tp/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/virtual-private-networks/l2tp/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/virtual-private-networks/l2tp/index.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.25/virtual-private-networks/ipsec/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/virtual-private-networks/ipsec/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/virtual-private-networks/ipsec/index.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.25/virtual-private-networks/openvpn.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/virtual-private-networks/openvpn.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/virtual-private-networks/openvpn.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/virtual-private-networks/pppoe/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/virtual-private-networks/pppoe/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/virtual-private-networks/pppoe/index.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "versioned_docs/version-7.25/virtual-private-networks/pptp.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/virtual-private-networks/pptp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/virtual-private-networks/pptp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/virtual-private-networks/sstp.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/virtual-private-networks/sstp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/virtual-private-networks/sstp.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "versioned_docs/version-7.25/virtual-private-networks/wireguard.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/virtual-private-networks/wireguard.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/virtual-private-networks/wireguard.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/virtual-private-networks/zerotier.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/virtual-private-networks/zerotier.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/virtual-private-networks/zerotier.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/wireless/abgn/capsman/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/wireless/abgn/capsman/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/wireless/abgn/capsman/index.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.25/wireless/abgn/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/wireless/abgn/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/wireless/abgn/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.25/wireless/w60g/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/wireless/w60g/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/wireless/w60g/index.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "versioned_docs/version-7.25/wireless/abgn/nv2.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/wireless/abgn/nv2.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/wireless/abgn/nv2.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "versioned_docs/version-7.25/wireless/wifi/capsman.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/wireless/wifi/capsman.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/wireless/wifi/capsman.md",
+   "status": "partial",
+   "pendingBlocks": 5
+  },
+  "versioned_docs/version-7.25/wireless/wifi/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/wireless/wifi/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/wireless/wifi/index.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "versioned_docs/version-7.25/wireless/wifi-ac/index.md": {
+   "section": "docs-7.25",
+   "source": "versioned_docs/version-7.25/wireless/wifi-ac/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.25/wireless/wifi-ac/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/bridging-and-switching/macsec.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/bridging-and-switching/macsec.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/bridging-and-switching/macsec.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/bridging-and-switching/macvlan.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/bridging-and-switching/macvlan.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/bridging-and-switching/macvlan.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/authentication-authorization-accounting/ppp-aaa.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/authentication-authorization-accounting/ppp-aaa.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/authentication-authorization-accounting/ppp-aaa.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/bridging-and-switching/swos/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/bridging-and-switching/swos/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/bridging-and-switching/swos/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/authentication-authorization-accounting/radius.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/authentication-authorization-accounting/radius.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/authentication-authorization-accounting/radius.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/authentication-authorization-accounting/dot1x.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/authentication-authorization-accounting/dot1x.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/authentication-authorization-accounting/dot1x.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/bridging-and-switching/vlan.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/bridging-and-switching/vlan.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/bridging-and-switching/vlan.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.24/developer-guides/api/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/developer-guides/api/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/developer-guides/api/index.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "versioned_docs/version-7.24/developer-guides/rest-api.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/developer-guides/rest-api.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/developer-guides/rest-api.md",
+   "status": "partial",
+   "pendingBlocks": 5
+  },
+  "versioned_docs/version-7.24/containers/veth.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/containers/veth.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/containers/veth.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.24/bridging-and-switching/vxlan.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/bridging-and-switching/vxlan.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/bridging-and-switching/vxlan.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/diagnostics-monitoring-and-troubleshooting/ping.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/diagnostics-monitoring-and-troubleshooting/ping.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/diagnostics-monitoring-and-troubleshooting/ping.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "versioned_docs/version-7.24/diagnostics-monitoring-and-troubleshooting/snmp.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/diagnostics-monitoring-and-troubleshooting/snmp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/diagnostics-monitoring-and-troubleshooting/snmp.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "versioned_docs/version-7.24/diagnostics-monitoring-and-troubleshooting/torch.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/diagnostics-monitoring-and-troubleshooting/torch.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/diagnostics-monitoring-and-troubleshooting/torch.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/firewall-and-quality-of-service/nat-pmp.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/firewall-and-quality-of-service/nat-pmp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/firewall-and-quality-of-service/nat-pmp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/firewall-and-quality-of-service/firewall/layer7.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/firewall-and-quality-of-service/firewall/layer7.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/firewall-and-quality-of-service/firewall/layer7.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/firewall-and-quality-of-service/firewall/nat.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/firewall-and-quality-of-service/firewall/nat.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/firewall-and-quality-of-service/firewall/nat.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.24/firewall-and-quality-of-service/firewall/mangle.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/firewall-and-quality-of-service/firewall/mangle.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/firewall-and-quality-of-service/firewall/mangle.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/firewall-and-quality-of-service/queues/queue-types/cake.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/firewall-and-quality-of-service/queues/queue-types/cake.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/firewall-and-quality-of-service/queues/queue-types/cake.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.24/firewall-and-quality-of-service/queues/queue-types/pfifo-bfifo.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/firewall-and-quality-of-service/queues/queue-types/pfifo-bfifo.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/firewall-and-quality-of-service/queues/queue-types/pfifo-bfifo.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/firewall-and-quality-of-service/upnp.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/firewall-and-quality-of-service/upnp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/firewall-and-quality-of-service/upnp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/getting-started/installation-and-upgrade/routerboot.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/getting-started/installation-and-upgrade/routerboot.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/getting-started/installation-and-upgrade/routerboot.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/getting-started/supout-rif.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/getting-started/supout-rif.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/getting-started/supout-rif.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "versioned_docs/version-7.24/hardware/poe-out.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/hardware/poe-out.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/hardware/poe-out.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "versioned_docs/version-7.24/high-availability-solutions/vrrp.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/high-availability-solutions/vrrp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/high-availability-solutions/vrrp.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "versioned_docs/version-7.24/internet-of-things/gpio/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/internet-of-things/gpio/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/internet-of-things/gpio/index.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.24/internet-of-things/lora/user-guides/chirpstack.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/internet-of-things/lora/user-guides/chirpstack.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/internet-of-things/lora/user-guides/chirpstack.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/internet-of-things/lora/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/internet-of-things/lora/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/internet-of-things/lora/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/internet-of-things/modbus.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/internet-of-things/modbus.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/internet-of-things/modbus.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/internet-of-things/lora/user-guides/the-things-stack.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/internet-of-things/lora/user-guides/the-things-stack.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/internet-of-things/lora/user-guides/the-things-stack.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/internet-of-things/mqtt/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/internet-of-things/mqtt/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/internet-of-things/mqtt/index.md",
+   "status": "partial",
+   "pendingBlocks": 7
+  },
+  "versioned_docs/version-7.24/management-tools/ssh.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/management-tools/ssh.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/management-tools/ssh.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "versioned_docs/version-7.24/management-tools/flashfig.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/management-tools/flashfig.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/management-tools/flashfig.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.24/management-tools/romon.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/management-tools/romon.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/management-tools/romon.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/management-tools/dude.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/management-tools/dude.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/management-tools/dude.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/management-tools/tr-069.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/management-tools/tr-069.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/management-tools/tr-069.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.24/management-tools/winbox.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/management-tools/winbox.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/management-tools/winbox.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.24/getting-started/configuration-management/default-configurations.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/getting-started/configuration-management/default-configurations.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/getting-started/configuration-management/default-configurations.md",
+   "status": "partial",
+   "pendingBlocks": 8
+  },
+  "versioned_docs/version-7.24/mobile-networking/ppp.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/mobile-networking/ppp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/mobile-networking/ppp.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.24/management-tools/webfig.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/management-tools/webfig.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/management-tools/webfig.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/mobile-networking/lte-5g.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/mobile-networking/lte-5g.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/mobile-networking/lte-5g.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.24/mobile-networking/gps/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/mobile-networking/gps/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/mobile-networking/gps/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/network-management/dns.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/network-management/dns.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/network-management/dns.md",
+   "status": "partial",
+   "pendingBlocks": 5
+  },
+  "versioned_docs/version-7.24/network-management/dhcp.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/network-management/dhcp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/network-management/dhcp.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "versioned_docs/version-7.24/network-management/openflow.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/network-management/openflow.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/network-management/openflow.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "versioned_docs/version-7.24/network-management/socks/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/network-management/socks/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/network-management/socks/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/network-management/socks/socksify.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/network-management/socks/socksify.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/network-management/socks/socksify.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/storage/nfs.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/storage/nfs.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/storage/nfs.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/storage/btrfs/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/storage/btrfs/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/storage/btrfs/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/network-management/arp.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/network-management/arp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/network-management/arp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/storage/iscsi.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/storage/iscsi.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/storage/iscsi.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/storage/btrfs/raid.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/storage/btrfs/raid.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/storage/btrfs/raid.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/storage/nvme-over-tcp.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/storage/nvme-over-tcp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/storage/nvme-over-tcp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/storage/raid/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/storage/raid/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/storage/raid/index.md",
+   "status": "partial",
+   "pendingBlocks": 5
+  },
+  "versioned_docs/version-7.24/storage/smb.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/storage/smb.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/storage/smb.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/system-information-and-utilities/ntp.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/system-information-and-utilities/ntp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/system-information-and-utilities/ntp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/storage/rsync.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/storage/rsync.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/storage/rsync.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/system-information-and-utilities/ups.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/system-information-and-utilities/ups.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/system-information-and-utilities/ups.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/system-information-and-utilities/tftp.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/system-information-and-utilities/tftp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/system-information-and-utilities/tftp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/mpls/ldp.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/mpls/ldp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/user-guides/routing-and-networking-protocols/mpls/ldp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/mpls/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/mpls/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/user-guides/routing-and-networking-protocols/mpls/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/mpls/vpls/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/mpls/vpls/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/user-guides/routing-and-networking-protocols/mpls/vpls/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/multicast/pim-sm.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/multicast/pim-sm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/user-guides/routing-and-networking-protocols/multicast/pim-sm.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/bgp/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/bgp/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/bgp/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/bfd.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/bfd.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/bfd.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/evpn.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/evpn.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/evpn.md",
+   "status": "partial",
+   "pendingBlocks": 11
+  },
+  "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/is-is.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/is-is.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/is-is.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/ospf/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/ospf/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/ospf/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/rip.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/rip.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/rip.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/vrf.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/vrf.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/user-guides/routing-and-networking-protocols/vrf.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/rpki.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/rpki.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/user-guides/routing-and-networking-protocols/unicast/rpki.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/virtual-private-networks/gre.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/virtual-private-networks/gre.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/virtual-private-networks/gre.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/virtual-private-networks/eoip.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/virtual-private-networks/eoip.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/virtual-private-networks/eoip.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/virtual-private-networks/ipip.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/virtual-private-networks/ipip.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/virtual-private-networks/ipip.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/virtual-private-networks/ipsec/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/virtual-private-networks/ipsec/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/virtual-private-networks/ipsec/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/virtual-private-networks/openvpn.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/virtual-private-networks/openvpn.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/virtual-private-networks/openvpn.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/virtual-private-networks/l2tp/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/virtual-private-networks/l2tp/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/virtual-private-networks/l2tp/index.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "versioned_docs/version-7.24/virtual-private-networks/pptp.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/virtual-private-networks/pptp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/virtual-private-networks/pptp.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/virtual-private-networks/pppoe/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/virtual-private-networks/pppoe/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/virtual-private-networks/pppoe/index.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.24/virtual-private-networks/sstp.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/virtual-private-networks/sstp.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/virtual-private-networks/sstp.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "versioned_docs/version-7.24/virtual-private-networks/zerotier.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/virtual-private-networks/zerotier.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/virtual-private-networks/zerotier.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/wireless/abgn/capsman/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/wireless/abgn/capsman/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/wireless/abgn/capsman/index.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "versioned_docs/version-7.24/virtual-private-networks/wireguard.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/virtual-private-networks/wireguard.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/virtual-private-networks/wireguard.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/wireless/abgn/nv2.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/wireless/abgn/nv2.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/wireless/abgn/nv2.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "versioned_docs/version-7.24/wireless/abgn/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/wireless/abgn/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/wireless/abgn/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/wireless/wifi/capsman.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/wireless/wifi/capsman.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/wireless/wifi/capsman.md",
+   "status": "partial",
+   "pendingBlocks": 5
+  },
+  "versioned_docs/version-7.24/wireless/wifi-ac/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/wireless/wifi-ac/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/wireless/wifi-ac/index.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "versioned_docs/version-7.24/wireless/w60g/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/wireless/w60g/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/wireless/w60g/index.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "versioned_docs/version-7.24/wireless/wifi/index.md": {
+   "section": "docs-7.24",
+   "source": "versioned_docs/version-7.24/wireless/wifi/index.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/version-7.24/wireless/wifi/index.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "hardware/accessories/ftc11xg.md": {
+   "section": "hardware",
+   "source": "hardware/accessories/ftc11xg.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/accessories/ftc11xg.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/accessories/g1040a-60wn.md": {
+   "section": "hardware",
+   "source": "hardware/accessories/g1040a-60wn.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/accessories/g1040a-60wn.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/accessories/ftc21.md": {
+   "section": "hardware",
+   "source": "hardware/accessories/ftc21.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/accessories/ftc21.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/accessories/gesp-plus-poe-in.md": {
+   "section": "hardware",
+   "source": "hardware/accessories/gesp-plus-poe-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/accessories/gesp-plus-poe-in.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/accessories/gpen11.md": {
+   "section": "hardware",
+   "source": "hardware/accessories/gpen11.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/accessories/gpen11.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/accessories/apa-1.md": {
+   "section": "hardware",
+   "source": "hardware/accessories/apa-1.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/accessories/apa-1.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/accessories/ftc21-ups.md": {
+   "section": "hardware",
+   "source": "hardware/accessories/ftc21-ups.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/accessories/ftc21-ups.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/accessories/gpen21.md": {
+   "section": "hardware",
+   "source": "hardware/accessories/gpen21.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/accessories/gpen21.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/accessories/gper.md": {
+   "section": "hardware",
+   "source": "hardware/accessories/gper.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/accessories/gper.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/accessories/rbftc11.md": {
+   "section": "hardware",
+   "source": "hardware/accessories/rbftc11.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/accessories/rbftc11.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/accessories/gperx4.md": {
+   "section": "hardware",
+   "source": "hardware/accessories/gperx4.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/accessories/gperx4.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/data-over-powerlines/pwr-line-ap.md": {
+   "section": "hardware",
+   "source": "hardware/data-over-powerlines/pwr-line-ap.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/data-over-powerlines/pwr-line-ap.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/accessories/mqs.md": {
+   "section": "hardware",
+   "source": "hardware/accessories/mqs.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/accessories/mqs.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/data-over-powerlines/pwr-line-pro.md": {
+   "section": "hardware",
+   "source": "hardware/data-over-powerlines/pwr-line-pro.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/data-over-powerlines/pwr-line-pro.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/accessories/mtp250-series.md": {
+   "section": "hardware",
+   "source": "hardware/accessories/mtp250-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/accessories/mtp250-series.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/accessories/woobm-usb.md": {
+   "section": "hardware",
+   "source": "hardware/accessories/woobm-usb.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/accessories/woobm-usb.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/antennas/mant-series.md": {
+   "section": "hardware",
+   "source": "hardware/antennas/mant-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/antennas/mant-series.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/accessories/up1302c-12.md": {
+   "section": "hardware",
+   "source": "hardware/accessories/up1302c-12.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/accessories/up1302c-12.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/data-over-powerlines/pwr-line.md": {
+   "section": "hardware",
+   "source": "hardware/data-over-powerlines/pwr-line.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/data-over-powerlines/pwr-line.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/ethernet-routers/ccr1009-7g-1c-pc.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/ccr1009-7g-1c-pc.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/ccr1009-7g-1c-pc.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/ccr1009-7g-1c-1s-plus-pc.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/ccr1009-7g-1c-1s-plus-pc.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/ccr1009-7g-1c-1s-plus-pc.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/ccr1009-7g-1c-1s-plus.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/ccr1009-7g-1c-1s-plus.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/ccr1009-7g-1c-1s-plus.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/ccr1016-12g.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/ccr1016-12g.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/ccr1016-12g.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/ccr1016-12s-1s-plus.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/ccr1016-12s-1s-plus.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/ccr1016-12s-1s-plus.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/ccr1036-12g-4s-series.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/ccr1036-12g-4s-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/ccr1036-12g-4s-series.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/ethernet-routers/ccr1036-8g-2s-plus-series.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/ccr1036-8g-2s-plus-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/ccr1036-8g-2s-plus-series.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/ccr2004-16g-2s-plus-pc.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/ccr2004-16g-2s-plus-pc.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/ccr2004-16g-2s-plus-pc.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/ccr2004-16g-2s-plus.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/ccr2004-16g-2s-plus.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/ccr2004-16g-2s-plus.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/ethernet-routers/ccr2004-1g-12s-plus-2xs.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/ccr2004-1g-12s-plus-2xs.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/ccr2004-1g-12s-plus-2xs.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/ccr1072-1g-8s-plus.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/ccr1072-1g-8s-plus.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/ccr1072-1g-8s-plus.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/ethernet-routers/ccr2004-1g-2xs-pcie.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/ccr2004-1g-2xs-pcie.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/ccr2004-1g-2xs-pcie.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/ccr2216-1g-12xs-2xq.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/ccr2216-1g-12xs-2xq.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/ccr2216-1g-12xs-2xq.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/hex-lite.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/hex-lite.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/hex-lite.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/hex-poe-lite.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/hex-poe-lite.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/hex-poe-lite.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/ethernet-routers/ccr2116-12g-4s-plus.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/ccr2116-12g-4s-plus.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/ccr2116-12g-4s-plus.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/ethernet-routers/hex-poe.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/hex-poe.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/hex-poe.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/hex-refresh.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/hex-refresh.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/hex-refresh.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/ethernet-routers/hex-s.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/hex-s.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/hex-s.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/hex.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/hex.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/hex.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/hex-s-2025.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/hex-s-2025.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/hex-s-2025.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/ethernet-routers/l009uigs-rm.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/l009uigs-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/l009uigs-rm.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/powerbox.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/powerbox.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/powerbox.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/rb1100-series.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/rb1100-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/rb1100-series.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/powerbox-pro.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/powerbox-pro.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/powerbox-pro.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/rb2011il-in.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/rb2011il-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/rb2011il-in.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/rb2011il-rm.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/rb2011il-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/rb2011il-rm.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/rb2011ils-in.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/rb2011ils-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/rb2011ils-in.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/rb2011uias-rm.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/rb2011uias-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/rb2011uias-rm.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/rb2011uias-in.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/rb2011uias-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/rb2011uias-in.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/rb3011uias-rm.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/rb3011uias-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/rb3011uias-rm.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/rb5009ug-plus-s-plus-in.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/rb5009ug-plus-s-plus-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/rb5009ug-plus-s-plus-in.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/rb4011igs-plus-rm.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/rb4011igs-plus-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/rb4011igs-plus-rm.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/rb5009upr-plus-s-plus-out.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/rb5009upr-plus-s-plus-out.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/rb5009upr-plus-s-plus-out.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/rb5009upr-plus-s-plus-in.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/rb5009upr-plus-s-plus-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/rb5009upr-plus-s-plus-in.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ethernet-routers/rose-data-server.md": {
+   "section": "hardware",
+   "source": "hardware/ethernet-routers/rose-data-server.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ethernet-routers/rose-data-server.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/ghz-products/cube-60g-ac.md": {
+   "section": "hardware",
+   "source": "hardware/ghz-products/cube-60g-ac.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ghz-products/cube-60g-ac.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/ghz-products/cube-lite60.md": {
+   "section": "hardware",
+   "source": "hardware/ghz-products/cube-lite60.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ghz-products/cube-lite60.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/ghz-products/nray-series.md": {
+   "section": "hardware",
+   "source": "hardware/ghz-products/nray-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ghz-products/nray-series.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "hardware/ghz-products/lhg-lite60.md": {
+   "section": "hardware",
+   "source": "hardware/ghz-products/lhg-lite60.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ghz-products/lhg-lite60.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/ghz-products/wap-60g-series.md": {
+   "section": "hardware",
+   "source": "hardware/ghz-products/wap-60g-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ghz-products/wap-60g-series.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/ghz-products/lhg-60g.md": {
+   "section": "hardware",
+   "source": "hardware/ghz-products/lhg-60g.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ghz-products/lhg-60g.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/ghz-products/wireless-wire-cube-pro-cube-60pro-ac.md": {
+   "section": "hardware",
+   "source": "hardware/ghz-products/wireless-wire-cube-pro-cube-60pro-ac.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ghz-products/wireless-wire-cube-pro-cube-60pro-ac.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "hardware/indoor-wireless/cap-ac.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/cap-ac.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/cap-ac.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/ghz-products/wireless-wire-cube.md": {
+   "section": "hardware",
+   "source": "hardware/ghz-products/wireless-wire-cube.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ghz-products/wireless-wire-cube.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "hardware/ghz-products/wireless-wire-dish.md": {
+   "section": "hardware",
+   "source": "hardware/ghz-products/wireless-wire-dish.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/ghz-products/wireless-wire-dish.md",
+   "status": "partial",
+   "pendingBlocks": 5
+  },
+  "hardware/indoor-wireless/audience.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/audience.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/audience.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/indoor-wireless/cap-ax.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/cap-ax.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/cap-ax.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/indoor-wireless/cap-xl-ac.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/cap-xl-ac.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/cap-xl-ac.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/indoor-wireless/cap.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/cap.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/cap.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/indoor-wireless/cap-lite.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/cap-lite.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/cap-lite.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/indoor-wireless/chateau-pro-ax.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/chateau-pro-ax.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/chateau-pro-ax.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/indoor-wireless/hap-ac-2.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/hap-ac-2.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/hap-ac-2.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/indoor-wireless/hap-ac-lite-tc.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/hap-ac-lite-tc.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/hap-ac-lite-tc.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/indoor-wireless/hap-ac-lite.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/hap-ac-lite.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/hap-ac-lite.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/indoor-wireless/hap-ac3.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/hap-ac3.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/hap-ac3.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/indoor-wireless/hap-ac.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/hap-ac.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/hap-ac.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "hardware/indoor-wireless/hap-ax-lite-lte6.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/hap-ax-lite-lte6.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/hap-ax-lite-lte6.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/indoor-wireless/hap-ax-2.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/hap-ax-2.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/hap-ax-2.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/indoor-wireless/hap-ax-3.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/hap-ax-3.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/hap-ax-3.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/indoor-wireless/hap-ax-lite.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/hap-ax-lite.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/hap-ax-lite.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/indoor-wireless/hap-ax-s.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/hap-ax-s.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/hap-ax-s.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/indoor-wireless/hap-be-lite.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/hap-be-lite.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/hap-be-lite.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/indoor-wireless/hap-be-media.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/hap-be-media.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/hap-be-media.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/indoor-wireless/hap-lite-tc.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/hap-lite-tc.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/hap-lite-tc.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/indoor-wireless/hap-mini.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/hap-mini.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/hap-mini.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/indoor-wireless/hap-lite.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/hap-lite.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/hap-lite.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "hardware/indoor-wireless/l009uigs-2haxd-in.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/l009uigs-2haxd-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/l009uigs-2haxd-in.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/indoor-wireless/rb2011uias-2hnd-in.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/rb2011uias-2hnd-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/rb2011uias-2hnd-in.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/indoor-wireless/rb951-series.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/rb951-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/rb951-series.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/indoor-wireless/hap.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/hap.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/hap.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/indoor-wireless/map.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/map.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/map.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/indoor-wireless/rb4011igs-plus-5hacq2hnd-in.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/rb4011igs-plus-5hacq2hnd-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/rb4011igs-plus-5hacq2hnd-in.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/indoor-wireless/map-lite.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/map-lite.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/map-lite.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/indoor-wireless/wap-ax.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/wap-ax.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/wap-ax.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/indoor-wireless/wsap-ac-lite.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/wsap-ac-lite.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/wsap-ac-lite.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/iot-products/knot-embedded-lte4-ec25-eu-and-kne.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/knot-embedded-lte4-ec25-eu-and-kne.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/knot-embedded-lte4-ec25-eu-and-kne.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/indoor-wireless/wap-series.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/wap-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/wap-series.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/interfaces/s-3553lc20d.md": {
+   "section": "hardware",
+   "source": "hardware/interfaces/s-3553lc20d.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/interfaces/s-3553lc20d.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/iot-products/cme22-2n-bg77.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/cme22-2n-bg77.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/cme22-2n-bg77.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/iot-products/iaqm-thc2pv-w-and-iaqm-thc2pv-g.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/iaqm-thc2pv-w-and-iaqm-thc2pv-g.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/iaqm-thc2pv-w-and-iaqm-thc2pv-g.md",
+   "status": "partial",
+   "pendingBlocks": 5
+  },
+  "hardware/iot-products/knot-embedded-lte4-global-eg25-g-and-kne.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/knot-embedded-lte4-global-eg25-g-and-kne.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/knot-embedded-lte4-global-eg25-g-and-kne.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/indoor-wireless/wap-ac.md": {
+   "section": "hardware",
+   "source": "hardware/indoor-wireless/wap-ac.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/indoor-wireless/wap-ac.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/iot-products/knot-lr8g-kit.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/knot-lr8g-kit.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/knot-lr8g-kit.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/iot-products/knot-lr8-kit.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/knot-lr8-kit.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/knot-lr8-kit.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/iot-products/knot-lr9g-kit.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/knot-lr9g-kit.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/knot-lr9g-kit.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/iot-products/l14g-2ax-bt5-hl9-and-eg800q.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/l14g-2ax-bt5-hl9-and-eg800q.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/l14g-2ax-bt5-hl9-and-eg800q.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/iot-products/knot.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/knot.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/knot.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/iot-products/knot-lr9-kit.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/knot-lr9-kit.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/knot-lr9-kit.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/iot-products/ltap-lr8-lte6-kit.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/ltap-lr8-lte6-kit.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/ltap-lr8-lte6-kit.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/iot-products/ltap-lr8g-lte6-kit.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/ltap-lr8g-lte6-kit.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/ltap-lr8g-lte6-kit.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/iot-products/l14g-2ax-bt5-lr8-and-eg800k.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/l14g-2ax-bt5-lr8-and-eg800k.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/l14g-2ax-bt5-lr8-and-eg800k.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/iot-products/r11e-lr8g.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/r11e-lr8g.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/r11e-lr8g.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/iot-products/r11e-lr9g.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/r11e-lr9g.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/r11e-lr9g.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/iot-products/r11e-lr9.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/r11e-lr9.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/r11e-lr9.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/iot-products/r11e-lr8.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/r11e-lr8.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/r11e-lr8.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/iot-products/ltap-lr8-lte-kit.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/ltap-lr8-lte-kit.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/ltap-lr8-lte-kit.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/iot-products/tg-bt5-in.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/tg-bt5-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/tg-bt5-in.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/iot-products/r11e-lr2.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/r11e-lr2.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/r11e-lr2.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/iot-products/tg-bt5-out.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/tg-bt5-out.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/tg-bt5-out.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/iot-products/tg-lr92.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/tg-lr92.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/tg-lr92.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/iot-products/wap-lr9g-kit.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/wap-lr9g-kit.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/wap-lr9g-kit.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/iot-products/tg-lr82.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/tg-lr82.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/tg-lr82.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/iot-products/wap-lr2-kit.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/wap-lr2-kit.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/wap-lr2-kit.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/iot-products/wap-lr8g-kit.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/wap-lr8g-kit.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/wap-lr8g-kit.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/lte-products/atlgm-and-rg520f-eu.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/atlgm-and-rg520f-eu.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/atlgm-and-rg520f-eu.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/lte-products/cap-lte12-ax.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/cap-lte12-ax.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/cap-lte12-ax.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/iot-products/wap-lr9-kit.md": {
+   "section": "hardware",
+   "source": "hardware/iot-products/wap-lr9-kit.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/iot-products/wap-lr9-kit.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/lte-products/chateau-5g-r16.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/chateau-5g-r16.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/chateau-5g-r16.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/lte-products/atlgm-and-eg18-ea.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/atlgm-and-eg18-ea.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/atlgm-and-eg18-ea.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/lte-products/chateau-5g-r17-ax.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/chateau-5g-r17-ax.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/chateau-5g-r17-ax.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/lte-products/chateau-5g-ax.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/chateau-5g-ax.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/chateau-5g-ax.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/lte-products/chateau-lte18-ax.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/chateau-lte18-ax.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/chateau-lte18-ax.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/lte-products/chateau-lte6-ax.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/chateau-lte6-ax.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/chateau-lte6-ax.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/lte-products/chateau-5g.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/chateau-5g.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/chateau-5g.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/lte-products/chateau-lte12.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/chateau-lte12.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/chateau-lte12.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/lte-products/chateau-lte6-us.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/chateau-lte6-us.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/chateau-lte6-us.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/lte-products/chateau-lte7.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/chateau-lte7.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/chateau-lte7.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/lte-products/chateau-lte6.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/chateau-lte6.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/chateau-lte6.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/lte-products/intercell.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/intercell.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/intercell.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/lte-products/chateau-lte7-ax.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/chateau-lte7-ax.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/chateau-lte7-ax.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/lte-products/audience-lte6-kit.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/audience-lte6-kit.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/audience-lte6-kit.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/lte-products/lamp-5g-r16.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/lamp-5g-r16.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/lamp-5g-r16.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/lte-products/lhg-lte18-kit.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/lhg-lte18-kit.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/lhg-lte18-kit.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/lte-products/hap-ac3-lte6-kit.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/hap-ac3-lte6-kit.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/hap-ac3-lte6-kit.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/lte-products/lhgg-lte7-kit.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/lhgg-lte7-kit.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/lhgg-lte7-kit.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/lte-products/lhg-kit-series.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/lhg-kit-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/lhg-kit-series.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/lte-products/lhg-r.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/lhg-r.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/lhg-r.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/lte-products/ltap-kit-series.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/ltap-kit-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/ltap-kit-series.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/lte-products/ldf-lte6-kit.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/ldf-lte6-kit.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/ldf-lte6-kit.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/lte-products/lhgg-lte6-kit.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/lhgg-lte6-kit.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/lhgg-lte6-kit.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "hardware/lte-products/ltap-mini-kit-series.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/ltap-mini-kit-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/ltap-mini-kit-series.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/lte-products/ltap.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/ltap.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/ltap.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/lte-products/ltap-mini.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/ltap-mini.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/ltap-mini.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/lte-products/sxt-kit-series.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/sxt-kit-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/sxt-kit-series.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/lte-products/sxtsq-embedded-lte4.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/sxtsq-embedded-lte4.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/sxtsq-embedded-lte4.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/lte-products/sxt-r.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/sxt-r.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/sxt-r.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/lte-products/sxtsq-embedded-lte4-global.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/sxtsq-embedded-lte4-global.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/sxtsq-embedded-lte4-global.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/lte-products/r11e-series.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/r11e-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/r11e-series.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/lte-products/wap-ax-lte7-kit.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/wap-ax-lte7-kit.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/wap-ax-lte7-kit.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/lte-products/wap-ac-kit-series.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/wap-ac-kit-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/wap-ac-kit-series.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/routerboard/l11ug-5haxd.md": {
+   "section": "hardware",
+   "source": "hardware/routerboard/l11ug-5haxd.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/routerboard/l11ug-5haxd.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/routerboard/l23ugsr-5haxd2haxd.md": {
+   "section": "hardware",
+   "source": "hardware/routerboard/l23ugsr-5haxd2haxd.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/routerboard/l23ugsr-5haxd2haxd.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/lte-products/wap-lte-kit-2024.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/wap-lte-kit-2024.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/wap-lte-kit-2024.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/lte-products/wap-r-ac.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/wap-r-ac.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/wap-r-ac.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/lte-products/wap-r.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/wap-r.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/wap-r.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/lte-products/wap-kit-series.md": {
+   "section": "hardware",
+   "source": "hardware/lte-products/wap-kit-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/lte-products/wap-kit-series.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/routerboard/rb450gx4.md": {
+   "section": "hardware",
+   "source": "hardware/routerboard/rb450gx4.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/routerboard/rb450gx4.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/routerboard/rb922uags-5hpacd.md": {
+   "section": "hardware",
+   "source": "hardware/routerboard/rb922uags-5hpacd.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/routerboard/rb922uags-5hpacd.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/routerboard/rb911-series.md": {
+   "section": "hardware",
+   "source": "hardware/routerboard/rb911-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/routerboard/rb911-series.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/routerboard/rb912uag-series.md": {
+   "section": "hardware",
+   "source": "hardware/routerboard/rb912uag-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/routerboard/rb912uag-series.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/routerboard/rbm11g.md": {
+   "section": "hardware",
+   "source": "hardware/routerboard/rbm11g.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/routerboard/rbm11g.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/routerboard/rbm33g.md": {
+   "section": "hardware",
+   "source": "hardware/routerboard/rbm33g.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/routerboard/rbm33g.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/crs-series.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs-series.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/crs106-1c-5s.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs106-1c-5s.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs106-1c-5s.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/switches/crs125-24g-1s-series.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs125-24g-1s-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs125-24g-1s-series.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/crs112-8g-4s-in.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs112-8g-4s-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs112-8g-4s-in.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/switches/crs304-4xg-in.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs304-4xg-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs304-4xg-in.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/crs112-8p-4s-in.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs112-8p-4s-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs112-8p-4s-in.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/crs305-1g-4s-plus-in.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs305-1g-4s-plus-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs305-1g-4s-plus-in.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/crs309-1g-8s-plus-in.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs309-1g-8s-plus-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs309-1g-8s-plus-in.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/crs310-1g-5s-4s-plus-in.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs310-1g-5s-4s-plus-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs310-1g-5s-4s-plus-in.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/crs317-1g-16s-plus-rm.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs317-1g-16s-plus-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs317-1g-16s-plus-rm.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/crs320-8p-8b-4s-plus-rm.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs320-8p-8b-4s-plus-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs320-8p-8b-4s-plus-rm.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/crs312-4c-plus-8xg-rm.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs312-4c-plus-8xg-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs312-4c-plus-8xg-rm.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/crs310-8g-plus-2s-plus-in.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs310-8g-plus-2s-plus-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs310-8g-plus-2s-plus-in.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/crs326-24g-2s-plus-in.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs326-24g-2s-plus-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs326-24g-2s-plus-in.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/crs328-24p-4s-plus-rm.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs328-24p-4s-plus-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs328-24p-4s-plus-rm.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/switches/crs326-4c-plus-20g-plus-2q-plus-rm.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs326-4c-plus-20g-plus-2q-plus-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs326-4c-plus-20g-plus-2q-plus-rm.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/switches/crs328-4c-20s-4s-plus-rm.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs328-4c-20s-4s-plus-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs328-4c-20s-4s-plus-rm.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/switches/crs326-24g-2s-plus-rm.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs326-24g-2s-plus-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs326-24g-2s-plus-rm.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/crs326-24s-plus-2q-plus-rm.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs326-24s-plus-2q-plus-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs326-24s-plus-2q-plus-rm.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/crs354-48g-4s-plus-2q-plus-rm.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs354-48g-4s-plus-2q-plus-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs354-48g-4s-plus-2q-plus-rm.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/switches/crs354-48p-4s-plus-2q-plus-rm.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs354-48p-4s-plus-2q-plus-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs354-48p-4s-plus-2q-plus-rm.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/switches/crs418-8p-8g-2s-plus-rm.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs418-8p-8g-2s-plus-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs418-8p-8g-2s-plus-rm.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/switches/crs504-4xq-in.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs504-4xq-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs504-4xq-in.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/switches/crs504-4xq-out.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs504-4xq-out.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs504-4xq-out.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/switches/crs418-8p-8g-2s-plus-5axq2axq-rm.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs418-8p-8g-2s-plus-5axq2axq-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs418-8p-8g-2s-plus-5axq2axq-rm.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/switches/crs510-8xs-2xq-in.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs510-8xs-2xq-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs510-8xs-2xq-in.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/switches/crs520-4xs-16xq-rm.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs520-4xs-16xq-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs520-4xs-16xq-rm.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/switches/crs804-4ddq-hrm.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs804-4ddq-hrm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs804-4ddq-hrm.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/switches/crs812-8ds-2dq-2ddq-rm.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs812-8ds-2dq-2ddq-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs812-8ds-2dq-2ddq-rm.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/switches/css318-16g-2s-plus-in.md": {
+   "section": "hardware",
+   "source": "hardware/switches/css318-16g-2s-plus-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/css318-16g-2s-plus-in.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/switches/css326-24g-2s-plus-rm.md": {
+   "section": "hardware",
+   "source": "hardware/switches/css326-24g-2s-plus-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/css326-24g-2s-plus-rm.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/switches/crs518-16xs-2xq-rm.md": {
+   "section": "hardware",
+   "source": "hardware/switches/crs518-16xs-2xq-rm.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/crs518-16xs-2xq-rm.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/css610-8g-2s-plus-in.md": {
+   "section": "hardware",
+   "source": "hardware/switches/css610-8g-2s-plus-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/css610-8g-2s-plus-in.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/switches/fiberbox-plus.md": {
+   "section": "hardware",
+   "source": "hardware/switches/fiberbox-plus.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/fiberbox-plus.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/gperx6.md": {
+   "section": "hardware",
+   "source": "hardware/switches/gperx6.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/gperx6.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/netfiber-9.md": {
+   "section": "hardware",
+   "source": "hardware/switches/netfiber-9.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/netfiber-9.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/fiberbox.md": {
+   "section": "hardware",
+   "source": "hardware/switches/fiberbox.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/fiberbox.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/switches/css610-8p-2s-plus-in.md": {
+   "section": "hardware",
+   "source": "hardware/switches/css610-8p-2s-plus-in.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/css610-8p-2s-plus-in.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/switches/netpower-15fr.md": {
+   "section": "hardware",
+   "source": "hardware/switches/netpower-15fr.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/netpower-15fr.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/switches/netpower-16p.md": {
+   "section": "hardware",
+   "source": "hardware/switches/netpower-16p.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/netpower-16p.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/switches/netpower-lite-8p.md": {
+   "section": "hardware",
+   "source": "hardware/switches/netpower-lite-8p.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/netpower-lite-8p.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/switches/rb260-series.md": {
+   "section": "hardware",
+   "source": "hardware/switches/rb260-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/rb260-series.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/wireless-systems/basebox-series.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/basebox-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/basebox-series.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/switches/netpower-lite-7r.md": {
+   "section": "hardware",
+   "source": "hardware/switches/netpower-lite-7r.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/switches/netpower-lite-7r.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/wireless-systems/dynadish-6.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/dynadish-6.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/dynadish-6.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/wireless-systems/disc-lite5.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/disc-lite5.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/disc-lite5.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/wireless-systems/disc-lite5-ac.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/disc-lite5-ac.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/disc-lite5-ac.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/wireless-systems/dynadish-5.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/dynadish-5.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/dynadish-5.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/wireless-systems/ldf-2.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/ldf-2.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/ldf-2.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/wireless-systems/ldf-5-series.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/ldf-5-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/ldf-5-series.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/wireless-systems/lhg-5axd.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/lhg-5axd.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/lhg-5axd.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/wireless-systems/lhg-series.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/lhg-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/lhg-series.md",
+   "status": "partial",
+   "pendingBlocks": 4
+  },
+  "hardware/wireless-systems/groove-series.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/groove-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/groove-series.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/wireless-systems/lhg-xl-2.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/lhg-xl-2.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/lhg-xl-2.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/wireless-systems/lhg-xl-5-ax.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/lhg-xl-5-ax.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/lhg-xl-5-ax.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/wireless-systems/lhg-xl-5-ac.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/lhg-xl-5-ac.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/lhg-xl-5-ac.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/wireless-systems/lhg-xl-hp5.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/lhg-xl-hp5.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/lhg-xl-hp5.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/wireless-systems/mantbox-ax-15s.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/mantbox-ax-15s.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/mantbox-ax-15s.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/wireless-systems/lhg-xl-52-ac.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/lhg-xl-52-ac.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/lhg-xl-52-ac.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/wireless-systems/mantbox-52-15s.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/mantbox-52-15s.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/mantbox-52-15s.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/wireless-systems/netbox-5.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/netbox-5.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/netbox-5.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/wireless-systems/netmetal-ax.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/netmetal-ax.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/netmetal-ax.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/wireless-systems/mantbox-series.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/mantbox-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/mantbox-series.md",
+   "status": "partial",
+   "pendingBlocks": 8
+  },
+  "hardware/wireless-systems/netmetal-ac.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/netmetal-ac.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/netmetal-ac.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  },
+  "hardware/wireless-systems/metal-52-ac.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/metal-52-ac.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/metal-52-ac.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/wireless-systems/netbox-5-ax.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/netbox-5-ax.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/netbox-5-ax.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/wireless-systems/omnitik-series.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/omnitik-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/omnitik-series.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/wireless-systems/qrt-5-ac.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/qrt-5-ac.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/qrt-5-ac.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/wireless-systems/netmetal-series.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/netmetal-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/netmetal-series.md",
+   "status": "partial",
+   "pendingBlocks": 5
+  },
+  "hardware/wireless-systems/qrt-5.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/qrt-5.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/qrt-5.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/wireless-systems/sextant-g.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/sextant-g.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/sextant-g.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/wireless-systems/sxtsq-5axd.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/sxtsq-5axd.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/sxtsq-5axd.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/wireless-systems/sxt-6.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/sxt-6.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/sxt-6.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/wireless-systems/qrt-2.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/qrt-2.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/qrt-2.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "hardware/wireless-systems/sxt-2.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/sxt-2.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/sxt-2.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "hardware/wireless-systems/sxtsa-series.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/sxtsa-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/sxtsa-series.md",
+   "status": "partial",
+   "pendingBlocks": 3
+  },
+  "hardware/wireless-systems/sxtsq-series.md": {
+   "section": "hardware",
+   "source": "hardware/wireless-systems/sxtsq-series.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs-hardware/current/wireless-systems/sxtsq-series.md",
+   "status": "partial",
+   "pendingBlocks": 2
+  },
+  "changelog/changelog-2026-11-02.md": {
+   "section": "changelog",
+   "source": "changelog/changelog-2026-11-02.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-blog-changelog/changelog-2026-11-02.md",
+   "status": "partial",
+   "pendingBlocks": 1
+  }
+ },
+ "generated_at": "2026-11-14T15:35:05+00:00"
+}

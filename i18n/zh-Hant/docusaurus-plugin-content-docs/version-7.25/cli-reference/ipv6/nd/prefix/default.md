@@ -1,0 +1,27 @@
+---
+sidebar_key: "cli-reference/ipv6/nd/prefix/default"
+sidebar_position: 1
+title: "default"
+sidebar_label: 'default'
+source: https://manual.mikrotik.com/docs/7.25/cli-reference/ipv6/nd/prefix/default
+captured_at: '2026-11-01T21:24:40+08:00'
+translated_at: "2026-11-11T16:56:12.375Z"
+translation_provider: "opencode-go"
+translation_model: "deepseek-v4.1-flash"
+---
+
+-----------
+
+## ipv6/nd/prefix/default {#ipv6ndprefixdefault}
+**型別：** 設定目錄
+
+<ArgTable c1="引數" c2="型別" c3="描述">
+<ArgTableRow arg="autonomous" typ="bool"></ArgTableRow>
+<ArgTableRow arg="dhcp6-pd-preferred" typ="bool"></ArgTableRow>
+<ArgTableRow arg="valid-lifetime" typ="alt { special: enum (infinity) { infinity:0xffffffff }
+, value: time
+ }"></ArgTableRow>
+<ArgTableRow arg="preferred-lifetime" typ="alt { special: enum (infinity) { infinity:0xffffffff }
+, value: time
+ }"></ArgTableRow>
+</ArgTable>

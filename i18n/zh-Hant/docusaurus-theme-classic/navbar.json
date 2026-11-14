@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "MikroTik",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "MikroTik",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.RouterOS": {
+    "message": "RouterOS",
+    "description": "Navbar item with label RouterOS"
+  },
+  "item.label.Hardware Guides": {
+    "message": "硬體指南"
+  },
+  "item.label.CLI compare": {
+    "message": "CLI 版本對比"
+  },
+  "item.label.Product news": {
+    "message": "產品新聞"
+  },
+  "item.label.Docs Changes": {
+    "message": "文件變更"
+  }
+}

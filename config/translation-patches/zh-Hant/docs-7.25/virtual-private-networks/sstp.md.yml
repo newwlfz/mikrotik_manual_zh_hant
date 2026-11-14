@@ -1,0 +1,12 @@
+# 同 docs/virtual-private-networks/sstp.md：7.25 的 :::info 兩段都還是英文，
+# `verify` 把它們計為未翻譯 admonition。7.25 從 7.24 派生，而 derive 不讀
+# 補丁，所以這裡同時把譯文留在 overlay 裡，供 derive 當作 canonical 記憶複用；
+# 補丁本身則覆蓋以後從英文重建 7.25 的路徑。
+replace:
+  - from: "In P2P setups the network address is the same as the other endpoint's local address."
+    to: "在 P2P 設定中，網路地址將與其他端點的本地地址相同。"
+  - from: "**Important:** As with any other PPP tunnel, SSTP also supports BCP which allows it to bridge the SSTP tunnel with a local interface. For example, in setups where routers are connected to the Internet through ether1 and workstations and laptops are connected to ether2, both local networks are routed through the SSTP client and they are not in the same broadcast domain. BCP is used."
+    to: "**重要：** 與任何其他 PPP 隧道一樣，SSTP 也支援 BCP，這允許它將 SSTP 隧道與本地介面橋接。例如，在路由器透過 ether1 連線到網際網路、工作站和筆記型電腦連線到 ether2 的設定中，兩個本地網路都透過 SSTP 客戶端路由，並且它們不在同一廣播域中。此處使用了 BCP。"
+  # 已經落盤的舊譯法也替換成同一句，保證重複 apply 能收斂。
+  - from: "**重要：** 與任何其他 PPP 隧道一樣，SSTP 也支援 BCP，這允許它將 SSTP 隧道與本地介面橋接。例如，在路由器透過 ether1 連線到網際網路、工作站和筆記型電腦連線到 ether2 的設定中。兩個本地網路都透過 SSTP 客戶端路由，並且它們不在同一廣播域中。此處使用了 BCP。"
+    to: "**重要：** 與任何其他 PPP 隧道一樣，SSTP 也支援 BCP，這允許它將 SSTP 隧道與本地介面橋接。例如，在路由器透過 ether1 連線到網際網路、工作站和筆記型電腦連線到 ether2 的設定中，兩個本地網路都透過 SSTP 客戶端路由，並且它們不在同一廣播域中。此處使用了 BCP。"

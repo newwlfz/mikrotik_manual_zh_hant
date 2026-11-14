@@ -1,0 +1,58 @@
+---
+sidebar_key: "cli-reference/mpls/traffic-eng/tunnel"
+title: "tunnel"
+sidebar_label: 'tunnel'
+source: https://manual.mikrotik.com/docs/cli-reference/mpls/traffic-eng/tunnel
+captured_at: '2026-11-09T11:35:47.715Z'
+translated_at: "2026-11-11T16:56:16.529Z"
+translation_provider: "opencode-go"
+translation_model: "deepseek-v4.1-flash"
+---
+
+-----------
+
+## mpls/traffic-eng/tunnel {#mplstraffic-engtunnel}
+**條件：** !smips
+**型別：** 目錄
+
+<ArgTable c1="標誌" c2="名稱" c3="描述">
+<ArgTableRow arg="X" typ="disabled"></ArgTableRow>
+<ArgTableRow arg="I" typ="invalid"></ArgTableRow>
+<ArgTableRow arg="F" typ="forwarding"></ArgTableRow>
+</ArgTable>
+
+<ArgTable c1="引數" c2="型別" c3="描述">
+<ArgTableRow arg="name" typ="string" mandatory="1"></ArgTableRow>
+<ArgTableRow arg="vrf" typ="enum" unset="1"></ArgTableRow>
+<ArgTableRow arg="from-address" typ="address (flags=46)" unset="1"></ArgTableRow>
+<ArgTableRow arg="to-address" typ="address (flags=46)" mandatory="1"></ArgTableRow>
+<ArgTableRow arg="bandwidth" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="primary-path" typ="enum" unset="1"></ArgTableRow>
+<ArgTableRow arg="secondary-paths" typ="multi { array-id, primary-path: enum
+ }" unset="1"></ArgTableRow>
+<ArgTableRow arg="primary-retry-interval" typ="time" unset="1"></ArgTableRow>
+<ArgTableRow arg="secondary-standby" typ="bool" unset="1"></ArgTableRow>
+<ArgTableRow arg="bandwidth-limit" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="auto-bandwidth-range" typ="composite { min: num [1 .. ]
+, max: num [1 .. ]
+ }" unset="1"></ArgTableRow>
+<ArgTableRow arg="auto-bandwidth-reserve" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="auto-bandwidth-avg-interval" typ="time" unset="1"></ArgTableRow>
+<ArgTableRow arg="auto-bandwidth-update-interval" typ="time" unset="1"></ArgTableRow>
+<ArgTableRow arg="setup-priority" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="holding-priority" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="record-route" typ="bool" unset="1"></ArgTableRow>
+<ArgTableRow arg="affinity-include-all" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="affinity-include-any" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="affinity-exclude" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="reoptimize-interval" typ="time" unset="1"></ArgTableRow>
+</ArgTable>
+
+<ArgTable c1="只讀引數" c2="型別" c3="描述">
+<ArgTableRow arg="session" typ="string"></ArgTableRow>
+<ArgTableRow arg="forwarding-on" typ="string"></ArgTableRow>
+<ArgTableRow arg="primary" typ="string"></ArgTableRow>
+<ArgTableRow arg="primary-pending" typ="string"></ArgTableRow>
+<ArgTableRow arg="secondary" typ="string"></ArgTableRow>
+<ArgTableRow arg="secondary-pending" typ="string"></ArgTableRow>
+</ArgTable>

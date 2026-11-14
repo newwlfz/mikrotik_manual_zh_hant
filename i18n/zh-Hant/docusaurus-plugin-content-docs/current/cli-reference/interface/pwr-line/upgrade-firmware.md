@@ -1,0 +1,22 @@
+---
+sidebar_key: "cli-reference/interface/pwr-line/upgrade-firmware"
+sidebar_position: 8
+title: "upgrade-firmware"
+sidebar_label: 'upgrade-firmware'
+source: https://manual.mikrotik.com/docs/cli-reference/interface/pwr-line/upgrade-firmware
+captured_at: '2026-11-09T11:35:47.715Z'
+translated_at: "2026-11-11T16:56:16.529Z"
+translation_provider: "opencode-go"
+translation_model: "deepseek-v4.1-flash"
+---
+
+-----------
+
+## interface/pwr-line/upgrade-firmware {#interfacepwr-lineupgrade-firmware}
+**系統能力：** pwrlink
+**型別：** 命令
+
+<ArgTable c1="引數" c2="型別" c3="描述">
+<ArgTableRow arg="firmware-file" typ="file"></ArgTableRow>
+<ArgTableRow arg="pib-file" typ="file"></ArgTableRow>
+</ArgTable>

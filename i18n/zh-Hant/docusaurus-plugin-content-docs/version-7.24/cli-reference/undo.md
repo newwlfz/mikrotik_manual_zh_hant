@@ -1,0 +1,16 @@
+---
+sidebar_key: "cli-reference/undo"
+sidebar_position: 38
+title: "undo"
+sidebar_label: "undo"
+source: https://manual.mikrotik.com/docs/7.24/cli-reference/undo
+captured_at: '2026-11-01T21:30:29+08:00'
+translated_at: "2026-11-11T16:55:57.729Z"
+translation_provider: "opencode-go"
+translation_model: "deepseek-v4.1-flash"
+---
+
+-----------
+
+## undo {#undo}
+**型別：** 命令

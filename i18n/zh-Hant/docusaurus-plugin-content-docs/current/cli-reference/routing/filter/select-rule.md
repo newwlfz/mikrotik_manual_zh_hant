@@ -1,0 +1,40 @@
+---
+sidebar_key: "cli-reference/routing/filter/select-rule"
+sidebar_position: 8
+title: "select-rule"
+sidebar_label: 'select-rule'
+source: https://manual.mikrotik.com/docs/cli-reference/routing/filter/select-rule
+captured_at: '2026-11-09T11:35:47.715Z'
+translated_at: "2026-11-11T16:56:16.529Z"
+translation_provider: "opencode-go"
+translation_model: "deepseek-v4.1-flash"
+---
+
+-----------
+
+## routing/filter/select-rule {#routingfilterselect-rule}
+**型別：** 目錄
+
+<ArgTable c1="標誌" c2="名稱" c3="描述">
+<ArgTableRow arg="X" typ="disabled">停用</ArgTableRow>
+<ArgTableRow arg="I" typ="invalid">無效</ArgTableRow>
+</ArgTable>
+
+<ArgTable c1="引數" c2="型別" c3="描述">
+<ArgTableRow arg="chain" typ="enum" unset="1" mandatory="1"></ArgTableRow>
+<ArgTableRow arg="do-where" typ="enum" unset="1"></ArgTableRow>
+<ArgTableRow arg="do-group-num" typ="super { prop: enum (distance | scope | target-scope | dst-len | bgp-weight | bgp-med | bgp-out-med | bgp-local-pref | bgp-path-len | bgp-path-prepend | bgp-path-peer-prepend | bgp-input-local-as | bgp-input-remote-as | bgp-output-local-as | bgp-output-remote-as | ospf-metric | ospf-tag | ospf-ext-metric | ospf-ext-tag | rip-metric | rip-tag | rip-ext-metric | rip-ext-tag)
+, [chain] >enum
+ }" unset="1"></ArgTableRow>
+<ArgTableRow arg="do-group-prfx" typ="super { prop: enum (dst | gw | pref-src | ospf-fwd | ospf-fwd | bgp-input-local-addr | bgp-input-remote-addr | bgp-output-local-addr | bgp-output-remote-addr)
+, [chain] >enum
+ }" unset="1"></ArgTableRow>
+<ArgTableRow arg="do-select-num" typ="super { prop: enum (distance | scope | target-scope | dst-len | bgp-weight | bgp-med | bgp-out-med | bgp-local-pref | bgp-path-len | bgp-path-prepend | bgp-path-peer-prepend | bgp-input-local-as | bgp-input-remote-as | bgp-output-local-as | bgp-output-remote-as | ospf-metric | ospf-tag | ospf-ext-metric | ospf-ext-tag | rip-metric | rip-tag | rip-ext-metric | rip-ext-tag)
+, [compare] >enum (largest-none-best | largest-none-worst | smallest-none-best | smallest-none-worst)
+ }" unset="1"></ArgTableRow>
+<ArgTableRow arg="do-select-prfx" typ="super { prop: enum (dst | gw | pref-src | ospf-fwd | ospf-fwd | bgp-input-local-addr | bgp-input-remote-addr | bgp-output-local-addr | bgp-output-remote-addr)
+, [compare] >enum (largest-none-best | largest-none-worst | smallest-none-best | smallest-none-worst)
+ }" unset="1"></ArgTableRow>
+<ArgTableRow arg="do-take" typ="num"></ArgTableRow>
+<ArgTableRow arg="do-jump" typ="enum"></ArgTableRow>
+</ArgTable>

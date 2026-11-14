@@ -1,0 +1,37 @@
+{
+  "link.title.Docs": {
+    "message": "文件"
+  },
+  "link.title.Community": {
+    "message": "社群"
+  },
+  "link.title.MikroTik": {
+    "message": "MikroTik"
+  },
+  "link.item.label.Introduction": {
+    "message": "簡介"
+  },
+  "link.item.label.CLI Reference": {
+    "message": "CLI 參考"
+  },
+  "link.item.label.Discord": {
+    "message": "Discord",
+    "description": "The label of footer link with label=Discord linking to https://discord.gg/exGj6whYw7"
+  },
+  "link.item.label.Forum": {
+    "message": "論壇"
+  },
+  "link.item.label.MikroTik.com": {
+    "message": "MikroTik.com",
+    "description": "The label of footer link with label=MikroTik.com linking to https://mikrotik.com/"
+  },
+  "link.item.label.Product news": {
+    "message": "產品新聞"
+  },
+  "link.item.label.Docs Changes": {
+    "message": "文件變更"
+  },
+  "copyright": {
+    "message": "版權所有 © 2026 MikroTik。由 Docusaurus 構建。"
+  }
+}

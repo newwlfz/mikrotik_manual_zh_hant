@@ -1,0 +1,96 @@
+# 台湾用词对照表（zh-Hant 专属）
+#
+# 这一层是**地区用词**，不是字形转换：字形（简→繁、裡/裏、為/爲）由引导时的
+# OpenCC s2twp 一次性完成，之后不再重跑；这里只处理「简繁同形、但台湾用法
+# 不同」的词（`程序` → `程式`、`重置` → `重設`、`交換機` → `交換器`）。
+#
+# `from` 写的是**覆盖层里的实际写法**（OpenCC 转换之后的繁体形式），因为本工具
+# 读的是 `i18n/zh-Hant/**`，不是简体原文；`# 简体原文:` 只是给人看的对照。
+#
+# 两个读者：
+#   1. `tools/translate/localize-zh-hant.mjs`（`npm run localize:hant`）按本表
+#      对 `i18n/zh-Hant/**/*.md` 做幂等替换；
+#   2. 人工审阅：`# review` 标注的词对是「有把握但值得再看一眼」的。
+#      改完这里跑一次 `npm run localize:hant` 即生效，不需要模型。
+#
+# 规则：
+#   - `from` 至少两个字；单字差异属于字形层，交给 OpenCC。
+#   - 按 `from` 长度从长到短匹配，长词优先，避免 `資料包` 被 `資料` 先吃掉。
+#   - 只替换正文：代码块、行内代码、链接地址、锚点、MDX 表达式一律跳过。
+#   - 这是 zh-Hant 仓库自己的本地化层，**不是**通用机制：不要搬进 hub 或
+#     `locale:add`。
+#
+# OpenCC 已经稳定换好的词（`客户端`→`客戶端`、`数据包`→`資料包`、`接口`→`介面`、
+# `端口`→`埠`、`默认`→`預設`、`菜单`→`選單` …）不需要列在这里；只有转换后
+# 仍留在正文里的写法才值得占一行。
+terms:
+  - from: 二維碼
+    to: 二維條碼
+    # review
+  - from: 交換機
+    to: 交換器
+    # review
+  - from: 分割槽
+    to: 分割區
+    # review
+    # review
+  - from: 客戶端
+    to: 用戶端
+    # review
+  - from: 客户端
+    to: 用戶端
+    # review
+    # review
+  - from: 快捷鍵
+    to: 快速鍵
+    # review
+  - from: 数据包
+    to: 封包
+    note: packet；台湾网络术语用「封包」。
+  - from: 網絡卡
+    to: 網路卡
+    # review
+  - from: 資料包
+    to: 封包
+    note: packet；台湾网络术语用「封包」。
+  - from: 資料報
+    to: 封包
+    # review
+  - from: 選項卡
+    to: 標籤頁
+    # review
+  - from: 协议
+    to: 協定
+    note: protocol；台湾「協定」。 # review
+  - from: 協議
+    to: 協定
+    note: protocol；台湾「協定」。 # review
+  - from: 托盤
+    to: 系統匣
+    note: Windows 通知区域；台湾称「系統匣」。 # review
+  - from: 调试
+    to: 偵錯
+    # review
+  - from: 除錯
+    to: 偵錯
+    # review
+
+  # --- 已应用到当前覆盖层的规则（语料里暂时 0 命中，但换新内容时需要） ------
+  - from: 程序
+    to: 程式
+    note: 台湾「程式」；`程序` 在台湾指流程/程序步骤，需人工抽查。 # review
+  - from: 重置
+    to: 重設
+    note: 台湾「重設」；OpenCC 不换。 # review
+  - from: 搜索
+    to: 搜尋
+  - from: 接口
+    to: 介面
+    note: interface；OpenCC 词表命中率不稳定，这里兜底。
+  - from: 端口
+    to: 埠
+    note: port；台湾「埠」。
+  - from: 性能
+    to: 效能
+  - from: 兼容
+    to: 相容

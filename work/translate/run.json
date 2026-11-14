@@ -1,0 +1,27 @@
+{
+ "schema": 1,
+ "started_at": "2026-11-14T15:35:04.750Z",
+ "finished_at": "2026-11-14T15:35:05.611Z",
+ "stopped": "done",
+ "limit": null,
+ "budget_minutes": 90,
+ "max_blocks": null,
+ "translated_blocks": 0,
+ "translated_titles": 0,
+ "pages": 0,
+ "block_errors": [],
+ "pending": {
+  "blocks": 0,
+  "titles": 0,
+  "pages": 0,
+  "units": 0,
+  "bySection": {}
+ },
+ "tokens": {
+  "prompt": 0,
+  "completion": 0,
+  "calls": 0
+ },
+ "model": "deepseek-v4.1-flash",
+ "error": null
+}

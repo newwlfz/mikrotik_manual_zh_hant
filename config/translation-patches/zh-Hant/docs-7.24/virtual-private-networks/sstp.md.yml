@@ -1,0 +1,10 @@
+# 7.24 的 sstp :::info 已經是中文，但舊譯把 “For example…” 一句斷成了
+# “……的設定中。兩個……”，讀起來是病句。這裡統一成 7.25/current 使用的新譯法；
+# 同時保留英文 → 中文的替換，以防以後從英文源重建 7.24。
+replace:
+  - from: "In P2P setups the network address is the same as the other endpoint's local address."
+    to: "在 P2P 設定中，網路地址將與其他端點的本地地址相同。"
+  - from: "**Important:** As with any other PPP tunnel, SSTP also supports BCP which allows it to bridge the SSTP tunnel with a local interface. For example, in setups where routers are connected to the Internet through ether1 and workstations and laptops are connected to ether2, both local networks are routed through the SSTP client and they are not in the same broadcast domain. BCP is used."
+    to: "**重要：** 與任何其他 PPP 隧道一樣，SSTP 也支援 BCP，這允許它將 SSTP 隧道與本地介面橋接。例如，在路由器透過 ether1 連線到網際網路、工作站和筆記型電腦連線到 ether2 的設定中，兩個本地網路都透過 SSTP 客戶端路由，並且它們不在同一廣播域中。此處使用了 BCP。"
+  - from: "**重要：** 與任何其他 PPP 隧道一樣，SSTP 也支援 BCP，這允許它將 SSTP 隧道與本地介面橋接。例如，在路由器透過 ether1 連線到網際網路、工作站和筆記型電腦連線到 ether2 的設定中。兩個本地網路都透過 SSTP 客戶端路由，並且它們不在同一廣播域中。此處使用了 BCP。"
+    to: "**重要：** 與任何其他 PPP 隧道一樣，SSTP 也支援 BCP，這允許它將 SSTP 隧道與本地介面橋接。例如，在路由器透過 ether1 連線到網際網路、工作站和筆記型電腦連線到 ether2 的設定中，兩個本地網路都透過 SSTP 客戶端路由，並且它們不在同一廣播域中。此處使用了 BCP。"

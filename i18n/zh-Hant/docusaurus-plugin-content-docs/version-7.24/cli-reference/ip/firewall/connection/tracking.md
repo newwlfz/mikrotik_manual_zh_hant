@@ -1,0 +1,45 @@
+---
+sidebar_key: "cli-reference/ip/firewall/connection/tracking"
+sidebar_position: 1
+title: "tracking"
+sidebar_label: "tracking"
+source: https://manual.mikrotik.com/docs/7.24/cli-reference/ip/firewall/connection/tracking
+captured_at: '2026-11-01T21:28:33+08:00'
+translated_at: "2026-11-11T16:55:57.729Z"
+translation_provider: "opencode-go"
+translation_model: "deepseek-v4.1-flash"
+---
+
+-----------
+
+## ip/firewall/connection/tracking {#ipfirewallconnectiontracking}
+**型別：** 設定目錄
+
+<ArgTable c1="引數" c2="型別" c3="描述">
+<ArgTableRow arg="enabled" typ="enum (auto | yes | no) { auto:0, yes:1, no:2 }"></ArgTableRow>
+<ArgTableRow arg="tcp-syn-sent-timeout" typ="time"></ArgTableRow>
+<ArgTableRow arg="tcp-syn-received-timeout" typ="time"></ArgTableRow>
+<ArgTableRow arg="tcp-established-timeout" typ="time"></ArgTableRow>
+<ArgTableRow arg="tcp-fin-wait-timeout" typ="time"></ArgTableRow>
+<ArgTableRow arg="tcp-close-wait-timeout" typ="time"></ArgTableRow>
+<ArgTableRow arg="tcp-last-ack-timeout" typ="time"></ArgTableRow>
+<ArgTableRow arg="tcp-time-wait-timeout" typ="time"></ArgTableRow>
+<ArgTableRow arg="tcp-close-timeout" typ="time"></ArgTableRow>
+<ArgTableRow arg="tcp-max-retrans-timeout" typ="time"></ArgTableRow>
+<ArgTableRow arg="tcp-unacked-timeout" typ="time"></ArgTableRow>
+<ArgTableRow arg="loose-tcp-tracking" typ="bool"></ArgTableRow>
+<ArgTableRow arg="liberal-tcp-tracking" typ="bool"></ArgTableRow>
+<ArgTableRow arg="udp-timeout" typ="time"></ArgTableRow>
+<ArgTableRow arg="udp-stream-timeout" typ="time"></ArgTableRow>
+<ArgTableRow arg="icmp-timeout" typ="time"></ArgTableRow>
+<ArgTableRow arg="generic-timeout" typ="time"></ArgTableRow>
+</ArgTable>
+
+<ArgTable c1="只讀引數" c2="型別" c3="描述">
+<ArgTableRow arg="active-ipv4" typ="bool"></ArgTableRow>
+<ArgTableRow arg="active-ipv6" typ="bool"></ArgTableRow>
+<ArgTableRow arg="max-entries" typ="num"></ArgTableRow>
+<ArgTableRow arg="total-entries" typ="num"></ArgTableRow>
+<ArgTableRow arg="total-ip4-entries" typ="num"></ArgTableRow>
+<ArgTableRow arg="total-ip6-entries" typ="num"></ArgTableRow>
+</ArgTable>
