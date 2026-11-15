@@ -18,6 +18,7 @@ import {translateBlocks, normalize, splitBlocks, splitBlockSpans, isHorizontalRu
 import {splitAdmonitions, bodyParagraphs} from './admonitions.mjs';
 import {annotateDocumentTerms} from './term-annotate.mjs';
 import {digest, CJK} from './legacy.mjs';
+import {blockHashes, encodeBlockHashes, sha256Hex} from './digest.mjs';
 import {cjkRegression} from './cjk.mjs';
 import {translateCodeComments} from './code-comments.mjs';
 import {sidebarLabelZh} from './labels.mjs';
@@ -652,6 +653,65 @@ export function rebuildFromPairs(sourceBody, translatedBody, lookup = () => null
 }
 
 /**
+ * Rebuild a page whose English source changed, keeping every translation the
+ * new source still supports.
+ *
+ * This is `translate --refresh-changed`'s rebuild primitive. It differs from
+ * `rebuildFromPairs` in one way that matters: instead of pairing two *pages*,
+ * each source block gets two independent lookups, so a changed paragraph can
+ * never inherit the previous paragraph's wording.
+ *
+ *   lookup(block)  the translation memory, keyed by the *new* English block
+ *   reuse(block)   the previous overlay's wording for a block whose English is
+ *                  unchanged (the caller knows that from the per-block
+ *                  fingerprints in `state/translation-state.json`)
+ *
+ * Code, images, rules and MDX components are copied from the English source
+ * exactly as `rebuildFromPairs` does. A block with neither a memory hit nor a
+ * reusable previous translation stays English and is counted in `misses`;
+ * that is what the batch's normal translation queue then picks up.
+ */
+export function rebuildChangedPage(sourceBody, {lookup = () => null, reuse = () => null} = {}) {
+  const spans = splitBlockSpans(sourceBody);
+  const out = [];
+  let cursor = 0;
+  let tmHits = 0;
+  let reused = 0;
+  let misses = 0;
+  for (const span of spans) {
+    // Separators are the source's bytes: indentation, blank lines and trailing
+    // spaces must not change because a page was refreshed.
+    out.push(sourceBody.slice(cursor, span.start));
+    cursor = span.end;
+    const block = span.text;
+    if (isHorizontalRule(block) || span.code || isImageBlock(block)) {
+      out.push(block);
+      continue;
+    }
+    if (isStructuralBlock(block) || isTagOnlyBlock(block)) {
+      out.push(block);
+      continue;
+    }
+    const hit = lookup(block);
+    if (hit && keepsComponents(block, hit)) {
+      out.push(retargetLinks(hit, block));
+      tmHits++;
+      continue;
+    }
+    const previous = reuse(block);
+    if (previous && keepsComponents(block, previous)) {
+      out.push(retargetLinks(previous, block));
+      reused++;
+      continue;
+    }
+    out.push(block);
+    misses++;
+  }
+  out.push(sourceBody.slice(cursor));
+  return {body: out.join(''), tmHits, reused, misses};
+}
+
+/**
  * Restore a translated admonition the block rebuild could not reassemble.
  *
  * A `:::note` that the manual glued to the surrounding prose is one blank-line
@@ -1141,6 +1201,14 @@ export function applySection(section, memory, legacyIndex, {write = true, titleM
     // `apply` pass the guard and write the page.
     if (status === 'partial' || cjkLoss) pendingBlocks += misses;
 
+    const target = overlayPath;
+    const willWrite = !kept && !cjkLoss && write && translatedSomething;
+    // The refresh pass compares these against the source on disk. A page that
+    // keeps its previous bytes (`kept`/`cjkLoss`) must keep its previous
+    // fingerprints too, or the next refresh would treat the old overlay as
+    // current.
+    const rendered = willWrite ? renderDocument(frontMatter, bodyZh) : null;
+
     state.entries[`${section.source}/${rel}`] = {
       section: section.name,
       source: `${section.source}/${rel}`,
@@ -1154,19 +1222,25 @@ export function applySection(section, memory, legacyIndex, {write = true, titleM
       commentHits: comments.hits,
       commentMisses: comments.misses.length,
       title: Boolean(titleZh && titleZh !== englishTitle),
+      ...(rendered
+        ? {
+            source_sha256: sha256Hex(source),
+            overlay_sha256: sha256Hex(rendered),
+            source_blocks: encodeBlockHashes(blockHashes(sourceBody)),
+          }
+        : {}),
       ...(cjkLoss
         ? {preservedReason: 'cjk-regression', cjkOld: cjkLoss.old, cjkNew: cjkLoss.new}
         : {}),
     };
 
-    const target = overlayPath;
     // A preserved page (or one that would lose Chinese) keeps the overlay it
     // already has: no deletion, no write.
     if (kept || cjkLoss) continue;
     if (write && !translatedSomething && fs.existsSync(target)) fs.rmSync(target);
     if (!write || !translatedSomething) continue;
     ensureDir(path.dirname(target));
-    fs.writeFileSync(target, renderDocument(frontMatter, bodyZh));
+    fs.writeFileSync(target, rendered);
   }
 
   state.files = files.length;

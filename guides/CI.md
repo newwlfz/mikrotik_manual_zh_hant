@@ -119,12 +119,19 @@ npm run translate:batch -- --budget-minutes=5 --max-blocks=20 --json
 | 页面级状态 | `state/translation-state.json`（入库） | 每页的 `status`/`pendingBlocks`；`npm run translate` 的 `status` 子命令可读 |
 | 上次批次日志 | `work/translate/run.json`（入库） | 停止原因、`limit`、成本、跑完后的 `pending` |
 | 代码围栏注释 | `work/translate/comment-memory.json`（入库） | 注释只翻一次 |
-| 模型记忆 / 旧 TM / 全局 TM | `work/translate/{model-memory,translation-memory,tm-global.*}.json`（**不入库**） | 约 60 MB 的重建脚手架；`apply` 用，`translate` 不依赖它 |
+| 页面源指纹 | `state/translation-state.json` 的 `source_sha256` / `overlay_sha256` / `source_blocks` | 页面级 sha 判断「英文源是否变了」，块级指纹判断「哪几块变了」；只翻变化的块靠它 |
+| 模型记忆 / 旧 TM | `work/translate/{model-memory,translation-memory}.json`（本仓**没有**，不入库） | 约 45 MB 的重建脚手架。本仓库没有这两份基线，所以 `translate --refresh-changed` 会**跳过并告警**（绝不把整页打回英文），批次仍按旧流程只翻覆盖层里的英文块 |
+| 全局 TM 快照 | `work/translate/tm-global.*.json`（**不入库**） | 纯派生，只由 `npm run translate:tm` 手动生成 |
 
-**为什么大块 TM 不入库**：每次批次都会重写 `model-memory.json`（约 26 MB），入库等于
-每个批次往仓库里塞几十 MB。断点续跑不需要它 —— 覆盖层 + keep-English 锁已经足够；
-`keep-english.json` 首次是在本地从模型记忆播种的（`loadLocks({seedFrom})`），之后由
-批次增量维护。
+**本仓库为什么没有 TM 基线**：`translation-memory.json` 来自旧版语料，本仓从未有过；
+`model-memory.json` 也没有入库。按「无 TM 时跳过 refresh 并告警」的规则，本仓的
+`translate:batch` 带着 `--refresh-changed` 运行时只会打印一行告警，然后照常按覆盖层
+规划、翻译，不会重建页面、不会把中文覆盖层打回英文。要启用「源变更只翻变化块」，
+先把 `zh-Hans` 仓库的两份基线复制过来并改成语种自己的记忆（不能直接用简体译文），
+或等本仓自己的 TM 基线入库。
+
+`zh-Hans` 仓库已入库约 7.4 MB packed 的基线，并每批只追加 `shards/*.json`；
+本仓的对应说明见 `tools/translate/lib/refresh.mjs` 顶部注释。
 
 ### `pending` 怎么算、怎么看
 

@@ -60,6 +60,7 @@ import {
   translateTableLines,
 } from './lib/tm.mjs';
 import {CJK, digest} from './lib/legacy.mjs';
+import {blockHashes, encodeBlockHashes, sha256Hex} from './lib/digest.mjs';
 import {archivedVersions, versionForSection} from '../sync/lib/versions.mjs';
 
 const STATE_FILE = path.join(REPO, 'state/translation-state.json');
@@ -168,7 +169,8 @@ const state = readState();
 
 for (const file of walkMarkdown(sourceBase)) {
   const rel = relative(sourceBase, file);
-  const english = splitFrontMatter(fs.readFileSync(file, 'utf8'));
+  const englishRaw = fs.readFileSync(file, 'utf8');
+  const english = splitFrontMatter(englishRaw);
   const titleEn = readField(english.frontMatter, 'title');
 
   const result = translateBlocks(english.body, (block) => {
@@ -277,6 +279,14 @@ for (const file of walkMarkdown(sourceBase)) {
   const status = result.misses === 0 ? 'full' : 'partial';
   pending.push({rel, status, missing: result.misses});
   const key = `${target.source}/${rel}`;
+  // `Back To Home` gets its explanation on first appearance only; the front
+  // matter is scanned first so the title wins (see `term-annotate.mjs`).
+  {
+    const annotated = annotateDocumentTerms(frontMatter, body.trim());
+    frontMatter = annotated.frontMatter;
+    body = annotated.body;
+  }
+  const rendered = APPLY ? renderDocument(frontMatter, body.trim()) : null;
   state.files[key] = {
     section: target.name,
     source: key,
@@ -285,18 +295,17 @@ for (const file of walkMarkdown(sourceBase)) {
     sha256: digest(english.body),
     status,
     pendingBlocks: result.misses,
+    // The refresh pass compares these against the source on disk; a derived
+    // page is written from the same source, so it records the same
+    // fingerprints as a translated one.
+    source_sha256: sha256Hex(englishRaw),
+    ...(rendered ? {overlay_sha256: sha256Hex(rendered)} : {}),
+    source_blocks: encodeBlockHashes(blockHashes(english.body)),
   };
-  // `Back To Home` gets its explanation on first appearance only; the front
-  // matter is scanned first so the title wins (see `term-annotate.mjs`).
-  {
-    const annotated = annotateDocumentTerms(frontMatter, body.trim());
-    frontMatter = annotated.frontMatter;
-    body = annotated.body;
-  }
   if (APPLY) {
     const overlay = path.join(overlayBase, rel);
     ensureDir(path.dirname(overlay));
-    fs.writeFileSync(overlay, renderDocument(frontMatter, body.trim()));
+    fs.writeFileSync(overlay, rendered);
     stats.written++;
   }
 }

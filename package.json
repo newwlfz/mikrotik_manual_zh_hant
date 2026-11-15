@@ -17,7 +17,7 @@
     "clear": "docusaurus clear",
     "sync": "node tools/sync/index.mjs",
     "translate": "node tools/translate/index.mjs",
-    "translate:batch": "node tools/translate/index.mjs translate --apply --kinds=blocks,titles,comments,images",
+    "translate:batch": "node tools/translate/index.mjs translate --apply --refresh-changed --kinds=blocks,titles,comments,images",
     "translate:pending": "node tools/translate/index.mjs pending",
     "translate:align": "node tools/translate/index.mjs align",
     "translate:align:dry": "node tools/translate/index.mjs align --dry-run",

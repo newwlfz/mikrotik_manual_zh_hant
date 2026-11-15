@@ -89,6 +89,16 @@ import {isLegal} from './lib/legal.mjs';
 import {LLMRequestError} from './lib/llm-config.mjs';
 import {LOCKS_FILE, loadLocks, saveLocks} from './lib/keep-english.mjs';
 import {
+  blockHashes,
+  encodeBlockHashes,
+  formatRefreshSummary,
+  loadRefreshTm,
+  refreshChanged,
+  refreshEnabled,
+  refreshJournal,
+} from './lib/refresh.mjs';
+import {sha256Hex} from './lib/digest.mjs';
+import {
   commentLines,
   classifyComment,
   commentKey,
@@ -156,6 +166,12 @@ const FLAG_OPTIONS = new Set([
   // `pending --json --pages`: also list the pages behind the count, so CI can
   // name them instead of only printing a number.
   'pages',
+  // `translate --refresh-changed`: rebuild the pages whose English source
+  // changed from the translation memory before this batch runs (see
+  // `lib/refresh.mjs`). `--no-refresh-changed` overrides the batch script when
+  // the refresh itself is what a run must not do.
+  'refresh-changed',
+  'no-refresh-changed',
 ]);
 
 /** Commands that translate into a target locale (and therefore validate it). */
@@ -183,11 +199,15 @@ const USAGE =
   'usage: node tools/translate/index.mjs <import-legacy|apply|verify|translate|align|pending|descriptions|comments|tm|admonitions|status> [options]\n' +
   '       [--section=NAME] [--locale=NAME] [--all-locales] [--dry-run] [--adopt] [--allow-cjk-loss] [--limit=N] ...\n' +
   '       translate: [--apply] [--budget-minutes=0.5] [--max-blocks=N] [--kinds=blocks,titles,comments,images] [--json]\n' +
+  '       translate: [--refresh-changed] [--no-refresh-changed]  (rebuild pages whose English source changed)\n' +
   '       align: [--dry-run] [--section=NAME] [--file=REL]  (image references + orphan overlays)\n' +
   'note: an option value must be attached with "=" (--section=hardware); a space is not accepted.\n' +
   'note: --locale defaults to zh-Hans and must not be the source locale (en).\n' +
   'note: verify --all-locales and verify --locale are mutually exclusive.\n' +
   'note: `translate --json` writes progress to stderr so stdout carries exactly one JSON summary.\n' +
+  'note: --refresh-changed is on in `npm run translate:batch`; config/translation.yml#refresh_changed\n' +
+  '      or TRANSLATE_REFRESH_CHANGED=0 turns it off, and --no-refresh-changed overrides one run.\n' +
+  'note: --refresh-changed --dry-run reports the refresh only: nothing is written or translated.\n' +
   'note: --help prints this text and exits 0; an unknown option exits 2.\n' +
   'note: `pending --json --pages` adds a per-page list of what is still English.';
 
@@ -283,6 +303,9 @@ function writeRunJournal({run, pending, client, pendingComments = null}) {
     image_alignment_warning: run.imageWarnings.length,
     image_alignment_warnings: run.imageWarnings,
     script_warnings: run.scriptWarnings,
+    // What the pre-batch refresh did (null when it did not run): stale pages
+    // found, pages rebuilt from the memory, blocks left English for this batch.
+    refresh: run.refresh ?? null,
     pending,
     pending_comments: pendingComments,
     tokens: client
@@ -641,6 +664,10 @@ function planSection(
       rel,
       overlayPath,
       sourceBody,
+      // Kept so `processItem` can record the page's source fingerprint and its
+      // block fingerprints in the state; the refresh pass compares them.
+      sourceRaw: source,
+      sourceSha: sha256Hex(source),
       overlayFm,
       overlayBody,
       parts,
@@ -1096,7 +1123,10 @@ function checkpoint(run, {state, modelMemory = null, force = false, locale = DEF
   }
   const now = Date.now();
   if (modelMemory && (force || now - run.lastMemorySave >= 120000)) {
-    saveModelMemory(modelMemory, {locale});
+    // `writeBaseline: false`: the 26 MB baseline is committed to git and a batch
+    // must not rewrite it (see `lib/model-memory.mjs`); the shard carries the
+    // new keys instead.
+    saveModelMemory(modelMemory, {locale, writeBaseline: false});
     run.lastMemorySave = now;
   }
 }
@@ -1396,7 +1426,8 @@ async function processItem(section, item, client, state, modelMemory, commentMem
   const annotated = annotateDocumentTerms(nextFm, body.trim());
   // Atomic: a kill between "chunk written" and "renamed" leaves the previous
   // translation, never a half page.
-  writeFileAtomic(item.overlayPath, renderDocument(annotated.frontMatter, annotated.body));
+  const rendered = renderDocument(annotated.frontMatter, annotated.body);
+  writeFileAtomic(item.overlayPath, rendered);
 
   const key = `${section.source}/${item.rel}`;
   const remaining = pendingSegments(body).blocks.length;
@@ -1407,7 +1438,18 @@ async function processItem(section, item, client, state, modelMemory, commentMem
     overlay: `${section.overlay}/${item.rel}`,
     status: remaining === 0 ? 'full' : 'partial',
     pendingBlocks: remaining,
+    // The refresh pass compares these against the source on disk. Recording the
+    // overlay's own hash keeps a hand-edited overlay visible instead of
+    // silently treating it as what this pipeline wrote.
+    source_sha256: item.sourceSha,
+    overlay_sha256: sha256Hex(rendered),
+    // Fingerprints of the *source* blocks, so a later refresh can tell which
+    // paragraphs actually changed. Computed here, not in the plan: `pending`
+    // reads the same plan and must not pay for hashing pages it never writes.
+    source_blocks: encodeBlockHashes(blockHashes(item.sourceBody)),
   };
+  delete state.files[key].stale;
+  delete state.files[key].refresh_blocked;
   return {sent, titles, remaining, stopped};
 }
 
@@ -1453,7 +1495,13 @@ async function translateSection(
         sentBlocks += result.sent;
         if (!result.stopped) done++;
         run.pages += 1;
-        checkpoint(run, {state, modelMemory, locale});
+        // `translateSection` has no `locale` parameter of its own: the section
+        // records the locale the overlay tree was derived for. Referring to a
+        // missing `locale` here used to throw after every page, which turned
+        // each successful page into a `skip ... locale is not defined` line and
+        // skipped the per-page checkpoint (the model memory was only flushed at
+        // the end of the batch).
+        checkpoint(run, {state, modelMemory, locale: section.locale || DEFAULT_TARGET_LOCALE});
         progress.write(
           `${section.name}/${item.rel}: ${result.sent} blocks ${result.titles} titles ` +
             `(${item.admonitions} admonitions, ${item.fencedAdmonitions} with code), ` +
@@ -1469,7 +1517,10 @@ async function translateSection(
           process.stderr.write(`fatal ${section.name}/${item.rel}: ${error.message}\n`);
           return;
         }
-        process.stderr.write(`skip ${section.name}/${item.rel}: ${error.message}\n`);
+        process.stderr.write(
+          `skip ${section.name}/${item.rel}: ${error.message}` +
+            `${process.env.TRANSLATE_DEBUG ? `\n${error.stack}` : ''}\n`,
+        );
       }
     }
   }
@@ -1896,6 +1947,51 @@ async function main() {
     const commentMemory = loadCommentMemory();
     preparePlan({locale, modelMemory});
     const run = createRun({budgetMinutes, maxBlocks});
+
+    // Rebuild the pages whose English source changed *before* planning, so the
+    // English blocks a refresh leaves behind are part of this batch's normal
+    // queue. Offline: the memory supplies every translation; nothing here calls
+    // the model. A missing memory is a warning, never a failure — the run then
+    // translates from the overlays as it always did.
+    if (args['refresh-changed'] && !args['no-refresh-changed']) {
+      if (!refreshEnabled()) {
+        progress.write(
+          'refresh: disabled (config/translation.yml#refresh_changed or TRANSLATE_REFRESH_CHANGED)\n',
+        );
+      } else {
+        const {tm, reason} = loadRefreshTm(locale);
+        if (!tm) {
+          process.stderr.write(`warning: refresh skipped: ${reason}; overlays were not touched\n`);
+          progress.write(`refresh: skipped (${reason})\n`);
+        } else {
+          const refresh = refreshChanged({
+            sections: selected,
+            state,
+            tm,
+            only,
+            files,
+            dryRun: Boolean(args['dry-run']),
+            log: (line) => progress.write(`${line}\n`),
+          });
+          run.refresh = refreshJournal(refresh);
+          progress.write(`${formatRefreshSummary(refresh)}\n`);
+          if (refresh.dryRun) {
+            if (args.json) {
+              // `--json` promises one object on stdout even for the read-only
+              // form, so a script never has to guess whether a refresh ran.
+              process.stdout.write(
+                `${JSON.stringify({refresh: refreshJournal(refresh), pending: null, stopped: 'dry-run'})}\n`,
+              );
+            }
+            progress.write(
+              'note: --refresh-changed --dry-run reports the refresh only; nothing was written or translated.\n',
+            );
+            return;
+          }
+          if (refresh.dirty) writeState(state);
+        }
+      }
+    }
 
     if (args['dry-run']) {
       let dryFiles = 0;
@@ -2447,7 +2543,10 @@ async function translateComments(
         }
       };
       await Promise.all(Array.from({length: Number(args.concurrency || 4)}, worker));
-      saveModelMemory(modelMemory, {locale});
+      // `writeBaseline: false`: the 26 MB baseline is committed to git and a batch
+    // must not rewrite it (see `lib/model-memory.mjs`); the shard carries the
+    // new keys instead.
+    saveModelMemory(modelMemory, {locale, writeBaseline: false});
       client.log(USAGE_FILE);
       process.stdout.write(
         `translated ${done} description(s), tokens(prompt/completion)=${client.usage.prompt}/${client.usage.completion}\n`,

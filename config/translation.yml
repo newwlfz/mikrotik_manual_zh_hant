@@ -6,6 +6,17 @@
 # `.env.local.example`). They are never stored in this file.
 schema: 1
 
+# Rebuild a page from its new English source before a batch translates it.
+#
+# `translate --refresh-changed` (what `npm run translate:batch` runs) compares
+# every source page with the fingerprints in `state/translation-state.json`,
+# rebuilds the pages that changed from the translation memory, keeps the wording
+# of the blocks that did not, and leaves only the changed/new blocks for the
+# model. Set this to `false`, or run with `TRANSLATE_REFRESH_CHANGED=0`, to turn
+# the refresh off without editing the workflow; `--no-refresh-changed` does it
+# for one run. See `tools/translate/lib/refresh.mjs`.
+refresh_changed: true
+
 # Provenance label written to an overlay's `translation_provider` front matter.
 # The wire protocol is always OpenAI chat-completions; this only names who
 # produced the wording.

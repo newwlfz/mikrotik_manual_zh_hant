@@ -53,8 +53,14 @@ data/nav/
 #                       batch would re-send them and `pending` never reaches 0
 #   run.json            the last batch's journal (stopped reason, pending, cost)
 #   comment-memory.json code-fence comments, so a comment is translated once
-# Everything else there (~60 MB of TM and model memory) is reconstruction
+# Everything else there (~45 MB of TM and model memory) is reconstruction
 # scaffolding: the overlays under `i18n/` are the source of truth.
+#
+# This repository deliberately has **no** committed TM baseline (`zh-Hans`
+# commits one, see its `work/translate/README.md`): there is no zh-Hant legacy
+# memory to baseline. `translate --refresh-changed` therefore skips itself with
+# a warning here and never rebuilds a page from English; new model wording
+# still reaches git through `shards/` below.
 !/work/translate/keep-english.json
 !/work/translate/run.json
 !/work/translate/comment-memory.json

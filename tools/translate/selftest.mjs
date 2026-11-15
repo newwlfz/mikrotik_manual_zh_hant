@@ -35,7 +35,8 @@ import {
   translateCodeComments,
 } from './lib/code-comments.mjs';
 import {compareFence, untranslatedBlocks} from './lib/verify.mjs';
-import {spawnSync} from 'node:child_process';
+import {spawn, spawnSync} from 'node:child_process';
+import http from 'node:http';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -51,6 +52,7 @@ import {checkScript, feedbackFor} from './lib/script-check.mjs';
 import {commentRules, descriptionPrompt, titlePrompt} from './lib/prompts.mjs';
 import {guardScript} from './lib/script-guard.mjs';
 import {
+  DEFAULT_TARGET_LOCALE,
   REPO,
   localeHasResources,
   overlayRootFor,
@@ -66,6 +68,12 @@ import {
   lookupTitle,
   titleKey,
 } from './lib/tm.mjs';
+import {
+  decodeBlockHashes,
+  refreshChanged,
+  refreshEnabled,
+} from './lib/refresh.mjs';
+import {sha256Hex} from './lib/digest.mjs';
 
 let failed = 0;
 function check(name, actual, expected) {
@@ -898,6 +906,344 @@ try {
   check('shard-merge-order', readModelMemory({workDir: shardWork}).get('block\u0000Bye'), '再见');
 } finally {
   fs.rmSync(shardWork, {recursive: true, force: true});
+}
+
+// ---------------------------------------------------------------------------
+// refresh-changed: a changed source rebuilds only what changed
+// ---------------------------------------------------------------------------
+// The pipeline's promise to a reviewer is narrow and testable: a page whose
+// English changed keeps the wording of every block that did not, and only the
+// changed/new blocks reach the model. These fixtures use a throwaway repository
+// root so nothing here can touch the real `i18n/` tree.
+
+// The overlay root of *this* checkout's default target, not a hard-coded
+// `zh-Hans`: the same test file runs in the zh-Hant repository too.
+const refreshOverlayRoot = overlayRootFor(DEFAULT_TARGET_LOCALE, 'docs');
+const refreshSection = {
+  name: 'docs',
+  source: 'docs',
+  overlay: refreshOverlayRoot,
+  legacy: ['v7.24'],
+  stripVersion: '7.25',
+  locale: DEFAULT_TARGET_LOCALE,
+};
+const refreshRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'translate-refresh-'));
+const refreshDemo = path.join(refreshRoot, 'docs/demo.md');
+const refreshDemoOverlay = path.join(refreshRoot, refreshOverlayRoot, 'demo.md');
+const zhLine = (n) => `第${n}段译文说明这一部分的行为。`;
+const refreshDemoV1 =
+  '---\ntitle: "Refresh demo"\n---\n\n' +
+  'Block one explains the first behaviour.\n\n' +
+  'Block two explains the second behaviour.\n\n' +
+  'Block three explains the third behaviour.\n';
+const refreshDemoV2 =
+  '---\ntitle: "Refresh demo"\n---\n\n' +
+  'Block one explains the first behaviour.\n\n' +
+  'Block two now explains a completely different behaviour of the router.\n\n' +
+  'Block three explains the third behaviour.\n\n' +
+  'Block four is new and explains the fourth behaviour.\n';
+const refreshDemoOverlayV1 =
+  '---\ntitle: "刷新演示"\n---\n\n' + `${zhLine(1)}\n\n${zhLine(2)}\n\n${zhLine(3)}\n`;
+
+try {
+  fs.mkdirSync(path.join(refreshRoot, 'work/translate'), {recursive: true});
+  fs.mkdirSync(path.join(refreshRoot, 'docs'), {recursive: true});
+  fs.mkdirSync(path.dirname(refreshDemoOverlay), {recursive: true});
+  fs.writeFileSync(refreshDemo, refreshDemoV1);
+  fs.writeFileSync(refreshDemoOverlay, refreshDemoOverlayV1);
+  // The memory knows block one only: block three has to come back from the
+  // previous overlay through the per-block fingerprints.
+  const refreshTm = buildGlobalTm({
+    legacy: {'v7.24': {'Block one explains the first behaviour.': zhLine(1)}},
+  });
+  const refreshState = {schema: 1, sections: {}, files: {}};
+
+  let pass = refreshChanged({
+    sections: [refreshSection],
+    state: refreshState,
+    tm: refreshTm,
+    repo: refreshRoot,
+    dryRun: true,
+    log: () => {},
+    warn: () => {},
+  });
+  check('refresh-bootstrap-dry-run-no-rebuild', pass.rebuilt, 0);
+  check('refresh-bootstrap-detected', pass.baselined, 1);
+  pass = refreshChanged({
+    sections: [refreshSection],
+    state: refreshState,
+    tm: refreshTm,
+    repo: refreshRoot,
+    log: () => {},
+    warn: () => {},
+  });
+  check('refresh-bootstrap-records-sha', refreshState.files['docs/demo.md']?.source_sha256, sha256Hex(refreshDemoV1));
+  check(
+    'refresh-bootstrap-records-blocks',
+    decodeBlockHashes(refreshState.files['docs/demo.md']?.source_blocks).length,
+    3,
+  );
+  check('refresh-bootstrap-keeps-overlay', fs.readFileSync(refreshDemoOverlay, 'utf8'), refreshDemoOverlayV1);
+
+  fs.writeFileSync(refreshDemo, refreshDemoV2);
+  const dry = refreshChanged({
+    sections: [refreshSection],
+    state: refreshState,
+    tm: refreshTm,
+    repo: refreshRoot,
+    dryRun: true,
+    log: () => {},
+    warn: () => {},
+  });
+  const rebuiltBody = dry.pages[0]?.body ?? '';
+  check('refresh-detects-source-change', dry.stale, 1);
+  check('refresh-dry-run-writes-nothing', fs.readFileSync(refreshDemoOverlay, 'utf8'), refreshDemoOverlayV1);
+  check('refresh-dry-run-keeps-old-sha', refreshState.files['docs/demo.md']?.source_sha256, sha256Hex(refreshDemoV1));
+  check('refresh-memory-hit-count', dry.tmHits, 1);
+  check('refresh-overlay-reuse-count', dry.reusedOverlay, 1);
+  check('refresh-pending-block-count', dry.pendingBlocks, 2);
+  check('refresh-keeps-unchanged-block-1', rebuiltBody.includes(zhLine(1)), true);
+  check('refresh-keeps-unchanged-block-3', rebuiltBody.includes(zhLine(3)), true);
+  check('refresh-drops-changed-wording', rebuiltBody.includes(zhLine(2)), false);
+  check('refresh-changed-block-is-english', rebuiltBody.includes('completely different'), true);
+  check('refresh-new-block-is-english', rebuiltBody.includes('Block four is new'), true);
+
+  const written = refreshChanged({
+    sections: [refreshSection],
+    state: refreshState,
+    tm: refreshTm,
+    repo: refreshRoot,
+    log: () => {},
+    warn: () => {},
+  });
+  const overlayAfterWrite = fs.readFileSync(refreshDemoOverlay, 'utf8');
+  check('refresh-writes-overlay', overlayAfterWrite.includes('completely different'), true);
+  check('refresh-written-keeps-unchanged', overlayAfterWrite.includes(zhLine(1)) && overlayAfterWrite.includes(zhLine(3)), true);
+  check('refresh-written-state-sha', refreshState.files['docs/demo.md']?.source_sha256, sha256Hex(refreshDemoV2));
+  check('refresh-written-state-pending', refreshState.files['docs/demo.md']?.pendingBlocks, 2);
+  check('refresh-written-state-status', refreshState.files['docs/demo.md']?.status, 'partial');
+  check('refresh-written-state-blocks', decodeBlockHashes(refreshState.files['docs/demo.md']?.source_blocks).length, 4);
+  check('refresh-written-overlay-hash', refreshState.files['docs/demo.md']?.overlay_sha256, sha256Hex(overlayAfterWrite));
+  check('refresh-summary-rebuilt', written.rebuilt, 1);
+  const idempotent = refreshChanged({
+    sections: [refreshSection],
+    state: refreshState,
+    tm: refreshTm,
+    repo: refreshRoot,
+    dryRun: true,
+    log: () => {},
+    warn: () => {},
+  });
+  check('refresh-idempotent-after-write', idempotent.stale, 0);
+
+  // No memory: warn and leave every overlay byte-identical (a rebuild without
+  // memory would replace Chinese with English).
+  const noMemoryWarnings = [];
+  const noMemory = refreshChanged({
+    sections: [refreshSection],
+    state: refreshState,
+    tm: null,
+    repo: refreshRoot,
+    log: () => {},
+    warn: (line) => noMemoryWarnings.push(line),
+  });
+  check('refresh-no-tm-skipped', noMemory.skipped, true);
+  check('refresh-no-tm-warns', noMemoryWarnings.some((line) => /refresh skipped/.test(line)), true);
+  check('refresh-no-tm-writes-nothing', fs.readFileSync(refreshDemoOverlay, 'utf8'), overlayAfterWrite);
+
+  // The 95% guard: an overlay whose wording the memory cannot attribute (no
+  // fingerprints, no reverse entries) must not be replaced by English.
+  const guardSource = path.join(refreshRoot, 'docs/guard.md');
+  const guardOverlay = path.join(refreshRoot, refreshOverlayRoot, 'guard.md');
+  const guardV1 =
+    '---\ntitle: "Guard demo"\n---\n\n' +
+    'The first guarded paragraph explains a behaviour.\n\n' +
+    'The second guarded paragraph explains another behaviour.\n\n' +
+    'The third guarded paragraph explains the last behaviour.\n';
+  const guardV2 =
+    '---\ntitle: "Guard demo"\n---\n\n' +
+    'A completely different first paragraph appears here now.\n\n' +
+    'A completely different second paragraph appears here now.\n\n' +
+    'A completely different third paragraph appears here now.\n';
+  const guardOverlayText = '---\ntitle: "守卫演示"\n---\n\n旧译文一。\n\n旧译文二。\n\n旧译文三。\n';
+  fs.writeFileSync(guardSource, guardV1);
+  fs.writeFileSync(guardOverlay, guardOverlayText);
+  const guardState = {
+    schema: 1,
+    sections: {},
+    files: {'docs/guard.md': {source_sha256: sha256Hex(guardV1)}},
+  };
+  fs.writeFileSync(guardSource, guardV2);
+  const guardWarnings = [];
+  const guarded = refreshChanged({
+    sections: [refreshSection],
+    state: guardState,
+    tm: buildGlobalTm({}),
+    repo: refreshRoot,
+    log: () => {},
+    warn: (line) => guardWarnings.push(line),
+  });
+  check('refresh-cjk-guard-blocks', guarded.blocked, 1);
+  check('refresh-cjk-guard-reports', guardWarnings.some((line) => /refresh-blocked/.test(line)), true);
+  check('refresh-cjk-guard-keeps-overlay', fs.readFileSync(guardOverlay, 'utf8'), guardOverlayText);
+  check('refresh-cjk-guard-keeps-sha', guardState.files['docs/guard.md']?.source_sha256, sha256Hex(guardV1));
+
+  // A page with no baseline whose overlay belongs to another version of the
+  // page is refreshed; a page whose overlay still matches is only baselined.
+  const oldEnglish = Array.from({length: 25}, (_, index) => `Old paragraph ${index + 1} describes an earlier version of the page.`);
+  const oldChinese = Array.from({length: 25}, (_, index) => `第${index + 1}段旧译文说明这一部分的内容。`);
+  const legacy = Object.fromEntries(oldEnglish.map((english, index) => [english, oldChinese[index]]));
+  const drift = path.join(refreshRoot, 'docs/drift.md');
+  const driftOverlay = path.join(refreshRoot, refreshOverlayRoot, 'drift.md');
+  const driftEnglish = Array.from({length: 25}, (_, index) => `Fresh paragraph ${index + 1} describes the rewritten page.`);
+  fs.writeFileSync(drift, `---\ntitle: "Drift demo"\n---\n\n${driftEnglish.join('\n\n')}\n`);
+  fs.writeFileSync(driftOverlay, `---\ntitle: "漂移演示"\n---\n\n${oldChinese.join('\n\n')}\n`);
+  const driftState = {schema: 1, sections: {}, files: {}};
+  const driftTm = buildGlobalTm({legacy: {'v7.24': legacy}});
+  const driftResult = refreshChanged({
+    sections: [refreshSection],
+    state: driftState,
+    tm: driftTm,
+    repo: refreshRoot,
+    dryRun: true,
+    log: () => {},
+    warn: () => {},
+  });
+  const driftPage = driftResult.pages.find((page) => page.key === 'docs/drift.md');
+  check('refresh-bootstrap-detects-foreign-overlay', driftPage?.reason, 'no-baseline');
+
+  process.env.TRANSLATE_REFRESH_CHANGED = '0';
+  check('refresh-disabled-by-env', refreshEnabled(), false);
+  delete process.env.TRANSLATE_REFRESH_CHANGED;
+  check('refresh-enabled-by-policy', refreshEnabled(), true);
+} finally {
+  fs.rmSync(refreshRoot, {recursive: true, force: true});
+}
+
+// ---------------------------------------------------------------------------
+// refresh-changed through the CLI: mock model translates only the new blocks
+// ---------------------------------------------------------------------------
+// The unit fixture proves what the refresh *writes*; this one proves the whole
+// loop — refresh, plan, mock model, write-back — because the batch script is
+// where the two halves meet. The model is a local HTTP server; no real provider
+// is contacted.
+
+const cliRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'translate-refresh-cli-'));
+const cliPage = path.join(cliRoot, 'docs/demo.md');
+const cliOverlay = path.join(cliRoot, refreshOverlayRoot, 'demo.md');
+const cliPageV1 =
+  '---\ntitle: "Demo page"\n---\n\n' +
+  'Block one explains the first behaviour.\n\n' +
+  'Block two explains the second behaviour.\n\n' +
+  'Block three explains the third behaviour.\n';
+const cliPageV2 =
+  '---\ntitle: "Demo page"\n---\n\n' +
+  'Block one explains the first behaviour.\n\n' +
+  'Block two now explains a completely different behaviour of the router.\n\n' +
+  'Block three explains the third behaviour.\n\n' +
+  'Block four is new and explains the fourth behaviour.\n';
+let cliServer = null;
+try {
+  for (const rel of ['tools', 'src', 'config', 'locales.json', 'versions.json']) {
+    fs.cpSync(path.join(REPO, rel), path.join(cliRoot, rel), {recursive: true});
+  }
+  fs.mkdirSync(path.join(cliRoot, 'data/manifests'), {recursive: true});
+  fs.copyFileSync(
+    path.join(REPO, 'data/manifests/current-version.json'),
+    path.join(cliRoot, 'data/manifests/current-version.json'),
+  );
+  fs.symlinkSync(path.join(REPO, 'node_modules'), path.join(cliRoot, 'node_modules'));
+  fs.mkdirSync(path.join(cliRoot, 'state'), {recursive: true});
+  fs.mkdirSync(path.join(cliRoot, 'work/translate'), {recursive: true});
+  fs.writeFileSync(path.join(cliRoot, 'work/translate/translation-memory.json'), JSON.stringify({'v7.24': {}}));
+  fs.mkdirSync(path.dirname(cliPage), {recursive: true});
+  fs.mkdirSync(path.dirname(cliOverlay), {recursive: true});
+  fs.writeFileSync(cliPage, cliPageV1);
+
+  // The reply is derived from the *block text*, not from a request counter:
+  // a retry (or a title prompt) must not renumber the assertions, and a block
+  // that did not change must come back with the same wording.
+  const blockReply = (paragraph) => {
+    let hash = 0;
+    for (const char of paragraph) hash = (hash * 31 + char.codePointAt(0)) >>> 0;
+    return `中文段落${hash.toString(36)}`;
+  };
+  const cliParagraphs = {
+    one: 'Block one explains the first behaviour.',
+    two: 'Block two explains the second behaviour.',
+    twoChanged: 'Block two now explains a completely different behaviour of the router.',
+    three: 'Block three explains the third behaviour.',
+    four: 'Block four is new and explains the fourth behaviour.',
+  };
+  cliServer = http.createServer((request, response) => {
+    let body = '';
+    request.on('data', (chunk) => (body += chunk));
+    request.on('end', () => {
+      const parsed = JSON.parse(body || '{}');
+      const user = (parsed.messages || []).find((message) => message.role === 'user')?.content || '';
+      const pieces = user.split(/\n{2,}/).map((piece) => piece.trim()).filter(Boolean);
+      const reply = pieces.map(blockReply).join('\n\n');
+      response.writeHead(200, {'content-type': 'application/json'});
+      response.end(
+        JSON.stringify({
+          choices: [{message: {content: reply}, finish_reason: 'stop'}],
+          usage: {prompt_tokens: 1, completion_tokens: 1},
+        }),
+      );
+    });
+  });
+  await new Promise((resolve) => cliServer.listen(0, '127.0.0.1', resolve));
+
+  const cliRun = (args) =>
+    new Promise((resolve) => {
+      const child = spawn(process.execPath, ['tools/translate/index.mjs', ...args], {
+        cwd: cliRoot,
+        env: {
+          ...process.env,
+          LLM_BASE_URL: `http://127.0.0.1:${cliServer.address().port}/v1`,
+          LLM_MODEL: 'mock',
+          LLM_API_KEY: 'selftest',
+        },
+      });
+      let stdout = '';
+      let stderr = '';
+      child.stdout.on('data', (chunk) => (stdout += chunk));
+      child.stderr.on('data', (chunk) => (stderr += chunk));
+      child.on('close', (status) => resolve({status, stdout, stderr}));
+    });
+
+  const first = await cliRun(['translate', '--apply', '--refresh-changed', '--kinds=blocks,titles']);
+  check('refresh-cli-first-exit', first.status, 0);
+  check('refresh-cli-first-no-locale-error', /locale is not defined/.test(first.stderr), false);
+  const overlayV1 = fs.readFileSync(cliOverlay, 'utf8');
+  check(
+    'refresh-cli-first-translated',
+    overlayV1.includes(blockReply(cliParagraphs.one)) && !/Block one explains/.test(overlayV1),
+    true,
+  );
+  const stateFile = path.join(cliRoot, 'state/translation-state.json');
+  const stateV1 = JSON.parse(fs.readFileSync(stateFile, 'utf8'));
+  check('refresh-cli-first-state-sha', stateV1.files['docs/demo.md']?.source_sha256, sha256Hex(cliPageV1));
+
+  fs.writeFileSync(cliPage, cliPageV2);
+  const second = await cliRun(['translate', '--apply', '--refresh-changed', '--kinds=blocks,titles']);
+  check('refresh-cli-second-exit', second.status, 0);
+  check('refresh-cli-second-refreshed', /refresh: .*rebuilt=1/.test(second.stdout), true);
+  const overlayV2 = fs.readFileSync(cliOverlay, 'utf8');
+  check('refresh-cli-keeps-unchanged-1', overlayV2.includes(blockReply(cliParagraphs.one)), true);
+  check('refresh-cli-keeps-unchanged-3', overlayV2.includes(blockReply(cliParagraphs.three)), true);
+  check('refresh-cli-drops-changed-wording', overlayV2.includes(blockReply(cliParagraphs.two)), false);
+  check('refresh-cli-translates-changed', overlayV2.includes(blockReply(cliParagraphs.twoChanged)), true);
+  check('refresh-cli-translates-new', overlayV2.includes(blockReply(cliParagraphs.four)), true);
+  check('refresh-cli-no-english-left', /Block (one|two|three|four)[^\n]*/.test(overlayV2), false);
+  const stateV2 = JSON.parse(fs.readFileSync(stateFile, 'utf8'));
+  check('refresh-cli-second-state-sha', stateV2.files['docs/demo.md']?.source_sha256, sha256Hex(cliPageV2));
+  check('refresh-cli-second-state-pending', stateV2.files['docs/demo.md']?.pendingBlocks, 0);
+  const pending = await cliRun(['pending']);
+  check('refresh-cli-pending-zero', /pending=0 blocks=0 titles=0/.test(pending.stdout), true);
+} finally {
+  if (cliServer) cliServer.close();
+  fs.rmSync(cliRoot, {recursive: true, force: true});
 }
 
 process.stdout.write(failed === 0 ? 'selftest: all rules pass\n' : `selftest: ${failed} failure(s)\n`);
