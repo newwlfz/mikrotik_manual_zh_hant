@@ -78,6 +78,9 @@ import {
 import {splitFrontMatter, readField, withFields, renderDocument} from './lib/frontmatter.mjs';
 import {annotateDocumentTerms} from './lib/term-annotate.mjs';
 import {Client, loadConfig, USAGE_FILE} from './lib/provider.mjs';
+import {commentRules, descriptionPrompt, paragraphRetryPrompt, targetLanguage, titlePrompt} from './lib/prompts.mjs';
+import {guardScript} from './lib/script-guard.mjs';
+import {feedbackFor, issueSummary, scriptIssues} from './lib/script-check.mjs';
 import {loadPatch, applyReplacements} from './lib/patches.mjs';
 import {loadModelMemory, saveModelMemory} from './lib/model-memory.mjs';
 import {loadCommentMemory, saveCommentMemory} from './lib/comment-memory.mjs';
@@ -95,6 +98,32 @@ import {
 const STATE_FILE = path.join(REPO, 'state/translation-state.json');
 /** Journal of the last batch run: what it did, how it stopped, what is left. */
 const RUN_FILE = path.join(WORK_DIR, 'run.json');
+
+/**
+ * Output the script check could not fix after its one retry.
+ *
+ * A hit is not an error: the translation is kept (the alternative is English
+ * prose on the page), but it is named in `run.json`, the JSON batch summary and
+ * the CI job summary, so a reviewer sees that `zh-Hant` still came back with
+ * `软件` instead of `軟體`. Silence is what made the OpenCC-derived tree look
+ * intentional.
+ */
+function recordScriptWarning(run, {file, kind, issues, text}) {
+  if (!run) return;
+  run.recordScriptWarning({file, kind, issues, text});
+}
+
+/** Print the run's script warnings (the CLI commands that have no summary). */
+function reportScriptWarnings(run, stream = process.stdout) {
+  if (!run?.scriptWarnings?.length) return;
+  stream.write(`script_warning: ${run.scriptWarnings.length}\n`);
+  for (const warning of run.scriptWarnings.slice(0, 20)) {
+    stream.write(
+      `  script_warning ${warning.kind} ${warning.file ?? '?'}: ` +
+        `${warning.forms.join('；')} — ${warning.sample}\n`,
+    );
+  }
+}
 
 /** True for the versioned RouterOS docs sections (`docs`, `docs-7.24`, ...). */
 function isDocsSection(section) {
@@ -246,6 +275,7 @@ function writeRunJournal({run, pending, client}) {
     translated_titles: run.titles,
     pages: run.pages,
     block_errors: run.blockErrors,
+    script_warnings: run.scriptWarnings,
     pending,
     tokens: client
       ? {prompt: client.usage.prompt, completion: client.usage.completion, calls: client.usage.calls}
@@ -283,6 +313,8 @@ function emitTranslateSummary({run, pending, client, json}) {
     pages: run.pages,
     limit: run.limit,
     block_errors: run.blockErrors,
+    script_warning: run.scriptWarnings.length,
+    script_warnings: run.scriptWarnings,
     tokens: client ? {prompt: client.usage.prompt, completion: client.usage.completion} : null,
     error: run.error
       ? {code: run.error.code ?? null, status: run.error.status ?? null, message: run.error.message}
@@ -295,8 +327,15 @@ function emitTranslateSummary({run, pending, client, json}) {
   progress.write(
     `translated blocks=${payload.translated} titles=${payload.titles} pages=${payload.pages} ` +
       `pending=${payload.pending} stopped=${stopped}${run.limit ? ` limit=${run.limit}` : ''}` +
+      ` script_warning=${payload.script_warning}` +
       `${payload.tokens ? ` tokens(prompt/completion)=${payload.tokens.prompt}/${payload.tokens.completion}` : ''}\n`,
   );
+  for (const warning of run.scriptWarnings.slice(0, 20)) {
+    progress.write(
+      `  script_warning ${warning.kind} ${warning.file ?? '?'}: ` +
+        `${warning.forms.join('；')} — ${warning.sample}\n`,
+    );
+  }
   return payload;
 }
 
@@ -741,18 +780,23 @@ function acceptsUnit(original, translated) {
 }
 
 /** Translate one paragraph; one stricter retry when the reply is unusable. */
-async function translateUnit(unit, client) {
+async function translateUnit(unit, client, {locale = DEFAULT_TARGET_LOCALE, file = null, run = null} = {}) {
+  const guard = (text) =>
+    guardScript({
+      client,
+      text,
+      locale,
+      file,
+      kind: 'admonition',
+      rewrite: (value) => acceptsUnit(unit, value),
+      record: (warning) => recordScriptWarning(run, warning),
+    });
+
   const first = acceptsUnit(unit, await client.chat(unit));
-  if (first) return first;
-  const retry = acceptsUnit(
-    unit,
-    await client.chat(
-      'Translate this documentation paragraph to Simplified Chinese. Output only the translation, ' +
-        'with no explanation, no notes, and without repeating the English: ' +
-        unit,
-    ),
-  );
-  return retry;
+  if (first) return (await guard(first)).text;
+  const retry = acceptsUnit(unit, await client.chat(paragraphRetryPrompt(locale, unit)));
+  if (!retry) return null;
+  return (await guard(retry)).text;
 }
 
 /**
@@ -765,7 +809,7 @@ async function translateUnit(unit, client) {
  * that line when rebuilding, so the unit list is taken from it (by recording
  * the callbacks) instead of duplicating the rule here.
  */
-async function translateFencedAdmonition(block, client) {
+async function translateFencedAdmonition(block, client, context = {}) {
   const parts = splitAdmonitions(block);
   if (!parts) return block;
   const units = [];
@@ -777,7 +821,7 @@ async function translateFencedAdmonition(block, client) {
   const translations = new Map();
   for (const unit of units) {
     if (code.has(unit)) continue;
-    const translated = await translateUnit(unit, client);
+    const translated = await translateUnit(unit, client, context);
     if (translated) translations.set(unit, translated);
   }
   if (translations.size === 0) return block;
@@ -828,6 +872,8 @@ function createRun({budgetMinutes = null, maxBlocks = null} = {}) {
     locked: false,
     /** Blocks whose English came back unchanged although they carry prose. */
     blockErrors: [],
+    /** Answers that still failed the locale's script check after the retry. */
+    scriptWarnings: [],
     lastMemorySave: Date.now(),
   };
   run.room = () => {
@@ -873,6 +919,15 @@ function createRun({budgetMinutes = null, maxBlocks = null} = {}) {
       sample: String(block).replace(/\s+/g, ' ').trim().slice(0, 80),
     });
   };
+  run.recordScriptWarning = ({file, kind, issues, text}) => {
+    if (run.scriptWarnings.length >= 100) return;
+    run.scriptWarnings.push({
+      file: file ?? null,
+      kind: kind || 'block',
+      forms: issueSummary(issues).map((issue) => `${issue.form}→${issue.suggestion}`),
+      sample: String(text ?? '').replace(/\s+/g, ' ').trim().slice(0, 80),
+    });
+  };
   run.stopError = (error) => {
     if (!run.error) run.error = error;
     run.stopped = 'error';
@@ -905,6 +960,10 @@ function checkpoint(run, {state, modelMemory = null, force = false}) {
 async function processItem(section, item, client, state, modelMemory, commentMemory, run) {
   let body = item.overlayBody;
   let sent = 0;
+  // Everything below is locale-specific: `--locale` selects the overlay tree,
+  // the profile (style, terminology, writing system) and the script check.
+  const locale = section.locale || DEFAULT_TARGET_LOCALE;
+  const file = `${section.name}/${item.rel}`;
   let titles = 0;
   let stopped = false;
   let failure = null;
@@ -977,7 +1036,7 @@ async function processItem(section, item, client, state, modelMemory, commentMem
         // A warning with a code sample is translated by unit, never as one block:
         // the sample must stay byte-identical, and the model would rewrite it.
         if (isFencedAdmonition(item.blocks[sent])) {
-          const translated = await translateFencedAdmonition(item.blocks[sent], client);
+          const translated = await translateFencedAdmonition(item.blocks[sent], client, {locale, file, run});
           applyBlock(sent, translated);
           run.countBlocks(1);
           continue;
@@ -993,9 +1052,12 @@ async function processItem(section, item, client, state, modelMemory, commentMem
           batch.push(item.blocks[start + batch.length]);
         }
         const prompt = batch.join('\n\n');
+        let request = prompt;
         let batchPieces = [];
+        let scriptRetried = false;
+        let scriptProblems = [];
         for (let attempt = 0; attempt < 3; attempt++) {
-          const translated = await client.chat(prompt);
+          const translated = await client.chat(request);
           batchPieces = translated.split(/\r?\n[ \t]*\r?\n/).filter((piece) => piece.trim() !== '');
           if (batchPieces.length !== batch.length) {
             // An admonition carries blank lines inside its own container, so the
@@ -1004,10 +1066,36 @@ async function processItem(section, item, client, state, modelMemory, commentMem
             const structured = splitBlocks(translated);
             if (structured.length === batch.length) batchPieces = structured;
           }
-          if (batchPieces.length === batch.length) break;
-          process.stderr.write(
-            `retry ${section.name}/${item.rel}: ${batch.length} blocks -> ${batchPieces.length}\n`,
-          );
+          if (batchPieces.length !== batch.length) {
+            process.stderr.write(
+              `retry ${section.name}/${item.rel}: ${batch.length} blocks -> ${batchPieces.length}\n`,
+            );
+            request = prompt;
+            // This attempt's text is unusable, so it says nothing about the
+            // script; a previous attempt's issues must not be reported here.
+            scriptProblems = [];
+            continue;
+          }
+          // Structure is right; now check the writing system. One feedback retry,
+          // then the answer is kept and reported as `script_warning`.
+          scriptProblems = scriptIssues(translated, locale);
+          if (scriptProblems.length && !scriptRetried) {
+            scriptRetried = true;
+            process.stderr.write(
+              `retry ${section.name}/${item.rel}: ${scriptProblems.length} script issue(s)\n`,
+            );
+            request = `${prompt}\n\n${feedbackFor(locale, scriptProblems)}`;
+            continue;
+          }
+          break;
+        }
+        if (scriptProblems.length) {
+          recordScriptWarning(run, {
+            file,
+            kind: 'block',
+            issues: scriptProblems,
+            text: batchPieces.join('\n\n'),
+          });
         }
         if (batchPieces.length !== batch.length) {
           // A single oversized block (usually a wide table) can come back as many
@@ -1034,7 +1122,7 @@ async function processItem(section, item, client, state, modelMemory, commentMem
           // the block stays pending (it is not written to the keep-English ledger).
           if (normalize(kept) === normalize(block) && hasTranslatableProse(block)) {
             const retried = await client.chat(
-              'Translate this documentation paragraph into Simplified Chinese. ' +
+              `Translate this documentation paragraph into ${targetLanguage(locale)}. ` +
                 'Keep only tool names, product names, commands, paths, code and other ' +
                 'technical identifiers in English; translate every ordinary English ' +
                 'sentence. Output only the translation:\n\n' +
@@ -1068,11 +1156,21 @@ async function processItem(section, item, client, state, modelMemory, commentMem
       if (cached) {
         fields.description = cached;
       } else {
-        const value = await client.chat(
-          `Translate this documentation description to Simplified Chinese. Output only the translation: "${sourceDescription}"`,
-        );
-        const clean = value.split('\n')[0].trim().replace(/^["']|["']$/g, '');
-        if (clean && clean !== sourceDescription) {
+        const firstLine = (text) => {
+          const line = String(text ?? '').split('\n')[0].trim().replace(/^["']|["']$/g, '');
+          return line && line !== sourceDescription ? line : null;
+        };
+        const guarded = await guardScript({
+          client,
+          text: firstLine(await client.chat(descriptionPrompt(locale, sourceDescription))) || '',
+          locale,
+          file,
+          kind: 'description',
+          rewrite: (retry) => firstLine(retry),
+          record: (warning) => recordScriptWarning(run, warning),
+        });
+        const clean = firstLine(guarded.text);
+        if (clean) {
           fields.description = clean;
           if (modelMemory) modelMemory.set(`description:${sourceDescription}`, clean);
         }
@@ -1081,16 +1179,21 @@ async function processItem(section, item, client, state, modelMemory, commentMem
     if (item.needsTitle && mayContinue()) {
       // Titles follow the page contract in `config/translation-rules.yml`
       // (title-terminology): product and protocol names stay English, the words
-      // around them are Chinese. Without the rule the model translated `IGMP
-      // Proxy` to `IGMP 代理` but also `Routing Decision` to `路由决策` only by
-      // luck, and `EXP bit` came back as `EXP 位` on some runs.
-      const value = await client.chat(
-        `Translate this page title to Simplified Chinese. Output only the title: "${item.title}"\n` +
-          'Keep product names, protocol names and technical proper nouns in English ' +
-          '(RouterOS, MikroTik, OSPF, BGP, MPLS, IGMP, EXP, ROSv6/ROSv7, IPv4, VPN, CAPsMAN). ' +
-          'Translate connectives and ordinary words: use 和 for "and" and 代理 for "Proxy".',
-      );
-      const clean = value.split('\n')[0].trim().replace(/^["']|["']$/g, '') || item.title;
+      // around them are translated. The wording hints (`and` → `和`, `Proxy` →
+      // `代理`, `與` for Traditional Chinese) come from the locale profile, not
+      // from this call site.
+      const firstLine = (text) =>
+        String(text ?? '').split('\n')[0].trim().replace(/^["']|["']$/g, '') || item.title;
+      const guarded = await guardScript({
+        client,
+        text: firstLine(await client.chat(titlePrompt(locale, item.title))),
+        locale,
+        file,
+        kind: 'title',
+        rewrite: firstLine,
+        record: (warning) => recordScriptWarning(run, warning),
+      });
+      const clean = firstLine(guarded.text);
       if (normalize(clean) === normalize(item.title)) {
         // The model answered with the English title, so the title is a proper
         // noun (`MACsec`, `VLAN`, `SXT-2`): remember that decision instead of
@@ -1641,7 +1744,7 @@ async function main() {
 
     let client = null;
     try {
-      client = new Client(loadConfig());
+      client = new Client(loadConfig(locale));
     } catch (error) {
       // Missing/invalid LLM_* configuration still reports what is left, so CI
       // can say "pending N, stopped error" instead of dying with a stack trace.
@@ -1840,19 +1943,6 @@ function tmKeyOf(english) {
   return `block\u0000${normalize(english)}`;
 }
 
-const COMMENT_SYSTEM = `You translate comments that appear inside MikroTik RouterOS documentation code examples, from English to Simplified Chinese.
-
-The input is a JSON array of comment lines, in page order. Return ONLY a JSON array of the same length, with the translation of each line at the same index.
-
-Rules, in order of importance:
-1. One output string per input string. Never merge two lines or split one line.
-2. Never translate identifiers: RouterOS commands and menu paths, parameter and property names, enum values, IP and MAC addresses, version numbers, file names, URLs, e-mail addresses, and quoted strings that are values rather than prose.
-3. Keep product and protocol names as written: RouterOS, MikroTik, CAPsMAN, MQTT, RADIUS, OpenVPN, WireGuard, IPsec, BGP, DHCPv6.
-4. Keep the source line's trailing punctuation, especially a trailing colon.
-5. Do not add numbering, quotation marks, Markdown or explanation.
-6. Several lines may be one sentence split by the author: translate each as its own fragment without inventing context the other lines do not provide.
-7. Output Simplified Chinese only; keep a line in English if it is a value, a keyword or a command.`;
-
 function parseCommentArray(raw, count) {
   let text = String(raw ?? '').trim();
   const fenced = /^```(?:json)?\s*([\s\S]*?)\s*```$/.exec(text);
@@ -1979,7 +2069,11 @@ function batchJobs(jobs, maxLines = 30) {
   return batches;
 }
 
-async function translateComments(sections, client, {limit, batch, dryRun, only}) {
+async function translateComments(
+  sections,
+  client,
+  {limit, batch, dryRun, only, locale = DEFAULT_TARGET_LOCALE, run = null},
+) {
   const memory = loadCommentMemory();
   const jobs = commentPlan(sections, memory, {only});
   const totalLines = jobs.reduce((sum, job) => sum + job.lines.length, 0);
@@ -2015,11 +2109,16 @@ async function translateComments(sections, client, {limit, batch, dryRun, only})
   let done = 0;
   let translated = 0;
   let skipped = 0;
+  // The comment path used to pass its own system prompt and therefore lost the
+  // locale profile (style, terminology) and the script guard. It now starts
+  // from `client.system(text)` — profile and relevant glossary included — and
+  // appends the JSON envelope rules.
+  const systemFor = (text) => `${client.system(text)}\n\n${commentRules(locale)}`;
   for (const batch of batches) {
     const prompt = JSON.stringify(batch.lines.map((line) => line.text), null, 1);
     let pieces = null;
     for (let attempt = 0; attempt < 2 && !pieces; attempt++) {
-      const raw = await client.chat(prompt, {system: COMMENT_SYSTEM});
+      const raw = await client.chat(prompt, {system: systemFor(prompt)});
       pieces = parseCommentArray(raw, batch.lines.length);
       if (!pieces) {
         process.stderr.write(`retry comment batch ${done + 1}: expected ${batch.lines.length} lines\n`);
@@ -2029,6 +2128,32 @@ async function translateComments(sections, client, {limit, batch, dryRun, only})
       skipped += batch.lines.length;
       process.stderr.write(`skip comment batch ${done + 1} (${batch.lines.length} lines): unparseable\n`);
       continue;
+    }
+    // Comments are prose too: a `zh-Hant` batch that comes back in Simplified
+    // characters is retried once with the offending forms quoted back, then
+    // kept and reported.
+    const issues = pieces.flatMap((piece) => scriptIssues(piece, locale));
+    if (issues.length) {
+      const retriedPrompt =
+        `${prompt}\n\n${feedbackFor(locale, issues)}\n` +
+        'Return the same JSON array, one corrected line per input line.';
+      const retried = parseCommentArray(
+        await client.chat(retriedPrompt, {system: systemFor(prompt)}),
+        batch.lines.length,
+      );
+      const remaining = retried
+        ? retried.flatMap((piece) => scriptIssues(piece, locale))
+        : issues;
+      if (remaining.length) {
+        const first = batch.jobs[0];
+        recordScriptWarning(run, {
+          file: `${first.section}/${first.rel}`,
+          kind: 'comment',
+          issues: remaining,
+          text: (retried || pieces).join(' | '),
+        });
+      }
+      if (retried) pieces = retried;
     }
     batch.lines.forEach((line, index) => memory.set(line.key, pieces[index]));
     saveCommentMemory(memory);
@@ -2047,8 +2172,9 @@ async function translateComments(sections, client, {limit, batch, dryRun, only})
 }
 
   if (command === 'descriptions') {
-    const config = loadConfig();
+    const config = loadConfig(locale);
     const client = new Client(config);
+    const run = createRun({});
     const modelMemory = loadModelMemory();
     const tm = createGlobalTm({workDir: WORK_DIR, locale});
     const prompts = [];
@@ -2074,11 +2200,21 @@ async function translateComments(sections, client, {limit, batch, dryRun, only})
       const worker = async () => {
         while (queue.length) {
           const english = queue.shift();
-          const value = await client.chat(
-            `Translate this documentation description to Simplified Chinese. Output only the translation: "${english}"`,
-          );
-          const clean = value.split('\n')[0].trim().replace(/^["']|["']$/g, '');
-          if (clean && clean !== english) modelMemory.set(`description:${english}`, clean);
+          const firstLine = (text) => {
+            const line = String(text ?? '').split('\n')[0].trim().replace(/^["']|["']$/g, '');
+            return line && line !== english ? line : null;
+          };
+          const guarded = await guardScript({
+            client,
+            text: firstLine(await client.chat(descriptionPrompt(locale, english))) || '',
+            locale,
+            file: 'descriptions',
+            kind: 'description',
+            rewrite: (retry) => firstLine(retry),
+            record: (warning) => recordScriptWarning(run, warning),
+          });
+          const clean = firstLine(guarded.text);
+          if (clean) modelMemory.set(`description:${english}`, clean);
           done++;
           if (done % 25 === 0) process.stdout.write(`  ${done}/${prompts.length}\n`);
         }
@@ -2089,22 +2225,27 @@ async function translateComments(sections, client, {limit, batch, dryRun, only})
       process.stdout.write(
         `translated ${done} description(s), tokens(prompt/completion)=${client.usage.prompt}/${client.usage.completion}\n`,
       );
+      reportScriptWarnings(run);
     }
     return;
   }
 
   if (command === 'comments') {
-    const config = loadConfig();
+    const config = loadConfig(locale);
     const client = new Client(config);
+    const run = createRun({});
     const summary = await translateComments(selected, client, {
       limit: args.limit,
       dryRun: Boolean(args['dry-run']),
       only: args.file,
+      locale,
+      run,
     });
     if (!args['dry-run']) {
       client.log(USAGE_FILE);
       const mem = loadCommentMemory();
       process.stdout.write(`comment-memory=${mem.size}\n`);
+      reportScriptWarnings(run);
     }
     void summary;
     return;

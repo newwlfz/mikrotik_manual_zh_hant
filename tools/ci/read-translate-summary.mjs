@@ -94,7 +94,7 @@ function main() {
     // The batch died before printing anything (missing LLM_* variables, a crash
     // in the plan). Empty pending keeps the build job from running.
     process.stderr.write('no JSON summary in the translation log; treating as "unknown, not done"\n');
-    process.stdout.write('pending=\nstopped=unknown\ntranslated=0\nllm_error=\n');
+    process.stdout.write('pending=\nstopped=unknown\ntranslated=0\nllm_error=\nscript_warning=\n');
     return;
   }
   const llmError = llmStatusOf(summary);
@@ -102,6 +102,11 @@ function main() {
   process.stdout.write(`stopped=${summary.stopped}\n`);
   process.stdout.write(`translated=${summary.translated}\n`);
   process.stdout.write(`llm_error=${llmError ?? ''}\n`);
+  // `script_warning` never gates the build; it is reported, not enforced. The
+  // count is an output so a workflow can annotate the run without parsing the
+  // summary JSON again.
+  const scriptWarnings = Array.isArray(summary.script_warnings) ? summary.script_warnings : [];
+  process.stdout.write(`script_warning=${scriptWarnings.length}\n`);
   const stepSummary = process.env.GITHUB_STEP_SUMMARY;
   if (stepSummary) {
     const limit = summary.limit ? `，触发上限 \`${summary.limit}\`` : '';
@@ -123,6 +128,7 @@ function main() {
       `| 剩余待译单位 | ${summary.pending} |`,
       `| 停止原因 | \`${summary.stopped}\`${limit} |`,
       ...errorRow,
+      `| 字形/地区用词告警 | ${scriptWarnings.length} |`,
       '',
       summary.pending === 0
         ? '全部译完：继续构建并部署。'
@@ -131,6 +137,25 @@ function main() {
           : '仍有待译内容：本次不构建，线上保持旧版；下一次 push 或手动触发继续。',
       '',
     ];
+    if (scriptWarnings.length) {
+      // Not a gate: the page was written anyway. Listing it here is the only
+      // place a reviewer sees that `zh-Hant` still came back with `软件`.
+      lines.push(
+        '### 字形/地区用词告警（`script_warning`）',
+        '',
+        '| 类型 | 文件 | 词形 | 片段 |',
+        '| --- | --- | --- | --- |',
+        ...scriptWarnings.slice(0, 20).map(
+          (warning) =>
+            `| \`${warning.kind ?? ''}\` | ${String(warning.file ?? '').replace(/\|/g, '\\|')} | ` +
+            `${(warning.forms ?? []).join('、').replace(/\|/g, '\\|')} | ` +
+            `${String(warning.sample ?? '').replace(/\|/g, '\\|').slice(0, 80)} |`,
+        ),
+        '',
+        scriptWarnings.length > 20 ? `… 另有 ${scriptWarnings.length - 20} 条，见 \`work/translate/run.json\`。` : '',
+        '',
+      );
+    }
     fs.appendFileSync(stepSummary, `${lines.join('\n')}\n`);
   }
 }
