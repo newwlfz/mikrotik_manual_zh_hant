@@ -1,15 +1,24 @@
 {
  "schema": 1,
- "started_at": "2026-11-15T08:50:19.623Z",
- "finished_at": "2026-11-15T08:54:17.853Z",
+ "started_at": "2026-11-15T09:39:42.443Z",
+ "finished_at": "2026-11-15T09:39:44.852Z",
  "stopped": "done",
  "limit": null,
  "budget_minutes": 90,
  "max_blocks": null,
- "translated_blocks": 89,
- "translated_titles": 2,
- "pages": 2,
+ "translated_blocks": 0,
+ "translated_titles": 0,
+ "translated_comments": 0,
+ "pages": 0,
  "block_errors": [],
+ "image_alignment_warning": 1,
+ "image_alignment_warnings": [
+  {
+   "file": "docs-7.24/bridging-and-switching/user-guides/controller-bridge-and-port-extender.md",
+   "reason": "html-image-in-source",
+   "url": "/img/0b036b8c3624374c.webp"
+  }
+ ],
  "script_warnings": [],
  "pending": {
   "blocks": 0,
@@ -20,10 +29,11 @@
   "pageList": [],
   "pageListTruncated": false
  },
+ "pending_comments": 0,
  "tokens": {
-  "prompt": 17784,
-  "completion": 44606,
-  "calls": 14
+  "prompt": 0,
+  "completion": 0,
+  "calls": 0
  },
  "model": "deepseek-v4.1-flash",
  "error": null
