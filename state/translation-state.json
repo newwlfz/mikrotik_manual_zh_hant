@@ -3683,7 +3683,21 @@
    "overlay": "i18n/zh-Hant/docusaurus-plugin-content-blog-changelog/changelog-2026-11-02.md",
    "status": "partial",
    "pendingBlocks": 1
+  },
+  "docs/wireless/wifi/configuring-meshpoint.md": {
+   "section": "docs",
+   "source": "docs/wireless/wifi/configuring-meshpoint.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/wireless/wifi/configuring-meshpoint.md",
+   "status": "full",
+   "pendingBlocks": 0
+  },
+  "docs/firewall-and-quality-of-service/firewall/raw.md": {
+   "section": "docs",
+   "source": "docs/firewall-and-quality-of-service/firewall/raw.md",
+   "overlay": "i18n/zh-Hant/docusaurus-plugin-content-docs/current/firewall-and-quality-of-service/firewall/raw.md",
+   "status": "full",
+   "pendingBlocks": 0
   }
  },
- "generated_at": "2026-11-15T06:07:41+00:00"
+ "generated_at": "2026-11-15T08:54:17+00:00"
 }

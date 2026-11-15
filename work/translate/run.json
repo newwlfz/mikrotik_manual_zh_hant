@@ -1,14 +1,14 @@
 {
  "schema": 1,
- "started_at": "2026-11-15T06:07:41.126Z",
- "finished_at": "2026-11-15T06:07:42.310Z",
+ "started_at": "2026-11-15T08:50:19.623Z",
+ "finished_at": "2026-11-15T08:54:17.853Z",
  "stopped": "done",
  "limit": null,
  "budget_minutes": 90,
  "max_blocks": null,
- "translated_blocks": 0,
- "translated_titles": 0,
- "pages": 0,
+ "translated_blocks": 89,
+ "translated_titles": 2,
+ "pages": 2,
  "block_errors": [],
  "script_warnings": [],
  "pending": {
@@ -21,9 +21,9 @@
   "pageListTruncated": false
  },
  "tokens": {
-  "prompt": 0,
-  "completion": 0,
-  "calls": 0
+  "prompt": 17784,
+  "completion": 44606,
+  "calls": 14
  },
  "model": "deepseek-v4.1-flash",
  "error": null
