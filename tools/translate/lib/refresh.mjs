@@ -73,6 +73,7 @@ import {
 } from './digest.mjs';
 import {normalize, splitBlockSpans, splitBlocks, isTranslatableProse} from './blocks.mjs';
 import {
+  isPreservedOverlay,
   rebuildChangedPage,
   repairAdmonitions,
   restoreStructureBlocks,
@@ -448,6 +449,7 @@ export function refreshChanged({
     unchanged: 0,
     baselined: 0,
     created: 0,
+    preserved: 0,
     stale: 0,
     rebuilt: 0,
     blocked: 0,
@@ -498,6 +500,13 @@ export function refreshChanged({
             source_blocks: encodeBlockHashes(blockHashes(sourceBody)),
           };
         }
+        continue;
+      }
+
+      if (isPreservedOverlay(rel, section.name)) {
+        // A reviewed overlay listed in `config/translation.yml` is never
+        // regenerated, by `apply` or by this refresh.
+        summary.preserved += 1;
         continue;
       }
 
@@ -641,7 +650,7 @@ export function formatRefreshSummary(summary) {
   return (
     `refresh: scanned=${summary.scanned} stale=${summary.stale} ` +
     `rebuilt=${summary.rebuilt} blocked=${summary.blocked} ` +
-    `baselined=${summary.baselined} created=${summary.created} ` +
+    `baselined=${summary.baselined} created=${summary.created} preserved=${summary.preserved} ` +
     `tm=${summary.tmHits} reused=${summary.reusedOverlay} pending=${summary.pendingBlocks}` +
     `${summary.dryRun ? ' (dry-run)' : ''}`
   );
