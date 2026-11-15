@@ -58,6 +58,12 @@ data/nav/
 !/work/translate/keep-english.json
 !/work/translate/run.json
 !/work/translate/comment-memory.json
+# Incremental memory shards. `model-memory.json` is 26 MB and stays ignored, so
+# a CI batch can only get its new translations into git through these small
+# append-only files. `node tools/translate` writes them; the loading code merges
+# them over the big file (shards win). See `work/translate/README.md` § 七.
+!/work/translate/shards/
+!/work/translate/shards/*.json
 
 # Per-run journal of `npm run sync -- --update`; regenerated on every run.
 state/update-run.json

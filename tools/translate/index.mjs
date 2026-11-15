@@ -82,7 +82,7 @@ import {commentRules, descriptionPrompt, paragraphRetryPrompt, targetLanguage, t
 import {guardScript} from './lib/script-guard.mjs';
 import {feedbackFor, issueSummary, scriptIssues} from './lib/script-check.mjs';
 import {loadPatch, applyReplacements} from './lib/patches.mjs';
-import {loadModelMemory, saveModelMemory} from './lib/model-memory.mjs';
+import {loadModelMemory, readModelMemory, saveModelMemory} from './lib/model-memory.mjs';
 import {loadCommentMemory, saveCommentMemory} from './lib/comment-memory.mjs';
 import {buildGlobalTm, createGlobalTm, lookupBlock, lookupTitle, serializeTm, saveTm} from './lib/tm.mjs';
 import {isLegal} from './lib/legal.mjs';
@@ -944,7 +944,7 @@ function createRun({budgetMinutes = null, maxBlocks = null} = {}) {
  * A runner killed between two checkpoints loses at most one page of memory, not
  * the work already on disk.
  */
-function checkpoint(run, {state, modelMemory = null, force = false}) {
+function checkpoint(run, {state, modelMemory = null, force = false, locale = DEFAULT_TARGET_LOCALE}) {
   writeState(state);
   if (run.locked) {
     saveLocks({blocks: run.locks, titles: run.titleLocks});
@@ -952,7 +952,7 @@ function checkpoint(run, {state, modelMemory = null, force = false}) {
   }
   const now = Date.now();
   if (modelMemory && (force || now - run.lastMemorySave >= 120000)) {
-    saveModelMemory(modelMemory);
+    saveModelMemory(modelMemory, {locale});
     run.lastMemorySave = now;
   }
 }
@@ -1300,7 +1300,7 @@ async function translateSection(
         sentBlocks += result.sent;
         if (!result.stopped) done++;
         run.pages += 1;
-        checkpoint(run, {state, modelMemory});
+        checkpoint(run, {state, modelMemory, locale});
         progress.write(
           `${section.name}/${item.rel}: ${result.sent} blocks ${result.titles} titles ` +
             `(${item.admonitions} admonitions, ${item.fencedAdmonitions} with code), ` +
@@ -1782,7 +1782,7 @@ async function main() {
 
     // Everything a later run reads back: the overlays are already on disk (one
     // atomic write per page), this flushes the small state next to them.
-    checkpoint(run, {state, modelMemory, force: true});
+    checkpoint(run, {state, modelMemory, force: true, locale});
     if (client) client.log(USAGE_FILE);
     const pending = countPending(sections);
     writeRunJournal({run, pending, client});
@@ -2220,7 +2220,7 @@ async function translateComments(
         }
       };
       await Promise.all(Array.from({length: Number(args.concurrency || 4)}, worker));
-      saveModelMemory(modelMemory);
+      saveModelMemory(modelMemory, {locale});
       client.log(USAGE_FILE);
       process.stdout.write(
         `translated ${done} description(s), tokens(prompt/completion)=${client.usage.prompt}/${client.usage.completion}\n`,
@@ -2255,9 +2255,8 @@ async function translateComments(
     const legacy = JSON.parse(
       fs.readFileSync(path.join(WORK_DIR, 'translation-memory.json'), 'utf8'),
     );
-    const modelRaw = JSON.parse(
-      fs.readFileSync(path.join(WORK_DIR, 'model-memory.json'), 'utf8'),
-    );
+    // The big file is optional in CI; shards carry the committed translations.
+    const modelRaw = Object.fromEntries(readModelMemory({workDir: WORK_DIR}));
     const commentPath = path.join(WORK_DIR, 'comment-memory.json');
     const commentRaw = fs.existsSync(commentPath)
       ? JSON.parse(fs.readFileSync(commentPath, 'utf8'))
