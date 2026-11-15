@@ -56,7 +56,7 @@ import {
   writeFileAtomic,
 } from './lib/paths.mjs';
 import {buildLegacy, buildTitleIndex, CJK} from './lib/legacy.mjs';
-import {applySection, cleanupOverlay, alignImages, rewriteLinks, rebaseImages} from './lib/apply.mjs';
+import {applySection, cleanupOverlay, alignImages, imageAlignment, images, isPreservedOverlay, rewriteLinks, rebaseImages} from './lib/apply.mjs';
 import {resourceLocales, verify} from './lib/verify.mjs';
 import {
   normalize,
@@ -163,6 +163,7 @@ const LOCALE_COMMANDS = new Set([
   'import-legacy',
   'apply',
   'translate',
+  'align',
   'descriptions',
   'comments',
   'admonitions',
@@ -179,9 +180,10 @@ class UsageError extends Error {
 }
 
 const USAGE =
-  'usage: node tools/translate/index.mjs <import-legacy|apply|verify|translate|pending|descriptions|comments|tm|admonitions|status> [options]\n' +
+  'usage: node tools/translate/index.mjs <import-legacy|apply|verify|translate|align|pending|descriptions|comments|tm|admonitions|status> [options]\n' +
   '       [--section=NAME] [--locale=NAME] [--all-locales] [--dry-run] [--adopt] [--allow-cjk-loss] [--limit=N] ...\n' +
-  '       translate: [--apply] [--budget-minutes=0.5] [--max-blocks=N] [--json]\n' +
+  '       translate: [--apply] [--budget-minutes=0.5] [--max-blocks=N] [--kinds=blocks,titles,comments,images] [--json]\n' +
+  '       align: [--dry-run] [--section=NAME] [--file=REL]  (image references + orphan overlays)\n' +
   'note: an option value must be attached with "=" (--section=hardware); a space is not accepted.\n' +
   'note: --locale defaults to zh-Hans and must not be the source locale (en).\n' +
   'note: verify --all-locales and verify --locale are mutually exclusive.\n' +
@@ -262,7 +264,7 @@ function optionalNumber(raw, name) {
  * the time budget, on `--max-blocks`, or on an error — instead of guessing from
  * a commit message.
  */
-function writeRunJournal({run, pending, client}) {
+function writeRunJournal({run, pending, client, pendingComments = null}) {
   const journal = {
     schema: 1,
     started_at: run.startedAt.toISOString(),
@@ -273,10 +275,16 @@ function writeRunJournal({run, pending, client}) {
     max_blocks: run.maxBlocks,
     translated_blocks: run.blocks,
     translated_titles: run.titles,
+    translated_comments: run.comments,
     pages: run.pages,
     block_errors: run.blockErrors,
+    // Image alignment is structural; a warning here means the page kept an
+    // image the source no longer carries (or dropped one it could not place).
+    image_alignment_warning: run.imageWarnings.length,
+    image_alignment_warnings: run.imageWarnings,
     script_warnings: run.scriptWarnings,
     pending,
+    pending_comments: pendingComments,
     tokens: client
       ? {prompt: client.usage.prompt, completion: client.usage.completion, calls: client.usage.calls}
       : null,
@@ -301,18 +309,26 @@ function writeRunJournal({run, pending, client}) {
  * (`budget-minutes`, `max-blocks` or `signal`), because "stopped for the time
  * budget" and "stopped after two test blocks" are very different runs.
  */
-function emitTranslateSummary({run, pending, client, json}) {
+function emitTranslateSummary({run, pending, client, json, pendingComments = null}) {
   const stopped = run.error ? 'error' : run.stopped ? 'budget' : 'done';
+  // A comment line is prose waiting for translation too: the deploy gate reads
+  // `pending`, so it must not reach zero while an English comment is still on
+  // the page.
+  const pendingUnits = pending.units + (pendingComments ?? 0);
   const payload = {
     translated: run.blocks,
-    pending: pending.units,
+    pending: pendingUnits,
     stopped,
     titles: run.titles,
+    comments: run.comments,
     pending_blocks: pending.blocks,
     pending_titles: pending.titles,
+    pending_comments: pendingComments,
     pages: run.pages,
     limit: run.limit,
     block_errors: run.blockErrors,
+    image_alignment_warning: run.imageWarnings.length,
+    image_alignment_warnings: run.imageWarnings,
     script_warning: run.scriptWarnings.length,
     script_warnings: run.scriptWarnings,
     tokens: client ? {prompt: client.usage.prompt, completion: client.usage.completion} : null,
@@ -325,8 +341,9 @@ function emitTranslateSummary({run, pending, client, json}) {
     return payload;
   }
   progress.write(
-    `translated blocks=${payload.translated} titles=${payload.titles} pages=${payload.pages} ` +
-      `pending=${payload.pending} stopped=${stopped}${run.limit ? ` limit=${run.limit}` : ''}` +
+    `translated blocks=${payload.translated} titles=${payload.titles} comments=${payload.comments} ` +
+      `pages=${payload.pages} pending=${payload.pending} stopped=${stopped}` +
+      `${run.limit ? ` limit=${run.limit}` : ''}` +
       ` script_warning=${payload.script_warning}` +
       `${payload.tokens ? ` tokens(prompt/completion)=${payload.tokens.prompt}/${payload.tokens.completion}` : ''}\n`,
   );
@@ -546,13 +563,23 @@ function keepEnglishBlock(block, patch) {
  * touching what `apply` / `derive` read.
  */
 function parseKinds(raw) {
-  if (!raw || raw === true) return {blocks: true, title: true};
+  // `comments` and `images` default on: a batch is supposed to leave the
+  // overlay structurally aligned, and comment lines are prose too. `--kinds`
+  // is for narrowing a targeted repair (for example `--kinds=blocks`), so an
+  // explicit list only enables what it names.
+  if (!raw || raw === true) return {blocks: true, title: true, comments: true, images: true};
   const names = String(raw)
     .split(',')
     .map((name) => name.trim())
     .filter(Boolean);
-  if (names.length === 0) return {blocks: true, title: true};
-  return {blocks: names.includes('blocks'), title: names.includes('title')};
+  if (names.length === 0) return {blocks: true, title: true, comments: true, images: true};
+  const has = (name) => names.includes(name) || (name === 'title' && names.includes('titles'));
+  return {
+    blocks: has('blocks'),
+    title: has('title'),
+    comments: has('comments'),
+    images: has('images'),
+  };
 }
 
 function planSection(
@@ -685,6 +712,113 @@ function countPending(sections) {
     }
   }
   return {blocks, titles, pages, units: blocks + titles, bySection, pageList, pageListTruncated};
+}
+
+/**
+ * Align every overlay's image references with its English source.
+ *
+ * This is the pass that fixes a page whose *only* change was an image: the
+ * translation batch never plans such a page (there is no English left in the
+ * overlay), so without this it would keep a stale picture set until some text
+ * changed. Only image Markdown is touched; prose and fences stay byte-identical.
+ * It also removes overlay files whose source page was deleted, because a
+ * leftover page renders at a route the English site no longer has.
+ */
+function alignOverlayImages(sections, {dryRun = false, only = null, files = null, run = null, progress = process.stdout} = {}) {
+  const summary = {pages: 0, changed: 0, added: 0, removed: 0, replaced: 0, warnings: 0, orphans: 0, orphansRemoved: 0};
+  for (const section of sections) {
+    const sourceBase = path.join(REPO, section.source);
+    const overlayBase = path.join(REPO, section.overlay);
+    const sourceRels = new Set(walkMarkdown(sourceBase).map((file) => relative(sourceBase, file)));
+    for (const rel of sourceRels) {
+      if (only && rel !== only) continue;
+      if (files && files.size && !files.has(rel)) continue;
+      const overlayPath = path.join(overlayBase, rel);
+      if (!fs.existsSync(overlayPath)) continue;
+      if (isPreservedOverlay(rel, section.name)) continue;
+      summary.pages += 1;
+      const source = fs.readFileSync(path.join(sourceBase, rel), 'utf8');
+      const target = fs.readFileSync(overlayPath, 'utf8');
+      const {body: sourceBody} = splitFrontMatter(source);
+      const {frontMatter, body} = splitFrontMatter(target);
+      // A page-relative source URL must be rebased onto the overlay's location;
+      // passing both directories also lets the aligner recognise the already
+      // rebased form of the same asset instead of rewriting it every run.
+      const aligned = imageAlignment(sourceBody, body, {
+        sourceDir: path.posix.dirname(`${section.source}/${rel}`),
+        overlayDir: `${section.overlay}/${rel}`,
+      });
+      for (const warning of aligned.warnings) {
+        summary.warnings += 1;
+        run?.recordImageWarning({file: `${section.name}/${rel}`, reason: warning.reason, url: warning.url});
+      }
+      if (aligned.body !== body) {
+        summary.changed += 1;
+        summary.added += aligned.added;
+        summary.removed += aligned.removed;
+        summary.replaced += aligned.replaced;
+        if (!dryRun) writeFileAtomic(overlayPath, renderDocument(frontMatter, aligned.body));
+        if (dryRun) {
+          progress.write(
+            `${section.name}/${rel}: images ${images(sourceBody).length} -> ${images(body).length} ` +
+              `(+${aligned.added} -${aligned.removed} ~${aligned.replaced})\n`,
+          );
+        }
+      }
+    }
+    // A page the source dropped must not survive as an overlay: `verify`
+    // reports it as `extra` and the build publishes a route that no longer
+    // exists upstream. Filters (`--file`/`--files`) disable pruning so a
+    // targeted run cannot delete the rest of the tree.
+    if (!only && !(files && files.size) && fs.existsSync(overlayBase)) {
+      for (const overlayFile of walkMarkdown(overlayBase)) {
+        const rel = relative(overlayBase, overlayFile);
+        if (sourceRels.has(rel)) continue;
+        summary.orphans += 1;
+        if (!dryRun) {
+          fs.rmSync(overlayFile);
+          summary.orphansRemoved += 1;
+        }
+      }
+    }
+  }
+  return summary;
+}
+
+/**
+ * Write comments already in the comment memory into the overlays.
+ *
+ * `translateComments` only fills `work/translate/comment-memory.json`; without
+ * this pass the memory entry would never reach the page, so a comment batch
+ * would look successful while the overlay still carried English. Only
+ * line-leading `#` comments approved by `classifyComment` are rewritten.
+ */
+function applyCommentTranslations(sections, {dryRun = false, only = null, files = null} = {}) {
+  const memory = loadCommentMemory();
+  const summary = {pages: 0, changed: 0, hits: 0, misses: 0};
+  for (const section of sections) {
+    const sourceBase = path.join(REPO, section.source);
+    const overlayBase = path.join(REPO, section.overlay);
+    for (const sourcePath of walkMarkdown(sourceBase)) {
+      const rel = relative(sourceBase, sourcePath);
+      if (only && rel !== only) continue;
+      if (files && files.size && !files.has(rel)) continue;
+      const overlayPath = path.join(overlayBase, rel);
+      if (!fs.existsSync(overlayPath)) continue;
+      if (isPreservedOverlay(rel, section.name)) continue;
+      summary.pages += 1;
+      const target = fs.readFileSync(overlayPath, 'utf8');
+      const {frontMatter, body} = splitFrontMatter(target);
+      const applied = translateCodeComments(body, (key) => memory.get(key) ?? null);
+      summary.hits += applied.hits;
+      summary.misses += applied.misses.length;
+      if (applied.body !== body) {
+        summary.changed += 1;
+        if (!dryRun) writeFileAtomic(overlayPath, renderDocument(frontMatter, applied.body));
+      }
+    }
+  }
+  return summary;
 }
 
 /**
@@ -863,6 +997,7 @@ function createRun({budgetMinutes = null, maxBlocks = null} = {}) {
     deadline: budgetMinutes === null ? Infinity : Date.now() + budgetMinutes * 60000,
     blocks: 0,
     titles: 0,
+    comments: 0,
     pages: 0,
     stopped: null,
     limit: null,
@@ -874,6 +1009,8 @@ function createRun({budgetMinutes = null, maxBlocks = null} = {}) {
     blockErrors: [],
     /** Answers that still failed the locale's script check after the retry. */
     scriptWarnings: [],
+    /** Images that could not be aligned safely (see `imageAlignment`). */
+    imageWarnings: [],
     lastMemorySave: Date.now(),
   };
   run.room = () => {
@@ -900,6 +1037,9 @@ function createRun({budgetMinutes = null, maxBlocks = null} = {}) {
   run.countTitle = () => {
     run.titles += 1;
   };
+  run.countComments = (count) => {
+    run.comments += count;
+  };
   run.lock = (key) => {
     if (run.locks.has(key)) return;
     run.locks.add(key);
@@ -918,6 +1058,10 @@ function createRun({budgetMinutes = null, maxBlocks = null} = {}) {
       reason,
       sample: String(block).replace(/\s+/g, ' ').trim().slice(0, 80),
     });
+  };
+  run.recordImageWarning = ({file, reason, url}) => {
+    if (run.imageWarnings.length >= 100) return;
+    run.imageWarnings.push({file: file ?? null, reason, url: url ?? null});
   };
   run.recordScriptWarning = ({file, kind, issues, text}) => {
     if (run.scriptWarnings.length >= 100) return;
@@ -1229,7 +1373,16 @@ async function processItem(section, item, client, state, modelMemory, commentMem
   const patch = loadPatch(section.locale || DEFAULT_TARGET_LOCALE, section.name, item.rel);
   const nextFm = withFields(item.overlayFm, {title: patch?.title || undefined, ...fields});
   body = rewriteLinks(body, section.stripVersion);
-  body = alignImages(item.sourceBody, body);
+  {
+    // Image references are structure, not prose: the source's set wins, and a
+    // page whose only change is a picture still gets written by this batch
+    // (the standalone `align` pass covers pages with no new text at all).
+    const aligned = imageAlignment(item.sourceBody, body);
+    body = aligned.body;
+    for (const warning of aligned.warnings) {
+      run.recordImageWarning({file, reason: warning.reason, url: warning.url});
+    }
+  }
   body = rebaseImages(
     path.posix.dirname(`${section.source}/${item.rel}`),
     `${section.overlay}/${item.rel}`,
@@ -1607,6 +1760,26 @@ async function main() {
     return;
   }
 
+  if (command === 'align') {
+    // Read-only alignment probe (`--dry-run`) and the write form. It does not
+    // call the provider: it only makes the overlay's image references and page
+    // set match the source.
+    const summary = alignOverlayImages(selected, {
+      dryRun: Boolean(args['dry-run']),
+      only: args.file,
+      files: args.files
+        ? new Set(String(args.files).split(',').map((value) => value.trim()).filter(Boolean))
+        : null,
+      progress,
+    });
+    progress.write(
+      `align pages=${summary.pages} changed=${summary.changed} +${summary.added} ` +
+        `-${summary.removed} ~${summary.replaced} warnings=${summary.warnings} ` +
+        `orphans=${summary.orphans} orphansRemoved=${summary.orphansRemoved}\n`,
+    );
+    return;
+  }
+
   if (command === 'verify') {
     // `--all-locales` checks every configured target that has resources; an
     // explicit `--locale` checks one. Neither changes the no-argument output.
@@ -1651,13 +1824,20 @@ async function main() {
     progress = args.json ? process.stderr : process.stdout;
     preparePlan({locale});
     const pending = countPending(selected);
+    // Comment lines are part of what has to be translated: the deploy gate must
+    // not see `pending=0` while a fence still carries an English comment.
+    const comments = commentPlan(selected, loadCommentMemory()).reduce(
+      (sum, job) => sum + job.lines.length,
+      0,
+    );
     if (args.json) {
       // `--pages` adds the page-level list (`section`/`path`/`blocks`/`title`);
       // CI prints it in the job summary when a run publishes with English left.
       const payload = {
-        pending: pending.units,
+        pending: pending.units + comments,
         blocks: pending.blocks,
         titles: pending.titles,
+        comments,
         pages: pending.pages,
         sections: pending.bySection,
       };
@@ -1672,8 +1852,8 @@ async function main() {
       progress.write(`${name}: blocks=${stat.blocks} titles=${stat.titles}\n`);
     }
     progress.write(
-      `pending=${pending.units} blocks=${pending.blocks} titles=${pending.titles} ` +
-        `pages=${pending.pages}\n`,
+      `pending=${pending.units + comments} blocks=${pending.blocks} titles=${pending.titles} ` +
+        `comments=${comments} pages=${pending.pages}\n`,
     );
     return;
   }
@@ -1780,13 +1960,54 @@ async function main() {
       }
     }
 
+    // Comments are prose too: they are not part of a page's block plan, so a
+    // page that is otherwise fully translated would never send them. Translate
+    // them in the same batch (one request per group of comment lines), then put
+    // the memory on every overlay so a page with no other change is updated.
+    if (!run.error && client && kinds.comments) {
+      const comments = await translateComments(selected, client, {
+        limit: 200,
+        dryRun: false,
+        only,
+        files,
+        locale,
+        run,
+        shouldStop: () => run.room() <= 0,
+      });
+      if (comments.translated) {
+        const applied = applyCommentTranslations(selected, {only, files});
+        progress.write(
+          `comments translated=${comments.translated} pages=${applied.changed} ` +
+            `hits=${applied.hits} misses=${applied.misses}\n`,
+        );
+      }
+    }
+
+    // Image alignment is local (no provider call): run it even when the block
+    // budget is exhausted, and also for pages the translation plan skipped
+    // because they have no English text left.
+    if (kinds.images) {
+      const aligned = alignOverlayImages(selected, {only, files, run, progress});
+      progress.write(
+        `images pages=${aligned.pages} changed=${aligned.changed} ` +
+          `+${aligned.added} -${aligned.removed} warnings=${aligned.warnings} ` +
+          `orphansRemoved=${aligned.orphansRemoved}\n`,
+      );
+    }
+
     // Everything a later run reads back: the overlays are already on disk (one
     // atomic write per page), this flushes the small state next to them.
     checkpoint(run, {state, modelMemory, force: true, locale});
     if (client) client.log(USAGE_FILE);
     const pending = countPending(sections);
-    writeRunJournal({run, pending, client});
-    emitTranslateSummary({run, pending, client, json: Boolean(args.json)});
+    const pendingComments = kinds.comments
+      ? commentPlan(selected, loadCommentMemory(), {only, files}).reduce(
+          (sum, job) => sum + job.lines.length,
+          0,
+        )
+      : null;
+    writeRunJournal({run, pending, client, pendingComments});
+    emitTranslateSummary({run, pending, client, json: Boolean(args.json), pendingComments});
     if (run.error) process.exitCode = 1;
     return;
   }
@@ -1969,7 +2190,7 @@ function parseCommentArray(raw, count) {
  * fragments. Only lines missing from the comment memory form a job, and a job
  * that repeats across 7.24 and 7.25 is sent once.
  */
-function commentPlan(sections, memory, {only} = {}) {
+function commentPlan(sections, memory, {only, files = null} = {}) {
   const jobs = [];
   const seen = new Set();
   // A sentence can appear on several pages; translate it once.
@@ -1979,6 +2200,7 @@ function commentPlan(sections, memory, {only} = {}) {
     for (const sourcePath of walkMarkdown(base)) {
       const rel = relative(base, sourcePath);
       if (only && rel !== only) continue;
+      if (files && files.size && !files.has(rel)) continue;
       const {body} = splitFrontMatter(fs.readFileSync(sourcePath, 'utf8'));
       const entries = commentLines(body).filter(
         (entry) =>
@@ -2072,10 +2294,10 @@ function batchJobs(jobs, maxLines = 30) {
 async function translateComments(
   sections,
   client,
-  {limit, batch, dryRun, only, locale = DEFAULT_TARGET_LOCALE, run = null},
+  {limit, batch, dryRun, only, files = null, locale = DEFAULT_TARGET_LOCALE, run = null, shouldStop = null},
 ) {
   const memory = loadCommentMemory();
-  const jobs = commentPlan(sections, memory, {only});
+  const jobs = commentPlan(sections, memory, {only, files});
   const totalLines = jobs.reduce((sum, job) => sum + job.lines.length, 0);
   const characters = jobs.reduce(
     (sum, job) => sum + job.lines.reduce((n, line) => n + line.text.length, 0),
@@ -2115,6 +2337,10 @@ async function translateComments(
   // appends the JSON envelope rules.
   const systemFor = (text) => `${client.system(text)}\n\n${commentRules(locale)}`;
   for (const batch of batches) {
+    if (shouldStop && shouldStop()) {
+      process.stderr.write(`stopping comment batch ${done + 1}: run budget exhausted\n`);
+      break;
+    }
     const prompt = JSON.stringify(batch.lines.map((line) => line.text), null, 1);
     let pieces = null;
     for (let attempt = 0; attempt < 2 && !pieces; attempt++) {
@@ -2157,6 +2383,7 @@ async function translateComments(
     }
     batch.lines.forEach((line, index) => memory.set(line.key, pieces[index]));
     saveCommentMemory(memory);
+    run?.countComments(pieces.length);
     done += 1;
     translated += pieces.length;
     const first = batch.jobs[0];
@@ -2238,13 +2465,22 @@ async function translateComments(
       limit: args.limit,
       dryRun: Boolean(args['dry-run']),
       only: args.file,
+      files: args.files
+        ? new Set(String(args.files).split(',').map((value) => value.trim()).filter(Boolean))
+        : null,
       locale,
       run,
     });
     if (!args['dry-run']) {
+      // The memory is not the deliverable: a comment batch that only writes
+      // `comment-memory.json` leaves the overlay in English. Apply it to every
+      // overlay before reporting, so `verify` sees the same state the user does.
+      const applied = applyCommentTranslations(selected, {only: args.file});
       client.log(USAGE_FILE);
       const mem = loadCommentMemory();
-      process.stdout.write(`comment-memory=${mem.size}\n`);
+      process.stdout.write(
+        `comment-memory=${mem.size} pages=${applied.changed} hits=${applied.hits} misses=${applied.misses}\n`,
+      );
       reportScriptWarnings(run);
     }
     void summary;

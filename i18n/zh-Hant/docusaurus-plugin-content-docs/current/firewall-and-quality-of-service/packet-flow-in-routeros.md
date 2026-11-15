@@ -28,13 +28,13 @@ RouterOS 封包流程圖和流程示例將嘗試回答這些問題。
 
 讓我們先看總體圖。乍一看很複雜，但在我們透過示例講解之後，它會變得清晰得多。
 
-![](/img/54a08457cdf41791.svg)
+![](/img/689a8eb69f241285.svg#gh-light-mode-only)![Overall packet flow diagram: physical and logical interfaces, the bridging, MPLS and routing areas, and the local processes of the router](/img/543356c8bcc1a05d.svg#gh-dark-mode-only)
 
 圖中央有 4 個框：橋接、路由、MPLS 決策和本地路由器程式。例如，如果封包需要透過路由器進行路由，封包將按下圖所示流動。無需深入瞭解每個功能，封包進入 in-interface，路由器判斷它是 IP 流量且需要路由，封包經過所有路由程式並從 out-interface 發出。
 
-![](/img/47875864c1d4173f.webp)讓我們再看另一個示例，說明當封包的目的地是路由器本身時會發生什麼。例如，in-interface 收到一個 ICMP（ping）封包，其目的地是路由器本身，因此封包將進入 *local-in* 處理。封包處理完畢後，路由器內部會生成一個 ICMP（ping）應答（*local-out* 處理），並透過 out-interface 傳送出去。
+讓我們再看另一個示例，說明當封包的目的地是路由器本身時會發生什麼。例如，in-interface 收到一個 ICMP（ping）封包，其目的地是路由器本身，因此封包將進入 *local-in* 處理。封包處理完畢後，路由器內部會生成一個 ICMP（ping）應答（*local-out* 處理），並透過 out-interface 傳送出去。
 
-![](/img/c6b18c0d99ad79af.webp)在繼續舉例之前，先簡單解釋每個框：
+在繼續舉例之前，先簡單解釋每個框：
 
 - **物理 in-interface** - 路由器接收封包的起點。
 - **邏輯 in-interface** - 解封裝後封包（來自隧道、IPsec 等）的起點。
@@ -46,7 +46,7 @@ RouterOS 封包流程圖和流程示例將嘗試回答這些問題。
 
 現在該深入瞭解橋接、MPLS 和路由流程內部發生了什麼。
 
-![](/img/3d82c42594228f6f.webp)
+![](/img/732a056895e8c87d.svg#gh-light-mode-only)![Detailed diagram of the bridging, routing and MPLS areas with the firewall chains, the bridge chains, the IPsec steps and the MPLS label operations](/img/fb79756a608f53e8.svg#gh-dark-mode-only)
 
 在繼續舉例之前，先簡單解釋每個框：
 
@@ -68,7 +68,7 @@ RouterOS 包含幾個預設鏈。這些鏈允許你在各個點過濾封包：
 
 prerouting、input、forward、output 和 postrouting 每個塊都包含更多功能，這些在封包流程圖的第三部分中說明：
 
-![](/img/0724b7c10ff614e8.webp)
+![](/img/e9cd7ff4d3689c88.svg#gh-light-mode-only)![Diagram of the facilities in the prerouting, routing decision, input, forward, output and postrouting stages, in processing order](/img/89a2301156fd0802.svg#gh-dark-mode-only)
 
 在繼續舉例之前，先簡單解釋每個框：
 
@@ -121,10 +121,6 @@ prerouting、input、forward、output 和 postrouting 每個塊都包含更多�
    5. 透過 simple queues 處理封包。
 5. 檢查是否存在 IPsec，然後透過 IPsec 策略處理。
 
-![](/img/8dac7fe74227e99a.webp)
-
-![](/img/d45ef1f88a92f873.webp)
-
 #### 輸入 {#input}
 
 我們已經瞭解到，封包進入 in-interface，路由器判斷它是 IP 封包且需要路由，這裡開始了複雜的過程：
@@ -142,10 +138,6 @@ prerouting、input、forward、output 和 postrouting 每個塊都包含更多�
    3. - 透過佇列樹（HTB Global）處理封包。
    4. - 透過 simple queues 處理封包。
 4. 檢查是否存在 IPsec，然後透過 IPsec 策略處理。
-
-![](/img/8d210a14ee931fdf.webp)
-
-![](/img/6b7549d10c390ae9.webp)
 
 #### 輸出 {#output}
 
@@ -167,13 +159,9 @@ prerouting、input、forward、output 和 postrouting 每個塊都包含更多�
    5. - 透過 simple queues 處理封包。
 4. 檢查是否存在 IPsec，然後透過 IPsec 策略處理。
 
-![](/img/d7ee665d35fc59eb.webp)![](/img/bbe918f99502e362.webp)
-
 ### 橋接封包的流程 {#flow-of-bridged-packet}
 
 下面討論 RouterOS 中的一般橋接過程。大多數封包將始終遵循相同的處理路徑，但在某些配置下（例如啟用 VLAN 過濾、horizon、STP、DHCP 或 IGMP snooping 時），某些封包可能會被區別對待。請訪問橋接手冊以獲取更具體的資訊。
-
-#### ![](/img/936d1582966e9a76.webp) {#}
 
 #### 橋接轉發 {#bridge-forward}
 
@@ -186,8 +174,6 @@ Bridge forward 是封包從一個網橋埠轉發到另一個網橋埠時發生�
 5. 檢查網橋設定中是否啟用了 use-ip-firewall 選項。
 6. 封包透過網橋 NAT src-nat 鏈，其中可以更改 MAC 源和優先順序，除此之外，封包可以被簡單地接受、丟棄或標記。
 7. 檢查網橋設定中是否啟用了 use-ip-firewall 選項。
-
-![](/img/19c0854c81bd23fd.webp)
 
 :::info
 **對於 RouterOS v6：**  
@@ -211,8 +197,6 @@ Bridge input 是封包目的地為網橋介面時發生的過程。最常見的�
 3. 讓封包透過網橋主機表以做出轉發決策。目標 MAC 地址與網橋 MAC 地址匹配的封包將被傳遞到網橋 input 鏈。最終被泛洪的封包（例如廣播、組播、未知單播流量）也會到達網橋 input 鏈，因為網橋介面本身也是眾多目的地之一。
 4. 封包透過網橋 filter input 鏈，其中可以更改優先順序，或者封包可以被簡單地接受、丟棄或標記。
 
-![](/img/c086efd5882264c9.webp)
-
 #### 橋接輸出 {#bridge-output}
 
 Bridge output 是封包應透過一個或多個網橋埠離開裝置時發生的過程。最常見的情況是網橋介面本身嘗試訪問連線到某個網橋埠的裝置（例如，網橋介面上執行的 DHCP 伺服器響應 DHCP 用戶端時）。在封包由其他更高級別的 RouterOS 程式處理完畢，並且裝置最終判斷出介面是網橋之後，封包透過橋接過程：
@@ -221,8 +205,6 @@ Bridge output 是封包應透過一個或多個網橋埠離開裝置時發生的
 2. 封包透過網橋 filter output 鏈，其中可以更改優先順序，或者封包可以被簡單地接受、丟棄或標記。
 3. 封包透過網橋 NAT src-nat 鏈，其中可以更改 MAC 源和優先順序，除此之外，封包可以被簡單地接受、丟棄或標記。
 4. 檢查網橋設定中是否啟用了 use-ip-firewall 選項。
-
-![](/img/c29c9ee3aa3a635e.webp)
 
 #### 啟用防火牆時的 Forward {#forward-with-firewall-enabled}
 
@@ -238,8 +220,6 @@ Bridge output 是封包應透過一個或多個網橋埠離開裝置時發生的
 8. 封包透過網橋 NAT src-nat 鏈。
 9. 啟用 use-ip-firewall 選項後，封包將在 postrouting 鏈中進一步處理。
 10. 封包進入 postrouting 處理。
-
-![](/img/ca8f80b20d2e4d28.webp)![](/img/f1ae5b79a33340c3.webp)
 
 ### 硬體解除安裝封包的流程 {#flow-of-hardware-offloaded-packet}
 
@@ -309,19 +289,11 @@ Bridge output 是封包應透過一個或多個網橋埠離開裝置時發生的
 
 ### MPLS 封包流程 {#flow-of-mpls-packet}
 
-![](/img/3dc66d654b4ce06e.webp)
-
 #### Pop 標籤 {#pop-label}
-
-![](/img/7a74ba782936be6d.webp)
 
 #### Switch 標籤 {#switch-label}
 
-![](/img/ea6fa4d9db09d154.webp)
-
 #### Push 標籤 {#push-label}
-
-![](/img/87c77c70ffb17ec1.webp)
 
 ### MPLS IP VPN {#mpls-ip-vpn}
 
@@ -384,8 +356,6 @@ H - hw-offloaded; + - ecmp
 
 到目前為止，我們看到的示例中 in 或 out 介面都是實際的物理介面（乙太網、無線），但如果路由器接收到隧道封裝的封包，封包會如何流動呢？
 
-![](/img/91fe801fb891e2c4.webp)
-
 假設有一個 IPIP 封包進入路由器。由於它是普通的 IPv4 封包，因此會經過所有與路由相關的處理環節（直到圖中的 "J"）。然後路由器會檢查該封包是否需要解封裝。在本例中，它是 IPIP 封包，所以“是”，將封包送去解封裝。之後，封包會再次迴圈經過所有處理環節，但這一次是作為解封裝後的 IPv4 封包。
 
 這一點非常重要，因為封包實際上會兩次經過防火牆，所以如果配置了嚴格的防火牆，那麼既需要為 IPIP 封裝的封包設定 "accept" 規則，也需要為解封裝後的 IP 封包設定 "accept" 規則。
@@ -400,11 +370,9 @@ H - hw-offloaded; + - ecmp
 
 封包不是透過邏輯介面處理，而是透過 IPSec 策略處理。在完成路由決策 (2) 和 input 防火牆處理 (3) 之後，路由器會嘗試將源和目的與 IPsec 策略進行匹配。當策略與封包匹配時，封包會被送去解密 (5)。解密之後，封包再次進入 PREROUTING 處理 (6)，並開始另一輪處理迴圈，但此時處理的是解封裝後的封包。
 
-![](/img/4dea6a04e6bb6979.webp)
+![](/img/fb9ab813f5631fcb.svg#gh-light-mode-only)![Diagram of the chains that a packet received on a VRF port and a packet sent by the router into a VRF pass, with the in-interface or out-interface of each pass](/img/825d02eb23aec496.svg#gh-dark-mode-only)
 
 同樣的過程也適用於封裝，只是順序相反。第一個 IP 封包先經過各處理環節，然後與 IPsec 策略匹配 (5)，進行封裝 (6)，然後在第二輪迴圈中送去處理 (7-10)。
-
-![](/img/4b030c78a10265d8.webp)
 
 ## 快速路徑 {#fast-path}
 
@@ -414,7 +382,7 @@ H - hw-offloaded; + - ecmp
 
 FastPath 是一種介面驅動擴充套件，允許驅動直接與特定的 RouterOS 處理環節通訊，並跳過其他所有環節。
 
-![](/img/be678c125b183720.svg)
+![](/img/f89c29d624bb584b.svg#gh-light-mode-only)![Diagram of the hardware offload, FastPath and slow path choices between the physical in-interface and the physical out-interface](/img/97ea0a5fe481261d.svg#gh-dark-mode-only)
 
 只有當至少源介面支援 fast path 時，封包才能由 fast path 處理器轉發。要實現完整的快速轉發，還需要目的介面也支援。
 

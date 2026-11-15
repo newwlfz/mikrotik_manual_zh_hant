@@ -161,6 +161,7 @@
   "ros\u0000move TCP traffic to queue2": "将 TCP 流量移到 queue2",
   "ros\u0000on the RADIUS server": "在 RADIUS 服务器上",
   "ros\u0000on the router the users log in to": "在用户登录的路由器上",
+  "ros\u0000or use a clock-time window instead:": "或改用時鐘時間窗口：",
   "ros\u0000or without operator": "或不使用运算符",
   "ros\u0000pass arguments to the function": "向函数传递参数",
   "ros\u0000provision all radios and make both master and virtual interfaces MLO": "为所有 radio 下发配置，并将主接口和虚拟接口都设为 MLO",
