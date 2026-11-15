@@ -594,6 +594,21 @@ export function refreshChanged({
             `(below ${Math.round(CJK_REGRESSION_RATIO * 100)}% of the wording the new source keeps); ` +
             'the previous overlay was kept',
         );
+        if (!dryRun) {
+          // Keep the previous `source_sha256` (so the page is retried) but leave
+          // a trace: a page that stays blocked across batches means the memory
+          // lost this page's entries, not that the page is fine.
+          state.files[key] = {
+            ...(entry || {}),
+            refresh_blocked: {
+              reason: 'cjk-regression',
+              budget: preserved.budget,
+              rebuilt: nextCjk,
+              at: new Date().toISOString().replace(/\.\d+Z$/, '+00:00'),
+            },
+          };
+          summary.dirty = true;
+        }
         summary.pages.push(detail);
         continue;
       }
