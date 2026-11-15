@@ -411,6 +411,31 @@ jobs:
         run: npm run localize:hant:check
       - name: Apply zh-Hant regional wording
         run: npm run localize:hant
+      # 人工补丁：`config/known-translations.yml` 与
+      # `config/translation-patches/<locale>/**` 的 `replace` 只改覆盖层，不进 TM。
+      # 构建前应用一次，把结果提交回仓库；否则下一批 `derive` 会把补丁覆盖掉。
+      # 先 `--check` 打印会改多少处（只读），再写入。脚本非 0 退出时 job 直接失败
+      # （`set -e`），不会带着半套补丁构建。
+      - name: Apply reviewed translation patches
+        run: |
+          set -euo pipefail
+          node tools/translate/apply-known-translations.mjs --locale="$SITE_LOCALE" --check
+          node tools/translate/apply-known-translations.mjs --locale="$SITE_LOCALE"
+      # 补丁确实改了 `i18n/` 才提交；没有差异时只打印一行并不产生提交。`[skip ci]`
+      # 保证这次 push 不会再触发一轮流水线。
+      - name: Commit applied translation patches
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- i18n; then
+            echo "no translation patches to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A i18n
+          git commit -m "chore($SITE_LOCALE): apply translation patches [skip ci]"
+          git push
+
       # 覆盖层的**结构校验**，发布前永远要跑：文件对齐、代码围栏、图片、front
       # matter、MDX 任一项坏了都不发布。三条路径都依赖它 ——
       #   - `skip_translate`：没有翻译 job 兜底；
