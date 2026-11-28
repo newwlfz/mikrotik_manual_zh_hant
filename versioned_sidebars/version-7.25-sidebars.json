@@ -11,7 +11,7 @@
       "label": "Getting Started",
       "link": {
         "type": "doc",
-        "id": "getting-started/index"
+        "id": "getting-started"
       },
       "items": [
         {
@@ -37,7 +37,7 @@
           "label": "Networking Fundamentals",
           "link": {
             "type": "doc",
-            "id": "getting-started/networking-fundamentals/index"
+            "id": "getting-started/networking-fundamentals"
           },
           "items": [
             {
@@ -60,7 +60,7 @@
           "label": "Installation and Upgrade",
           "link": {
             "type": "doc",
-            "id": "getting-started/installation-and-upgrade/index"
+            "id": "getting-started/installation-and-upgrade"
           },
           "items": [
             {
@@ -72,7 +72,7 @@
                   "label": "CHR: Installation",
                   "link": {
                     "type": "doc",
-                    "id": "getting-started/installation-and-upgrade/install/chr-installation/index"
+                    "id": "getting-started/installation-and-upgrade/install/chr-installation"
                   },
                   "items": [
                     {
@@ -146,7 +146,7 @@
               "label": "Netinstall",
               "link": {
                 "type": "doc",
-                "id": "getting-started/installation-and-upgrade/netinstall/index"
+                "id": "getting-started/installation-and-upgrade/netinstall"
               },
               "items": [
                 {
@@ -190,7 +190,7 @@
           "label": "Configuration Management",
           "link": {
             "type": "doc",
-            "id": "getting-started/configuration-management/index"
+            "id": "getting-started/configuration-management"
           },
           "items": [
             {
@@ -231,7 +231,7 @@
           "label": "RouterOS Licensing",
           "link": {
             "type": "doc",
-            "id": "getting-started/routeros-licensing/index"
+            "id": "getting-started/routeros-licensing"
           },
           "items": [
             {
@@ -239,7 +239,7 @@
               "label": "Cloud Hosted Router, CHR",
               "link": {
                 "type": "doc",
-                "id": "getting-started/routeros-licensing/chr/index"
+                "id": "getting-started/routeros-licensing/chr"
               },
               "items": [
                 {
@@ -253,15 +253,15 @@
             },
             {
               "type": "doc",
-              "id": "getting-started/routeros-licensing/mikrotik-hardware/index",
+              "id": "getting-started/routeros-licensing/mikrotik-hardware",
               "label": "MikroTik Hardware Licensing",
-              "key": "getting-started/routeros-licensing/mikrotik-hardware/index"
+              "key": "getting-started/routeros-licensing/mikrotik-hardware"
             },
             {
               "type": "doc",
-              "id": "getting-started/routeros-licensing/x86/index",
+              "id": "getting-started/routeros-licensing/x86",
               "label": "x86 Licensing",
-              "key": "getting-started/routeros-licensing/x86/index"
+              "key": "getting-started/routeros-licensing/x86"
             }
           ],
           "key": "getting-started/routeros-licensing"
@@ -271,7 +271,7 @@
           "label": "Software Specifications",
           "link": {
             "type": "doc",
-            "id": "getting-started/software-specifications/index"
+            "id": "getting-started/software-specifications"
           },
           "items": [
             {
@@ -303,7 +303,7 @@
       "label": "Management Tools",
       "link": {
         "type": "doc",
-        "id": "management-tools/index"
+        "id": "management-tools"
       },
       "items": [
         {
@@ -398,7 +398,7 @@
       "label": "System Information and Utilities",
       "link": {
         "type": "doc",
-        "id": "system-information-and-utilities/index"
+        "id": "system-information-and-utilities"
       },
       "items": [
         {
@@ -511,7 +511,7 @@
       "label": "Diagnostics and Monitoring",
       "link": {
         "type": "doc",
-        "id": "diagnostics-monitoring-and-troubleshooting/index"
+        "id": "diagnostics-monitoring-and-troubleshooting"
       },
       "items": [
         {
@@ -639,7 +639,7 @@
           "label": "Logs",
           "link": {
             "type": "doc",
-            "id": "diagnostics-monitoring-and-troubleshooting/log/index"
+            "id": "diagnostics-monitoring-and-troubleshooting/log"
           },
           "items": [
             {
@@ -662,7 +662,7 @@
           "label": "Traffic Flow",
           "link": {
             "type": "doc",
-            "id": "diagnostics-monitoring-and-troubleshooting/traffic-flow/index"
+            "id": "diagnostics-monitoring-and-troubleshooting/traffic-flow"
           },
           "items": [
             {
@@ -682,7 +682,7 @@
       "label": "Hardware",
       "link": {
         "type": "doc",
-        "id": "hardware/index"
+        "id": "hardware"
       },
       "items": [
         {
@@ -690,7 +690,7 @@
           "label": "Disks",
           "link": {
             "type": "doc",
-            "id": "hardware/disks/index"
+            "id": "hardware/disks"
           },
           "items": [
             {
@@ -782,7 +782,7 @@
       "label": "Wired Connections",
       "link": {
         "type": "doc",
-        "id": "wired-connections/index"
+        "id": "wired-connections"
       },
       "items": [
         {
@@ -811,7 +811,7 @@
       "label": "Wireless",
       "link": {
         "type": "doc",
-        "id": "wireless/index"
+        "id": "wireless"
       },
       "items": [
         {
@@ -819,7 +819,7 @@
           "label": "Wi-Fi 6 / 7 (802.11ax/be)",
           "link": {
             "type": "doc",
-            "id": "wireless/wifi/index"
+            "id": "wireless/wifi"
           },
           "items": [
             {
@@ -857,16 +857,16 @@
         },
         {
           "type": "doc",
-          "id": "wireless/wifi-ac/index",
+          "id": "wireless/wifi-ac",
           "label": "Wi-Fi 5 (802.11ac)",
-          "key": "wireless/wifi-ac/index"
+          "key": "wireless/wifi-ac"
         },
         {
           "type": "category",
           "label": "802.11 a/b/g/n",
           "link": {
             "type": "doc",
-            "id": "wireless/abgn/index"
+            "id": "wireless/abgn"
           },
           "items": [
             {
@@ -874,7 +874,7 @@
               "label": "CAPsMAN",
               "link": {
                 "type": "doc",
-                "id": "wireless/abgn/capsman/index"
+                "id": "wireless/abgn/capsman"
               },
               "items": [
                 {
@@ -942,7 +942,7 @@
           "label": "60 GHz (W60G)",
           "link": {
             "type": "doc",
-            "id": "wireless/w60g/index"
+            "id": "wireless/w60g"
           },
           "items": [
             {
@@ -989,7 +989,7 @@
           "label": "User Guides",
           "link": {
             "type": "doc",
-            "id": "wireless/user-guides/index"
+            "id": "wireless/user-guides"
           },
           "items": [
             {
@@ -1015,7 +1015,7 @@
       "label": "Mobile Networking",
       "link": {
         "type": "doc",
-        "id": "mobile-networking/index"
+        "id": "mobile-networking"
       },
       "items": [
         {
@@ -1029,7 +1029,7 @@
           "label": "GPS",
           "link": {
             "type": "doc",
-            "id": "mobile-networking/gps/index"
+            "id": "mobile-networking/gps"
           },
           "items": [
             {
@@ -1074,7 +1074,7 @@
               "label": "BG77 modem AT commands",
               "link": {
                 "type": "doc",
-                "id": "mobile-networking/bg77-modem-at-commands/index"
+                "id": "mobile-networking/bg77-modem-at-commands"
               },
               "items": [
                 {
@@ -1103,7 +1103,7 @@
       "label": "Bridging and Switching",
       "link": {
         "type": "doc",
-        "id": "bridging-and-switching/index"
+        "id": "bridging-and-switching"
       },
       "items": [
         {
@@ -1159,7 +1159,7 @@
           "label": "SwOS",
           "link": {
             "type": "doc",
-            "id": "bridging-and-switching/swos/index"
+            "id": "bridging-and-switching/swos"
           },
           "items": [
             {
@@ -1200,7 +1200,7 @@
           "label": "User Guides",
           "link": {
             "type": "doc",
-            "id": "bridging-and-switching/user-guides/index"
+            "id": "bridging-and-switching/user-guides"
           },
           "items": [
             {
@@ -1268,7 +1268,7 @@
       "label": "Network Services",
       "link": {
         "type": "doc",
-        "id": "network-management/index"
+        "id": "network-management"
       },
       "items": [
         {
@@ -1276,7 +1276,7 @@
           "label": "Cloud",
           "link": {
             "type": "doc",
-            "id": "network-management/cloud/index"
+            "id": "network-management/cloud"
           },
           "items": [
             {
@@ -1311,7 +1311,7 @@
           "label": "DHCP",
           "link": {
             "type": "doc",
-            "id": "network-management/dhcp/index"
+            "id": "network-management/dhcp"
           },
           "items": [
             {
@@ -1364,7 +1364,7 @@
           "label": "Proxy",
           "link": {
             "type": "doc",
-            "id": "network-management/proxy/index"
+            "id": "network-management/proxy"
           },
           "items": [
             {
@@ -1387,7 +1387,7 @@
           "label": "SOCKS",
           "link": {
             "type": "doc",
-            "id": "network-management/socks/index"
+            "id": "network-management/socks"
           },
           "items": [
             {
@@ -1407,7 +1407,7 @@
       "label": "Routing and Networking Protocols",
       "link": {
         "type": "doc",
-        "id": "user-guides/routing-and-networking-protocols/index"
+        "id": "user-guides/routing-and-networking-protocols"
       },
       "items": [
         {
@@ -1445,7 +1445,7 @@
           "label": "Unicast",
           "link": {
             "type": "doc",
-            "id": "user-guides/routing-and-networking-protocols/unicast/index"
+            "id": "user-guides/routing-and-networking-protocols/unicast"
           },
           "items": [
             {
@@ -1459,7 +1459,7 @@
               "label": "BGP",
               "link": {
                 "type": "doc",
-                "id": "user-guides/routing-and-networking-protocols/unicast/bgp/index"
+                "id": "user-guides/routing-and-networking-protocols/unicast/bgp"
               },
               "items": [
                 {
@@ -1512,7 +1512,7 @@
               "label": "OSPF",
               "link": {
                 "type": "doc",
-                "id": "user-guides/routing-and-networking-protocols/unicast/ospf/index"
+                "id": "user-guides/routing-and-networking-protocols/unicast/ospf"
               },
               "items": [
                 {
@@ -1568,7 +1568,7 @@
           "label": "MPLS",
           "link": {
             "type": "doc",
-            "id": "user-guides/routing-and-networking-protocols/mpls/index"
+            "id": "user-guides/routing-and-networking-protocols/mpls"
           },
           "items": [
             {
@@ -1594,7 +1594,7 @@
               "label": "VPLS",
               "link": {
                 "type": "doc",
-                "id": "user-guides/routing-and-networking-protocols/mpls/vpls/index"
+                "id": "user-guides/routing-and-networking-protocols/mpls/vpls"
               },
               "items": [
                 {
@@ -1614,7 +1614,7 @@
           "label": "Multicast",
           "link": {
             "type": "doc",
-            "id": "user-guides/routing-and-networking-protocols/multicast/index"
+            "id": "user-guides/routing-and-networking-protocols/multicast"
           },
           "items": [
             {
@@ -1658,7 +1658,7 @@
       "label": "Firewall and Quality of Service",
       "link": {
         "type": "doc",
-        "id": "firewall-and-quality-of-service/index"
+        "id": "firewall-and-quality-of-service"
       },
       "items": [
         {
@@ -1666,7 +1666,7 @@
           "label": "Firewall",
           "link": {
             "type": "doc",
-            "id": "firewall-and-quality-of-service/firewall/index"
+            "id": "firewall-and-quality-of-service/firewall"
           },
           "items": [
             {
@@ -1725,7 +1725,7 @@
           "label": "Queues",
           "link": {
             "type": "doc",
-            "id": "firewall-and-quality-of-service/queues/index"
+            "id": "firewall-and-quality-of-service/queues"
           },
           "items": [
             {
@@ -1757,7 +1757,7 @@
               "label": "Queue types",
               "link": {
                 "type": "doc",
-                "id": "firewall-and-quality-of-service/queues/queue-types/index"
+                "id": "firewall-and-quality-of-service/queues/queue-types"
               },
               "items": [
                 {
@@ -1801,7 +1801,7 @@
           "label": "User Guides",
           "link": {
             "type": "doc",
-            "id": "firewall-and-quality-of-service/user-guides/index"
+            "id": "firewall-and-quality-of-service/user-guides"
           },
           "items": [
             {
@@ -1845,7 +1845,7 @@
       "label": "Virtual Private Networks",
       "link": {
         "type": "doc",
-        "id": "virtual-private-networks/index"
+        "id": "virtual-private-networks"
       },
       "items": [
         {
@@ -1877,7 +1877,7 @@
           "label": "IPsec",
           "link": {
             "type": "doc",
-            "id": "virtual-private-networks/ipsec/index"
+            "id": "virtual-private-networks/ipsec"
           },
           "items": [
             {
@@ -1900,7 +1900,7 @@
           "label": "L2TP",
           "link": {
             "type": "doc",
-            "id": "virtual-private-networks/l2tp/index"
+            "id": "virtual-private-networks/l2tp"
           },
           "items": [
             {
@@ -1923,7 +1923,7 @@
           "label": "PPPoE",
           "link": {
             "type": "doc",
-            "id": "virtual-private-networks/pppoe/index"
+            "id": "virtual-private-networks/pppoe"
           },
           "items": [
             {
@@ -1973,7 +1973,7 @@
       "label": "AAA and User Management",
       "link": {
         "type": "doc",
-        "id": "authentication-authorization-accounting/index"
+        "id": "authentication-authorization-accounting"
       },
       "items": [
         {
@@ -1993,7 +1993,7 @@
           "label": "HotSpot - Captive portal",
           "link": {
             "type": "doc",
-            "id": "authentication-authorization-accounting/hotspot-captive-portal/index"
+            "id": "authentication-authorization-accounting/hotspot-captive-portal"
           },
           "items": [
             {
@@ -2037,7 +2037,7 @@
       "label": "High Availability Solutions",
       "link": {
         "type": "doc",
-        "id": "high-availability-solutions/index"
+        "id": "high-availability-solutions"
       },
       "items": [
         {
@@ -2051,7 +2051,7 @@
           "label": "Load Balancing",
           "link": {
             "type": "doc",
-            "id": "high-availability-solutions/load-balancing/index"
+            "id": "high-availability-solutions/load-balancing"
           },
           "items": [
             {
@@ -2108,7 +2108,7 @@
       "label": "Internet of Things",
       "link": {
         "type": "doc",
-        "id": "internet-of-things/index"
+        "id": "internet-of-things"
       },
       "items": [
         {
@@ -2116,7 +2116,7 @@
           "label": "Bluetooth",
           "link": {
             "type": "doc",
-            "id": "internet-of-things/bluetooth/index"
+            "id": "internet-of-things/bluetooth"
           },
           "items": [
             {
@@ -2124,7 +2124,7 @@
               "label": "MikroTik Beacon Manager",
               "link": {
                 "type": "doc",
-                "id": "internet-of-things/bluetooth/mikrotik-beacon-manager/index"
+                "id": "internet-of-things/bluetooth/mikrotik-beacon-manager"
               },
               "items": [
                 {
@@ -2211,7 +2211,7 @@
           "label": "GPIO",
           "link": {
             "type": "doc",
-            "id": "internet-of-things/gpio/index"
+            "id": "internet-of-things/gpio"
           },
           "items": [
             {
@@ -2228,7 +2228,7 @@
           "label": "Lora",
           "link": {
             "type": "doc",
-            "id": "internet-of-things/lora/index"
+            "id": "internet-of-things/lora"
           },
           "items": [
             {
@@ -2242,7 +2242,7 @@
               "label": "User Guides",
               "link": {
                 "type": "doc",
-                "id": "internet-of-things/lora/user-guides/index"
+                "id": "internet-of-things/lora/user-guides"
               },
               "items": [
                 {
@@ -2286,7 +2286,7 @@
           "label": "MQTT",
           "link": {
             "type": "doc",
-            "id": "internet-of-things/mqtt/index"
+            "id": "internet-of-things/mqtt"
           },
           "items": [
             {
@@ -2318,7 +2318,7 @@
       "label": "Storage",
       "link": {
         "type": "doc",
-        "id": "storage/index"
+        "id": "storage"
       },
       "items": [
         {
@@ -2326,7 +2326,7 @@
           "label": "index",
           "link": {
             "type": "doc",
-            "id": "storage/btrfs/index"
+            "id": "storage/btrfs"
           },
           "items": [
             {
@@ -2385,7 +2385,7 @@
           "label": "RAID",
           "link": {
             "type": "doc",
-            "id": "storage/raid/index"
+            "id": "storage/raid"
           },
           "items": [
             {
@@ -2447,7 +2447,7 @@
       "label": "Containers",
       "link": {
         "type": "doc",
-        "id": "containers/index"
+        "id": "containers"
       },
       "items": [
         {
@@ -2455,7 +2455,7 @@
           "label": "Apps",
           "link": {
             "type": "doc",
-            "id": "containers/apps/index"
+            "id": "containers/apps"
           },
           "items": [
             {
@@ -2536,7 +2536,7 @@
       "label": "Developer Guides",
       "link": {
         "type": "doc",
-        "id": "developer-guides/index"
+        "id": "developer-guides"
       },
       "items": [
         {
@@ -2544,7 +2544,7 @@
           "label": "API",
           "link": {
             "type": "doc",
-            "id": "developer-guides/api/index"
+            "id": "developer-guides/api"
           },
           "items": [
             {
@@ -2567,7 +2567,7 @@
           "label": "Scripting",
           "link": {
             "type": "doc",
-            "id": "developer-guides/scripting/index"
+            "id": "developer-guides/scripting"
           },
           "items": [
             {
@@ -2593,7 +2593,7 @@
       "label": "CLI Reference",
       "link": {
         "type": "doc",
-        "id": "cli-reference/index"
+        "id": "cli-reference"
       },
       "items": [
         {
@@ -2601,7 +2601,7 @@
           "label": "app",
           "link": {
             "type": "doc",
-            "id": "cli-reference/app/index"
+            "id": "cli-reference/app"
           },
           "items": [
             {
@@ -2630,9 +2630,9 @@
             },
             {
               "type": "doc",
-              "id": "cli-reference/app/settings/index",
+              "id": "cli-reference/app/settings",
               "label": "settings",
-              "key": "cli-reference/app/settings/index"
+              "key": "cli-reference/app/settings"
             },
             {
               "type": "doc",
@@ -2706,7 +2706,7 @@
               "label": "interface",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/caps-man/interface/index"
+                "id": "cli-reference/caps-man/interface"
               },
               "items": [
                 {
@@ -2741,7 +2741,7 @@
               "label": "manager",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/caps-man/manager/index"
+                "id": "cli-reference/caps-man/manager"
               },
               "items": [
                 {
@@ -2764,7 +2764,7 @@
               "label": "radio",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/caps-man/radio/index"
+                "id": "cli-reference/caps-man/radio"
               },
               "items": [
                 {
@@ -2799,7 +2799,7 @@
               "label": "remote-cap",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/caps-man/remote-cap/index"
+                "id": "cli-reference/caps-man/remote-cap"
               },
               "items": [
                 {
@@ -2837,7 +2837,7 @@
           "label": "certificate",
           "link": {
             "type": "doc",
-            "id": "cli-reference/certificate/index"
+            "id": "cli-reference/certificate"
           },
           "items": [
             {
@@ -2887,7 +2887,7 @@
               "label": "crl",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/certificate/crl/index"
+                "id": "cli-reference/certificate/crl"
               },
               "items": [
                 {
@@ -2940,7 +2940,7 @@
               "label": "scep-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/certificate/scep-server/index"
+                "id": "cli-reference/certificate/scep-server"
               },
               "items": [
                 {
@@ -2948,7 +2948,7 @@
                   "label": "otp",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/certificate/scep-server/otp/index"
+                    "id": "cli-reference/certificate/scep-server/otp"
                   },
                   "items": [
                     {
@@ -2965,7 +2965,7 @@
                   "label": "ra",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/certificate/scep-server/ra/index"
+                    "id": "cli-reference/certificate/scep-server/ra"
                   },
                   "items": [
                     {
@@ -2982,7 +2982,7 @@
                   "label": "requests",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/certificate/scep-server/requests/index"
+                    "id": "cli-reference/certificate/scep-server/requests"
                   },
                   "items": [
                     {
@@ -3042,7 +3042,7 @@
           "label": "container",
           "link": {
             "type": "doc",
-            "id": "cli-reference/container/index"
+            "id": "cli-reference/container"
           },
           "items": [
             {
@@ -3125,7 +3125,7 @@
           "label": "disk",
           "link": {
             "type": "doc",
-            "id": "cli-reference/disk/index"
+            "id": "cli-reference/disk"
           },
           "items": [
             {
@@ -3139,7 +3139,7 @@
               "label": "btrfs",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/disk/btrfs/index"
+                "id": "cli-reference/disk/btrfs"
               },
               "items": [
                 {
@@ -3147,7 +3147,7 @@
                   "label": "filesystem",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/disk/btrfs/filesystem/index"
+                    "id": "cli-reference/disk/btrfs/filesystem"
                   },
                   "items": [
                     {
@@ -3320,7 +3320,7 @@
           "label": "dude",
           "link": {
             "type": "doc",
-            "id": "cli-reference/dude/index"
+            "id": "cli-reference/dude"
           },
           "items": [
             {
@@ -3370,7 +3370,7 @@
               "label": "ros",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/dude/ros/index"
+                "id": "cli-reference/dude/ros"
               },
               "items": [
                 {
@@ -3474,7 +3474,7 @@
           "label": "file",
           "link": {
             "type": "doc",
-            "id": "cli-reference/file/index"
+            "id": "cli-reference/file"
           },
           "items": [
             {
@@ -3506,7 +3506,7 @@
               "label": "sync",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/file/sync/index"
+                "id": "cli-reference/file/sync"
               },
               "items": [
                 {
@@ -3538,7 +3538,7 @@
           "label": "interface",
           "link": {
             "type": "doc",
-            "id": "cli-reference/interface/index"
+            "id": "cli-reference/interface"
           },
           "items": [
             {
@@ -3558,7 +3558,7 @@
               "label": "bonding",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/bonding/index"
+                "id": "cli-reference/interface/bonding"
               },
               "items": [
                 {
@@ -3581,7 +3581,7 @@
               "label": "bridge",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/bridge/index"
+                "id": "cli-reference/interface/bridge"
               },
               "items": [
                 {
@@ -3589,7 +3589,7 @@
                   "label": "calea",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/bridge/calea/index"
+                    "id": "cli-reference/interface/bridge/calea"
                   },
                   "items": [
                     {
@@ -3612,7 +3612,7 @@
                   "label": "filter",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/bridge/filter/index"
+                    "id": "cli-reference/interface/bridge/filter"
                   },
                   "items": [
                     {
@@ -3653,7 +3653,7 @@
                   "label": "msti",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/bridge/msti/index"
+                    "id": "cli-reference/interface/bridge/msti"
                   },
                   "items": [
                     {
@@ -3670,7 +3670,7 @@
                   "label": "nat",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/bridge/nat/index"
+                    "id": "cli-reference/interface/bridge/nat"
                   },
                   "items": [
                     {
@@ -3693,7 +3693,7 @@
                   "label": "port",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/bridge/port/index"
+                    "id": "cli-reference/interface/bridge/port"
                   },
                   "items": [
                     {
@@ -3707,7 +3707,7 @@
                       "label": "mst-override",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/interface/bridge/port/mst-override/index"
+                        "id": "cli-reference/interface/bridge/port/mst-override"
                       },
                       "items": [
                         {
@@ -3733,7 +3733,7 @@
                   "label": "vlan",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/bridge/vlan/index"
+                    "id": "cli-reference/interface/bridge/vlan"
                   },
                   "items": [
                     {
@@ -3753,7 +3753,7 @@
               "label": "detect-internet",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/detect-internet/index"
+                "id": "cli-reference/interface/detect-internet"
               },
               "items": [
                 {
@@ -3770,7 +3770,7 @@
               "label": "dot1x",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/dot1x/index"
+                "id": "cli-reference/interface/dot1x"
               },
               "items": [
                 {
@@ -3784,7 +3784,7 @@
                   "label": "server",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/dot1x/server/index"
+                    "id": "cli-reference/interface/dot1x/server"
                   },
                   "items": [
                     {
@@ -3822,7 +3822,7 @@
               "label": "ethernet",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/ethernet/index"
+                "id": "cli-reference/interface/ethernet"
               },
               "items": [
                 {
@@ -3848,7 +3848,7 @@
                   "label": "poe",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/ethernet/poe/index"
+                    "id": "cli-reference/interface/ethernet/poe"
                   },
                   "items": [
                     {
@@ -3874,9 +3874,9 @@
                 },
                 {
                   "type": "doc",
-                  "id": "cli-reference/interface/ethernet/pon/index",
+                  "id": "cli-reference/interface/ethernet/pon",
                   "label": "pon",
-                  "key": "cli-reference/interface/ethernet/pon/index"
+                  "key": "cli-reference/interface/ethernet/pon"
                 },
                 {
                   "type": "doc",
@@ -3895,7 +3895,7 @@
                   "label": "switch",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/ethernet/switch/index"
+                    "id": "cli-reference/interface/ethernet/switch"
                   },
                   "items": [
                     {
@@ -3903,7 +3903,7 @@
                       "label": "acl",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/interface/ethernet/switch/acl/index"
+                        "id": "cli-reference/interface/ethernet/switch/acl"
                       },
                       "items": [
                         {
@@ -3962,7 +3962,7 @@
                       "label": "l3hw-settings",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/interface/ethernet/switch/l3hw-settings/index"
+                        "id": "cli-reference/interface/ethernet/switch/l3hw-settings"
                       },
                       "items": [
                         {
@@ -3970,7 +3970,7 @@
                           "label": "advanced",
                           "link": {
                             "type": "doc",
-                            "id": "cli-reference/interface/ethernet/switch/l3hw-settings/advanced/index"
+                            "id": "cli-reference/interface/ethernet/switch/l3hw-settings/advanced"
                           },
                           "items": [
                             {
@@ -4020,23 +4020,23 @@
                       "label": "port",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/interface/ethernet/switch/port/index"
+                        "id": "cli-reference/interface/ethernet/switch/port"
                       },
                       "items": [
                         {
                           "type": "doc",
-                          "id": "cli-reference/interface/ethernet/switch/port/reset-counters/index",
+                          "id": "cli-reference/interface/ethernet/switch/port/reset-counters",
                           "label": "reset-counters",
-                          "key": "cli-reference/interface/ethernet/switch/port/reset-counters/index"
+                          "key": "cli-reference/interface/ethernet/switch/port/reset-counters"
                         }
                       ],
                       "key": "cli-reference/interface/ethernet/switch/port"
                     },
                     {
                       "type": "doc",
-                      "id": "cli-reference/interface/ethernet/switch/port-isolation/index",
+                      "id": "cli-reference/interface/ethernet/switch/port-isolation",
                       "label": "port-isolation",
-                      "key": "cli-reference/interface/ethernet/switch/port-isolation/index"
+                      "key": "cli-reference/interface/ethernet/switch/port-isolation"
                     },
                     {
                       "type": "doc",
@@ -4055,7 +4055,7 @@
                       "label": "qos",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/interface/ethernet/switch/qos/index"
+                        "id": "cli-reference/interface/ethernet/switch/qos"
                       },
                       "items": [
                         {
@@ -4063,7 +4063,7 @@
                           "label": "map",
                           "link": {
                             "type": "doc",
-                            "id": "cli-reference/interface/ethernet/switch/qos/map/index"
+                            "id": "cli-reference/interface/ethernet/switch/qos/map"
                           },
                           "items": [
                             {
@@ -4092,7 +4092,7 @@
                           "label": "port",
                           "link": {
                             "type": "doc",
-                            "id": "cli-reference/interface/ethernet/switch/qos/port/index"
+                            "id": "cli-reference/interface/ethernet/switch/qos/port"
                           },
                           "items": [
                             {
@@ -4127,7 +4127,7 @@
                           "label": "tx-manager",
                           "link": {
                             "type": "doc",
-                            "id": "cli-reference/interface/ethernet/switch/qos/tx-manager/index"
+                            "id": "cli-reference/interface/ethernet/switch/qos/tx-manager"
                           },
                           "items": [
                             {
@@ -4156,16 +4156,16 @@
                     },
                     {
                       "type": "doc",
-                      "id": "cli-reference/interface/ethernet/switch/reset-counters/index",
+                      "id": "cli-reference/interface/ethernet/switch/reset-counters",
                       "label": "reset-counters",
-                      "key": "cli-reference/interface/ethernet/switch/reset-counters/index"
+                      "key": "cli-reference/interface/ethernet/switch/reset-counters"
                     },
                     {
                       "type": "category",
                       "label": "rule",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/interface/ethernet/switch/rule/index"
+                        "id": "cli-reference/interface/ethernet/switch/rule"
                       },
                       "items": [
                         {
@@ -4206,7 +4206,7 @@
                       "label": "unicast-fdb",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/interface/ethernet/switch/unicast-fdb/index"
+                        "id": "cli-reference/interface/ethernet/switch/unicast-fdb"
                       },
                       "items": [
                         {
@@ -4220,9 +4220,9 @@
                     },
                     {
                       "type": "doc",
-                      "id": "cli-reference/interface/ethernet/switch/vlan/index",
+                      "id": "cli-reference/interface/ethernet/switch/vlan",
                       "label": "vlan",
-                      "key": "cli-reference/interface/ethernet/switch/vlan/index"
+                      "key": "cli-reference/interface/ethernet/switch/vlan"
                     }
                   ],
                   "key": "cli-reference/interface/ethernet/switch"
@@ -4259,7 +4259,7 @@
               "label": "l2tp-client",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/l2tp-client/index"
+                "id": "cli-reference/interface/l2tp-client"
               },
               "items": [
                 {
@@ -4276,7 +4276,7 @@
               "label": "l2tp-ether",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/l2tp-ether/index"
+                "id": "cli-reference/interface/l2tp-ether"
               },
               "items": [
                 {
@@ -4293,7 +4293,7 @@
               "label": "l2tp-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/l2tp-server/index"
+                "id": "cli-reference/interface/l2tp-server"
               },
               "items": [
                 {
@@ -4316,7 +4316,7 @@
               "label": "list",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/list/index"
+                "id": "cli-reference/interface/list"
               },
               "items": [
                 {
@@ -4333,7 +4333,7 @@
               "label": "lte",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/lte/index"
+                "id": "cli-reference/interface/lte"
               },
               "items": [
                 {
@@ -4359,7 +4359,7 @@
                   "label": "esim",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/lte/esim/index"
+                    "id": "cli-reference/interface/lte/esim"
                   },
                   "items": [
                     {
@@ -4457,7 +4457,7 @@
               "label": "macsec",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/macsec/index"
+                "id": "cli-reference/interface/macsec"
               },
               "items": [
                 {
@@ -4486,7 +4486,7 @@
               "label": "mesh",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/mesh/index"
+                "id": "cli-reference/interface/mesh"
               },
               "items": [
                 {
@@ -4521,7 +4521,7 @@
               "label": "ovpn-client",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/ovpn-client/index"
+                "id": "cli-reference/interface/ovpn-client"
               },
               "items": [
                 {
@@ -4544,7 +4544,7 @@
               "label": "ovpn-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/ovpn-server/index"
+                "id": "cli-reference/interface/ovpn-server"
               },
               "items": [
                 {
@@ -4558,7 +4558,7 @@
                   "label": "server",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/ovpn-server/server/index"
+                    "id": "cli-reference/interface/ovpn-server/server"
                   },
                   "items": [
                     {
@@ -4578,7 +4578,7 @@
               "label": "ppp-client",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/ppp-client/index"
+                "id": "cli-reference/interface/ppp-client"
               },
               "items": [
                 {
@@ -4619,7 +4619,7 @@
               "label": "ppp-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/ppp-server/index"
+                "id": "cli-reference/interface/ppp-server"
               },
               "items": [
                 {
@@ -4636,7 +4636,7 @@
               "label": "pppoe-client",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/pppoe-client/index"
+                "id": "cli-reference/interface/pppoe-client"
               },
               "items": [
                 {
@@ -4659,7 +4659,7 @@
               "label": "pppoe-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/pppoe-server/index"
+                "id": "cli-reference/interface/pppoe-server"
               },
               "items": [
                 {
@@ -4682,7 +4682,7 @@
               "label": "pptp-client",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/pptp-client/index"
+                "id": "cli-reference/interface/pptp-client"
               },
               "items": [
                 {
@@ -4699,7 +4699,7 @@
               "label": "pptp-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/pptp-server/index"
+                "id": "cli-reference/interface/pptp-server"
               },
               "items": [
                 {
@@ -4722,7 +4722,7 @@
               "label": "pwr-line",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/pwr-line/index"
+                "id": "cli-reference/interface/pwr-line"
               },
               "items": [
                 {
@@ -4787,7 +4787,7 @@
               "label": "sstp-client",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/sstp-client/index"
+                "id": "cli-reference/interface/sstp-client"
               },
               "items": [
                 {
@@ -4804,7 +4804,7 @@
               "label": "sstp-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/sstp-server/index"
+                "id": "cli-reference/interface/sstp-server"
               },
               "items": [
                 {
@@ -4839,7 +4839,7 @@
               "label": "vpls",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/vpls/index"
+                "id": "cli-reference/interface/vpls"
               },
               "items": [
                 {
@@ -4862,7 +4862,7 @@
               "label": "vxlan",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/vxlan/index"
+                "id": "cli-reference/interface/vxlan"
               },
               "items": [
                 {
@@ -4885,7 +4885,7 @@
               "label": "w60g",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/w60g/index"
+                "id": "cli-reference/interface/w60g"
               },
               "items": [
                 {
@@ -4917,7 +4917,7 @@
                   "label": "station",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/w60g/station/index"
+                    "id": "cli-reference/interface/w60g/station"
                   },
                   "items": [
                     {
@@ -4937,7 +4937,7 @@
               "label": "wifi",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/wifi/index"
+                "id": "cli-reference/interface/wifi"
               },
               "items": [
                 {
@@ -4963,7 +4963,7 @@
                   "label": "capsman",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wifi/capsman/index"
+                    "id": "cli-reference/interface/wifi/capsman"
                   },
                   "items": [
                     {
@@ -4971,7 +4971,7 @@
                       "label": "remote-cap",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/interface/wifi/capsman/remote-cap/index"
+                        "id": "cli-reference/interface/wifi/capsman/remote-cap"
                       },
                       "items": [
                         {
@@ -5057,7 +5057,7 @@
                   "label": "network",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wifi/network/index"
+                    "id": "cli-reference/interface/wifi/network"
                   },
                   "items": [
                     {
@@ -5080,7 +5080,7 @@
                   "label": "radio",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wifi/radio/index"
+                    "id": "cli-reference/interface/wifi/radio"
                   },
                   "items": [
                     {
@@ -5133,7 +5133,7 @@
                   "label": "security",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wifi/security/index"
+                    "id": "cli-reference/interface/wifi/security"
                   },
                   "items": [
                     {
@@ -5162,7 +5162,7 @@
                   "label": "steering",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wifi/steering/index"
+                    "id": "cli-reference/interface/wifi/steering"
                   },
                   "items": [
                     {
@@ -5200,7 +5200,7 @@
               "label": "wireguard",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/wireguard/index"
+                "id": "cli-reference/interface/wireguard"
               },
               "items": [
                 {
@@ -5208,7 +5208,7 @@
                   "label": "peers",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wireguard/peers/index"
+                    "id": "cli-reference/interface/wireguard/peers"
                   },
                   "items": [
                     {
@@ -5240,7 +5240,7 @@
               "label": "wireless",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/wireless/index"
+                "id": "cli-reference/interface/wireless"
               },
               "items": [
                 {
@@ -5254,7 +5254,7 @@
                   "label": "align",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wireless/align/index"
+                    "id": "cli-reference/interface/wireless/align"
                   },
                   "items": [
                     {
@@ -5301,7 +5301,7 @@
                   "label": "info",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wireless/info/index"
+                    "id": "cli-reference/interface/wireless/info"
                   },
                   "items": [
                     {
@@ -5366,7 +5366,7 @@
                   "label": "nstreme-dual",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wireless/nstreme-dual/index"
+                    "id": "cli-reference/interface/wireless/nstreme-dual"
                   },
                   "items": [
                     {
@@ -5395,7 +5395,7 @@
                   "label": "registration-table",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wireless/registration-table/index"
+                    "id": "cli-reference/interface/wireless/registration-table"
                   },
                   "items": [
                     {
@@ -5442,7 +5442,7 @@
                   "label": "sniffer",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wireless/sniffer/index"
+                    "id": "cli-reference/interface/wireless/sniffer"
                   },
                   "items": [
                     {
@@ -5471,7 +5471,7 @@
                   "label": "snooper",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wireless/snooper/index"
+                    "id": "cli-reference/interface/wireless/snooper"
                   },
                   "items": [
                     {
@@ -5500,7 +5500,7 @@
                   "label": "wds",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wireless/wds/index"
+                    "id": "cli-reference/interface/wireless/wds"
                   },
                   "items": [
                     {
@@ -5545,7 +5545,7 @@
               "label": "bluetooth",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/iot/bluetooth/index"
+                "id": "cli-reference/iot/bluetooth"
               },
               "items": [
                 {
@@ -5553,7 +5553,7 @@
                   "label": "advertisers",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/iot/bluetooth/advertisers/index"
+                    "id": "cli-reference/iot/bluetooth/advertisers"
                   },
                   "items": [
                     {
@@ -5570,7 +5570,7 @@
                   "label": "connections",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/iot/bluetooth/connections/index"
+                    "id": "cli-reference/iot/bluetooth/connections"
                   },
                   "items": [
                     {
@@ -5578,7 +5578,7 @@
                       "label": "async-data",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/iot/bluetooth/connections/async-data/index"
+                        "id": "cli-reference/iot/bluetooth/connections/async-data"
                       },
                       "items": [
                         {
@@ -5664,7 +5664,7 @@
                   "label": "scanners",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/iot/bluetooth/scanners/index"
+                    "id": "cli-reference/iot/bluetooth/scanners"
                   },
                   "items": [
                     {
@@ -5672,7 +5672,7 @@
                       "label": "advertisements",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/iot/bluetooth/scanners/advertisements/index"
+                        "id": "cli-reference/iot/bluetooth/scanners/advertisements"
                       },
                       "items": [
                         {
@@ -5701,7 +5701,7 @@
               "label": "gpio",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/iot/gpio/index"
+                "id": "cli-reference/iot/gpio"
               },
               "items": [
                 {
@@ -5724,7 +5724,7 @@
               "label": "lora",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/iot/lora/index"
+                "id": "cli-reference/iot/lora"
               },
               "items": [
                 {
@@ -5768,7 +5768,7 @@
                   "label": "servers",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/iot/lora/servers/index"
+                    "id": "cli-reference/iot/lora/servers"
                   },
                   "items": [
                     {
@@ -5785,7 +5785,7 @@
                   "label": "traffic",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/iot/lora/traffic/index"
+                    "id": "cli-reference/iot/lora/traffic"
                   },
                   "items": [
                     {
@@ -5811,7 +5811,7 @@
               "label": "modbus",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/iot/modbus/index"
+                "id": "cli-reference/iot/modbus"
               },
               "items": [
                 {
@@ -5840,7 +5840,7 @@
               "label": "mqtt",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/iot/mqtt/index"
+                "id": "cli-reference/iot/mqtt"
               },
               "items": [
                 {
@@ -5878,7 +5878,7 @@
                   "label": "subscriptions",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/iot/mqtt/subscriptions/index"
+                    "id": "cli-reference/iot/mqtt/subscriptions"
                   },
                   "items": [
                     {
@@ -5892,7 +5892,7 @@
                       "label": "recv",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/iot/mqtt/subscriptions/recv/index"
+                        "id": "cli-reference/iot/mqtt/subscriptions/recv"
                       },
                       "items": [
                         {
@@ -5921,7 +5921,7 @@
               "label": "wiliot",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/iot/wiliot/index"
+                "id": "cli-reference/iot/wiliot"
               },
               "items": [
                 {
@@ -5929,7 +5929,7 @@
                   "label": "bluetooth-traffic",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/iot/wiliot/bluetooth-traffic/index"
+                    "id": "cli-reference/iot/wiliot/bluetooth-traffic"
                   },
                   "items": [
                     {
@@ -5964,7 +5964,7 @@
                   "label": "mqtt-traffic",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/iot/wiliot/mqtt-traffic/index"
+                    "id": "cli-reference/iot/wiliot/mqtt-traffic"
                   },
                   "items": [
                     {
@@ -5987,7 +5987,7 @@
                   "label": "servers",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/iot/wiliot/servers/index"
+                    "id": "cli-reference/iot/wiliot/servers"
                   },
                   "items": [
                     {
@@ -6026,7 +6026,7 @@
               "label": "cloud",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/cloud/index"
+                "id": "cli-reference/ip/cloud"
               },
               "items": [
                 {
@@ -6040,7 +6040,7 @@
                   "label": "back-to-home-file",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/cloud/back-to-home-file/index"
+                    "id": "cli-reference/ip/cloud/back-to-home-file"
                   },
                   "items": [
                     {
@@ -6048,7 +6048,7 @@
                       "label": "settings",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/ip/cloud/back-to-home-file/settings/index"
+                        "id": "cli-reference/ip/cloud/back-to-home-file/settings"
                       },
                       "items": [
                         {
@@ -6068,7 +6068,7 @@
                   "label": "back-to-home-user",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/cloud/back-to-home-user/index"
+                    "id": "cli-reference/ip/cloud/back-to-home-user"
                   },
                   "items": [
                     {
@@ -6094,7 +6094,7 @@
               "label": "dhcp-client",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/dhcp-client/index"
+                "id": "cli-reference/ip/dhcp-client"
               },
               "items": [
                 {
@@ -6123,7 +6123,7 @@
               "label": "dhcp-relay",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/dhcp-relay/index"
+                "id": "cli-reference/ip/dhcp-relay"
               },
               "items": [
                 {
@@ -6146,7 +6146,7 @@
               "label": "dhcp-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/dhcp-server/index"
+                "id": "cli-reference/ip/dhcp-server"
               },
               "items": [
                 {
@@ -6154,7 +6154,7 @@
                   "label": "alert",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/dhcp-server/alert/index"
+                    "id": "cli-reference/ip/dhcp-server/alert"
                   },
                   "items": [
                     {
@@ -6177,7 +6177,7 @@
                   "label": "lease",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/dhcp-server/lease/index"
+                    "id": "cli-reference/ip/dhcp-server/lease"
                   },
                   "items": [
                     {
@@ -6218,7 +6218,7 @@
                   "label": "option",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/dhcp-server/option/index"
+                    "id": "cli-reference/ip/dhcp-server/option"
                   },
                   "items": [
                     {
@@ -6244,7 +6244,7 @@
               "label": "dns",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/dns/index"
+                "id": "cli-reference/ip/dns"
               },
               "items": [
                 {
@@ -6252,7 +6252,7 @@
                   "label": "adlist",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/dns/adlist/index"
+                    "id": "cli-reference/ip/dns/adlist"
                   },
                   "items": [
                     {
@@ -6275,7 +6275,7 @@
                   "label": "cache",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/dns/cache/index"
+                    "id": "cli-reference/ip/dns/cache"
                   },
                   "items": [
                     {
@@ -6323,7 +6323,7 @@
                   "label": "calea",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/firewall/calea/index"
+                    "id": "cli-reference/ip/firewall/calea"
                   },
                   "items": [
                     {
@@ -6346,7 +6346,7 @@
                   "label": "connection",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/firewall/connection/index"
+                    "id": "cli-reference/ip/firewall/connection"
                   },
                   "items": [
                     {
@@ -6363,7 +6363,7 @@
                   "label": "filter",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/firewall/filter/index"
+                    "id": "cli-reference/ip/firewall/filter"
                   },
                   "items": [
                     {
@@ -6392,7 +6392,7 @@
                   "label": "mangle",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/firewall/mangle/index"
+                    "id": "cli-reference/ip/firewall/mangle"
                   },
                   "items": [
                     {
@@ -6415,7 +6415,7 @@
                   "label": "nat",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/firewall/nat/index"
+                    "id": "cli-reference/ip/firewall/nat"
                   },
                   "items": [
                     {
@@ -6438,7 +6438,7 @@
                   "label": "raw",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/firewall/raw/index"
+                    "id": "cli-reference/ip/firewall/raw"
                   },
                   "items": [
                     {
@@ -6470,7 +6470,7 @@
               "label": "hotspot",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/hotspot/index"
+                "id": "cli-reference/ip/hotspot"
               },
               "items": [
                 {
@@ -6478,7 +6478,7 @@
                   "label": "active",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/hotspot/active/index"
+                    "id": "cli-reference/ip/hotspot/active"
                   },
                   "items": [
                     {
@@ -6501,7 +6501,7 @@
                   "label": "host",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/hotspot/host/index"
+                    "id": "cli-reference/ip/hotspot/host"
                   },
                   "items": [
                     {
@@ -6548,7 +6548,7 @@
                   "label": "user",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/hotspot/user/index"
+                    "id": "cli-reference/ip/hotspot/user"
                   },
                   "items": [
                     {
@@ -6571,7 +6571,7 @@
                   "label": "walled-garden",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/hotspot/walled-garden/index"
+                    "id": "cli-reference/ip/hotspot/walled-garden"
                   },
                   "items": [
                     {
@@ -6607,7 +6607,7 @@
                   "label": "active-peers",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/ipsec/active-peers/index"
+                    "id": "cli-reference/ip/ipsec/active-peers"
                   },
                   "items": [
                     {
@@ -6630,7 +6630,7 @@
                   "label": "installed-sa",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/ipsec/installed-sa/index"
+                    "id": "cli-reference/ip/ipsec/installed-sa"
                   },
                   "items": [
                     {
@@ -6647,7 +6647,7 @@
                   "label": "key",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/ipsec/key/index"
+                    "id": "cli-reference/ip/ipsec/key"
                   },
                   "items": [
                     {
@@ -6655,7 +6655,7 @@
                       "label": "psk",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/ip/ipsec/key/psk/index"
+                        "id": "cli-reference/ip/ipsec/key/psk"
                       },
                       "items": [
                         {
@@ -6672,7 +6672,7 @@
                       "label": "rsa",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/ip/ipsec/key/rsa/index"
+                        "id": "cli-reference/ip/ipsec/key/rsa"
                       },
                       "items": [
                         {
@@ -6716,7 +6716,7 @@
                   "label": "policy",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/ipsec/policy/index"
+                    "id": "cli-reference/ip/ipsec/policy"
                   },
                   "items": [
                     {
@@ -6760,7 +6760,7 @@
               "label": "kid-control",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/kid-control/index"
+                "id": "cli-reference/ip/kid-control"
               },
               "items": [
                 {
@@ -6768,7 +6768,7 @@
                   "label": "device",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/kid-control/device/index"
+                    "id": "cli-reference/ip/kid-control/device"
                   },
                   "items": [
                     {
@@ -6800,7 +6800,7 @@
               "label": "media",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/media/index"
+                "id": "cli-reference/ip/media"
               },
               "items": [
                 {
@@ -6817,7 +6817,7 @@
               "label": "nat-pmp",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/nat-pmp/index"
+                "id": "cli-reference/ip/nat-pmp"
               },
               "items": [
                 {
@@ -6834,7 +6834,7 @@
               "label": "neighbor",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/neighbor/index"
+                "id": "cli-reference/ip/neighbor"
               },
               "items": [
                 {
@@ -6863,7 +6863,7 @@
               "label": "pool",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/pool/index"
+                "id": "cli-reference/ip/pool"
               },
               "items": [
                 {
@@ -6880,7 +6880,7 @@
               "label": "proxy",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/proxy/index"
+                "id": "cli-reference/ip/proxy"
               },
               "items": [
                 {
@@ -6888,7 +6888,7 @@
                   "label": "access",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/proxy/access/index"
+                    "id": "cli-reference/ip/proxy/access"
                   },
                   "items": [
                     {
@@ -6911,7 +6911,7 @@
                   "label": "cache",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/proxy/cache/index"
+                    "id": "cli-reference/ip/proxy/cache"
                   },
                   "items": [
                     {
@@ -6952,7 +6952,7 @@
                   "label": "direct",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/proxy/direct/index"
+                    "id": "cli-reference/ip/proxy/direct"
                   },
                   "items": [
                     {
@@ -7014,7 +7014,7 @@
               "label": "route",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/route/index"
+                "id": "cli-reference/ip/route"
               },
               "items": [
                 {
@@ -7031,7 +7031,7 @@
               "label": "service",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/service/index"
+                "id": "cli-reference/ip/service"
               },
               "items": [
                 {
@@ -7054,7 +7054,7 @@
               "label": "smb",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/smb/index"
+                "id": "cli-reference/ip/smb"
               },
               "items": [
                 {
@@ -7077,7 +7077,7 @@
               "label": "socks",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/socks/index"
+                "id": "cli-reference/ip/socks"
               },
               "items": [
                 {
@@ -7112,7 +7112,7 @@
               "label": "ssh",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/ssh/index"
+                "id": "cli-reference/ip/ssh"
               },
               "items": [
                 {
@@ -7147,7 +7147,7 @@
               "label": "tftp",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/tftp/index"
+                "id": "cli-reference/ip/tftp"
               },
               "items": [
                 {
@@ -7164,7 +7164,7 @@
               "label": "traffic-flow",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/traffic-flow/index"
+                "id": "cli-reference/ip/traffic-flow"
               },
               "items": [
                 {
@@ -7193,7 +7193,7 @@
               "label": "upnp",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/upnp/index"
+                "id": "cli-reference/ip/upnp"
               },
               "items": [
                 {
@@ -7229,7 +7229,7 @@
               "label": "dhcp-client",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ipv6/dhcp-client/index"
+                "id": "cli-reference/ipv6/dhcp-client"
               },
               "items": [
                 {
@@ -7258,7 +7258,7 @@
               "label": "dhcp-relay",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ipv6/dhcp-relay/index"
+                "id": "cli-reference/ipv6/dhcp-relay"
               },
               "items": [
                 {
@@ -7293,7 +7293,7 @@
               "label": "dhcp-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ipv6/dhcp-server/index"
+                "id": "cli-reference/ipv6/dhcp-server"
               },
               "items": [
                 {
@@ -7301,7 +7301,7 @@
                   "label": "binding",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ipv6/dhcp-server/binding/index"
+                    "id": "cli-reference/ipv6/dhcp-server/binding"
                   },
                   "items": [
                     {
@@ -7324,7 +7324,7 @@
                   "label": "option",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ipv6/dhcp-server/option/index"
+                    "id": "cli-reference/ipv6/dhcp-server/option"
                   },
                   "items": [
                     {
@@ -7360,7 +7360,7 @@
                   "label": "filter",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ipv6/firewall/filter/index"
+                    "id": "cli-reference/ipv6/firewall/filter"
                   },
                   "items": [
                     {
@@ -7383,7 +7383,7 @@
                   "label": "mangle",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ipv6/firewall/mangle/index"
+                    "id": "cli-reference/ipv6/firewall/mangle"
                   },
                   "items": [
                     {
@@ -7406,7 +7406,7 @@
                   "label": "nat",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ipv6/firewall/nat/index"
+                    "id": "cli-reference/ipv6/firewall/nat"
                   },
                   "items": [
                     {
@@ -7429,7 +7429,7 @@
                   "label": "raw",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ipv6/firewall/raw/index"
+                    "id": "cli-reference/ipv6/firewall/raw"
                   },
                   "items": [
                     {
@@ -7455,7 +7455,7 @@
               "label": "nd",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ipv6/nd/index"
+                "id": "cli-reference/ipv6/nd"
               },
               "items": [
                 {
@@ -7463,7 +7463,7 @@
                   "label": "prefix",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ipv6/nd/prefix/index"
+                    "id": "cli-reference/ipv6/nd/prefix"
                   },
                   "items": [
                     {
@@ -7501,7 +7501,7 @@
               "label": "pool",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ipv6/pool/index"
+                "id": "cli-reference/ipv6/pool"
               },
               "items": [
                 {
@@ -7533,7 +7533,7 @@
           "label": "lcd",
           "link": {
             "type": "doc",
-            "id": "cli-reference/lcd/index"
+            "id": "cli-reference/lcd"
           },
           "items": [
             {
@@ -7547,7 +7547,7 @@
               "label": "interface",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/lcd/interface/index"
+                "id": "cli-reference/lcd/interface"
               },
               "items": [
                 {
@@ -7631,7 +7631,7 @@
               "label": "ldp",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/mpls/ldp/index"
+                "id": "cli-reference/mpls/ldp"
               },
               "items": [
                 {
@@ -7678,7 +7678,7 @@
               "label": "mangle",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/mpls/mangle/index"
+                "id": "cli-reference/mpls/mangle"
               },
               "items": [
                 {
@@ -7707,7 +7707,7 @@
               "label": "traffic-eng",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/mpls/traffic-eng/index"
+                "id": "cli-reference/mpls/traffic-eng"
               },
               "items": [
                 {
@@ -7733,7 +7733,7 @@
                   "label": "tunnel",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/mpls/traffic-eng/tunnel/index"
+                    "id": "cli-reference/mpls/traffic-eng/tunnel"
                   },
                   "items": [
                     {
@@ -7756,7 +7756,7 @@
           "label": "openflow",
           "link": {
             "type": "doc",
-            "id": "cli-reference/openflow/index"
+            "id": "cli-reference/openflow"
           },
           "items": [
             {
@@ -7791,7 +7791,7 @@
           "label": "partitions",
           "link": {
             "type": "doc",
-            "id": "cli-reference/partitions/index"
+            "id": "cli-reference/partitions"
           },
           "items": [
             {
@@ -7838,7 +7838,7 @@
           "label": "port",
           "link": {
             "type": "doc",
-            "id": "cli-reference/port/index"
+            "id": "cli-reference/port"
           },
           "items": [
             {
@@ -7908,7 +7908,7 @@
               "label": "simple",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/queue/simple/index"
+                "id": "cli-reference/queue/simple"
               },
               "items": [
                 {
@@ -7931,7 +7931,7 @@
               "label": "tree",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/queue/tree/index"
+                "id": "cli-reference/queue/tree"
               },
               "items": [
                 {
@@ -7969,7 +7969,7 @@
           "label": "radius",
           "link": {
             "type": "doc",
-            "id": "cli-reference/radius/index"
+            "id": "cli-reference/radius"
           },
           "items": [
             {
@@ -7977,7 +7977,7 @@
               "label": "incoming",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/radius/incoming/index"
+                "id": "cli-reference/radius/incoming"
               },
               "items": [
                 {
@@ -8063,7 +8063,7 @@
               "label": "bgp",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/routing/bgp/index"
+                "id": "cli-reference/routing/bgp"
               },
               "items": [
                 {
@@ -8095,7 +8095,7 @@
                   "label": "session",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/routing/bgp/session/index"
+                    "id": "cli-reference/routing/bgp/session"
                   },
                   "items": [
                     {
@@ -8248,7 +8248,7 @@
               "label": "igmp-proxy",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/routing/igmp-proxy/index"
+                "id": "cli-reference/routing/igmp-proxy"
               },
               "items": [
                 {
@@ -8308,7 +8308,7 @@
               "label": "nexthop",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/routing/nexthop/index"
+                "id": "cli-reference/routing/nexthop"
               },
               "items": [
                 {
@@ -8329,7 +8329,7 @@
                   "label": "area",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/routing/ospf/area/index"
+                    "id": "cli-reference/routing/ospf/area"
                   },
                   "items": [
                     {
@@ -8385,7 +8385,7 @@
               "label": "pimsm",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/routing/pimsm/index"
+                "id": "cli-reference/routing/pimsm"
               },
               "items": [
                 {
@@ -8393,7 +8393,7 @@
                   "label": "bsr",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/routing/pimsm/bsr/index"
+                    "id": "cli-reference/routing/pimsm/bsr"
                   },
                   "items": [
                     {
@@ -8522,7 +8522,7 @@
               "label": "rpki",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/routing/rpki/index"
+                "id": "cli-reference/routing/rpki"
               },
               "items": [
                 {
@@ -8585,7 +8585,7 @@
                   "label": "process",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/routing/stats/process/index"
+                    "id": "cli-reference/routing/stats/process"
                   },
                   "items": [
                     {
@@ -8626,7 +8626,7 @@
           "label": "snmp",
           "link": {
             "type": "doc",
-            "id": "cli-reference/snmp/index"
+            "id": "cli-reference/snmp"
           },
           "items": [
             {
@@ -8663,7 +8663,7 @@
                   "label": "cloud",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/system/backup/cloud/index"
+                    "id": "cli-reference/system/backup/cloud"
                   },
                   "items": [
                     {
@@ -8719,7 +8719,7 @@
               "label": "clock",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/clock/index"
+                "id": "cli-reference/system/clock"
               },
               "items": [
                 {
@@ -8736,7 +8736,7 @@
               "label": "console",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/console/index"
+                "id": "cli-reference/system/console"
               },
               "items": [
                 {
@@ -8753,7 +8753,7 @@
               "label": "default-configuration",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/default-configuration/index"
+                "id": "cli-reference/system/default-configuration"
               },
               "items": [
                 {
@@ -8788,7 +8788,7 @@
               "label": "device-mode",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/device-mode/index"
+                "id": "cli-reference/system/device-mode"
               },
               "items": [
                 {
@@ -8805,7 +8805,7 @@
               "label": "gps",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/gps/index"
+                "id": "cli-reference/system/gps"
               },
               "items": [
                 {
@@ -8822,7 +8822,7 @@
               "label": "health",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/health/index"
+                "id": "cli-reference/system/health"
               },
               "items": [
                 {
@@ -8830,7 +8830,7 @@
                   "label": "settings",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/system/health/settings/index"
+                    "id": "cli-reference/system/health/settings"
                   },
                   "items": [
                     {
@@ -8862,7 +8862,7 @@
               "label": "keymat-provider",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/keymat-provider/index"
+                "id": "cli-reference/system/keymat-provider"
               },
               "items": [
                 {
@@ -8891,7 +8891,7 @@
               "label": "leds",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/leds/index"
+                "id": "cli-reference/system/leds"
               },
               "items": [
                 {
@@ -8908,7 +8908,7 @@
               "label": "license",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/license/index"
+                "id": "cli-reference/system/license"
               },
               "items": [
                 {
@@ -8937,7 +8937,7 @@
               "label": "logging",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/logging/index"
+                "id": "cli-reference/system/logging"
               },
               "items": [
                 {
@@ -8945,7 +8945,7 @@
                   "label": "action",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/system/logging/action/index"
+                    "id": "cli-reference/system/logging/action"
                   },
                   "items": [
                     {
@@ -8975,7 +8975,7 @@
                   "label": "client",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/system/ntp/client/index"
+                    "id": "cli-reference/system/ntp/client"
                   },
                   "items": [
                     {
@@ -9019,7 +9019,7 @@
               "label": "package",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/package/index"
+                "id": "cli-reference/system/package"
               },
               "items": [
                 {
@@ -9051,7 +9051,7 @@
                   "label": "local-update",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/system/package/local-update/index"
+                    "id": "cli-reference/system/package/local-update"
                   },
                   "items": [
                     {
@@ -9071,7 +9071,7 @@
                       "label": "mirror",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/system/package/local-update/mirror/index"
+                        "id": "cli-reference/system/package/local-update/mirror"
                       },
                       "items": [
                         {
@@ -9115,7 +9115,7 @@
                   "label": "update",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/system/package/update/index"
+                    "id": "cli-reference/system/package/update"
                   },
                   "items": [
                     {
@@ -9153,7 +9153,7 @@
               "label": "ptp",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/ptp/index"
+                "id": "cli-reference/system/ptp"
               },
               "items": [
                 {
@@ -9200,7 +9200,7 @@
               "label": "resource",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/resource/index"
+                "id": "cli-reference/system/resource"
               },
               "items": [
                 {
@@ -9214,7 +9214,7 @@
                   "label": "hardware",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/system/resource/hardware/index"
+                    "id": "cli-reference/system/resource/hardware"
                   },
                   "items": [
                     {
@@ -9243,7 +9243,7 @@
                   "label": "irq",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/system/resource/irq/index"
+                    "id": "cli-reference/system/resource/irq"
                   },
                   "items": [
                     {
@@ -9269,7 +9269,7 @@
               "label": "routerboard",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/routerboard/index"
+                "id": "cli-reference/system/routerboard"
               },
               "items": [
                 {
@@ -9301,7 +9301,7 @@
                   "label": "usb",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/system/routerboard/usb/index"
+                    "id": "cli-reference/system/routerboard/usb"
                   },
                   "items": [
                     {
@@ -9327,7 +9327,7 @@
               "label": "rtrace",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/rtrace/index"
+                "id": "cli-reference/system/rtrace"
               },
               "items": [
                 {
@@ -9356,7 +9356,7 @@
               "label": "script",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/script/index"
+                "id": "cli-reference/system/script"
               },
               "items": [
                 {
@@ -9409,7 +9409,7 @@
               "label": "swos",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/swos/index"
+                "id": "cli-reference/system/swos"
               },
               "items": [
                 {
@@ -9456,7 +9456,7 @@
               "label": "ups",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/ups/index"
+                "id": "cli-reference/system/ups"
               },
               "items": [
                 {
@@ -9500,7 +9500,7 @@
           "label": "task",
           "link": {
             "type": "doc",
-            "id": "cli-reference/task/index"
+            "id": "cli-reference/task"
           },
           "items": [
             {
@@ -9533,7 +9533,7 @@
               "label": "bandwidth-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/tool/bandwidth-server/index"
+                "id": "cli-reference/tool/bandwidth-server"
               },
               "items": [
                 {
@@ -9568,7 +9568,7 @@
               "label": "e-mail",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/tool/e-mail/index"
+                "id": "cli-reference/tool/e-mail"
               },
               "items": [
                 {
@@ -9597,7 +9597,7 @@
               "label": "graphing",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/tool/graphing/index"
+                "id": "cli-reference/tool/graphing"
               },
               "items": [
                 {
@@ -9638,7 +9638,7 @@
               "label": "mac-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/tool/mac-server/index"
+                "id": "cli-reference/tool/mac-server"
               },
               "items": [
                 {
@@ -9697,7 +9697,7 @@
               "label": "romon",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/tool/romon/index"
+                "id": "cli-reference/tool/romon"
               },
               "items": [
                 {
@@ -9732,7 +9732,7 @@
               "label": "sms",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/tool/sms/index"
+                "id": "cli-reference/tool/sms"
               },
               "items": [
                 {
@@ -9755,7 +9755,7 @@
               "label": "sniffer",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/tool/sniffer/index"
+                "id": "cli-reference/tool/sniffer"
               },
               "items": [
                 {
@@ -9844,7 +9844,7 @@
               "label": "traffic-generator",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/tool/traffic-generator/index"
+                "id": "cli-reference/tool/traffic-generator"
               },
               "items": [
                 {
@@ -9955,7 +9955,7 @@
           "label": "tr069-client",
           "link": {
             "type": "doc",
-            "id": "cli-reference/tr069-client/index"
+            "id": "cli-reference/tr069-client"
           },
           "items": [
             {
@@ -9978,7 +9978,7 @@
           "label": "user",
           "link": {
             "type": "doc",
-            "id": "cli-reference/user/index"
+            "id": "cli-reference/user"
           },
           "items": [
             {
@@ -10016,7 +10016,7 @@
               "label": "ssh-keys",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/user/ssh-keys/index"
+                "id": "cli-reference/user/ssh-keys"
               },
               "items": [
                 {
@@ -10030,7 +10030,7 @@
                   "label": "private",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/user/ssh-keys/private/index"
+                    "id": "cli-reference/user/ssh-keys/private"
                   },
                   "items": [
                     {
@@ -10053,7 +10053,7 @@
           "label": "user-manager",
           "link": {
             "type": "doc",
-            "id": "cli-reference/user-manager/index"
+            "id": "cli-reference/user-manager"
           },
           "items": [
             {
@@ -10073,7 +10073,7 @@
               "label": "database",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/user-manager/database/index"
+                "id": "cli-reference/user-manager/database"
               },
               "items": [
                 {
@@ -10144,7 +10144,7 @@
               "label": "router",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/user-manager/router/index"
+                "id": "cli-reference/user-manager/router"
               },
               "items": [
                 {
@@ -10167,7 +10167,7 @@
               "label": "session",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/user-manager/session/index"
+                "id": "cli-reference/user-manager/session"
               },
               "items": [
                 {
@@ -10184,7 +10184,7 @@
               "label": "user",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/user-manager/user/index"
+                "id": "cli-reference/user-manager/user"
               },
               "items": [
                 {
@@ -10219,7 +10219,7 @@
               "label": "user-profile",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/user-manager/user-profile/index"
+                "id": "cli-reference/user-manager/user-profile"
               },
               "items": [
                 {
@@ -10239,7 +10239,7 @@
           "label": "zerotier",
           "link": {
             "type": "doc",
-            "id": "cli-reference/zerotier/index"
+            "id": "cli-reference/zerotier"
           },
           "items": [
             {
@@ -10247,7 +10247,7 @@
               "label": "controller",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/zerotier/controller/index"
+                "id": "cli-reference/zerotier/controller"
               },
               "items": [
                 {
@@ -10270,7 +10270,7 @@
               "label": "peer",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/zerotier/peer/index"
+                "id": "cli-reference/zerotier/peer"
               },
               "items": [
                 {

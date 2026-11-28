@@ -13,7 +13,7 @@ const sidebars: SidebarsConfig = {
       "label": "Getting Started",
       "link": {
         "type": "doc",
-        "id": "getting-started/index"
+        "id": "getting-started"
       },
       "items": [
         {
@@ -39,7 +39,7 @@ const sidebars: SidebarsConfig = {
           "label": "Networking Fundamentals",
           "link": {
             "type": "doc",
-            "id": "getting-started/networking-fundamentals/index"
+            "id": "getting-started/networking-fundamentals"
           },
           "items": [
             {
@@ -62,7 +62,7 @@ const sidebars: SidebarsConfig = {
           "label": "Installation and Upgrade",
           "link": {
             "type": "doc",
-            "id": "getting-started/installation-and-upgrade/index"
+            "id": "getting-started/installation-and-upgrade"
           },
           "items": [
             {
@@ -74,7 +74,7 @@ const sidebars: SidebarsConfig = {
                   "label": "CHR: Installation",
                   "link": {
                     "type": "doc",
-                    "id": "getting-started/installation-and-upgrade/install/chr-installation/index"
+                    "id": "getting-started/installation-and-upgrade/install/chr-installation"
                   },
                   "items": [
                     {
@@ -148,7 +148,7 @@ const sidebars: SidebarsConfig = {
               "label": "Netinstall",
               "link": {
                 "type": "doc",
-                "id": "getting-started/installation-and-upgrade/netinstall/index"
+                "id": "getting-started/installation-and-upgrade/netinstall"
               },
               "items": [
                 {
@@ -192,7 +192,7 @@ const sidebars: SidebarsConfig = {
           "label": "Configuration Management",
           "link": {
             "type": "doc",
-            "id": "getting-started/configuration-management/index"
+            "id": "getting-started/configuration-management"
           },
           "items": [
             {
@@ -233,7 +233,7 @@ const sidebars: SidebarsConfig = {
           "label": "RouterOS Licensing",
           "link": {
             "type": "doc",
-            "id": "getting-started/routeros-licensing/index"
+            "id": "getting-started/routeros-licensing"
           },
           "items": [
             {
@@ -241,7 +241,7 @@ const sidebars: SidebarsConfig = {
               "label": "Cloud Hosted Router, CHR",
               "link": {
                 "type": "doc",
-                "id": "getting-started/routeros-licensing/chr/index"
+                "id": "getting-started/routeros-licensing/chr"
               },
               "items": [
                 {
@@ -255,15 +255,15 @@ const sidebars: SidebarsConfig = {
             },
             {
               "type": "doc",
-              "id": "getting-started/routeros-licensing/mikrotik-hardware/index",
+              "id": "getting-started/routeros-licensing/mikrotik-hardware",
               "label": "MikroTik Hardware Licensing",
-              "key": "getting-started/routeros-licensing/mikrotik-hardware/index"
+              "key": "getting-started/routeros-licensing/mikrotik-hardware"
             },
             {
               "type": "doc",
-              "id": "getting-started/routeros-licensing/x86/index",
+              "id": "getting-started/routeros-licensing/x86",
               "label": "x86 Licensing",
-              "key": "getting-started/routeros-licensing/x86/index"
+              "key": "getting-started/routeros-licensing/x86"
             }
           ],
           "key": "getting-started/routeros-licensing"
@@ -273,7 +273,7 @@ const sidebars: SidebarsConfig = {
           "label": "Software Specifications",
           "link": {
             "type": "doc",
-            "id": "getting-started/software-specifications/index"
+            "id": "getting-started/software-specifications"
           },
           "items": [
             {
@@ -305,7 +305,7 @@ const sidebars: SidebarsConfig = {
       "label": "Management Tools",
       "link": {
         "type": "doc",
-        "id": "management-tools/index"
+        "id": "management-tools"
       },
       "items": [
         {
@@ -417,7 +417,7 @@ const sidebars: SidebarsConfig = {
       "label": "System Information and Utilities",
       "link": {
         "type": "doc",
-        "id": "system-information-and-utilities/index"
+        "id": "system-information-and-utilities"
       },
       "items": [
         {
@@ -530,7 +530,7 @@ const sidebars: SidebarsConfig = {
       "label": "Diagnostics and Monitoring",
       "link": {
         "type": "doc",
-        "id": "diagnostics-monitoring-and-troubleshooting/index"
+        "id": "diagnostics-monitoring-and-troubleshooting"
       },
       "items": [
         {
@@ -658,7 +658,7 @@ const sidebars: SidebarsConfig = {
           "label": "Logs",
           "link": {
             "type": "doc",
-            "id": "diagnostics-monitoring-and-troubleshooting/log/index"
+            "id": "diagnostics-monitoring-and-troubleshooting/log"
           },
           "items": [
             {
@@ -681,7 +681,7 @@ const sidebars: SidebarsConfig = {
           "label": "Traffic Flow",
           "link": {
             "type": "doc",
-            "id": "diagnostics-monitoring-and-troubleshooting/traffic-flow/index"
+            "id": "diagnostics-monitoring-and-troubleshooting/traffic-flow"
           },
           "items": [
             {
@@ -701,7 +701,7 @@ const sidebars: SidebarsConfig = {
       "label": "Hardware",
       "link": {
         "type": "doc",
-        "id": "hardware/index"
+        "id": "hardware"
       },
       "items": [
         {
@@ -709,7 +709,7 @@ const sidebars: SidebarsConfig = {
           "label": "Disks",
           "link": {
             "type": "doc",
-            "id": "hardware/disks/index"
+            "id": "hardware/disks"
           },
           "items": [
             {
@@ -801,7 +801,7 @@ const sidebars: SidebarsConfig = {
       "label": "Wired Connections",
       "link": {
         "type": "doc",
-        "id": "wired-connections/index"
+        "id": "wired-connections"
       },
       "items": [
         {
@@ -830,7 +830,7 @@ const sidebars: SidebarsConfig = {
       "label": "Wireless",
       "link": {
         "type": "doc",
-        "id": "wireless/index"
+        "id": "wireless"
       },
       "items": [
         {
@@ -838,7 +838,7 @@ const sidebars: SidebarsConfig = {
           "label": "Wi-Fi 6 / 7 (802.11ax/be)",
           "link": {
             "type": "doc",
-            "id": "wireless/wifi/index"
+            "id": "wireless/wifi"
           },
           "items": [
             {
@@ -855,6 +855,12 @@ const sidebars: SidebarsConfig = {
             },
             {
               "type": "doc",
+              "id": "wireless/wifi/configuring-enterprise-and-mac-authentication",
+              "label": "Enterprise Wi-Fi and MAC authentication with User Manager",
+              "key": "wireless/wifi/configuring-enterprise-and-mac-authentication"
+            },
+            {
+              "type": "doc",
               "id": "wireless/wifi/configuring-meshpoint",
               "label": "Configuring MeshPoint",
               "key": "wireless/wifi/configuring-meshpoint"
@@ -864,6 +870,12 @@ const sidebars: SidebarsConfig = {
               "id": "wireless/wifi/configuring-outdoor-cpe-to-ap-links",
               "label": "Configuring outdoor CPE to AP links",
               "key": "wireless/wifi/configuring-outdoor-cpe-to-ap-links"
+            },
+            {
+              "type": "doc",
+              "id": "wireless/wifi/configuring-ppsk",
+              "label": "Per-device passphrases and VLANs on one SSID",
+              "key": "wireless/wifi/configuring-ppsk"
             },
             {
               "type": "doc",
@@ -879,6 +891,12 @@ const sidebars: SidebarsConfig = {
             },
             {
               "type": "doc",
+              "id": "wireless/wifi/configuring-steering",
+              "label": "Steering clients between access points",
+              "key": "wireless/wifi/configuring-steering"
+            },
+            {
+              "type": "doc",
               "id": "wireless/wifi/interworking-for-wifi6",
               "label": "Interworking for WiFi6",
               "key": "wireless/wifi/interworking-for-wifi6"
@@ -888,16 +906,16 @@ const sidebars: SidebarsConfig = {
         },
         {
           "type": "doc",
-          "id": "wireless/wifi-ac/index",
+          "id": "wireless/wifi-ac",
           "label": "Wi-Fi 5 (802.11ac)",
-          "key": "wireless/wifi-ac/index"
+          "key": "wireless/wifi-ac"
         },
         {
           "type": "category",
           "label": "802.11 a/b/g/n",
           "link": {
             "type": "doc",
-            "id": "wireless/abgn/index"
+            "id": "wireless/abgn"
           },
           "items": [
             {
@@ -905,7 +923,7 @@ const sidebars: SidebarsConfig = {
               "label": "CAPsMAN",
               "link": {
                 "type": "doc",
-                "id": "wireless/abgn/capsman/index"
+                "id": "wireless/abgn/capsman"
               },
               "items": [
                 {
@@ -973,7 +991,7 @@ const sidebars: SidebarsConfig = {
           "label": "60 GHz (W60G)",
           "link": {
             "type": "doc",
-            "id": "wireless/w60g/index"
+            "id": "wireless/w60g"
           },
           "items": [
             {
@@ -1020,7 +1038,7 @@ const sidebars: SidebarsConfig = {
           "label": "User Guides",
           "link": {
             "type": "doc",
-            "id": "wireless/user-guides/index"
+            "id": "wireless/user-guides"
           },
           "items": [
             {
@@ -1046,7 +1064,7 @@ const sidebars: SidebarsConfig = {
       "label": "Mobile Networking",
       "link": {
         "type": "doc",
-        "id": "mobile-networking/index"
+        "id": "mobile-networking"
       },
       "items": [
         {
@@ -1060,7 +1078,7 @@ const sidebars: SidebarsConfig = {
           "label": "GPS",
           "link": {
             "type": "doc",
-            "id": "mobile-networking/gps/index"
+            "id": "mobile-networking/gps"
           },
           "items": [
             {
@@ -1105,7 +1123,7 @@ const sidebars: SidebarsConfig = {
               "label": "BG77 modem AT commands",
               "link": {
                 "type": "doc",
-                "id": "mobile-networking/bg77-modem-at-commands/index"
+                "id": "mobile-networking/bg77-modem-at-commands"
               },
               "items": [
                 {
@@ -1134,7 +1152,7 @@ const sidebars: SidebarsConfig = {
       "label": "Bridging and Switching",
       "link": {
         "type": "doc",
-        "id": "bridging-and-switching/index"
+        "id": "bridging-and-switching"
       },
       "items": [
         {
@@ -1187,10 +1205,10 @@ const sidebars: SidebarsConfig = {
         },
         {
           "type": "category",
-          "label": "SwOS",
+          "label": "Introduction to SwitchOS (SwOS)",
           "link": {
             "type": "doc",
-            "id": "bridging-and-switching/swos/index"
+            "id": "bridging-and-switching/swos"
           },
           "items": [
             {
@@ -1231,7 +1249,7 @@ const sidebars: SidebarsConfig = {
           "label": "User Guides",
           "link": {
             "type": "doc",
-            "id": "bridging-and-switching/user-guides/index"
+            "id": "bridging-and-switching/user-guides"
           },
           "items": [
             {
@@ -1272,6 +1290,12 @@ const sidebars: SidebarsConfig = {
             },
             {
               "type": "doc",
+              "id": "bridging-and-switching/user-guides/nvidia-dgx-spark",
+              "label": "NVIDIA DGX Spark clusters",
+              "key": "bridging-and-switching/user-guides/nvidia-dgx-spark"
+            },
+            {
+              "type": "doc",
               "id": "bridging-and-switching/user-guides/spanning-tree-protocol",
               "label": "Spanning Tree Protocol",
               "key": "bridging-and-switching/user-guides/spanning-tree-protocol"
@@ -1299,7 +1323,7 @@ const sidebars: SidebarsConfig = {
       "label": "Network Services",
       "link": {
         "type": "doc",
-        "id": "network-management/index"
+        "id": "network-management"
       },
       "items": [
         {
@@ -1307,7 +1331,7 @@ const sidebars: SidebarsConfig = {
           "label": "Cloud",
           "link": {
             "type": "doc",
-            "id": "network-management/cloud/index"
+            "id": "network-management/cloud"
           },
           "items": [
             {
@@ -1342,7 +1366,7 @@ const sidebars: SidebarsConfig = {
           "label": "DHCP",
           "link": {
             "type": "doc",
-            "id": "network-management/dhcp/index"
+            "id": "network-management/dhcp"
           },
           "items": [
             {
@@ -1387,7 +1411,7 @@ const sidebars: SidebarsConfig = {
         {
           "type": "doc",
           "id": "network-management/openflow",
-          "label": "Openflow",
+          "label": "OpenFlow",
           "key": "network-management/openflow"
         },
         {
@@ -1395,7 +1419,7 @@ const sidebars: SidebarsConfig = {
           "label": "Proxy",
           "link": {
             "type": "doc",
-            "id": "network-management/proxy/index"
+            "id": "network-management/proxy"
           },
           "items": [
             {
@@ -1418,7 +1442,7 @@ const sidebars: SidebarsConfig = {
           "label": "SOCKS",
           "link": {
             "type": "doc",
-            "id": "network-management/socks/index"
+            "id": "network-management/socks"
           },
           "items": [
             {
@@ -1438,7 +1462,7 @@ const sidebars: SidebarsConfig = {
       "label": "Routing and Networking Protocols",
       "link": {
         "type": "doc",
-        "id": "user-guides/routing-and-networking-protocols/index"
+        "id": "user-guides/routing-and-networking-protocols"
       },
       "items": [
         {
@@ -1476,7 +1500,7 @@ const sidebars: SidebarsConfig = {
           "label": "Unicast",
           "link": {
             "type": "doc",
-            "id": "user-guides/routing-and-networking-protocols/unicast/index"
+            "id": "user-guides/routing-and-networking-protocols/unicast"
           },
           "items": [
             {
@@ -1490,7 +1514,7 @@ const sidebars: SidebarsConfig = {
               "label": "BGP",
               "link": {
                 "type": "doc",
-                "id": "user-guides/routing-and-networking-protocols/unicast/bgp/index"
+                "id": "user-guides/routing-and-networking-protocols/unicast/bgp"
               },
               "items": [
                 {
@@ -1543,7 +1567,7 @@ const sidebars: SidebarsConfig = {
               "label": "OSPF",
               "link": {
                 "type": "doc",
-                "id": "user-guides/routing-and-networking-protocols/unicast/ospf/index"
+                "id": "user-guides/routing-and-networking-protocols/unicast/ospf"
               },
               "items": [
                 {
@@ -1599,7 +1623,7 @@ const sidebars: SidebarsConfig = {
           "label": "MPLS",
           "link": {
             "type": "doc",
-            "id": "user-guides/routing-and-networking-protocols/mpls/index"
+            "id": "user-guides/routing-and-networking-protocols/mpls"
           },
           "items": [
             {
@@ -1625,7 +1649,7 @@ const sidebars: SidebarsConfig = {
               "label": "VPLS",
               "link": {
                 "type": "doc",
-                "id": "user-guides/routing-and-networking-protocols/mpls/vpls/index"
+                "id": "user-guides/routing-and-networking-protocols/mpls/vpls"
               },
               "items": [
                 {
@@ -1645,7 +1669,7 @@ const sidebars: SidebarsConfig = {
           "label": "Multicast",
           "link": {
             "type": "doc",
-            "id": "user-guides/routing-and-networking-protocols/multicast/index"
+            "id": "user-guides/routing-and-networking-protocols/multicast"
           },
           "items": [
             {
@@ -1689,7 +1713,7 @@ const sidebars: SidebarsConfig = {
       "label": "Firewall and Quality of Service",
       "link": {
         "type": "doc",
-        "id": "firewall-and-quality-of-service/index"
+        "id": "firewall-and-quality-of-service"
       },
       "items": [
         {
@@ -1697,7 +1721,7 @@ const sidebars: SidebarsConfig = {
           "label": "Firewall",
           "link": {
             "type": "doc",
-            "id": "firewall-and-quality-of-service/firewall/index"
+            "id": "firewall-and-quality-of-service/firewall"
           },
           "items": [
             {
@@ -1762,9 +1786,21 @@ const sidebars: SidebarsConfig = {
           "label": "Queues",
           "link": {
             "type": "doc",
-            "id": "firewall-and-quality-of-service/queues/index"
+            "id": "firewall-and-quality-of-service/queues"
           },
           "items": [
+            {
+              "type": "doc",
+              "id": "firewall-and-quality-of-service/queues/simple-queue",
+              "label": "Simple queue",
+              "key": "firewall-and-quality-of-service/queues/simple-queue"
+            },
+            {
+              "type": "doc",
+              "id": "firewall-and-quality-of-service/queues/queue-tree",
+              "label": "Queue tree",
+              "key": "firewall-and-quality-of-service/queues/queue-tree"
+            },
             {
               "type": "doc",
               "id": "firewall-and-quality-of-service/queues/htb-hierarchical-token-bucket",
@@ -1794,7 +1830,7 @@ const sidebars: SidebarsConfig = {
               "label": "Queue types",
               "link": {
                 "type": "doc",
-                "id": "firewall-and-quality-of-service/queues/queue-types/index"
+                "id": "firewall-and-quality-of-service/queues/queue-types"
               },
               "items": [
                 {
@@ -1805,9 +1841,33 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                   "type": "doc",
+                  "id": "firewall-and-quality-of-service/queues/queue-types/codel-fq-codel",
+                  "label": "CoDel and FQ-CoDel",
+                  "key": "firewall-and-quality-of-service/queues/queue-types/codel-fq-codel"
+                },
+                {
+                  "type": "doc",
+                  "id": "firewall-and-quality-of-service/queues/queue-types/pcq",
+                  "label": "PCQ",
+                  "key": "firewall-and-quality-of-service/queues/queue-types/pcq"
+                },
+                {
+                  "type": "doc",
                   "id": "firewall-and-quality-of-service/queues/queue-types/pfifo-bfifo",
-                  "label": "PFIFO,BFIFO",
+                  "label": "FIFO queue types",
                   "key": "firewall-and-quality-of-service/queues/queue-types/pfifo-bfifo"
+                },
+                {
+                  "type": "doc",
+                  "id": "firewall-and-quality-of-service/queues/queue-types/red",
+                  "label": "RED",
+                  "key": "firewall-and-quality-of-service/queues/queue-types/red"
+                },
+                {
+                  "type": "doc",
+                  "id": "firewall-and-quality-of-service/queues/queue-types/sfq",
+                  "label": "SFQ",
+                  "key": "firewall-and-quality-of-service/queues/queue-types/sfq"
                 }
               ],
               "key": "firewall-and-quality-of-service/queues/queue-types"
@@ -1838,7 +1898,7 @@ const sidebars: SidebarsConfig = {
           "label": "User Guides",
           "link": {
             "type": "doc",
-            "id": "firewall-and-quality-of-service/user-guides/index"
+            "id": "firewall-and-quality-of-service/user-guides"
           },
           "items": [
             {
@@ -1882,7 +1942,7 @@ const sidebars: SidebarsConfig = {
       "label": "Virtual Private Networks",
       "link": {
         "type": "doc",
-        "id": "virtual-private-networks/index"
+        "id": "virtual-private-networks"
       },
       "items": [
         {
@@ -1914,9 +1974,45 @@ const sidebars: SidebarsConfig = {
           "label": "IPsec",
           "link": {
             "type": "doc",
-            "id": "virtual-private-networks/ipsec/index"
+            "id": "virtual-private-networks/ipsec"
           },
           "items": [
+            {
+              "type": "doc",
+              "id": "virtual-private-networks/ipsec/site-to-site",
+              "label": "Site-to-site tunnel",
+              "key": "virtual-private-networks/ipsec/site-to-site"
+            },
+            {
+              "type": "doc",
+              "id": "virtual-private-networks/ipsec/road-warrior-ikev2-certificates",
+              "label": "Road warrior with certificates",
+              "key": "virtual-private-networks/ipsec/road-warrior-ikev2-certificates"
+            },
+            {
+              "type": "doc",
+              "id": "virtual-private-networks/ipsec/road-warrior-ikev2-eap",
+              "label": "Road warrior with EAP and User Manager",
+              "key": "virtual-private-networks/ipsec/road-warrior-ikev2-eap"
+            },
+            {
+              "type": "doc",
+              "id": "virtual-private-networks/ipsec/route-based-ipsec-xfrm",
+              "label": "Route-based IPsec with XFRM",
+              "key": "virtual-private-networks/ipsec/route-based-ipsec-xfrm"
+            },
+            {
+              "type": "doc",
+              "id": "virtual-private-networks/ipsec/firewall-and-routing",
+              "label": "Firewall and routing for IPsec",
+              "key": "virtual-private-networks/ipsec/firewall-and-routing"
+            },
+            {
+              "type": "doc",
+              "id": "virtual-private-networks/ipsec/troubleshooting",
+              "label": "Troubleshooting",
+              "key": "virtual-private-networks/ipsec/troubleshooting"
+            },
             {
               "type": "doc",
               "id": "virtual-private-networks/ipsec/ikev2-eap-between-nordvpn-and-routeros",
@@ -1937,7 +2033,7 @@ const sidebars: SidebarsConfig = {
           "label": "L2TP",
           "link": {
             "type": "doc",
-            "id": "virtual-private-networks/l2tp/index"
+            "id": "virtual-private-networks/l2tp"
           },
           "items": [
             {
@@ -1960,7 +2056,7 @@ const sidebars: SidebarsConfig = {
           "label": "PPPoE",
           "link": {
             "type": "doc",
-            "id": "virtual-private-networks/pppoe/index"
+            "id": "virtual-private-networks/pppoe"
           },
           "items": [
             {
@@ -1998,6 +2094,12 @@ const sidebars: SidebarsConfig = {
         },
         {
           "type": "doc",
+          "id": "virtual-private-networks/zerotier-controller",
+          "label": "Self-hosted ZeroTier controller on a hAP ax³",
+          "key": "virtual-private-networks/zerotier-controller"
+        },
+        {
+          "type": "doc",
           "id": "virtual-private-networks/zerotier",
           "label": "ZeroTier",
           "key": "virtual-private-networks/zerotier"
@@ -2010,7 +2112,7 @@ const sidebars: SidebarsConfig = {
       "label": "AAA and User Management",
       "link": {
         "type": "doc",
-        "id": "authentication-authorization-accounting/index"
+        "id": "authentication-authorization-accounting"
       },
       "items": [
         {
@@ -2030,7 +2132,7 @@ const sidebars: SidebarsConfig = {
           "label": "HotSpot - Captive portal",
           "link": {
             "type": "doc",
-            "id": "authentication-authorization-accounting/hotspot-captive-portal/index"
+            "id": "authentication-authorization-accounting/hotspot-captive-portal"
           },
           "items": [
             {
@@ -2074,7 +2176,7 @@ const sidebars: SidebarsConfig = {
       "label": "High Availability Solutions",
       "link": {
         "type": "doc",
-        "id": "high-availability-solutions/index"
+        "id": "high-availability-solutions"
       },
       "items": [
         {
@@ -2088,7 +2190,7 @@ const sidebars: SidebarsConfig = {
           "label": "Load Balancing",
           "link": {
             "type": "doc",
-            "id": "high-availability-solutions/load-balancing/index"
+            "id": "high-availability-solutions/load-balancing"
           },
           "items": [
             {
@@ -2145,7 +2247,7 @@ const sidebars: SidebarsConfig = {
       "label": "Internet of Things",
       "link": {
         "type": "doc",
-        "id": "internet-of-things/index"
+        "id": "internet-of-things"
       },
       "items": [
         {
@@ -2153,7 +2255,7 @@ const sidebars: SidebarsConfig = {
           "label": "Bluetooth",
           "link": {
             "type": "doc",
-            "id": "internet-of-things/bluetooth/index"
+            "id": "internet-of-things/bluetooth"
           },
           "items": [
             {
@@ -2161,7 +2263,7 @@ const sidebars: SidebarsConfig = {
               "label": "MikroTik Beacon Manager",
               "link": {
                 "type": "doc",
-                "id": "internet-of-things/bluetooth/mikrotik-beacon-manager/index"
+                "id": "internet-of-things/bluetooth/mikrotik-beacon-manager"
               },
               "items": [
                 {
@@ -2248,7 +2350,7 @@ const sidebars: SidebarsConfig = {
           "label": "GPIO",
           "link": {
             "type": "doc",
-            "id": "internet-of-things/gpio/index"
+            "id": "internet-of-things/gpio"
           },
           "items": [
             {
@@ -2265,7 +2367,7 @@ const sidebars: SidebarsConfig = {
           "label": "Lora",
           "link": {
             "type": "doc",
-            "id": "internet-of-things/lora/index"
+            "id": "internet-of-things/lora"
           },
           "items": [
             {
@@ -2279,7 +2381,7 @@ const sidebars: SidebarsConfig = {
               "label": "User Guides",
               "link": {
                 "type": "doc",
-                "id": "internet-of-things/lora/user-guides/index"
+                "id": "internet-of-things/lora/user-guides"
               },
               "items": [
                 {
@@ -2323,7 +2425,7 @@ const sidebars: SidebarsConfig = {
           "label": "MQTT",
           "link": {
             "type": "doc",
-            "id": "internet-of-things/mqtt/index"
+            "id": "internet-of-things/mqtt"
           },
           "items": [
             {
@@ -2355,7 +2457,7 @@ const sidebars: SidebarsConfig = {
       "label": "Storage",
       "link": {
         "type": "doc",
-        "id": "storage/index"
+        "id": "storage"
       },
       "items": [
         {
@@ -2363,7 +2465,7 @@ const sidebars: SidebarsConfig = {
           "label": "Btrfs",
           "link": {
             "type": "doc",
-            "id": "storage/btrfs/index"
+            "id": "storage/btrfs"
           },
           "items": [
             {
@@ -2422,13 +2524,13 @@ const sidebars: SidebarsConfig = {
           "label": "RAID",
           "link": {
             "type": "doc",
-            "id": "storage/raid/index"
+            "id": "storage/raid"
           },
           "items": [
             {
               "type": "doc",
               "id": "storage/raid/hot-spare",
-              "label": "Setting a hot spare disk",
+              "label": "Set a hot spare disk",
               "key": "storage/raid/hot-spare"
             },
             {
@@ -2484,7 +2586,7 @@ const sidebars: SidebarsConfig = {
       "label": "Containers",
       "link": {
         "type": "doc",
-        "id": "containers/index"
+        "id": "containers"
       },
       "items": [
         {
@@ -2492,7 +2594,7 @@ const sidebars: SidebarsConfig = {
           "label": "Apps",
           "link": {
             "type": "doc",
-            "id": "containers/apps/index"
+            "id": "containers/apps"
           },
           "items": [
             {
@@ -2523,7 +2625,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "doc",
               "id": "containers/user-guides/container-freeradius-server",
-              "label": "Container - freeradius server",
+              "label": "Container - FreeRADIUS server",
               "key": "containers/user-guides/container-freeradius-server"
             },
             {
@@ -2558,6 +2660,12 @@ const sidebars: SidebarsConfig = {
             },
             {
               "type": "doc",
+              "id": "containers/user-guides/container-rke2-kubernetes",
+              "label": "Container - Kubernetes (RKE2) single-node cluster",
+              "key": "containers/user-guides/container-rke2-kubernetes"
+            },
+            {
+              "type": "doc",
               "id": "containers/user-guides/container-thingsboard-mqtt-http-server",
               "label": "Container - ThingsBoard MQTT/HTTP server",
               "key": "containers/user-guides/container-thingsboard-mqtt-http-server"
@@ -2573,7 +2681,7 @@ const sidebars: SidebarsConfig = {
       "label": "Developer Guides",
       "link": {
         "type": "doc",
-        "id": "developer-guides/index"
+        "id": "developer-guides"
       },
       "items": [
         {
@@ -2581,7 +2689,7 @@ const sidebars: SidebarsConfig = {
           "label": "API",
           "link": {
             "type": "doc",
-            "id": "developer-guides/api/index"
+            "id": "developer-guides/api"
           },
           "items": [
             {
@@ -2604,9 +2712,15 @@ const sidebars: SidebarsConfig = {
           "label": "Scripting",
           "link": {
             "type": "doc",
-            "id": "developer-guides/scripting/index"
+            "id": "developer-guides/scripting"
           },
           "items": [
+            {
+              "type": "doc",
+              "id": "developer-guides/scripting/console-inspect",
+              "label": "Console inspect",
+              "key": "developer-guides/scripting/console-inspect"
+            },
             {
               "type": "doc",
               "id": "developer-guides/scripting/scripting-examples",
@@ -2630,7 +2744,7 @@ const sidebars: SidebarsConfig = {
       "label": "CLI Reference",
       "link": {
         "type": "doc",
-        "id": "cli-reference/index"
+        "id": "cli-reference"
       },
       "items": [
         {
@@ -2644,9 +2758,15 @@ const sidebars: SidebarsConfig = {
           "label": "app",
           "link": {
             "type": "doc",
-            "id": "cli-reference/app/index"
+            "id": "cli-reference/app"
           },
           "items": [
+            {
+              "type": "doc",
+              "id": "cli-reference/app/check-update",
+              "label": "check-update",
+              "key": "cli-reference/app/check-update"
+            },
             {
               "type": "doc",
               "id": "cli-reference/app/cleanup",
@@ -2676,7 +2796,7 @@ const sidebars: SidebarsConfig = {
               "label": "settings",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/app/settings/index"
+                "id": "cli-reference/app/settings"
               },
               "items": [
                 {
@@ -2760,7 +2880,7 @@ const sidebars: SidebarsConfig = {
               "label": "interface",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/caps-man/interface/index"
+                "id": "cli-reference/caps-man/interface"
               },
               "items": [
                 {
@@ -2795,7 +2915,7 @@ const sidebars: SidebarsConfig = {
               "label": "manager",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/caps-man/manager/index"
+                "id": "cli-reference/caps-man/manager"
               },
               "items": [
                 {
@@ -2818,7 +2938,7 @@ const sidebars: SidebarsConfig = {
               "label": "radio",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/caps-man/radio/index"
+                "id": "cli-reference/caps-man/radio"
               },
               "items": [
                 {
@@ -2853,7 +2973,7 @@ const sidebars: SidebarsConfig = {
               "label": "remote-cap",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/caps-man/remote-cap/index"
+                "id": "cli-reference/caps-man/remote-cap"
               },
               "items": [
                 {
@@ -2891,7 +3011,7 @@ const sidebars: SidebarsConfig = {
           "label": "certificate",
           "link": {
             "type": "doc",
-            "id": "cli-reference/certificate/index"
+            "id": "cli-reference/certificate"
           },
           "items": [
             {
@@ -2941,7 +3061,7 @@ const sidebars: SidebarsConfig = {
               "label": "crl",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/certificate/crl/index"
+                "id": "cli-reference/certificate/crl"
               },
               "items": [
                 {
@@ -2994,7 +3114,7 @@ const sidebars: SidebarsConfig = {
               "label": "scep-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/certificate/scep-server/index"
+                "id": "cli-reference/certificate/scep-server"
               },
               "items": [
                 {
@@ -3002,7 +3122,7 @@ const sidebars: SidebarsConfig = {
                   "label": "otp",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/certificate/scep-server/otp/index"
+                    "id": "cli-reference/certificate/scep-server/otp"
                   },
                   "items": [
                     {
@@ -3019,7 +3139,7 @@ const sidebars: SidebarsConfig = {
                   "label": "ra",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/certificate/scep-server/ra/index"
+                    "id": "cli-reference/certificate/scep-server/ra"
                   },
                   "items": [
                     {
@@ -3036,7 +3156,7 @@ const sidebars: SidebarsConfig = {
                   "label": "requests",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/certificate/scep-server/requests/index"
+                    "id": "cli-reference/certificate/scep-server/requests"
                   },
                   "items": [
                     {
@@ -3328,9 +3448,15 @@ const sidebars: SidebarsConfig = {
           "label": "container",
           "link": {
             "type": "doc",
-            "id": "cli-reference/container/index"
+            "id": "cli-reference/container"
           },
           "items": [
+            {
+              "type": "doc",
+              "id": "cli-reference/container/check-update",
+              "label": "check-update",
+              "key": "cli-reference/container/check-update"
+            },
             {
               "type": "doc",
               "id": "cli-reference/container/config",
@@ -3411,7 +3537,7 @@ const sidebars: SidebarsConfig = {
           "label": "disk",
           "link": {
             "type": "doc",
-            "id": "cli-reference/disk/index"
+            "id": "cli-reference/disk"
           },
           "items": [
             {
@@ -3425,7 +3551,7 @@ const sidebars: SidebarsConfig = {
               "label": "btrfs",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/disk/btrfs/index"
+                "id": "cli-reference/disk/btrfs"
               },
               "items": [
                 {
@@ -3433,7 +3559,7 @@ const sidebars: SidebarsConfig = {
                   "label": "filesystem",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/disk/btrfs/filesystem/index"
+                    "id": "cli-reference/disk/btrfs/filesystem"
                   },
                   "items": [
                     {
@@ -3606,7 +3732,7 @@ const sidebars: SidebarsConfig = {
           "label": "dude",
           "link": {
             "type": "doc",
-            "id": "cli-reference/dude/index"
+            "id": "cli-reference/dude"
           },
           "items": [
             {
@@ -3656,7 +3782,7 @@ const sidebars: SidebarsConfig = {
               "label": "ros",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/dude/ros/index"
+                "id": "cli-reference/dude/ros"
               },
               "items": [
                 {
@@ -3760,7 +3886,7 @@ const sidebars: SidebarsConfig = {
           "label": "file",
           "link": {
             "type": "doc",
-            "id": "cli-reference/file/index"
+            "id": "cli-reference/file"
           },
           "items": [
             {
@@ -3792,7 +3918,7 @@ const sidebars: SidebarsConfig = {
               "label": "sync",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/file/sync/index"
+                "id": "cli-reference/file/sync"
               },
               "items": [
                 {
@@ -3824,7 +3950,7 @@ const sidebars: SidebarsConfig = {
           "label": "interface",
           "link": {
             "type": "doc",
-            "id": "cli-reference/interface/index"
+            "id": "cli-reference/interface"
           },
           "items": [
             {
@@ -3844,7 +3970,7 @@ const sidebars: SidebarsConfig = {
               "label": "bonding",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/bonding/index"
+                "id": "cli-reference/interface/bonding"
               },
               "items": [
                 {
@@ -3867,7 +3993,7 @@ const sidebars: SidebarsConfig = {
               "label": "bridge",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/bridge/index"
+                "id": "cli-reference/interface/bridge"
               },
               "items": [
                 {
@@ -3875,7 +4001,7 @@ const sidebars: SidebarsConfig = {
                   "label": "calea",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/bridge/calea/index"
+                    "id": "cli-reference/interface/bridge/calea"
                   },
                   "items": [
                     {
@@ -3898,7 +4024,7 @@ const sidebars: SidebarsConfig = {
                   "label": "filter",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/bridge/filter/index"
+                    "id": "cli-reference/interface/bridge/filter"
                   },
                   "items": [
                     {
@@ -3939,7 +4065,7 @@ const sidebars: SidebarsConfig = {
                   "label": "msti",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/bridge/msti/index"
+                    "id": "cli-reference/interface/bridge/msti"
                   },
                   "items": [
                     {
@@ -3956,7 +4082,7 @@ const sidebars: SidebarsConfig = {
                   "label": "nat",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/bridge/nat/index"
+                    "id": "cli-reference/interface/bridge/nat"
                   },
                   "items": [
                     {
@@ -3979,7 +4105,7 @@ const sidebars: SidebarsConfig = {
                   "label": "port",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/bridge/port/index"
+                    "id": "cli-reference/interface/bridge/port"
                   },
                   "items": [
                     {
@@ -3993,7 +4119,7 @@ const sidebars: SidebarsConfig = {
                       "label": "mst-override",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/interface/bridge/port/mst-override/index"
+                        "id": "cli-reference/interface/bridge/port/mst-override"
                       },
                       "items": [
                         {
@@ -4019,7 +4145,7 @@ const sidebars: SidebarsConfig = {
                   "label": "vlan",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/bridge/vlan/index"
+                    "id": "cli-reference/interface/bridge/vlan"
                   },
                   "items": [
                     {
@@ -4039,7 +4165,7 @@ const sidebars: SidebarsConfig = {
               "label": "detect-internet",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/detect-internet/index"
+                "id": "cli-reference/interface/detect-internet"
               },
               "items": [
                 {
@@ -4056,7 +4182,7 @@ const sidebars: SidebarsConfig = {
               "label": "dot1x",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/dot1x/index"
+                "id": "cli-reference/interface/dot1x"
               },
               "items": [
                 {
@@ -4070,7 +4196,7 @@ const sidebars: SidebarsConfig = {
                   "label": "server",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/dot1x/server/index"
+                    "id": "cli-reference/interface/dot1x/server"
                   },
                   "items": [
                     {
@@ -4108,7 +4234,7 @@ const sidebars: SidebarsConfig = {
               "label": "ethernet",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/ethernet/index"
+                "id": "cli-reference/interface/ethernet"
               },
               "items": [
                 {
@@ -4134,7 +4260,7 @@ const sidebars: SidebarsConfig = {
                   "label": "poe",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/ethernet/poe/index"
+                    "id": "cli-reference/interface/ethernet/poe"
                   },
                   "items": [
                     {
@@ -4163,7 +4289,7 @@ const sidebars: SidebarsConfig = {
                   "label": "pon",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/ethernet/pon/index"
+                    "id": "cli-reference/interface/ethernet/pon"
                   },
                   "items": [
                     {
@@ -4192,7 +4318,7 @@ const sidebars: SidebarsConfig = {
                   "label": "switch",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/ethernet/switch/index"
+                    "id": "cli-reference/interface/ethernet/switch"
                   },
                   "items": [
                     {
@@ -4200,7 +4326,7 @@ const sidebars: SidebarsConfig = {
                       "label": "acl",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/interface/ethernet/switch/acl/index"
+                        "id": "cli-reference/interface/ethernet/switch/acl"
                       },
                       "items": [
                         {
@@ -4259,7 +4385,7 @@ const sidebars: SidebarsConfig = {
                       "label": "l3hw-settings",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/interface/ethernet/switch/l3hw-settings/index"
+                        "id": "cli-reference/interface/ethernet/switch/l3hw-settings"
                       },
                       "items": [
                         {
@@ -4267,7 +4393,7 @@ const sidebars: SidebarsConfig = {
                           "label": "advanced",
                           "link": {
                             "type": "doc",
-                            "id": "cli-reference/interface/ethernet/switch/l3hw-settings/advanced/index"
+                            "id": "cli-reference/interface/ethernet/switch/l3hw-settings/advanced"
                           },
                           "items": [
                             {
@@ -4317,23 +4443,23 @@ const sidebars: SidebarsConfig = {
                       "label": "port",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/interface/ethernet/switch/port/index"
+                        "id": "cli-reference/interface/ethernet/switch/port"
                       },
                       "items": [
                         {
                           "type": "doc",
-                          "id": "cli-reference/interface/ethernet/switch/port/reset-counters/index",
+                          "id": "cli-reference/interface/ethernet/switch/port/reset-counters",
                           "label": "reset-counters",
-                          "key": "cli-reference/interface/ethernet/switch/port/reset-counters/index"
+                          "key": "cli-reference/interface/ethernet/switch/port/reset-counters"
                         }
                       ],
                       "key": "cli-reference/interface/ethernet/switch/port"
                     },
                     {
                       "type": "doc",
-                      "id": "cli-reference/interface/ethernet/switch/port-isolation/index",
+                      "id": "cli-reference/interface/ethernet/switch/port-isolation",
                       "label": "port-isolation",
-                      "key": "cli-reference/interface/ethernet/switch/port-isolation/index"
+                      "key": "cli-reference/interface/ethernet/switch/port-isolation"
                     },
                     {
                       "type": "doc",
@@ -4352,7 +4478,7 @@ const sidebars: SidebarsConfig = {
                       "label": "qos",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/interface/ethernet/switch/qos/index"
+                        "id": "cli-reference/interface/ethernet/switch/qos"
                       },
                       "items": [
                         {
@@ -4360,7 +4486,7 @@ const sidebars: SidebarsConfig = {
                           "label": "map",
                           "link": {
                             "type": "doc",
-                            "id": "cli-reference/interface/ethernet/switch/qos/map/index"
+                            "id": "cli-reference/interface/ethernet/switch/qos/map"
                           },
                           "items": [
                             {
@@ -4389,7 +4515,7 @@ const sidebars: SidebarsConfig = {
                           "label": "port",
                           "link": {
                             "type": "doc",
-                            "id": "cli-reference/interface/ethernet/switch/qos/port/index"
+                            "id": "cli-reference/interface/ethernet/switch/qos/port"
                           },
                           "items": [
                             {
@@ -4415,6 +4541,12 @@ const sidebars: SidebarsConfig = {
                         },
                         {
                           "type": "doc",
+                          "id": "cli-reference/interface/ethernet/switch/qos/reset-counters",
+                          "label": "reset-counters",
+                          "key": "cli-reference/interface/ethernet/switch/qos/reset-counters"
+                        },
+                        {
+                          "type": "doc",
                           "id": "cli-reference/interface/ethernet/switch/qos/settings",
                           "label": "settings",
                           "key": "cli-reference/interface/ethernet/switch/qos/settings"
@@ -4424,7 +4556,7 @@ const sidebars: SidebarsConfig = {
                           "label": "tx-manager",
                           "link": {
                             "type": "doc",
-                            "id": "cli-reference/interface/ethernet/switch/qos/tx-manager/index"
+                            "id": "cli-reference/interface/ethernet/switch/qos/tx-manager"
                           },
                           "items": [
                             {
@@ -4453,16 +4585,16 @@ const sidebars: SidebarsConfig = {
                     },
                     {
                       "type": "doc",
-                      "id": "cli-reference/interface/ethernet/switch/reset-counters/index",
+                      "id": "cli-reference/interface/ethernet/switch/reset-counters",
                       "label": "reset-counters",
-                      "key": "cli-reference/interface/ethernet/switch/reset-counters/index"
+                      "key": "cli-reference/interface/ethernet/switch/reset-counters"
                     },
                     {
                       "type": "category",
                       "label": "rule",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/interface/ethernet/switch/rule/index"
+                        "id": "cli-reference/interface/ethernet/switch/rule"
                       },
                       "items": [
                         {
@@ -4503,7 +4635,7 @@ const sidebars: SidebarsConfig = {
                       "label": "unicast-fdb",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/interface/ethernet/switch/unicast-fdb/index"
+                        "id": "cli-reference/interface/ethernet/switch/unicast-fdb"
                       },
                       "items": [
                         {
@@ -4517,9 +4649,9 @@ const sidebars: SidebarsConfig = {
                     },
                     {
                       "type": "doc",
-                      "id": "cli-reference/interface/ethernet/switch/vlan/index",
+                      "id": "cli-reference/interface/ethernet/switch/vlan",
                       "label": "vlan",
-                      "key": "cli-reference/interface/ethernet/switch/vlan/index"
+                      "key": "cli-reference/interface/ethernet/switch/vlan"
                     }
                   ],
                   "key": "cli-reference/interface/ethernet/switch"
@@ -4556,7 +4688,7 @@ const sidebars: SidebarsConfig = {
               "label": "l2tp-client",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/l2tp-client/index"
+                "id": "cli-reference/interface/l2tp-client"
               },
               "items": [
                 {
@@ -4573,7 +4705,7 @@ const sidebars: SidebarsConfig = {
               "label": "l2tp-ether",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/l2tp-ether/index"
+                "id": "cli-reference/interface/l2tp-ether"
               },
               "items": [
                 {
@@ -4590,7 +4722,7 @@ const sidebars: SidebarsConfig = {
               "label": "l2tp-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/l2tp-server/index"
+                "id": "cli-reference/interface/l2tp-server"
               },
               "items": [
                 {
@@ -4613,7 +4745,7 @@ const sidebars: SidebarsConfig = {
               "label": "list",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/list/index"
+                "id": "cli-reference/interface/list"
               },
               "items": [
                 {
@@ -4630,7 +4762,7 @@ const sidebars: SidebarsConfig = {
               "label": "lte",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/lte/index"
+                "id": "cli-reference/interface/lte"
               },
               "items": [
                 {
@@ -4656,7 +4788,7 @@ const sidebars: SidebarsConfig = {
                   "label": "esim",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/lte/esim/index"
+                    "id": "cli-reference/interface/lte/esim"
                   },
                   "items": [
                     {
@@ -4754,7 +4886,7 @@ const sidebars: SidebarsConfig = {
               "label": "macsec",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/macsec/index"
+                "id": "cli-reference/interface/macsec"
               },
               "items": [
                 {
@@ -4768,6 +4900,12 @@ const sidebars: SidebarsConfig = {
                   "id": "cli-reference/interface/macsec/profile",
                   "label": "profile",
                   "key": "cli-reference/interface/macsec/profile"
+                },
+                {
+                  "type": "doc",
+                  "id": "cli-reference/interface/macsec/reset-counters",
+                  "label": "reset-counters",
+                  "key": "cli-reference/interface/macsec/reset-counters"
                 }
               ],
               "key": "cli-reference/interface/macsec"
@@ -4783,7 +4921,7 @@ const sidebars: SidebarsConfig = {
               "label": "mesh",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/mesh/index"
+                "id": "cli-reference/interface/mesh"
               },
               "items": [
                 {
@@ -4818,7 +4956,7 @@ const sidebars: SidebarsConfig = {
               "label": "ovpn-client",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/ovpn-client/index"
+                "id": "cli-reference/interface/ovpn-client"
               },
               "items": [
                 {
@@ -4841,7 +4979,7 @@ const sidebars: SidebarsConfig = {
               "label": "ovpn-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/ovpn-server/index"
+                "id": "cli-reference/interface/ovpn-server"
               },
               "items": [
                 {
@@ -4855,7 +4993,7 @@ const sidebars: SidebarsConfig = {
                   "label": "server",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/ovpn-server/server/index"
+                    "id": "cli-reference/interface/ovpn-server/server"
                   },
                   "items": [
                     {
@@ -4875,7 +5013,7 @@ const sidebars: SidebarsConfig = {
               "label": "ppp-client",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/ppp-client/index"
+                "id": "cli-reference/interface/ppp-client"
               },
               "items": [
                 {
@@ -4916,7 +5054,7 @@ const sidebars: SidebarsConfig = {
               "label": "ppp-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/ppp-server/index"
+                "id": "cli-reference/interface/ppp-server"
               },
               "items": [
                 {
@@ -4933,7 +5071,7 @@ const sidebars: SidebarsConfig = {
               "label": "pppoe-client",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/pppoe-client/index"
+                "id": "cli-reference/interface/pppoe-client"
               },
               "items": [
                 {
@@ -4956,7 +5094,7 @@ const sidebars: SidebarsConfig = {
               "label": "pppoe-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/pppoe-server/index"
+                "id": "cli-reference/interface/pppoe-server"
               },
               "items": [
                 {
@@ -4979,7 +5117,7 @@ const sidebars: SidebarsConfig = {
               "label": "pptp-client",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/pptp-client/index"
+                "id": "cli-reference/interface/pptp-client"
               },
               "items": [
                 {
@@ -4996,7 +5134,7 @@ const sidebars: SidebarsConfig = {
               "label": "pptp-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/pptp-server/index"
+                "id": "cli-reference/interface/pptp-server"
               },
               "items": [
                 {
@@ -5019,7 +5157,7 @@ const sidebars: SidebarsConfig = {
               "label": "pwr-line",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/pwr-line/index"
+                "id": "cli-reference/interface/pwr-line"
               },
               "items": [
                 {
@@ -5084,7 +5222,7 @@ const sidebars: SidebarsConfig = {
               "label": "sstp-client",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/sstp-client/index"
+                "id": "cli-reference/interface/sstp-client"
               },
               "items": [
                 {
@@ -5101,7 +5239,7 @@ const sidebars: SidebarsConfig = {
               "label": "sstp-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/sstp-server/index"
+                "id": "cli-reference/interface/sstp-server"
               },
               "items": [
                 {
@@ -5136,7 +5274,7 @@ const sidebars: SidebarsConfig = {
               "label": "vpls",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/vpls/index"
+                "id": "cli-reference/interface/vpls"
               },
               "items": [
                 {
@@ -5159,7 +5297,7 @@ const sidebars: SidebarsConfig = {
               "label": "vxlan",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/vxlan/index"
+                "id": "cli-reference/interface/vxlan"
               },
               "items": [
                 {
@@ -5182,7 +5320,7 @@ const sidebars: SidebarsConfig = {
               "label": "w60g",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/w60g/index"
+                "id": "cli-reference/interface/w60g"
               },
               "items": [
                 {
@@ -5214,7 +5352,7 @@ const sidebars: SidebarsConfig = {
                   "label": "station",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/w60g/station/index"
+                    "id": "cli-reference/interface/w60g/station"
                   },
                   "items": [
                     {
@@ -5234,7 +5372,7 @@ const sidebars: SidebarsConfig = {
               "label": "wifi",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/wifi/index"
+                "id": "cli-reference/interface/wifi"
               },
               "items": [
                 {
@@ -5260,7 +5398,7 @@ const sidebars: SidebarsConfig = {
                   "label": "capsman",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wifi/capsman/index"
+                    "id": "cli-reference/interface/wifi/capsman"
                   },
                   "items": [
                     {
@@ -5268,7 +5406,7 @@ const sidebars: SidebarsConfig = {
                       "label": "remote-cap",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/interface/wifi/capsman/remote-cap/index"
+                        "id": "cli-reference/interface/wifi/capsman/remote-cap"
                       },
                       "items": [
                         {
@@ -5417,6 +5555,12 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                   "type": "doc",
+                  "id": "cli-reference/interface/wifi/meshpoint-paths",
+                  "label": "meshpoint-paths",
+                  "key": "cli-reference/interface/wifi/meshpoint-paths"
+                },
+                {
+                  "type": "doc",
                   "id": "cli-reference/interface/wifi/monitor",
                   "label": "monitor",
                   "key": "cli-reference/interface/wifi/monitor"
@@ -5426,7 +5570,7 @@ const sidebars: SidebarsConfig = {
                   "label": "network",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wifi/network/index"
+                    "id": "cli-reference/interface/wifi/network"
                   },
                   "items": [
                     {
@@ -5449,7 +5593,7 @@ const sidebars: SidebarsConfig = {
                   "label": "radio",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wifi/radio/index"
+                    "id": "cli-reference/interface/wifi/radio"
                   },
                   "items": [
                     {
@@ -5502,7 +5646,7 @@ const sidebars: SidebarsConfig = {
                   "label": "security",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wifi/security/index"
+                    "id": "cli-reference/interface/wifi/security"
                   },
                   "items": [
                     {
@@ -5531,7 +5675,7 @@ const sidebars: SidebarsConfig = {
                   "label": "steering",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wifi/steering/index"
+                    "id": "cli-reference/interface/wifi/steering"
                   },
                   "items": [
                     {
@@ -5569,7 +5713,7 @@ const sidebars: SidebarsConfig = {
               "label": "wireguard",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/wireguard/index"
+                "id": "cli-reference/interface/wireguard"
               },
               "items": [
                 {
@@ -5577,7 +5721,7 @@ const sidebars: SidebarsConfig = {
                   "label": "peers",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wireguard/peers/index"
+                    "id": "cli-reference/interface/wireguard/peers"
                   },
                   "items": [
                     {
@@ -5609,7 +5753,7 @@ const sidebars: SidebarsConfig = {
               "label": "wireless",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/interface/wireless/index"
+                "id": "cli-reference/interface/wireless"
               },
               "items": [
                 {
@@ -5623,7 +5767,7 @@ const sidebars: SidebarsConfig = {
                   "label": "align",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wireless/align/index"
+                    "id": "cli-reference/interface/wireless/align"
                   },
                   "items": [
                     {
@@ -5670,7 +5814,7 @@ const sidebars: SidebarsConfig = {
                   "label": "info",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wireless/info/index"
+                    "id": "cli-reference/interface/wireless/info"
                   },
                   "items": [
                     {
@@ -5735,7 +5879,7 @@ const sidebars: SidebarsConfig = {
                   "label": "nstreme-dual",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wireless/nstreme-dual/index"
+                    "id": "cli-reference/interface/wireless/nstreme-dual"
                   },
                   "items": [
                     {
@@ -5764,7 +5908,7 @@ const sidebars: SidebarsConfig = {
                   "label": "registration-table",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wireless/registration-table/index"
+                    "id": "cli-reference/interface/wireless/registration-table"
                   },
                   "items": [
                     {
@@ -5811,7 +5955,7 @@ const sidebars: SidebarsConfig = {
                   "label": "sniffer",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wireless/sniffer/index"
+                    "id": "cli-reference/interface/wireless/sniffer"
                   },
                   "items": [
                     {
@@ -5840,7 +5984,7 @@ const sidebars: SidebarsConfig = {
                   "label": "snooper",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wireless/snooper/index"
+                    "id": "cli-reference/interface/wireless/snooper"
                   },
                   "items": [
                     {
@@ -5869,7 +6013,7 @@ const sidebars: SidebarsConfig = {
                   "label": "wds",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/interface/wireless/wds/index"
+                    "id": "cli-reference/interface/wireless/wds"
                   },
                   "items": [
                     {
@@ -5914,7 +6058,7 @@ const sidebars: SidebarsConfig = {
               "label": "bluetooth",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/iot/bluetooth/index"
+                "id": "cli-reference/iot/bluetooth"
               },
               "items": [
                 {
@@ -5922,7 +6066,7 @@ const sidebars: SidebarsConfig = {
                   "label": "advertisers",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/iot/bluetooth/advertisers/index"
+                    "id": "cli-reference/iot/bluetooth/advertisers"
                   },
                   "items": [
                     {
@@ -5939,7 +6083,7 @@ const sidebars: SidebarsConfig = {
                   "label": "connections",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/iot/bluetooth/connections/index"
+                    "id": "cli-reference/iot/bluetooth/connections"
                   },
                   "items": [
                     {
@@ -5947,7 +6091,7 @@ const sidebars: SidebarsConfig = {
                       "label": "async-data",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/iot/bluetooth/connections/async-data/index"
+                        "id": "cli-reference/iot/bluetooth/connections/async-data"
                       },
                       "items": [
                         {
@@ -6033,7 +6177,7 @@ const sidebars: SidebarsConfig = {
                   "label": "scanners",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/iot/bluetooth/scanners/index"
+                    "id": "cli-reference/iot/bluetooth/scanners"
                   },
                   "items": [
                     {
@@ -6041,7 +6185,7 @@ const sidebars: SidebarsConfig = {
                       "label": "advertisements",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/iot/bluetooth/scanners/advertisements/index"
+                        "id": "cli-reference/iot/bluetooth/scanners/advertisements"
                       },
                       "items": [
                         {
@@ -6070,7 +6214,7 @@ const sidebars: SidebarsConfig = {
               "label": "gpio",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/iot/gpio/index"
+                "id": "cli-reference/iot/gpio"
               },
               "items": [
                 {
@@ -6093,7 +6237,7 @@ const sidebars: SidebarsConfig = {
               "label": "lora",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/iot/lora/index"
+                "id": "cli-reference/iot/lora"
               },
               "items": [
                 {
@@ -6127,17 +6271,11 @@ const sidebars: SidebarsConfig = {
                   "key": "cli-reference/iot/lora/reset-devices"
                 },
                 {
-                  "type": "doc",
-                  "id": "cli-reference/iot/lora/send",
-                  "label": "send",
-                  "key": "cli-reference/iot/lora/send"
-                },
-                {
                   "type": "category",
                   "label": "servers",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/iot/lora/servers/index"
+                    "id": "cli-reference/iot/lora/servers"
                   },
                   "items": [
                     {
@@ -6154,7 +6292,7 @@ const sidebars: SidebarsConfig = {
                   "label": "traffic",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/iot/lora/traffic/index"
+                    "id": "cli-reference/iot/lora/traffic"
                   },
                   "items": [
                     {
@@ -6180,7 +6318,7 @@ const sidebars: SidebarsConfig = {
               "label": "modbus",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/iot/modbus/index"
+                "id": "cli-reference/iot/modbus"
               },
               "items": [
                 {
@@ -6209,7 +6347,7 @@ const sidebars: SidebarsConfig = {
               "label": "mqtt",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/iot/mqtt/index"
+                "id": "cli-reference/iot/mqtt"
               },
               "items": [
                 {
@@ -6247,7 +6385,7 @@ const sidebars: SidebarsConfig = {
                   "label": "subscriptions",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/iot/mqtt/subscriptions/index"
+                    "id": "cli-reference/iot/mqtt/subscriptions"
                   },
                   "items": [
                     {
@@ -6261,7 +6399,7 @@ const sidebars: SidebarsConfig = {
                       "label": "recv",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/iot/mqtt/subscriptions/recv/index"
+                        "id": "cli-reference/iot/mqtt/subscriptions/recv"
                       },
                       "items": [
                         {
@@ -6290,7 +6428,7 @@ const sidebars: SidebarsConfig = {
               "label": "wiliot",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/iot/wiliot/index"
+                "id": "cli-reference/iot/wiliot"
               },
               "items": [
                 {
@@ -6298,7 +6436,7 @@ const sidebars: SidebarsConfig = {
                   "label": "bluetooth-traffic",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/iot/wiliot/bluetooth-traffic/index"
+                    "id": "cli-reference/iot/wiliot/bluetooth-traffic"
                   },
                   "items": [
                     {
@@ -6333,7 +6471,7 @@ const sidebars: SidebarsConfig = {
                   "label": "mqtt-traffic",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/iot/wiliot/mqtt-traffic/index"
+                    "id": "cli-reference/iot/wiliot/mqtt-traffic"
                   },
                   "items": [
                     {
@@ -6356,7 +6494,7 @@ const sidebars: SidebarsConfig = {
                   "label": "servers",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/iot/wiliot/servers/index"
+                    "id": "cli-reference/iot/wiliot/servers"
                   },
                   "items": [
                     {
@@ -6395,7 +6533,7 @@ const sidebars: SidebarsConfig = {
               "label": "cloud",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/cloud/index"
+                "id": "cli-reference/ip/cloud"
               },
               "items": [
                 {
@@ -6409,7 +6547,7 @@ const sidebars: SidebarsConfig = {
                   "label": "back-to-home-file",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/cloud/back-to-home-file/index"
+                    "id": "cli-reference/ip/cloud/back-to-home-file"
                   },
                   "items": [
                     {
@@ -6417,7 +6555,7 @@ const sidebars: SidebarsConfig = {
                       "label": "settings",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/ip/cloud/back-to-home-file/settings/index"
+                        "id": "cli-reference/ip/cloud/back-to-home-file/settings"
                       },
                       "items": [
                         {
@@ -6437,7 +6575,7 @@ const sidebars: SidebarsConfig = {
                   "label": "back-to-home-user",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/cloud/back-to-home-user/index"
+                    "id": "cli-reference/ip/cloud/back-to-home-user"
                   },
                   "items": [
                     {
@@ -6463,7 +6601,7 @@ const sidebars: SidebarsConfig = {
               "label": "dhcp-client",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/dhcp-client/index"
+                "id": "cli-reference/ip/dhcp-client"
               },
               "items": [
                 {
@@ -6492,7 +6630,7 @@ const sidebars: SidebarsConfig = {
               "label": "dhcp-relay",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/dhcp-relay/index"
+                "id": "cli-reference/ip/dhcp-relay"
               },
               "items": [
                 {
@@ -6515,7 +6653,7 @@ const sidebars: SidebarsConfig = {
               "label": "dhcp-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/dhcp-server/index"
+                "id": "cli-reference/ip/dhcp-server"
               },
               "items": [
                 {
@@ -6523,7 +6661,7 @@ const sidebars: SidebarsConfig = {
                   "label": "alert",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/dhcp-server/alert/index"
+                    "id": "cli-reference/ip/dhcp-server/alert"
                   },
                   "items": [
                     {
@@ -6546,7 +6684,7 @@ const sidebars: SidebarsConfig = {
                   "label": "lease",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/dhcp-server/lease/index"
+                    "id": "cli-reference/ip/dhcp-server/lease"
                   },
                   "items": [
                     {
@@ -6587,7 +6725,7 @@ const sidebars: SidebarsConfig = {
                   "label": "option",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/dhcp-server/option/index"
+                    "id": "cli-reference/ip/dhcp-server/option"
                   },
                   "items": [
                     {
@@ -6613,7 +6751,7 @@ const sidebars: SidebarsConfig = {
               "label": "dns",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/dns/index"
+                "id": "cli-reference/ip/dns"
               },
               "items": [
                 {
@@ -6621,7 +6759,7 @@ const sidebars: SidebarsConfig = {
                   "label": "adlist",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/dns/adlist/index"
+                    "id": "cli-reference/ip/dns/adlist"
                   },
                   "items": [
                     {
@@ -6644,7 +6782,7 @@ const sidebars: SidebarsConfig = {
                   "label": "cache",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/dns/cache/index"
+                    "id": "cli-reference/ip/dns/cache"
                   },
                   "items": [
                     {
@@ -6692,7 +6830,7 @@ const sidebars: SidebarsConfig = {
                   "label": "calea",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/firewall/calea/index"
+                    "id": "cli-reference/ip/firewall/calea"
                   },
                   "items": [
                     {
@@ -6715,7 +6853,7 @@ const sidebars: SidebarsConfig = {
                   "label": "connection",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/firewall/connection/index"
+                    "id": "cli-reference/ip/firewall/connection"
                   },
                   "items": [
                     {
@@ -6732,7 +6870,7 @@ const sidebars: SidebarsConfig = {
                   "label": "filter",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/firewall/filter/index"
+                    "id": "cli-reference/ip/firewall/filter"
                   },
                   "items": [
                     {
@@ -6761,7 +6899,7 @@ const sidebars: SidebarsConfig = {
                   "label": "mangle",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/firewall/mangle/index"
+                    "id": "cli-reference/ip/firewall/mangle"
                   },
                   "items": [
                     {
@@ -6784,7 +6922,7 @@ const sidebars: SidebarsConfig = {
                   "label": "nat",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/firewall/nat/index"
+                    "id": "cli-reference/ip/firewall/nat"
                   },
                   "items": [
                     {
@@ -6807,7 +6945,7 @@ const sidebars: SidebarsConfig = {
                   "label": "raw",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/firewall/raw/index"
+                    "id": "cli-reference/ip/firewall/raw"
                   },
                   "items": [
                     {
@@ -6839,7 +6977,7 @@ const sidebars: SidebarsConfig = {
               "label": "hotspot",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/hotspot/index"
+                "id": "cli-reference/ip/hotspot"
               },
               "items": [
                 {
@@ -6847,7 +6985,7 @@ const sidebars: SidebarsConfig = {
                   "label": "active",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/hotspot/active/index"
+                    "id": "cli-reference/ip/hotspot/active"
                   },
                   "items": [
                     {
@@ -6870,7 +7008,7 @@ const sidebars: SidebarsConfig = {
                   "label": "host",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/hotspot/host/index"
+                    "id": "cli-reference/ip/hotspot/host"
                   },
                   "items": [
                     {
@@ -6917,7 +7055,7 @@ const sidebars: SidebarsConfig = {
                   "label": "user",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/hotspot/user/index"
+                    "id": "cli-reference/ip/hotspot/user"
                   },
                   "items": [
                     {
@@ -6940,7 +7078,7 @@ const sidebars: SidebarsConfig = {
                   "label": "walled-garden",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/hotspot/walled-garden/index"
+                    "id": "cli-reference/ip/hotspot/walled-garden"
                   },
                   "items": [
                     {
@@ -6976,7 +7114,7 @@ const sidebars: SidebarsConfig = {
                   "label": "active-peers",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/ipsec/active-peers/index"
+                    "id": "cli-reference/ip/ipsec/active-peers"
                   },
                   "items": [
                     {
@@ -6999,7 +7137,7 @@ const sidebars: SidebarsConfig = {
                   "label": "installed-sa",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/ipsec/installed-sa/index"
+                    "id": "cli-reference/ip/ipsec/installed-sa"
                   },
                   "items": [
                     {
@@ -7016,7 +7154,7 @@ const sidebars: SidebarsConfig = {
                   "label": "key",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/ipsec/key/index"
+                    "id": "cli-reference/ip/ipsec/key"
                   },
                   "items": [
                     {
@@ -7024,7 +7162,7 @@ const sidebars: SidebarsConfig = {
                       "label": "psk",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/ip/ipsec/key/psk/index"
+                        "id": "cli-reference/ip/ipsec/key/psk"
                       },
                       "items": [
                         {
@@ -7041,7 +7179,7 @@ const sidebars: SidebarsConfig = {
                       "label": "rsa",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/ip/ipsec/key/rsa/index"
+                        "id": "cli-reference/ip/ipsec/key/rsa"
                       },
                       "items": [
                         {
@@ -7085,7 +7223,7 @@ const sidebars: SidebarsConfig = {
                   "label": "policy",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/ipsec/policy/index"
+                    "id": "cli-reference/ip/ipsec/policy"
                   },
                   "items": [
                     {
@@ -7129,7 +7267,7 @@ const sidebars: SidebarsConfig = {
               "label": "kid-control",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/kid-control/index"
+                "id": "cli-reference/ip/kid-control"
               },
               "items": [
                 {
@@ -7137,7 +7275,7 @@ const sidebars: SidebarsConfig = {
                   "label": "device",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/kid-control/device/index"
+                    "id": "cli-reference/ip/kid-control/device"
                   },
                   "items": [
                     {
@@ -7169,7 +7307,7 @@ const sidebars: SidebarsConfig = {
               "label": "media",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/media/index"
+                "id": "cli-reference/ip/media"
               },
               "items": [
                 {
@@ -7186,7 +7324,7 @@ const sidebars: SidebarsConfig = {
               "label": "nat-pmp",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/nat-pmp/index"
+                "id": "cli-reference/ip/nat-pmp"
               },
               "items": [
                 {
@@ -7203,7 +7341,7 @@ const sidebars: SidebarsConfig = {
               "label": "neighbor",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/neighbor/index"
+                "id": "cli-reference/ip/neighbor"
               },
               "items": [
                 {
@@ -7232,7 +7370,7 @@ const sidebars: SidebarsConfig = {
               "label": "pool",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/pool/index"
+                "id": "cli-reference/ip/pool"
               },
               "items": [
                 {
@@ -7249,7 +7387,7 @@ const sidebars: SidebarsConfig = {
               "label": "proxy",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/proxy/index"
+                "id": "cli-reference/ip/proxy"
               },
               "items": [
                 {
@@ -7257,7 +7395,7 @@ const sidebars: SidebarsConfig = {
                   "label": "access",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/proxy/access/index"
+                    "id": "cli-reference/ip/proxy/access"
                   },
                   "items": [
                     {
@@ -7280,7 +7418,7 @@ const sidebars: SidebarsConfig = {
                   "label": "cache",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/proxy/cache/index"
+                    "id": "cli-reference/ip/proxy/cache"
                   },
                   "items": [
                     {
@@ -7321,7 +7459,7 @@ const sidebars: SidebarsConfig = {
                   "label": "direct",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ip/proxy/direct/index"
+                    "id": "cli-reference/ip/proxy/direct"
                   },
                   "items": [
                     {
@@ -7383,7 +7521,7 @@ const sidebars: SidebarsConfig = {
               "label": "route",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/route/index"
+                "id": "cli-reference/ip/route"
               },
               "items": [
                 {
@@ -7400,7 +7538,7 @@ const sidebars: SidebarsConfig = {
               "label": "service",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/service/index"
+                "id": "cli-reference/ip/service"
               },
               "items": [
                 {
@@ -7423,7 +7561,7 @@ const sidebars: SidebarsConfig = {
               "label": "smb",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/smb/index"
+                "id": "cli-reference/ip/smb"
               },
               "items": [
                 {
@@ -7446,7 +7584,7 @@ const sidebars: SidebarsConfig = {
               "label": "socks",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/socks/index"
+                "id": "cli-reference/ip/socks"
               },
               "items": [
                 {
@@ -7481,7 +7619,7 @@ const sidebars: SidebarsConfig = {
               "label": "ssh",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/ssh/index"
+                "id": "cli-reference/ip/ssh"
               },
               "items": [
                 {
@@ -7516,7 +7654,7 @@ const sidebars: SidebarsConfig = {
               "label": "tftp",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/tftp/index"
+                "id": "cli-reference/ip/tftp"
               },
               "items": [
                 {
@@ -7533,7 +7671,7 @@ const sidebars: SidebarsConfig = {
               "label": "traffic-flow",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/traffic-flow/index"
+                "id": "cli-reference/ip/traffic-flow"
               },
               "items": [
                 {
@@ -7562,7 +7700,7 @@ const sidebars: SidebarsConfig = {
               "label": "upnp",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ip/upnp/index"
+                "id": "cli-reference/ip/upnp"
               },
               "items": [
                 {
@@ -7598,7 +7736,7 @@ const sidebars: SidebarsConfig = {
               "label": "dhcp-client",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ipv6/dhcp-client/index"
+                "id": "cli-reference/ipv6/dhcp-client"
               },
               "items": [
                 {
@@ -7627,7 +7765,7 @@ const sidebars: SidebarsConfig = {
               "label": "dhcp-relay",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ipv6/dhcp-relay/index"
+                "id": "cli-reference/ipv6/dhcp-relay"
               },
               "items": [
                 {
@@ -7662,7 +7800,7 @@ const sidebars: SidebarsConfig = {
               "label": "dhcp-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ipv6/dhcp-server/index"
+                "id": "cli-reference/ipv6/dhcp-server"
               },
               "items": [
                 {
@@ -7670,7 +7808,7 @@ const sidebars: SidebarsConfig = {
                   "label": "binding",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ipv6/dhcp-server/binding/index"
+                    "id": "cli-reference/ipv6/dhcp-server/binding"
                   },
                   "items": [
                     {
@@ -7693,7 +7831,7 @@ const sidebars: SidebarsConfig = {
                   "label": "option",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ipv6/dhcp-server/option/index"
+                    "id": "cli-reference/ipv6/dhcp-server/option"
                   },
                   "items": [
                     {
@@ -7729,7 +7867,7 @@ const sidebars: SidebarsConfig = {
                   "label": "filter",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ipv6/firewall/filter/index"
+                    "id": "cli-reference/ipv6/firewall/filter"
                   },
                   "items": [
                     {
@@ -7752,7 +7890,7 @@ const sidebars: SidebarsConfig = {
                   "label": "mangle",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ipv6/firewall/mangle/index"
+                    "id": "cli-reference/ipv6/firewall/mangle"
                   },
                   "items": [
                     {
@@ -7775,7 +7913,7 @@ const sidebars: SidebarsConfig = {
                   "label": "nat",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ipv6/firewall/nat/index"
+                    "id": "cli-reference/ipv6/firewall/nat"
                   },
                   "items": [
                     {
@@ -7798,7 +7936,7 @@ const sidebars: SidebarsConfig = {
                   "label": "raw",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ipv6/firewall/raw/index"
+                    "id": "cli-reference/ipv6/firewall/raw"
                   },
                   "items": [
                     {
@@ -7824,7 +7962,7 @@ const sidebars: SidebarsConfig = {
               "label": "nd",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ipv6/nd/index"
+                "id": "cli-reference/ipv6/nd"
               },
               "items": [
                 {
@@ -7832,7 +7970,7 @@ const sidebars: SidebarsConfig = {
                   "label": "prefix",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/ipv6/nd/prefix/index"
+                    "id": "cli-reference/ipv6/nd/prefix"
                   },
                   "items": [
                     {
@@ -7870,7 +8008,7 @@ const sidebars: SidebarsConfig = {
               "label": "pool",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/ipv6/pool/index"
+                "id": "cli-reference/ipv6/pool"
               },
               "items": [
                 {
@@ -7902,7 +8040,7 @@ const sidebars: SidebarsConfig = {
           "label": "lcd",
           "link": {
             "type": "doc",
-            "id": "cli-reference/lcd/index"
+            "id": "cli-reference/lcd"
           },
           "items": [
             {
@@ -7916,7 +8054,7 @@ const sidebars: SidebarsConfig = {
               "label": "interface",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/lcd/interface/index"
+                "id": "cli-reference/lcd/interface"
               },
               "items": [
                 {
@@ -8000,7 +8138,7 @@ const sidebars: SidebarsConfig = {
               "label": "ldp",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/mpls/ldp/index"
+                "id": "cli-reference/mpls/ldp"
               },
               "items": [
                 {
@@ -8047,7 +8185,7 @@ const sidebars: SidebarsConfig = {
               "label": "mangle",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/mpls/mangle/index"
+                "id": "cli-reference/mpls/mangle"
               },
               "items": [
                 {
@@ -8076,7 +8214,7 @@ const sidebars: SidebarsConfig = {
               "label": "traffic-eng",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/mpls/traffic-eng/index"
+                "id": "cli-reference/mpls/traffic-eng"
               },
               "items": [
                 {
@@ -8102,7 +8240,7 @@ const sidebars: SidebarsConfig = {
                   "label": "tunnel",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/mpls/traffic-eng/tunnel/index"
+                    "id": "cli-reference/mpls/traffic-eng/tunnel"
                   },
                   "items": [
                     {
@@ -8125,7 +8263,7 @@ const sidebars: SidebarsConfig = {
           "label": "openflow",
           "link": {
             "type": "doc",
-            "id": "cli-reference/openflow/index"
+            "id": "cli-reference/openflow"
           },
           "items": [
             {
@@ -8160,7 +8298,7 @@ const sidebars: SidebarsConfig = {
           "label": "partitions",
           "link": {
             "type": "doc",
-            "id": "cli-reference/partitions/index"
+            "id": "cli-reference/partitions"
           },
           "items": [
             {
@@ -8207,7 +8345,7 @@ const sidebars: SidebarsConfig = {
           "label": "port",
           "link": {
             "type": "doc",
-            "id": "cli-reference/port/index"
+            "id": "cli-reference/port"
           },
           "items": [
             {
@@ -8277,7 +8415,7 @@ const sidebars: SidebarsConfig = {
               "label": "simple",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/queue/simple/index"
+                "id": "cli-reference/queue/simple"
               },
               "items": [
                 {
@@ -8300,7 +8438,7 @@ const sidebars: SidebarsConfig = {
               "label": "tree",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/queue/tree/index"
+                "id": "cli-reference/queue/tree"
               },
               "items": [
                 {
@@ -8338,7 +8476,7 @@ const sidebars: SidebarsConfig = {
           "label": "radius",
           "link": {
             "type": "doc",
-            "id": "cli-reference/radius/index"
+            "id": "cli-reference/radius"
           },
           "items": [
             {
@@ -8346,7 +8484,7 @@ const sidebars: SidebarsConfig = {
               "label": "incoming",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/radius/incoming/index"
+                "id": "cli-reference/radius/incoming"
               },
               "items": [
                 {
@@ -8432,7 +8570,7 @@ const sidebars: SidebarsConfig = {
               "label": "bgp",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/routing/bgp/index"
+                "id": "cli-reference/routing/bgp"
               },
               "items": [
                 {
@@ -8448,9 +8586,20 @@ const sidebars: SidebarsConfig = {
                   "key": "cli-reference/routing/bgp/connection"
                 },
                 {
-                  "type": "doc",
-                  "id": "cli-reference/routing/bgp/evpn",
+                  "type": "category",
                   "label": "evpn",
+                  "link": {
+                    "type": "doc",
+                    "id": "cli-reference/routing/bgp/evpn"
+                  },
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "cli-reference/routing/bgp/evpn/esi",
+                      "label": "esi",
+                      "key": "cli-reference/routing/bgp/evpn/esi"
+                    }
+                  ],
                   "key": "cli-reference/routing/bgp/evpn"
                 },
                 {
@@ -8464,7 +8613,7 @@ const sidebars: SidebarsConfig = {
                   "label": "session",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/routing/bgp/session/index"
+                    "id": "cli-reference/routing/bgp/session"
                   },
                   "items": [
                     {
@@ -8617,7 +8766,7 @@ const sidebars: SidebarsConfig = {
               "label": "igmp-proxy",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/routing/igmp-proxy/index"
+                "id": "cli-reference/routing/igmp-proxy"
               },
               "items": [
                 {
@@ -8677,7 +8826,7 @@ const sidebars: SidebarsConfig = {
               "label": "nexthop",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/routing/nexthop/index"
+                "id": "cli-reference/routing/nexthop"
               },
               "items": [
                 {
@@ -8698,7 +8847,7 @@ const sidebars: SidebarsConfig = {
                   "label": "area",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/routing/ospf/area/index"
+                    "id": "cli-reference/routing/ospf/area"
                   },
                   "items": [
                     {
@@ -8754,7 +8903,7 @@ const sidebars: SidebarsConfig = {
               "label": "pimsm",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/routing/pimsm/index"
+                "id": "cli-reference/routing/pimsm"
               },
               "items": [
                 {
@@ -8762,7 +8911,7 @@ const sidebars: SidebarsConfig = {
                   "label": "bsr",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/routing/pimsm/bsr/index"
+                    "id": "cli-reference/routing/pimsm/bsr"
                   },
                   "items": [
                     {
@@ -8891,7 +9040,7 @@ const sidebars: SidebarsConfig = {
               "label": "rpki",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/routing/rpki/index"
+                "id": "cli-reference/routing/rpki"
               },
               "items": [
                 {
@@ -8954,7 +9103,7 @@ const sidebars: SidebarsConfig = {
                   "label": "process",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/routing/stats/process/index"
+                    "id": "cli-reference/routing/stats/process"
                   },
                   "items": [
                     {
@@ -8995,7 +9144,7 @@ const sidebars: SidebarsConfig = {
           "label": "snmp",
           "link": {
             "type": "doc",
-            "id": "cli-reference/snmp/index"
+            "id": "cli-reference/snmp"
           },
           "items": [
             {
@@ -9032,7 +9181,7 @@ const sidebars: SidebarsConfig = {
                   "label": "cloud",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/system/backup/cloud/index"
+                    "id": "cli-reference/system/backup/cloud"
                   },
                   "items": [
                     {
@@ -9088,7 +9237,7 @@ const sidebars: SidebarsConfig = {
               "label": "clock",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/clock/index"
+                "id": "cli-reference/system/clock"
               },
               "items": [
                 {
@@ -9105,7 +9254,7 @@ const sidebars: SidebarsConfig = {
               "label": "console",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/console/index"
+                "id": "cli-reference/system/console"
               },
               "items": [
                 {
@@ -9141,7 +9290,7 @@ const sidebars: SidebarsConfig = {
               "label": "default-configuration",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/default-configuration/index"
+                "id": "cli-reference/system/default-configuration"
               },
               "items": [
                 {
@@ -9176,7 +9325,7 @@ const sidebars: SidebarsConfig = {
               "label": "device-mode",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/device-mode/index"
+                "id": "cli-reference/system/device-mode"
               },
               "items": [
                 {
@@ -9193,7 +9342,7 @@ const sidebars: SidebarsConfig = {
               "label": "gps",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/gps/index"
+                "id": "cli-reference/system/gps"
               },
               "items": [
                 {
@@ -9210,7 +9359,7 @@ const sidebars: SidebarsConfig = {
               "label": "health",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/health/index"
+                "id": "cli-reference/system/health"
               },
               "items": [
                 {
@@ -9218,7 +9367,7 @@ const sidebars: SidebarsConfig = {
                   "label": "settings",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/system/health/settings/index"
+                    "id": "cli-reference/system/health/settings"
                   },
                   "items": [
                     {
@@ -9250,7 +9399,7 @@ const sidebars: SidebarsConfig = {
               "label": "keymat-provider",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/keymat-provider/index"
+                "id": "cli-reference/system/keymat-provider"
               },
               "items": [
                 {
@@ -9279,7 +9428,7 @@ const sidebars: SidebarsConfig = {
               "label": "leds",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/leds/index"
+                "id": "cli-reference/system/leds"
               },
               "items": [
                 {
@@ -9296,7 +9445,7 @@ const sidebars: SidebarsConfig = {
               "label": "license",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/license/index"
+                "id": "cli-reference/system/license"
               },
               "items": [
                 {
@@ -9325,7 +9474,7 @@ const sidebars: SidebarsConfig = {
               "label": "logging",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/logging/index"
+                "id": "cli-reference/system/logging"
               },
               "items": [
                 {
@@ -9333,7 +9482,7 @@ const sidebars: SidebarsConfig = {
                   "label": "action",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/system/logging/action/index"
+                    "id": "cli-reference/system/logging/action"
                   },
                   "items": [
                     {
@@ -9363,7 +9512,7 @@ const sidebars: SidebarsConfig = {
                   "label": "client",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/system/ntp/client/index"
+                    "id": "cli-reference/system/ntp/client"
                   },
                   "items": [
                     {
@@ -9407,7 +9556,7 @@ const sidebars: SidebarsConfig = {
               "label": "package",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/package/index"
+                "id": "cli-reference/system/package"
               },
               "items": [
                 {
@@ -9439,7 +9588,7 @@ const sidebars: SidebarsConfig = {
                   "label": "local-update",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/system/package/local-update/index"
+                    "id": "cli-reference/system/package/local-update"
                   },
                   "items": [
                     {
@@ -9459,7 +9608,7 @@ const sidebars: SidebarsConfig = {
                       "label": "mirror",
                       "link": {
                         "type": "doc",
-                        "id": "cli-reference/system/package/local-update/mirror/index"
+                        "id": "cli-reference/system/package/local-update/mirror"
                       },
                       "items": [
                         {
@@ -9503,7 +9652,7 @@ const sidebars: SidebarsConfig = {
                   "label": "update",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/system/package/update/index"
+                    "id": "cli-reference/system/package/update"
                   },
                   "items": [
                     {
@@ -9541,7 +9690,7 @@ const sidebars: SidebarsConfig = {
               "label": "ptp",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/ptp/index"
+                "id": "cli-reference/system/ptp"
               },
               "items": [
                 {
@@ -9588,7 +9737,7 @@ const sidebars: SidebarsConfig = {
               "label": "resource",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/resource/index"
+                "id": "cli-reference/system/resource"
               },
               "items": [
                 {
@@ -9602,7 +9751,7 @@ const sidebars: SidebarsConfig = {
                   "label": "hardware",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/system/resource/hardware/index"
+                    "id": "cli-reference/system/resource/hardware"
                   },
                   "items": [
                     {
@@ -9649,7 +9798,7 @@ const sidebars: SidebarsConfig = {
                   "label": "irq",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/system/resource/irq/index"
+                    "id": "cli-reference/system/resource/irq"
                   },
                   "items": [
                     {
@@ -9675,7 +9824,7 @@ const sidebars: SidebarsConfig = {
               "label": "routerboard",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/routerboard/index"
+                "id": "cli-reference/system/routerboard"
               },
               "items": [
                 {
@@ -9707,7 +9856,7 @@ const sidebars: SidebarsConfig = {
                   "label": "usb",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/system/routerboard/usb/index"
+                    "id": "cli-reference/system/routerboard/usb"
                   },
                   "items": [
                     {
@@ -9733,7 +9882,7 @@ const sidebars: SidebarsConfig = {
               "label": "rtrace",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/rtrace/index"
+                "id": "cli-reference/system/rtrace"
               },
               "items": [
                 {
@@ -9762,7 +9911,7 @@ const sidebars: SidebarsConfig = {
               "label": "script",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/script/index"
+                "id": "cli-reference/system/script"
               },
               "items": [
                 {
@@ -9815,7 +9964,7 @@ const sidebars: SidebarsConfig = {
               "label": "swos",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/swos/index"
+                "id": "cli-reference/system/swos"
               },
               "items": [
                 {
@@ -9852,6 +10001,29 @@ const sidebars: SidebarsConfig = {
               "key": "cli-reference/system/swos"
             },
             {
+              "type": "category",
+              "label": "sync-e",
+              "link": {
+                "type": "doc",
+                "id": "cli-reference/system/sync-e"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "cli-reference/system/sync-e/monitor",
+                  "label": "monitor",
+                  "key": "cli-reference/system/sync-e/monitor"
+                },
+                {
+                  "type": "doc",
+                  "id": "cli-reference/system/sync-e/port",
+                  "label": "port",
+                  "key": "cli-reference/system/sync-e/port"
+                }
+              ],
+              "key": "cli-reference/system/sync-e"
+            },
+            {
               "type": "doc",
               "id": "cli-reference/system/telnet",
               "label": "telnet",
@@ -9862,7 +10034,7 @@ const sidebars: SidebarsConfig = {
               "label": "ups",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/system/ups/index"
+                "id": "cli-reference/system/ups"
               },
               "items": [
                 {
@@ -9906,7 +10078,7 @@ const sidebars: SidebarsConfig = {
           "label": "task",
           "link": {
             "type": "doc",
-            "id": "cli-reference/task/index"
+            "id": "cli-reference/task"
           },
           "items": [
             {
@@ -9973,7 +10145,7 @@ const sidebars: SidebarsConfig = {
               "label": "bandwidth-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/tool/bandwidth-server/index"
+                "id": "cli-reference/tool/bandwidth-server"
               },
               "items": [
                 {
@@ -10008,7 +10180,7 @@ const sidebars: SidebarsConfig = {
               "label": "e-mail",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/tool/e-mail/index"
+                "id": "cli-reference/tool/e-mail"
               },
               "items": [
                 {
@@ -10037,7 +10209,7 @@ const sidebars: SidebarsConfig = {
               "label": "graphing",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/tool/graphing/index"
+                "id": "cli-reference/tool/graphing"
               },
               "items": [
                 {
@@ -10078,7 +10250,7 @@ const sidebars: SidebarsConfig = {
               "label": "mac-server",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/tool/mac-server/index"
+                "id": "cli-reference/tool/mac-server"
               },
               "items": [
                 {
@@ -10137,7 +10309,7 @@ const sidebars: SidebarsConfig = {
               "label": "romon",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/tool/romon/index"
+                "id": "cli-reference/tool/romon"
               },
               "items": [
                 {
@@ -10172,7 +10344,7 @@ const sidebars: SidebarsConfig = {
               "label": "sms",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/tool/sms/index"
+                "id": "cli-reference/tool/sms"
               },
               "items": [
                 {
@@ -10195,7 +10367,7 @@ const sidebars: SidebarsConfig = {
               "label": "sniffer",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/tool/sniffer/index"
+                "id": "cli-reference/tool/sniffer"
               },
               "items": [
                 {
@@ -10284,7 +10456,7 @@ const sidebars: SidebarsConfig = {
               "label": "traffic-generator",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/tool/traffic-generator/index"
+                "id": "cli-reference/tool/traffic-generator"
               },
               "items": [
                 {
@@ -10395,7 +10567,7 @@ const sidebars: SidebarsConfig = {
           "label": "tr069-client",
           "link": {
             "type": "doc",
-            "id": "cli-reference/tr069-client/index"
+            "id": "cli-reference/tr069-client"
           },
           "items": [
             {
@@ -10418,7 +10590,7 @@ const sidebars: SidebarsConfig = {
           "label": "user",
           "link": {
             "type": "doc",
-            "id": "cli-reference/user/index"
+            "id": "cli-reference/user"
           },
           "items": [
             {
@@ -10456,7 +10628,7 @@ const sidebars: SidebarsConfig = {
               "label": "ssh-keys",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/user/ssh-keys/index"
+                "id": "cli-reference/user/ssh-keys"
               },
               "items": [
                 {
@@ -10470,7 +10642,7 @@ const sidebars: SidebarsConfig = {
                   "label": "private",
                   "link": {
                     "type": "doc",
-                    "id": "cli-reference/user/ssh-keys/private/index"
+                    "id": "cli-reference/user/ssh-keys/private"
                   },
                   "items": [
                     {
@@ -10493,7 +10665,7 @@ const sidebars: SidebarsConfig = {
           "label": "user-manager",
           "link": {
             "type": "doc",
-            "id": "cli-reference/user-manager/index"
+            "id": "cli-reference/user-manager"
           },
           "items": [
             {
@@ -10513,7 +10685,7 @@ const sidebars: SidebarsConfig = {
               "label": "database",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/user-manager/database/index"
+                "id": "cli-reference/user-manager/database"
               },
               "items": [
                 {
@@ -10584,7 +10756,7 @@ const sidebars: SidebarsConfig = {
               "label": "router",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/user-manager/router/index"
+                "id": "cli-reference/user-manager/router"
               },
               "items": [
                 {
@@ -10607,7 +10779,7 @@ const sidebars: SidebarsConfig = {
               "label": "session",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/user-manager/session/index"
+                "id": "cli-reference/user-manager/session"
               },
               "items": [
                 {
@@ -10624,7 +10796,7 @@ const sidebars: SidebarsConfig = {
               "label": "user",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/user-manager/user/index"
+                "id": "cli-reference/user-manager/user"
               },
               "items": [
                 {
@@ -10659,7 +10831,7 @@ const sidebars: SidebarsConfig = {
               "label": "user-profile",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/user-manager/user-profile/index"
+                "id": "cli-reference/user-manager/user-profile"
               },
               "items": [
                 {
@@ -10679,7 +10851,7 @@ const sidebars: SidebarsConfig = {
           "label": "zerotier",
           "link": {
             "type": "doc",
-            "id": "cli-reference/zerotier/index"
+            "id": "cli-reference/zerotier"
           },
           "items": [
             {
@@ -10687,7 +10859,7 @@ const sidebars: SidebarsConfig = {
               "label": "controller",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/zerotier/controller/index"
+                "id": "cli-reference/zerotier/controller"
               },
               "items": [
                 {
@@ -10710,7 +10882,7 @@ const sidebars: SidebarsConfig = {
               "label": "peer",
               "link": {
                 "type": "doc",
-                "id": "cli-reference/zerotier/peer/index"
+                "id": "cli-reference/zerotier/peer"
               },
               "items": [
                 {
