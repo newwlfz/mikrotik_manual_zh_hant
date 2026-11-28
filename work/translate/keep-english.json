@@ -1,0 +1,61 @@
+{
+ "schema": 3,
+ "note": "Units the model returned unchanged: technical notation, grammar, identifiers and proper-noun titles. The planner never queues them again; config/force-translate.yml overrides a block lock.",
+ "blocks": [
+  "#### `VLAN Map`",
+  "| | | | :-- | :-- | | <img decoding=\"async\" loading=\"lazy\" alt=\"CB Unicast 3\" src=\"LINK\" width=\"822\" height=\"613\"/><br/> | |"
+ ],
+ "titles": [
+  {
+   "key": "Bridge IGMP/MLD snooping",
+   "original": "Bridge IGMP/MLD snooping",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Dot1X",
+   "original": "Dot1X",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "MACVLAN",
+   "original": "MACVLAN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "MACsec",
+   "original": "MACsec",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "PPP AAA",
+   "original": "PPP AAA",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RADIUS",
+   "original": "RADIUS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Spanning Tree Protocol",
+   "original": "Spanning Tree Protocol",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "SwOS",
+   "original": "SwOS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "VLAN",
+   "original": "VLAN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "VXLAN",
+   "original": "VXLAN",
+   "reason": "model-kept-proper-noun"
+  }
+ ],
+ "labels": []
+}

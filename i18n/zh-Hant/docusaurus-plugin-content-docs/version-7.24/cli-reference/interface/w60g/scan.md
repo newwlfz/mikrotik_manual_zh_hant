@@ -1,0 +1,29 @@
+---
+title: "scan"
+source: https://manual.mikrotik.com/docs/7.24/cli-reference/interface/w60g/scan
+captured_at: '2026-11-28T10:19:39.818Z'
+pagination_next: "cli-reference/interface/w60g/station"
+translated_at: "2026-11-28T11:05:16.851Z"
+translation_provider: "opencode-go"
+translation_model: "hy4-flash-free"
+translation_source: "llm"
+---
+
+-----------
+
+## interface/w60g/scan 
+**Syscap:** 60ghz
+**Package:** wireless-rep
+**Type:** 指令
+
+<ArgTable c1="Flag" c2="Name" c3="Description">
+<ArgTableRow arg="R" typ="routeros"></ArgTableRow>
+</ArgTable>
+
+<ArgTable c1="Read-only Argument" c2="Type" c3="Description">
+<ArgTableRow arg="address" typ="macAddr"></ArgTableRow>
+<ArgTableRow arg="ssid" typ="string"></ArgTableRow>
+<ArgTableRow arg="frequency" typ="string"></ArgTableRow>
+<ArgTableRow arg="signal" typ="num"></ArgTableRow>
+<ArgTableRow arg="rssi" typ="num"></ArgTableRow>
+</ArgTable>

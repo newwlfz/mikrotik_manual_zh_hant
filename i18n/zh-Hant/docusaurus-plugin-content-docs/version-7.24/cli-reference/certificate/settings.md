@@ -1,0 +1,24 @@
+---
+title: "settings"
+source: https://manual.mikrotik.com/docs/7.24/cli-reference/certificate/settings
+captured_at: '2026-11-28T10:19:39.818Z'
+translated_at: "2026-11-28T11:05:16.851Z"
+translation_provider: "opencode-go"
+translation_model: "hy4-flash-free"
+translation_source: "llm"
+---
+
+-----------
+
+## certificate/settings 
+**類型：** 設定目錄
+
+<ArgTable c1="Argument" c2="Type" c3="Description">
+<ArgTableRow arg="builtin-trust-store" typ="alt { all-none: enum (default | all | untrusted)
+, component: ubit (ipsec, wpa-eap, capsman, fetch, sstp, ovpn, mqtt, email, netwatch, radius, container, userman, lora, wiliot, openflow, tr069, dot1x, dns, www, api, reverse-proxy, logging)
+ }">RouterOS provided CA certificates</ArgTableRow>
+<ArgTableRow arg="current-defaults" typ="ubit (ipsec, wpa-eap, capsman, fetch, sstp, ovpn, mqtt, email, netwatch, radius, container, userman, lora, wiliot, openflow, tr069, dot1x, dns, www, api, reverse-proxy, logging)"></ArgTableRow>
+<ArgTableRow arg="crl-download" typ="bool">auto CRL download and update</ArgTableRow>
+<ArgTableRow arg="crl-use" typ="bool">perform CRL checking when validating trust chain</ArgTableRow>
+<ArgTableRow arg="crl-store" typ="enum (system | ram)">CRL storage location</ArgTableRow>
+</ArgTable>
