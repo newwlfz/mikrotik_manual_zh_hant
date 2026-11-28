@@ -1,0 +1,58 @@
+{
+  "version.label": {
+    "message": "下一頁",
+    "description": "The label for version current"
+  },
+  "sidebar.hardware.category.Quick Guides": {
+    "message": "快速指南",
+    "description": "The label for category 'Quick Guides' in sidebar 'hardware'"
+  },
+  "sidebar.hardware.category.60 GHz products": {
+    "message": "60 GHz 產品",
+    "description": "The label for category '60 GHz products' in sidebar 'hardware'"
+  },
+  "sidebar.hardware.category.Accessories": {
+    "message": "配件",
+    "description": "The label for category 'Accessories' in sidebar 'hardware'"
+  },
+  "sidebar.hardware.category.Antennas": {
+    "message": "天線",
+    "description": "The label for category 'Antennas' in sidebar 'hardware'"
+  },
+  "sidebar.hardware.category.Data over Powerlines": {
+    "message": "電力線資料傳輸",
+    "description": "The label for category 'Data over Powerlines' in sidebar 'hardware'"
+  },
+  "sidebar.hardware.category.Ethernet routers": {
+    "message": "乙太網路路由器",
+    "description": "The label for category 'Ethernet routers' in sidebar 'hardware'"
+  },
+  "sidebar.hardware.category.Indoor wireless": {
+    "message": "室內無線",
+    "description": "The label for category 'Indoor wireless' in sidebar 'hardware'"
+  },
+  "sidebar.hardware.category.Interfaces": {
+    "message": "介面",
+    "description": "The label for category 'Interfaces' in sidebar 'hardware'"
+  },
+  "sidebar.hardware.category.IoT products": {
+    "message": "IoT 產品",
+    "description": "The label for category 'IoT products' in sidebar 'hardware'"
+  },
+  "sidebar.hardware.category.LTE products": {
+    "message": "LTE 產品",
+    "description": "The label for category 'LTE products' in sidebar 'hardware'"
+  },
+  "sidebar.hardware.category.RouterBOARD": {
+    "message": "RouterBOARD",
+    "description": "The label for category 'RouterBOARD' in sidebar 'hardware'"
+  },
+  "sidebar.hardware.category.Switches": {
+    "message": "交換器",
+    "description": "The label for category 'Switches' in sidebar 'hardware'"
+  },
+  "sidebar.hardware.category.Wireless systems": {
+    "message": "無線系統",
+    "description": "The label for category 'Wireless systems' in sidebar 'hardware'"
+  }
+}

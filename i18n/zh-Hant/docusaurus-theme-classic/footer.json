@@ -1,0 +1,46 @@
+{
+  "link.title.Docs": {
+    "message": "文件",
+    "description": "The title of the footer links column with title=Docs in the footer"
+  },
+  "link.title.Community": {
+    "message": "社群",
+    "description": "The title of the footer links column with title=Community in the footer"
+  },
+  "link.title.MikroTik": {
+    "message": "MikroTik",
+    "description": "The title of the footer links column with title=MikroTik in the footer"
+  },
+  "link.item.label.Introduction": {
+    "message": "簡介",
+    "description": "The label of footer link with label=Introduction linking to /docs/introduction"
+  },
+  "link.item.label.CLI Reference": {
+    "message": "CLI 參考",
+    "description": "The label of footer link with label=CLI Reference linking to /docs/cli-reference/"
+  },
+  "link.item.label.Discord": {
+    "message": "Discord",
+    "description": "The label of footer link with label=Discord linking to https://discord.gg/exGj6whYw7"
+  },
+  "link.item.label.Forum": {
+    "message": "論壇",
+    "description": "The label of footer link with label=Forum linking to https://forum.mikrotik.com/"
+  },
+  "link.item.label.MikroTik.com": {
+    "message": "MikroTik.com",
+    "description": "The label of footer link with label=MikroTik.com linking to https://mikrotik.com/"
+  },
+  "link.item.label.Product news": {
+    "message": "產品新聞",
+    "description": "The label of footer link with label=Product news linking to /blog"
+  },
+  "link.item.label.Docs Changes": {
+    "message": "文件變更",
+    "description": "The label of footer link with label=Docs Changes linking to /changelog"
+  },
+  "copyright": {
+    "message": "Copyright © 2026 MikroTik. 使用 Docusaurus 建立。",
+    "description": "The footer copyright"
+  }
+}

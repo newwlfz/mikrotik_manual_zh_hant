@@ -1,0 +1,30 @@
+{
+  "title": {
+    "message": "MikroTik",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "MikroTik",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.RouterOS": {
+    "message": "RouterOS",
+    "description": "Navbar item with label RouterOS"
+  },
+  "item.label.Hardware Guides": {
+    "message": "硬體指南",
+    "description": "Navbar item with label Hardware Guides"
+  },
+  "item.label.CLI compare": {
+    "message": "CLI 比較",
+    "description": "Navbar item with label CLI compare"
+  },
+  "item.label.Product news": {
+    "message": "產品新聞",
+    "description": "Navbar item with label Product news"
+  },
+  "item.label.Docs Changes": {
+    "message": "文件變更",
+    "description": "Navbar item with label Docs Changes"
+  }
+}

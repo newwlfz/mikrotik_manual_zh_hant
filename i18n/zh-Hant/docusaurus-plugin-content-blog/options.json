@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "產品新聞",
+    "description": "The title for the blog used in SEO"
+  },
+  "description": {
+    "message": "MikroTik 產品新聞",
+    "description": "The description for the blog used in SEO"
+  },
+  "sidebar.title": {
+    "message": "近期文章",
+    "description": "The label for the left sidebar"
+  }
+}
